@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Navbar } from "~/components/layouts/navbar";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -6,14 +7,11 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/logo.svg" }],
 };
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <main className="flex min-h-screen min-w-0 flex-col items-center justify-between px-6 md:px-10 lg:px-20 py-4 gap-y-20 max-w-6xl mx-auto">
+      <main className="mx-auto min-h-screen min-w-0 max-w-6xl px-6 py-4 md:px-10 lg:px-20">
+        <Navbar />
         {children}
       </main>
     </>
