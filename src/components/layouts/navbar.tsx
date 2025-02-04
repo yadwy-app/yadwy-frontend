@@ -18,7 +18,7 @@ import { FaHeart } from "react-icons/fa";
 export const Navbar = () => {
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <Link href={`/`} className="relative h-12 w-28">
           <Image src="/logo.svg" layout="fill" objectFit="contain" alt="" />
         </Link>
