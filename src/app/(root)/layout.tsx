@@ -13,7 +13,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <main className="flex min-h-screen min-w-0 flex-col items-center justify-between px-6 md:px-10 lg:px-20 py-4 gap-y-20 max-w-6xl mx-auto">
+      <main className="flex  flex-col items-center justify-between px-6 md:px-10 lg:px-20 py-4 gap-y-20 max-w-6xl mx-auto">
         {children}
       </main>
     </>
