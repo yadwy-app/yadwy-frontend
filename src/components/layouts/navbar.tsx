@@ -13,6 +13,7 @@ import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
 import { LinkIcon } from "../ui/link-icon";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 
 export const Navbar = () => {
   return (
@@ -42,12 +43,14 @@ export const Navbar = () => {
                 <CiSearch className="text-white"/>
               </Button>
             </div>
-            <div className="flex gap-3 items-center border-x-2 px-3 border-gray-300">
-              <LinkIcon href=""><MdOutlineShoppingBag className="text-2xl" />
+            <div className="flex gap-3 items-center border-x-2 px-3 border-gray-200">
+              <LinkIcon href=""><MdOutlineShoppingBag className="text-1xl" />
               </LinkIcon>
-              <LinkIcon href=""><MdOutlineShoppingBag className="text-2xl" />
+              <LinkIcon href="">
+              <FaHeart  className="text-1xl text-primary" />
               </LinkIcon>
             </div>
+            
           </div>
         </div>
       </div>
