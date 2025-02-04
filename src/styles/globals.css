@@ -1,8 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
-  :root {
-    --radius: 0.5rem
-  }
+	:root {
+		--background: 0 0% 99%;
+		--foreground: 0 0% 12%;
+		--card: 0 0% 99%;
+		--card-foreground: 0 0% 12%;
+		--popover: 0 0% 99%;
+		--popover-foreground: 0 0% 12%;
+		--primary: 180 21% 64%;
+		--primary-foreground: 0 0% 12%;
+		--secondary: 180 21% 20%;
+		--secondary-foreground: 0 0% 99%;
+		--muted: 0 0% 20%;
+		--muted-foreground: 0 0% 70%;
+		--accent: 180 20% 93%;
+		--accent-foreground: 0 0% 12%;
+		--destructive: 0 85% 60%;
+		--destructive-foreground: 0 0% 12%;
+		--border: 0 0% 20%;
+		--input: 0 0% 20%;
+		--ring: 180 20% 40%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 0 0% 1%;
+		--foreground: 0 0% 88%;
+		--card: 0 0% 1%;
+		--card-foreground: 0 0% 88%;
+		--popover: 0 0% 1%;
+		--popover-foreground: 0 0% 88%;
+		--primary: 180 21% 36%;
+		--primary-foreground: 0 0% 1%;
+		--secondary: 180 22% 80%;
+		--secondary-foreground: 0 0% 1%;
+		--muted: 0 0% 80%;
+		--muted-foreground: 0 0% 88%;
+		--accent: 180 20% 7%;
+		--accent-foreground: 0 0% 88%;
+		--destructive: 0 62% 30%;
+		--destructive-foreground: 0 0% 10%;
+		--border: 0 0% 60%;
+		--input: 0 0% 80%;
+		--ring: 180 20% 60%;
+	}
+}
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+html {
+	font-family: "Lexend", sans-serif;
+}
+
+[lang="ar"] {
+	font-family: "Lalezar", cursive;
 }
