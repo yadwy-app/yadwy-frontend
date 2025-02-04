@@ -55,7 +55,7 @@ export function Slider({ slides }: Props) {
                   alt="Hero"
                   width={500}
                   height={500}
-                  className="w-full max-w-7xl md:h-full h-52"
+                  className="w-full max-w-7xl md:h-full h-56"
                 />
               </div>
             </CarouselItem>
