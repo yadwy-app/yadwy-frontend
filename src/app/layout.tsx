@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import type { Metadata } from "next";
 import { cn } from "~/lib/utils";
+import { lexend } from "~/styles/fonts";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body
         className={cn(
           "transition-all min-h-screen scrollbar scrollbar-thumb-rounded-2x",
+          lexend.variable,
         )}
       >
         {children}
