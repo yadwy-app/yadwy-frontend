@@ -17,7 +17,7 @@ const slides = [
 export default function Page() {
   return (
     <div className="flex flex-col items-center gap-4">
-      <Slider slides={slides} />
+      <Slider  slides={slides} />
       <Categories />
     </div>
   );

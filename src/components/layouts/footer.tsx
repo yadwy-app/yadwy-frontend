@@ -2,6 +2,8 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className='bg-primary py-5 px-3'>
+
+    </div>
   )
 }

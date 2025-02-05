@@ -38,7 +38,7 @@ export function Slider({ slides }: Props) {
   }, [api]);
 
   return (
-    <div className="px-4 md:px-0 relative w-full">
+    <div className="relative w-full px-4 md:px-0">
       <Carousel
         setApi={setApi}
         className="w-full"
@@ -49,20 +49,21 @@ export function Slider({ slides }: Props) {
         <CarouselContent>
           {slides.map((slide) => (
             <CarouselItem key={slide.id} className="w-full">
-              <div className="overflow-hidde w-full flex justify-center items-center">
+              <div className="overflow-hidde flex w-full items-center justify-center">
                 <Image
                   src={slide.imageUrl}
                   alt="Hero"
                   width={500}
                   height={500}
-                  className="w-full max-w-7xl md:h-full h-56"
+                  priority
+                  className="h-56 w-full max-w-7xl object-cover md:h-full"
                 />
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 transform space-x-2">
         {Array.from({ length: count }).map((_, index) => (
           <Button
             key={crypto.randomUUID()}
@@ -71,7 +72,7 @@ export function Slider({ slides }: Props) {
             className={cn(
               "h-3 w-4",
               index === current - 1
-                ? "bg-primary-foreground w-8"
+                ? "w-8 bg-primary-foreground"
                 : "bg-primary",
             )}
             onClick={() => api?.scrollTo(index)}
