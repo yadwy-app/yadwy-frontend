@@ -1,5 +1,6 @@
 import { Slider } from "./_components/slider";
 import { Categories } from "./_sections/categories";
+import NewArt from "./_sections/new-art";
 const slides = [
   {
     id: 1,
@@ -19,6 +20,7 @@ export default function Page() {
     <div className="flex flex-col gap-4 w-full">
       <Slider slides={slides} />
       <Categories />
+      <NewArt />
     </div>
   );
 }
