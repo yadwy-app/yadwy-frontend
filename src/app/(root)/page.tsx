@@ -16,8 +16,8 @@ const slides = [
 ];
 export default function Page() {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <Slider  slides={slides} />
+    <div className="flex flex-col gap-4 w-full">
+      <Slider slides={slides} />
       <Categories />
     </div>
   );

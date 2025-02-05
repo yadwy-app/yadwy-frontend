@@ -53,7 +53,7 @@ export function Categories() {
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
   return (
-    <Section id="Categories" className="w-full">
+    <Section id="Categories" className="w-full overflow-hidden">
       <SectionTitle>Categories</SectionTitle>
       <SectionDescription>
         Explore a world of creativity in our store, where you will find the
@@ -66,7 +66,6 @@ export function Categories() {
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
-        
           style={{
             maskImage:
               "linear-gradient(to left, transparent 0%, black 10%, black 90%, transparent 95%)",
