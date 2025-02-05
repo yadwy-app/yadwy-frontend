@@ -130,13 +130,13 @@ export const Footer = () => {
             @2024 yadawi - All Rights Reserved
           </h6>
           <div className="flex gap-4">
-            <Link className="text-sm" href={``}>
+            <Link className="text-xs md:text-sm " href={``}>
               Terms & Conditions
             </Link>
-            <Link className="text-sm" href={``}>
+            <Link className="text-xs md:text-sm" href={``}>
               Privacy Policy
             </Link>
-            <Link className="text-sm" href={``}>
+            <Link className="text-xs md:text-sm" href={``}>
               Cookies
             </Link>
           </div>
