@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { IoIosCall } from "react-icons/io";
+import { IoLocationOutline } from "react-icons/io5";
+import { HiOutlineMailOpen } from "react-icons/hi";
 
 export const Footer = () => {
   return (
@@ -19,13 +21,17 @@ export const Footer = () => {
             market
           </p>
           <ul className="my-10">
-            <li className="flex gap-5 mb-4">
-              <IoIosCall />
-              <span className="text-xs">(+20) 000000000</span>
+            <li className="flex gap-3 mb-4 items-center">
+              <IoIosCall className="text-xl" />
+              <span className="text-xs md:text-base">(+20) 000000000</span>
             </li>
-            <li className="flex gap-5 mb-4">
-              <IoIosCall />
-              <span>(+20) 000000000</span>
+            <li className="flex gap-3 mb-4 items-center">
+              <HiOutlineMailOpen  className="text-xl"/>
+              <span className="text-xs md:text-base">example@yadawi.com</span>
+            </li>
+            <li className="flex gap-3 mb-4 items-center">
+              <IoLocationOutline  className="text-xl"/>
+              <span className="text-xs md:text-base">Cairo - Hurghada</span>
             </li>
           </ul>
         </div>
