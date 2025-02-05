@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Footer } from "~/components/layouts/footer";
 import { Navbar } from "~/components/layouts/navbar";
 
 export const metadata: Metadata = {
@@ -10,10 +11,11 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <main className="flex flex-col items-center justify-between px-6 md:px-10 lg:px-20 py-4 gap-y-8 max-w-6xl mx-auto">
+      <main className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-y-8 px-6 py-4 md:px-10 lg:px-20">
         <Navbar />
         {children}
       </main>
+      <Footer />
     </>
   );
 }
