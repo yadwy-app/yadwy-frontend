@@ -50,7 +50,7 @@ const categories = [
 ];
 
 export function Categories() {
-  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
 
   return (
     <Section id="Categories" className="w-full">
@@ -66,6 +66,7 @@ export function Categories() {
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
+        
           style={{
             maskImage:
               "linear-gradient(to left, transparent 0%, black 10%, black 90%, transparent 95%)",
@@ -77,7 +78,7 @@ export function Categories() {
                 key={index}
                 className="basis-1/2 lg:basis-1/4 w-full"
               >
-                <div className="overflow-hidde w-full">
+                <div className="overflow-hidden w-full">
                   <Category name={category.name} image={category.image} />
                 </div>
               </CarouselItem>

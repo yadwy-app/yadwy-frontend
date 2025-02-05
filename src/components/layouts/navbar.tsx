@@ -25,7 +25,7 @@ import {
 
 export const Navbar = () => {
   return (
-    <>
+    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-y-8 px-6 py-4 md:px-10 lg:px-20">
       <div className="flex w-full items-center justify-between">
         <Link href={`/`} className="relative h-12 w-28">
           <Image
@@ -116,6 +116,6 @@ export const Navbar = () => {
           <CiSearch className="text-white" />
         </Button>
       </div>
-    </>
+    </div>
   );
 };
