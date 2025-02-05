@@ -1,18 +1,90 @@
+"use client";
+
 import {
   Section,
   SectionDescription,
   SectionTitle,
 } from "~/components/section";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "~/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import Category from "../_components/category";
+
+const categories = [
+  {
+    name: "Wood Work",
+    image: "/category/wood.png",
+  },
+  {
+    name: "Glass Work",
+    image: "/category/glass.png",
+  },
+  {
+    name: "Plants",
+    image: "/category/planet.png",
+  },
+  {
+    name: "Glass Work",
+    image: "/category/glass.png",
+  },
+  {
+    name: "Wood Work",
+    image: "/category/wood.png",
+  },
+  {
+    name: "Glass Work",
+    image: "/category/glass.png",
+  },
+  {
+    name: "Plants",
+    image: "/category/planet.png",
+  },
+  {
+    name: "Glass Work",
+    image: "/category/glass.png",
+  },
+];
 
 export function Categories() {
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+
   return (
-    <Section id="Categories">
+    <Section id="Categories" className="w-full">
       <SectionTitle>Categories</SectionTitle>
       <SectionDescription>
         Explore a world of creativity in our store, where you will find the
         prettiest handcrafts
       </SectionDescription>
-      <div>add other content like cards or any u need</div>
+
+      <div className="flex gap-4">
+        <Carousel
+          className="w-full"
+          plugins={[plugin.current]}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+          style={{
+            maskImage:
+              "linear-gradient(to left, transparent 0%, black 10%, black 90%, transparent 95%)",
+          }}
+        >
+          <CarouselContent>
+            {categories.map((category, index) => (
+              <CarouselItem
+                key={index}
+                className="basis-1/2 lg:basis-1/4 w-full"
+              >
+                <div className="overflow-hidde w-full">
+                  <Category name={category.name} image={category.image} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
     </Section>
   );
 }
