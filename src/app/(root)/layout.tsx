@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Footer } from "~/components/layouts/footer";
 import { Navbar } from "~/components/layouts/navbar";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8 max-w-6xl mx-auto">
         {children}
       </main>
+      <Footer/>
     </>
   );
 }
