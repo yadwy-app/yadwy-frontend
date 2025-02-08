@@ -37,14 +37,14 @@ const products = [
     rating: "5/1",
   },
   {
-    id: 8,
+    id: 9,
     name: "lefse plants in a white pot",
     price: 35,
     image: "https://i.suar.me/v39m4/l",
     rating: "5/1",
   },
   {
-    id: 8,
+    id: 10,
     name: "lefse plants in a white pot",
     price: 35,
     image: "https://i.suar.me/v39m4/l",

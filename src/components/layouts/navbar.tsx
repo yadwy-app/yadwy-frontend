@@ -22,6 +22,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+import { SheetTrigger } from "../ui/sheet";
+import { CartSheet } from "~/app/(root)/_components/cart/cart-sheet";
 
 export const Navbar = () => {
   return (
@@ -37,7 +39,7 @@ export const Navbar = () => {
           />
         </Link>
         <div className="flex gap-4">
-          <div className=" items-center gap-1 hidden md:flex">
+          <div className="hidden items-center gap-1 md:flex">
             <div className="flex items-center">
               <Select>
                 <SelectTrigger className="w-[98px] rounded-sm rounded-r-none border border-gray-300 bg-gray-200">
@@ -56,19 +58,23 @@ export const Navbar = () => {
               <CiSearch className="text-white" />
             </Button>
           </div>
+
           <div className="flex items-center gap-3 border-x-2 border-gray-200 px-3">
             <div className="relative">
               <div className="absolute right-[0px] top-[-10px] flex h-[16px] w-[16px] items-center justify-center rounded-full bg-red-500 p-[2px] text-[9px] font-bold text-white">
                 2
               </div>
-              <LinkIcon href="">
-                <MdOutlineShoppingBag className="text-1xl" />
-              </LinkIcon>
+              <CartSheet>
+                <SheetTrigger className="w flex items-center justify-center rounded-full bg-accent p-2">
+                  <MdOutlineShoppingBag className="text-1xl" />
+                </SheetTrigger>
+              </CartSheet>
             </div>
             <LinkIcon href="">
               <FaHeart className="text-1xl text-primary" />
             </LinkIcon>
           </div>
+
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>

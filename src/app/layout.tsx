@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import type { Metadata } from "next";
 import { cn } from "~/lib/utils";
 import { lexend } from "~/styles/fonts";
+import { ProviderStore } from "~/redux/provider";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",

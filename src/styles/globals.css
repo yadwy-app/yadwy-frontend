@@ -24,7 +24,7 @@
     --input: 0 0% 20%;
     --ring: 180 20% 40%;
     --radius: 0.5rem;
-    --greenfooter: 155 100%  7%;
+    --lightPrimary: #e2ebeb;
   }
 
   .dark {
@@ -47,6 +47,7 @@
     --border: 0 0% 60%;
     --input: 0 0% 80%;
     --ring: 180 20% 60%;
+    --light-primary: #6da0a0;
   }
 }
 @layer base {

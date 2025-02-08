@@ -25,8 +25,9 @@ export const Footer = () => {
           <div className="col-span-12 md:col-span-4">
             <Image
               src="/logo.svg"
-              width={107}
+              width={100}
               height={90}
+              style={{ height: "auto", width:'100%', maxWidth:'109px' }} 
               alt="logo"
               className="mb-5 object-contain"
             />

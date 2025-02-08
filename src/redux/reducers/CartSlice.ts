@@ -4,7 +4,7 @@ const initialState = {
   isLogin:false
 }
 
-const auth = createSlice({
+const cart = createSlice({
   name: "auth",
   initialState,
   reducers: {
@@ -12,13 +12,9 @@ const auth = createSlice({
       state.user.push(...action.payload)
       state.isLogin = true
     },
-    UserLogout: (state, action)=> {
-      state.user = []
-      state.isLogin = false
-    }
   }
 
 });
 
 
-export default auth
+export default cart
