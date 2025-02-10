@@ -1,6 +1,5 @@
 import {
   Section,
-  SectionDescription,
   SectionFooter,
   SectionTitle,
 } from "~/components/section";
@@ -36,29 +35,12 @@ const products = [
     image: "https://i.suar.me/v39m4/l",
     rating: "5/1",
   },
-  {
-    id: 9,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "https://i.suar.me/v39m4/l",
-    rating: "5/1",
-  },
-  {
-    id: 10,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "https://i.suar.me/v39m4/l",
-    rating: "5/1",
-  },
+
 ];
-export default function NewArt() {
+export default function AlsoLike() {
   return (
     <Section id="NewArt" className="gap-8">
-      <SectionTitle>New Artworks</SectionTitle>
-      <SectionDescription>
-        Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius
-        nibh enim id proin. Felis nibh facilisi ac non pharetra proin.
-      </SectionDescription>
+      <SectionTitle>You May Also Like</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
         {products.map((product) => (
           <ProductCard

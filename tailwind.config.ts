@@ -36,6 +36,9 @@ export default {
         lightPrimary: {
           DEFAULT: "var(--lightPrimary)",
         },
+        textColor: {
+          DEFAULT: "var(--textColor)",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
