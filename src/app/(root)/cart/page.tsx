@@ -43,7 +43,7 @@ const page = () => {
         <div className="col-span-12 flex flex-col gap-5 md:col-span-6">
           <SummaryOrder />
           <div className="flex flex-col gap-3 items-center">
-            <ButtonCart href="/cart">
+            <ButtonCart href="/billing-address">
               <FaClipboardCheck />
               Proceed to Checkout
             </ButtonCart>
