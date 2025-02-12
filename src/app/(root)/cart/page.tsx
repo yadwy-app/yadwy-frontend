@@ -1,8 +1,6 @@
 import React from "react";
 import { SectionTitle } from "~/components/section";
 import { BoxProductCart } from "../_components/cart/box-product";
-import { Search } from "../_components/search";
-import { Summary } from "../_components/cart/summary";
 import { SummaryOrder } from "../_sections/summary-order";
 import { ButtonCart } from "../_components/cart/button-cart";
 import { FaClipboardCheck } from "react-icons/fa6";
@@ -48,11 +46,13 @@ const page = () => {
               Proceed to Checkout
             </ButtonCart>
             <span className="text-textColor">Or</span>
-            <Link href={'/'} className="text-primary font-semibold">Continue Shopping</Link>
+            <Link href={"/"} className="text-primary font-semibold">
+              Continue Shopping
+            </Link>
           </div>
         </div>
       </div>
-      <AlsoLike/>
+      <AlsoLike />
     </div>
   );
 };
