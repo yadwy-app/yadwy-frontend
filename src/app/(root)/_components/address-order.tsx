@@ -20,7 +20,7 @@ export const AddressOrder = ({ addresses }: AddressOrderProps) => {
     <div>
       <RadioGroup
         defaultValue={addresses[0]?.name}
-        className="flex flex-col gap-5"
+        className="flex flex-col gap-5 mb-5"
       >
         {addresses.map((item) => (
           <div className="flex items-start justify-between" key={item.id}>
