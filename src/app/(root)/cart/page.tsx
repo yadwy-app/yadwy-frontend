@@ -1,8 +1,8 @@
 import React from "react";
 import { SectionTitle } from "~/components/section";
-import { BoxProductCart } from "../_components/cart/box-product";
+import { BoxProductCart } from "./_components/box-product";
 import { SummaryOrder } from "../_sections/summary-order";
-import { ButtonCart } from "../_components/cart/button-cart";
+import { ButtonCart } from "./_components/button-cart";
 import { FaClipboardCheck } from "react-icons/fa6";
 import Link from "next/link";
 import AlsoLike from "../_sections/also-like";
@@ -40,13 +40,13 @@ const page = () => {
         </div>
         <div className="col-span-12 flex flex-col gap-5 md:col-span-6">
           <SummaryOrder />
-          <div className="flex flex-col gap-3 items-center">
+          <div className="flex flex-col items-center gap-3">
             <ButtonCart href="/billing-address">
               <FaClipboardCheck />
               Proceed to Checkout
             </ButtonCart>
             <span className="text-textColor">Or</span>
-            <Link href={"/"} className="text-primary font-semibold">
+            <Link href={"/"} className="font-semibold text-primary">
               Continue Shopping
             </Link>
           </div>

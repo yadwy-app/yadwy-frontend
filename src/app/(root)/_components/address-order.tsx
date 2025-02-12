@@ -17,8 +17,11 @@ interface AddressOrderProps {
 
 export const AddressOrder = ({ addresses }: AddressOrderProps) => {
   return (
-    <div >
-      <RadioGroup defaultValue={addresses[0]?.name} className="flex flex-col gap-5">
+    <div>
+      <RadioGroup
+        defaultValue={addresses[0]?.name}
+        className="flex flex-col gap-5"
+      >
         {addresses.map((item) => (
           <div className="flex items-start justify-between" key={item.id}>
             <div className="flex items-start gap-4">
@@ -34,11 +37,9 @@ export const AddressOrder = ({ addresses }: AddressOrderProps) => {
                   </button>
                 </Label>
                 <p className="mb-1 w-full text-sm text-gray-500 md:w-[381.84px]">
-                  {item.street},{item.city} {item.postalCode} 
+                  {item.street},{item.city} {item.postalCode}
                 </p>
-                <span className="text-sm text-gray-500">
-                  {item.phone}
-                </span>
+                <span className="text-sm text-gray-500">{item.phone}</span>
               </div>
             </div>
             <button className="text-sm text-red-500 hover:text-red-700">

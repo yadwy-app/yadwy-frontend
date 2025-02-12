@@ -8,7 +8,7 @@ import { Separator } from "~/components/ui/separator";
 import ButtonAction from "../_components/button-actions";
 
 function getProductById(id: string) {
-  return mockProductData.find((p) => p.id === id) || null;
+  return mockProductData.find((p) => p.id === id) ;
 }
 
 export default function Page({ params }: { params: { id: string } }) {
