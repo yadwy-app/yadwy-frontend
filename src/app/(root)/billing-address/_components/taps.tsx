@@ -16,12 +16,12 @@ export const TapsPay = ({ PayInfo, tapActive, currentTap }: PayInfoOrderProps) =
     tapActive(e)
   }
   return (
-    <div className="grid grid-cols-3 gap-3 mb-5">
+    <div className="grid grid-col-1 md:grid-cols-3 gap-3 mb-5">
       {PayInfo.map((item) => (
         <Button
         key={item.id}
           variant="outline"
-          className={`col-span-1 flex ${currentTap === item.payType ? 'border-primary text-primary' : 'border-gray-300 text-gray-500'}  hover:text-primary px-3`}
+          className={`col-span-1 flex text-sm ${currentTap === item.payType ? 'border-primary text-primary' : 'border-gray-300 text-gray-500'}  hover:text-primary px-3`}
           onClick={()=> TapActiveHandler(item.payType)}
         >
           {item.icon}
