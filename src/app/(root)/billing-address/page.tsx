@@ -150,17 +150,7 @@ const Page = () => {
       col: "col-span-4 md:col-span-1",
     },
   ] as const;
-  type FormAddressProps = {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    address: string;
-    country: string;
-    state: string;
-    zipCode: string;
-  };
-  
+
   const AddressFields = [
     {
       name: "firstName",
@@ -254,7 +244,7 @@ const Page = () => {
       cvc: "",
     },
   });
-  const formAddress = useForm<FormAddressProps>({
+  const formAddress = useForm({
     resolver: yupResolver(schemaAddress),
     defaultValues: {
       firstName: "",
@@ -381,7 +371,8 @@ const Page = () => {
                           control={formCards.control}
                           name={field.name}
                           render={({ field: inputField }) => (
-                            <FormItem className={field.col || "col-span-4"}>
+                            
+                            <FormItem className={field.col  || "col-span-4" }>
                               <FormLabel>{field.label}</FormLabel>
                               <FormControl>
                                 <Input
