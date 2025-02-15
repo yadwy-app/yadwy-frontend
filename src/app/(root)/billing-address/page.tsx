@@ -150,6 +150,17 @@ const Page = () => {
       col: "col-span-4 md:col-span-1",
     },
   ] as const;
+  type FormAddressProps = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    address: string;
+    country: string;
+    state: string;
+    zipCode: string;
+  };
+  
   const AddressFields = [
     {
       name: "firstName",
@@ -199,7 +210,7 @@ const Page = () => {
       placeholder: "Enter Zip Code",
       col: "col-span-4 md:col-span-1",
     },
-  ] ;
+  ] as const;
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [currentPay, setCurrentPay] = useState(PayInfo[0]?.payType);
   const [addressContent, setAddressContent] = useState("main");
@@ -217,14 +228,25 @@ const Page = () => {
   const addressAddActive = (e: string) => {
     setAddressContent(e);
   };
-  const schema = yup.object().shape({
+  const schemaCard = yup.object().shape({
     name: yup.string().required("Card holder name is required"),
     number: yup.string().required("Card number is required"),
     expiredate: yup.string().required("Expiration date is required"),
     cvc: yup.string().required("CVC is required"),
   });
+  const schemaAddress = yup.object().shape({
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
+    email: yup.string().email("Invalid email address").required("Email is required"),
+    phone: yup.string().required("Phone number is required"),
+    address: yup.string().required("Address is required"),
+    country: yup.string().required("Country is required"),
+    state: yup.string().required("State is required"),
+    zipCode: yup.string().required("Zip code is required"),
+  });
+  
   const formCards = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaCard),
     defaultValues: {
       name: "",
       number: "",
@@ -232,13 +254,17 @@ const Page = () => {
       cvc: "",
     },
   });
-  const formAddress = useForm({
-    resolver: yupResolver(schema),
+  const formAddress = useForm<FormAddressProps>({
+    resolver: yupResolver(schemaAddress),
     defaultValues: {
-      name: "",
-      number: "",
-      expiredate: "",
-      cvc: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      country: "",
+      state: "",
+      zipCode: "",
     },
   });
   const handleCardSubmit = (data: object) => {
