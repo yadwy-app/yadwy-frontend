@@ -8,21 +8,13 @@ import {
 import Form from "./form";
 import { Button } from "~/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
-import Image from "next/image";
 
 export default function Login() {
   return (
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex flex-col justify-center items-center">
-          <Image
-            src={"/logo.svg"}
-            width={80}
-            height={80}
-            className="object-contain"
-            alt="logo"
-          />
-          <h2 className="text-xl font-bold">Explore handmade masterpieces </h2>
+          <h2 className="text-xl font-bold">Login</h2>
         </CardTitle>
       </CardHeader>
       <CardContent>

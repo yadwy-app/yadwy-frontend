@@ -27,9 +27,9 @@ import { CartSheet } from "~/app/(root)/cart/_components/cart-sheet";
 
 export const Navbar = () => {
   return (
-    <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-y-8 px-6 py-4 md:px-10 lg:px-28">
+    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-y-8 px-6 py-4 md:px-0">
       <div className="flex w-full items-center justify-between">
-        <Link href={`/`} className="relative h-12 w-28">
+        <Link href={"/"} className="relative h-12 w-28">
           <Image
             src="/logo.svg"
             fill

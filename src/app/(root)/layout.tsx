@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8 max-w-8xl mx-auto">
+      <main className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8 max-w-7xl mx-auto">
         {children}
       </main>
       <Footer />
