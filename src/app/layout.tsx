@@ -3,7 +3,7 @@ import "~/styles/globals.css";
 import type { Metadata } from "next";
 import { cn } from "~/lib/utils";
 import { lexend } from "~/styles/fonts";
-import { ProviderStore } from "~/redux/provider";
+import { Toaster } from "~/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -23,6 +23,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

@@ -6,14 +6,23 @@ import ReviewComment from "../_components/review-comments";
 import Feature from "../_components/feature";
 import { Separator } from "~/components/ui/separator";
 import ButtonAction from "../_components/button-actions";
-
+export async function generateStaticParams() {
+  // إذا كنت تجلب البيانات من API استخدم `fetch` هنا
+  return mockProductData.map((product) => ({
+    id: product.id,
+  }));
+}
+type Props = {
+  params: {
+    id: string;
+  };
+};
 function getProductById(id: string) {
-  return mockProductData.find((p) => p.id === id) ;
+  return mockProductData.find((p) => p.id === id);
 }
 
-export default function Page({ params }: { params: { id: string } }) {
-  const { id } = params;
-  const product = getProductById(id);
+export default function Page({ params }: Props) {
+  const product = getProductById(params.id);
   const ratings = [
     { stars: 5, percentage: 52 },
     { stars: 4, percentage: 30 },
@@ -26,8 +35,8 @@ export default function Page({ params }: { params: { id: string } }) {
 
   console.log(product);
   return (
-    <div className="md:container px-4 py-8">
-      <div className="flex flex-col justify-center gap-12 w-full md:flex-row">
+    <div className="px-4 py-8 md:container">
+      <div className="flex w-full flex-col justify-center gap-12 md:flex-row">
         <ProductImage images={product.images} />
         <div className="flex flex-col gap-[1.6rem]">
           <ProductDetails
@@ -48,7 +57,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <ButtonAction />
         </div>
       </div>
-      <div className="flex flex-col gap-8 py-16 w-full md:flex-row">
+      <div className="flex w-full flex-col gap-8 py-16 md:flex-row">
         <ReviewRate totalReviews={64} ratings={ratings} />
         <div className="flex flex-col gap-4">
           {product.reviewComment.map((comment) => (
