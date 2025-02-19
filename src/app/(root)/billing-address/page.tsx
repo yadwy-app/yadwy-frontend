@@ -32,9 +32,7 @@ import {
 } from "react-icons/md";
 import Link from "next/link";
 import {
-  Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -227,14 +225,17 @@ const Page = () => {
   const schemaAddress = yup.object().shape({
     firstName: yup.string().required("First name is required"),
     lastName: yup.string().required("Last name is required"),
-    email: yup.string().email("Invalid email address").required("Email is required"),
+    email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email is required"),
     phone: yup.string().required("Phone number is required"),
     address: yup.string().required("Address is required"),
     country: yup.string().required("Country is required"),
     state: yup.string().required("State is required"),
     zipCode: yup.string().required("Zip code is required"),
   });
-  
+
   const formCards = useForm({
     resolver: yupResolver(schemaCard),
     defaultValues: {
@@ -371,8 +372,7 @@ const Page = () => {
                           control={formCards.control}
                           name={field.name}
                           render={({ field: inputField }) => (
-                            
-                            <FormItem className={field.col  || "col-span-4" }>
+                            <FormItem className={field.col || "col-span-4"}>
                               <FormLabel>{field.label}</FormLabel>
                               <FormControl>
                                 <Input

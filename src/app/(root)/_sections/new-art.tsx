@@ -6,7 +6,7 @@ import {
 } from "~/components/section";
 import { Button } from "~/components/ui/button";
 import ProductCard from "../_components/product-card";
-
+import { useDispatch } from "react-redux";
 const products = [
   {
     id: 5,
@@ -51,7 +51,9 @@ const products = [
     rating: "5/1",
   },
 ];
+
 export default function NewArt() {
+  
   return (
     <Section id="NewArt" className="gap-8">
       <SectionTitle>New Artworks</SectionTitle>
@@ -59,7 +61,7 @@ export default function NewArt() {
         Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius
         nibh enim id proin. Felis nibh facilisi ac non pharetra proin.
       </SectionDescription>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
+      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-4">
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -74,7 +76,7 @@ export default function NewArt() {
       <SectionFooter>
         <Button
           variant="outline"
-          className="w-full shadow-lg border-primary rounded-none text-secondary"
+          className="w-full rounded-none border-primary text-secondary shadow-lg"
         >
           Show more
         </Button>

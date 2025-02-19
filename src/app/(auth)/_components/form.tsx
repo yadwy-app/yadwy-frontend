@@ -29,6 +29,7 @@ export default function Form<T extends z.ZodType>({
   defaultValues,
   action,
   inputs,
+  className,
   primaryButtonText,
   secondaryButtonLink,
 }: Props<T>) {
@@ -62,9 +63,9 @@ export default function Form<T extends z.ZodType>({
         ref={ref}
         onSubmit={handleSubmit}
         action={formAction}
-        className="space-y-8"
+        className={`space-y-8 `}
       >
-        <div className="space-y-4">
+        <div className={`space-y-4  ${className}`}>
           {inputs.map((item) => (
             <FormField
               key={item.name}
@@ -83,7 +84,7 @@ export default function Form<T extends z.ZodType>({
             />
           ))}
         </div>
-        <div className="flex justify-between md:gap-x-8 gap-x-2">
+        <div className="flex justify-between md:gap-x-8 gap-x-2 ">
           <Button
             type="submit"
             disabled={isPending}

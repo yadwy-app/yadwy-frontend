@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { cn } from "~/lib/utils";
 import { lexend } from "~/styles/fonts";
 import { Toaster } from "~/components/ui/toaster";
+import { ProviderStore } from "~/redux/provider";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -18,11 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "transition-all min-h-screen scrollbar scrollbar-thumb-rounded-2x",
+          "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
           lexend.variable,
         )}
       >
-        {children}
+        <ProviderStore>{children}</ProviderStore>
         <Toaster />
       </body>
     </html>
