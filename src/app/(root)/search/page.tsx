@@ -12,6 +12,15 @@ import {
 } from "~/components/ui/select";
 import { products } from "~/data";
 import ProductCard from "../_components/product-card";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "~/components/ui/pagination";
 
 const SearchPage = () => {
   interface CategoryProps {
@@ -36,7 +45,7 @@ const SearchPage = () => {
         <RatingFilter />
       </div>
       <div className="col-span-9">
-        <div className="flex items-end justify-between mb-5">
+        <div className="mb-5 flex items-end justify-between">
           <div>
             <h6 className="mb-1 text-2xl font-bold">Search Query</h6>
             <div className="font-bold text-green-900">
@@ -67,7 +76,23 @@ const SearchPage = () => {
             />
           ))}
         </div>
-      </div>
+          <Pagination className="justify-end">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious href="#" className="bg-primary text-white" />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" className="border border-primary text-primary">1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationEllipsis className="text-primary" />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext href="#" className="bg-primary text-white" />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
     </div>
   );
 };
