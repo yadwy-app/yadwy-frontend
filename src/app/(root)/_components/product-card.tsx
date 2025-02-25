@@ -8,6 +8,8 @@ import { CiHeart } from "react-icons/ci";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../../../redux/reducers/CartSlice";
+import { toast } from "~/hooks/use-toast";
+import { ToastAction } from "~/components/ui/toast";
 
 type Props = {
   id: number;
@@ -17,18 +19,23 @@ type Props = {
   rating: string;
 };
 type CartItemProps = {
-  id: number,
-  title: string,
-  price: number,
-  quantity: number,
-  unitPrice: number,
-  imageCover: string,
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  unitPrice: number;
+  imageCover: string;
 };
 
 export default function ProductCard({ ...props }: Props) {
-  const dispatch = useDispatch() 
+  const dispatch = useDispatch();
   function handleAddCart(item: CartItemProps) {
-    dispatch(cartAction.addItems(item))
+    dispatch(cartAction.addItems(item));
+    toast({
+      title: `${item.title} added to cart 🛒`,
+      description: `You added ${item.quantity} ${item.quantity > 1 ? "units" : "unit"} to your cart.`,
+      // action: <ToastAction altText="Undo item addition">Undo</ToastAction>,
+    });
   }
   return (
     <Card className="w-full border border-gray-200 md:max-w-xs">
@@ -67,14 +74,16 @@ export default function ProductCard({ ...props }: Props) {
           </Button>
           <Button
             className="gap-1 p-1.5 text-xs text-background"
-            onClick={() => handleAddCart({
-              id: props.id,
-              title: props.title,
-              price: props.price,
-              quantity: 1,
-              unitPrice: props.price,
-              imageCover: props.image,
-            })}
+            onClick={() =>
+              handleAddCart({
+                id: props.id,
+                title: props.title,
+                price: props.price,
+                quantity: 1,
+                unitPrice: props.price,
+                imageCover: props.image,
+              })
+            }
           >
             <TbShoppingBagPlus className="h-4 w-4" />
             Add to cart

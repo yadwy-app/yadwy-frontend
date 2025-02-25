@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Counter } from "./counter";
 import { useDispatch } from "react-redux";
 import { cartAction } from "~/redux/reducers/CartSlice";
+import { ToastAction } from "~/components/ui/toast";
+import { toast } from "~/hooks/use-toast";
 
 interface ItemProps {
   item: {
