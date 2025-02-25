@@ -42,7 +42,7 @@ const SearchPage = () => {
         <PriceFilter />
         <CategoryFilter categories={categories} />
         {/* <SearchMaterials/> */}
-        <RatingFilter />
+        {/* <RatingFilter /> */}
       </div>
       <div className="col-span-9">
         <div className="mb-5 flex items-end justify-between">
@@ -64,7 +64,7 @@ const SearchPage = () => {
             </Select>
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-3 gap-5">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -76,7 +76,7 @@ const SearchPage = () => {
             />
           ))}
         </div>
-          <Pagination className="justify-end">
+          <Pagination className="justify-end mt-16">
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious href="#" className="bg-primary text-white" />

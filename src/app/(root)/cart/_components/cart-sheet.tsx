@@ -8,6 +8,7 @@ import {
 } from "~/components/ui/sheet";
 import { Control } from "./control";
 import { BoxProductCart } from "./box-product";
+import { ProductsHolder } from "./products-holder";
 
 interface CartProps {
   children: React.ReactNode;
@@ -43,11 +44,9 @@ export const CartSheet = ({ children }: CartProps) => {
 
         <div className="relative h-full p-5 pb-[230px] pe-0 pt-0">
           <div className="flex h-full max-h-[calc(100vh-230px)] flex-col gap-5 overflow-y-auto overflow-x-hidden pe-5">
-            {products.map((product) => (
-              <BoxProductCart item={product} key={product.id} />
-            ))}
+          <ProductsHolder/>
           </div>
-          <Control price={213} />
+          <Control  />
         </div>
       </SheetContent>
     </Sheet>

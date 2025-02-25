@@ -1,7 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface QTYProps {
+  id: number;
+  quantity: number;
+}
 interface CartItem {
-  id: string;
+  id: number;
   title: string;
   price: number;
   quantity: number;
@@ -46,12 +50,33 @@ const cartSlice = createSlice({
     setTotalPrice: (state, action: PayloadAction<number>) => {
       state.totalPrice = action.payload;
     },
+    updateItemQuantity: (state, action: PayloadAction<QTYProps>) => {
+      const { id, quantity } = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      if (existingItem) {
+        const oldQuantity = existingItem.quantity;
+
+        if (quantity > 0) {
+          existingItem.quantity = quantity;
+          existingItem.price = quantity * existingItem.unitPrice;
+          state.quantity += quantity - oldQuantity;
+         
+        } else {
+          state.items = state.items.filter((item) => item.id !== id);
+          state.quantity -= oldQuantity;
+        }
+        state.totalPrice = state.items.reduce(
+          (acc, item) => acc + item.unitPrice * item.quantity,
+          0
+        );
+      }
+    },
 
     addItems: (state, action: PayloadAction<CartItem>) => {
       const itemAdded = action.payload;
       const existingItem = state.items.find((item) => item.id === itemAdded.id);
 
-      console.log("itemAdded", itemAdded);
+      // console.log("itemAdded", itemAdded);
 
       if (!existingItem) {
         state.items.push({
@@ -62,35 +87,38 @@ const cartSlice = createSlice({
           unitPrice: itemAdded.unitPrice,
           imageCover: itemAdded.imageCover,
         });
+        state.quantity++;
       } else {
         existingItem.quantity++;
+        state.quantity++;
+        existingItem.price = existingItem.quantity * existingItem.unitPrice;
       }
 
       state.count = state.items.reduce((acc, item) => acc + item.quantity, 0);
       state.totalPrice = state.items.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
+        (acc, item) => acc + item.unitPrice * item.quantity,
+        0,
       );
     },
 
-    removeItem: (state, action: PayloadAction<string>) => {
-      const id = action.payload;
-      const itemIndex = state.items.findIndex((item) => item.id === id);
+    // removeItem: (state, action: PayloadAction<string>) => {
+    //   const id = action.payload;
+    //   const itemIndex = state.items.findIndex((item) => item.id === id);
 
-      if (itemIndex !== -1) {
-        if (state.items[itemIndex].quantity > 1) {
-          state.items[itemIndex].quantity--;
-        } else {
-          state.items.splice(itemIndex, 1);
-        }
-      }
+    //   if (itemIndex !== -1) {
+    //     if (state.items[itemIndex].quantity > 1) {
+    //       state.items[itemIndex].quantity--;
+    //     } else {
+    //       state.items.splice(itemIndex, 1);
+    //     }
+    //   }
 
-      state.count = state.items.reduce((acc, item) => acc + item.quantity, 0);
-      state.totalPrice = state.items.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
-      );
-    },
+    //   state.count = state.items.reduce((acc, item) => acc + item.quantity, 0);
+    //   state.totalPrice = state.items.reduce(
+    //     (acc, item) => acc + item.price * item.quantity,
+    //     0,
+    //   );
+    // },
   },
 });
 

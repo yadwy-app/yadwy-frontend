@@ -20,7 +20,7 @@ import {
 export const Footer = () => {
   return (
     <div className="bg-primary px-3 py-5">
-      <div className="mx-auto max-w-8xl px-6 py-4 md:px-10 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 py-4 md:px-10 lg:px-20">
         <div className="grid grid-cols-12 gap-4 mb-3 md:md-0">
           <div className="col-span-12 md:col-span-4">
             <Image

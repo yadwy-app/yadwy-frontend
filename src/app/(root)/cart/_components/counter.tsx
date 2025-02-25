@@ -1,15 +1,31 @@
 "use client";
 import React, { useState } from "react";
-export const Counter = () => {
-  const [counter, setCounter] = useState<number>(0);
+interface ItemProps {
+  item: {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    unitPrice: number;
+    image: string;
+  };
+}
+type CounterProps = {
+  handleAddCart: (action: number) => void;
+};
+export const Counter = ({ handleAddCart }: CounterProps) => {
+  const [counter, setCounter] = useState<number>(1);
   function CounterHandle(action: string) {
     setCounter((prev) => {
-      if (action === "remove" && prev === 0) {
+      if (action === "remove" && prev === 1) {
         return prev;
       }
-      return action === "add" ? prev + 1 : prev - 1;
+      const newCounter = action === "add" ? prev + 1 : prev - 1;
+      handleAddCart(newCounter); 
+      return newCounter;
     });
   }
+
   return (
     <div className="flex gap-3">
       <div className="flex gap-3 rounded-sm border-2 border-gray-300">
@@ -27,7 +43,9 @@ export const Counter = () => {
           +
         </button>
       </div>
-      <button className="text-gray-500 text-xs hover:text-red-400 transition-all">Remove</button>
+      <button className="text-xs text-gray-500 transition-all hover:text-red-400">
+        Remove
+      </button>
     </div>
   );
 };

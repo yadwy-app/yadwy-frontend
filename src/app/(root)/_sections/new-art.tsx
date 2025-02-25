@@ -73,7 +73,7 @@ export default function NewArt() {
           />
         ))}
       </div>
-      <SectionFooter>
+      <SectionFooter className="mt-10">
         <Button
           variant="outline"
           className="w-full rounded-none border-primary text-secondary shadow-lg"

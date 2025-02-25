@@ -107,16 +107,16 @@ const Page = () => {
   ];
 
   const PayInfo = [
-    {
-      id: 1,
-      payType: "Credit / Debit Card",
-      icon: <FaCreditCard />,
-    },
-    {
-      id: 2,
-      payType: "Vodafone",
-      icon: <IoPhonePortraitOutline />,
-    },
+    // {
+    //   id: 1,
+    //   payType: "Credit / Debit Card",
+    //   icon: <FaCreditCard />,
+    // },
+    // {
+    //   id: 2,
+    //   payType: "Vodafone",
+    //   icon: <IoPhonePortraitOutline />,
+    // },
     {
       id: 3,
       payType: "Cash on Delivery",
