@@ -34,7 +34,6 @@ export default function ProductCard({ ...props }: Props) {
     toast({
       title: `${item.title} added to cart 🛒`,
       description: `You added ${item.quantity} ${item.quantity > 1 ? "units" : "unit"} to your cart.`,
-      // action: <ToastAction altText="Undo item addition">Undo</ToastAction>,
     });
   }
   return (
