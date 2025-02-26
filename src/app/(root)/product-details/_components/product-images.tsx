@@ -21,7 +21,7 @@ export default function ProductImage({ images }: { images: string[] }) {
       <div className="relative">
         <div className="h-auto">
           <Image
-            src={images[selectedIndex]} // Display the selected image
+            src={images[selectedIndex] ?? "/placeholder.png"} // Display the selected image
             alt={`Selected Image ${selectedIndex + 1}`}
             className="w-full h-full rounded-md bg-contain"
             width={487}

@@ -1,30 +1,25 @@
 "use client";
-import React, { useState } from "react";
-interface ItemProps {
-  item: {
-    id: number;
-    title: string;
-    price: number;
-    quantity: number;
-    unitPrice: number;
-    image: string;
-  };
-}
+import React, { useState, useEffect } from "react";
+
 type CounterProps = {
-  handleAddCart: (action: number) => void;
+  handleAddCart: (quantity: number) => void;
 };
+
 export const Counter = ({ handleAddCart }: CounterProps) => {
   const [counter, setCounter] = useState<number>(1);
-  function CounterHandle(action: string) {
+
+  function CounterHandle(action: "add" | "remove") {
     setCounter((prev) => {
       if (action === "remove" && prev === 1) {
         return prev;
       }
-      const newCounter = action === "add" ? prev + 1 : prev - 1;
-      handleAddCart(newCounter); 
-      return newCounter;
+      return action === "add" ? prev + 1 : prev - 1;
     });
   }
+
+  useEffect(() => {
+    handleAddCart(counter);
+  }, [counter, handleAddCart]);
 
   return (
     <div className="flex gap-3">
@@ -32,6 +27,7 @@ export const Counter = ({ handleAddCart }: CounterProps) => {
         <button
           className="px-2 py-1 text-sm"
           onClick={() => CounterHandle("remove")}
+          disabled={counter === 1} 
         >
           -
         </button>
@@ -43,7 +39,10 @@ export const Counter = ({ handleAddCart }: CounterProps) => {
           +
         </button>
       </div>
-      <button className="text-xs text-gray-500 transition-all hover:text-red-400">
+      <button
+        className="text-xs text-gray-500 transition-all hover:text-red-400"
+        onClick={() => setCounter(1)} 
+      >
         Remove
       </button>
     </div>

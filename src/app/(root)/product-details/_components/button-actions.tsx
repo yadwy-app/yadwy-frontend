@@ -5,7 +5,7 @@ import { ShoppingBag, ShoppingCart } from "lucide-react";
 export default function ButtonAction() {
   return (
     <div className="flex w-full flex-col items-center gap-4 md:flex-row">
-      <Counter />
+      {/* <Counter /> */}
       <div className="flex w-full flex-col items-center gap-2 md:flex-row">
         <Button className="flex w-full gap-4 text-background">
           <ShoppingBag className="text-background" />

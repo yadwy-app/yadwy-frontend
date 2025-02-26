@@ -36,6 +36,11 @@ import { AddressOrder } from "../../_components/address-order";
 import { TapsPay } from "./taps";
 import { Visa } from "./visa";
 const Checkout = () => {
+  interface Field {
+    name: "number" | "name" | "expiredate" | "cvc";
+    label: string;
+    col?: string;
+  }
   const addresses = [
     {
       id: 1,
@@ -365,7 +370,7 @@ const Checkout = () => {
                     <FormField
                       key={field.name}
                       control={formCards.control}
-                      name={field.name}
+                      name={field.name as "number" | "name" | "expiredate" | "cvc"}
                       render={({ field: inputField }) => (
                         <FormItem className={field.col ?? "col-span-4"}>
                           <FormLabel>{field.label}</FormLabel>
