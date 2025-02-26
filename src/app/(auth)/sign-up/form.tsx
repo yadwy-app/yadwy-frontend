@@ -3,10 +3,10 @@
 import { default as BaseForm } from "../_components/form";
 import { forwardRef } from "react";
 import { SignUpSchema } from "~/schemas/auth";
-import login from "~/app/action/auth/login";
 import Field from "../_components/field";
 import PasswordField from "../_components/password-field";
 import { z } from "zod";
+import signup from "~/app/action/auth/sign-up";
 
 const schema = SignUpSchema;
 const defaultValues: z.infer<typeof SignUpSchema> = {
@@ -17,7 +17,7 @@ const defaultValues: z.infer<typeof SignUpSchema> = {
   password: "",
   confirmPassword: "",
 };
-const action = login;
+const action = signup;
 
 export default function Form() {
   return (
@@ -30,10 +30,17 @@ export default function Form() {
         {
           name: "firstName",
           Field: forwardRef(function InputField(props: any, ref) {
-            return <Field placeholder="First Name" className="" {...props} ref={ref} />;
+            return (
+              <Field
+                placeholder="First Name"
+                className=""
+                {...props}
+                ref={ref}
+              />
+            );
           }),
         },
-        
+
         {
           name: "lastName",
           className: "col-span-1",

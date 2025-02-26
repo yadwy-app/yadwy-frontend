@@ -33,12 +33,16 @@ export const BoxProductCart = ({ item }: ItemProps) => {
       return action === "add" ? prev + 1 : prev - 1;
     });
   }
+  function handleRemoveItem (itemId : number){
+    dispatch(cartAction.removeItem(itemId))
+  }
   return (
     <div className="flex justify-between gap-4">
       <div className="flex gap-4">
         <div className="relative h-[100px] w-[100px]">
           <Image
-            src={`/artworks/planets.png`}
+            // src={`/artworks/planets.png`}
+            src={item.imageCover}
             fill
             alt={item.title}
             className="object-cover"
@@ -65,10 +69,10 @@ export const BoxProductCart = ({ item }: ItemProps) => {
                 +
               </button>
             </div>
-            <button className="text-xs text-gray-500 transition-all hover:text-red-400">
+            <button className="text-xs text-gray-500 transition-all hover:text-red-400" onClick={()=> handleRemoveItem(item.id)}>
               Remove
             </button>
-          </div>{" "}
+          </div>
         </div>
       </div>
       <div className="text-2xl font-bold text-secondary">{item.price}$</div>

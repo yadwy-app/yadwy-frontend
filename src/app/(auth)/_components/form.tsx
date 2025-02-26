@@ -22,6 +22,8 @@ type Props<T extends z.ZodType> = FormProps<T> & {
     href: string;
     text: string;
   };
+  className?: string;  
+
 };
 
 export default function Form<T extends z.ZodType>({

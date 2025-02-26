@@ -60,14 +60,13 @@ const cartSlice = createSlice({
           existingItem.quantity = quantity;
           existingItem.price = quantity * existingItem.unitPrice;
           state.quantity += quantity - oldQuantity;
-         
         } else {
           state.items = state.items.filter((item) => item.id !== id);
           state.quantity -= oldQuantity;
         }
         state.totalPrice = state.items.reduce(
           (acc, item) => acc + item.unitPrice * item.quantity,
-          0
+          0,
         );
       }
     },
@@ -101,24 +100,18 @@ const cartSlice = createSlice({
       );
     },
 
-    // removeItem: (state, action: PayloadAction<string>) => {
-    //   const id = action.payload;
-    //   const itemIndex = state.items.findIndex((item) => item.id === id);
-
-    //   if (itemIndex !== -1) {
-    //     if (state.items[itemIndex].quantity > 1) {
-    //       state.items[itemIndex].quantity--;
-    //     } else {
-    //       state.items.splice(itemIndex, 1);
-    //     }
-    //   }
-
-    //   state.count = state.items.reduce((acc, item) => acc + item.quantity, 0);
-    //   state.totalPrice = state.items.reduce(
-    //     (acc, item) => acc + item.price * item.quantity,
-    //     0,
-    //   );
-    // },
+    removeItem: (state, action: PayloadAction<number>) => {
+      console.log("item removed id :", action.payload);
+      const existingItem = state.items.find(
+        (item) => item.id === action.payload,
+      );
+      if (existingItem) {
+        state.quantity -= existingItem.quantity;
+        state.items = state.items.filter(
+          (item) => item.id !== existingItem?.id,
+        );
+      }
+    },
   },
 });
 
