@@ -22,7 +22,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { CartBtn } from "~/app/(root)/_components/cart-btn";
+import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
 
 export const Navbar = () => {
   return (

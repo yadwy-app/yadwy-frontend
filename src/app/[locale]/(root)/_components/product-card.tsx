@@ -7,9 +7,9 @@ import Image from "next/image";
 import { CiHeart } from "react-icons/ci";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { cartAction } from "../../../redux/reducers/CartSlice";
 import { toast } from "~/hooks/use-toast";
 import { ToastAction } from "~/components/ui/toast";
+import { cartAction } from "~/redux/reducers/CartSlice";
 
 type Props = {
   id: number;

@@ -1,0 +1,10 @@
+{
+	"HomePage": {
+		"title": "Hello world!",
+		"about": "Go to the about page",
+		"Categories": {
+			"title": "Categories",
+			"description": "Explore a world of creativity in our store, where you will find theprettiest handcrafts"
+		}
+	}
+}

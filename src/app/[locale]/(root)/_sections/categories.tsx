@@ -13,7 +13,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 import Category from "../_components/category";
-
+import { useTranslations } from "next-intl";
 const categories = [
   {
     name: "Wood Work",
@@ -51,15 +51,12 @@ const categories = [
 
 export function Categories() {
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+  const t = useTranslations("HomePage.Categories");
 
   return (
     <Section id="Categories" className="w-full overflow-hidden">
-      <SectionTitle>Categories</SectionTitle>
-      <SectionDescription>
-        Explore a world of creativity in our store, where you will find the
-        prettiest handcrafts
-      </SectionDescription>
-
+      <SectionTitle>{t("title")}</SectionTitle>
+      <SectionDescription>{t("description")}</SectionDescription>
       <div className="flex gap-4">
         <Carousel
           className="w-full"

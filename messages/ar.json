@@ -1,0 +1,10 @@
+{
+	"HomePage": {
+		"title": "Hello world!",
+		"about": "Go to the about page",
+		"Categories": {
+			"title": "التصنيفات",
+			"description": "اختر التصنيف المناسب لك"
+		}
+	}
+}

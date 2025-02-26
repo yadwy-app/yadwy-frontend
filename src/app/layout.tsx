@@ -23,7 +23,7 @@ export default function RootLayout({
           lexend.variable,
         )}
       >
-        <ProviderStore>{children}</ProviderStore>
+        {children}
         <Toaster />
       </body>
     </html>
