@@ -4,7 +4,26 @@
 		"about": "Go to the about page",
 		"Categories": {
 			"title": "Categories",
-			"description": "Explore a world of creativity in our store, where you will find theprettiest handcrafts"
+			"description": "Explore a world of creativity in our store, where you will find the prettiest handcrafts"
+		},
+		"NewArt": {
+			"title": "New Artworks",
+			"description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
+			"button": "See more"
+		},
+		"Features": {
+			"Strength": {
+				"title": "Strength",
+				"desc": "The products we sell are durable, and authenticated"
+			},
+			"Natural": {
+				"title": "Natural",
+				"desc": "Our products are natural and made by local people, which gives them support to enrich their communities"
+			},
+			"Strength_2": {
+				"title": "Strength",
+				"desc": "The products we sell are durable, and authenticated by professionals"
+			}
 		}
 	}
 }

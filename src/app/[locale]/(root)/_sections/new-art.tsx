@@ -7,6 +7,7 @@ import {
 import { Button } from "~/components/ui/button";
 import ProductCard from "../_components/product-card";
 import { useDispatch } from "react-redux";
+import { useTranslations } from "next-intl";
 const products = [
   {
     id: 5,
@@ -53,14 +54,11 @@ const products = [
 ];
 
 export default function NewArt() {
-  
+  const t = useTranslations("HomePage.NewArt");
   return (
     <Section id="NewArt" className="gap-8">
-      <SectionTitle>New Artworks</SectionTitle>
-      <SectionDescription>
-        Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius
-        nibh enim id proin. Felis nibh facilisi ac non pharetra proin.
-      </SectionDescription>
+      <SectionTitle>{t("title")}</SectionTitle>
+      <SectionDescription>{t("description")}</SectionDescription>
       <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-4">
         {products.map((product) => (
           <ProductCard
@@ -78,7 +76,7 @@ export default function NewArt() {
           variant="outline"
           className="w-full rounded-none border-primary text-secondary shadow-lg"
         >
-          Show more
+          {t("button")}
         </Button>
       </SectionFooter>
     </Section>
