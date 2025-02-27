@@ -1,15 +1,13 @@
 "use client";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import { FaStar } from "react-icons/fa";
 import { TbShoppingBagPlus } from "react-icons/tb";
 import Image from "next/image";
 import { CiHeart } from "react-icons/ci";
-import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { toast } from "~/hooks/use-toast";
-import { ToastAction } from "~/components/ui/toast";
 import { cartAction } from "~/redux/reducers/CartSlice";
+import { Link } from "~/i18n/routing";
 
 type Props = {
   id: number;

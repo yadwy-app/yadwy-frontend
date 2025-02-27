@@ -26,7 +26,7 @@ export function Provider({
       timeZone={timeZone}
       locale={locale}
     >
-    <ReduxProvider store={store}>{children}</ReduxProvider>
+      <ReduxProvider store={store}>{children}</ReduxProvider>
     </NextIntlClientProvider>
   );
 }

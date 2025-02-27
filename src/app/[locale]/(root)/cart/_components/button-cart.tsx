@@ -1,11 +1,10 @@
-import Link from "next/link";
-import React from "react";
+import { Link } from "~/i18n/routing";
 
-interface ButtonProps{
-  href: string,
-  children: React.ReactNode
+interface ButtonProps {
+  href: string;
+  children: React.ReactNode;
 }
-export const ButtonCart = ({href, children} : ButtonProps) => {
+export const ButtonCart = ({ href, children }: ButtonProps) => {
   return (
     <Link
       href={href}

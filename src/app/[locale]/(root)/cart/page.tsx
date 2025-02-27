@@ -33,7 +33,7 @@ const page = () => {
       <SectionTitle>Shopping Cart</SectionTitle>
       <div className="grid grid-cols-12 gap-5 md:gap-20">
         <div className="col-span-12 flex flex-col gap-5 md:col-span-6">
-       <ProductsHolderCart/>
+          <ProductsHolderCart />
         </div>
         <div className="col-span-12 flex flex-col gap-5 md:col-span-6">
           <SummaryOrder />
