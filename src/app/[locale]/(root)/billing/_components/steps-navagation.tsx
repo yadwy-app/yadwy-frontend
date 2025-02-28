@@ -5,12 +5,12 @@ interface StepsProps {
   label: string;
 }
 
-interface StepOrderProps {
+interface Props {
   steps: StepsProps[];
   currentStep: number;
 }
 
-export const Steps = ({ steps, currentStep }: StepOrderProps) => {
+export default function StepNavagation({ steps, currentStep }: Props) {
   return (
     <div className="mb-10">
       <ol className="flex w-full items-center">
@@ -44,4 +44,4 @@ export const Steps = ({ steps, currentStep }: StepOrderProps) => {
       </div> */}
     </div>
   );
-};
+}

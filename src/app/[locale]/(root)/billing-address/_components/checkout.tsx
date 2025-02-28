@@ -344,11 +344,11 @@ const Checkout = () => {
           exit={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.3 }}
         >
-          <TapsPay
-            PayInfo={PayInfo}
-            tapActive={tapActiveHandle}
-            currentTap={currentPay}
-          />
+          {/* <TapsPay */}
+          {/*   PayInfo={PayInfo} */}
+          {/*   tapActive={tapActiveHandle} */}
+          {/*   currentTap={currentPay} */}
+          {/* /> */}
           {currentPay === "Credit / Debit Card" && (
             <>
               <Visa cardInfo={cardInfo} />
@@ -370,7 +370,9 @@ const Checkout = () => {
                     <FormField
                       key={field.name}
                       control={formCards.control}
-                      name={field.name as "number" | "name" | "expiredate" | "cvc"}
+                      name={
+                        field.name as "number" | "name" | "expiredate" | "cvc"
+                      }
                       render={({ field: inputField }) => (
                         <FormItem className={field.col ?? "col-span-4"}>
                           <FormLabel>{field.label}</FormLabel>
