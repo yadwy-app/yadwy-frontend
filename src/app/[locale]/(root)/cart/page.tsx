@@ -8,7 +8,7 @@ import Link from "next/link";
 import AlsoLike from "../_sections/also-like";
 import { ProductsHolder } from "./_components/products-holder";
 import { ProductsHolderCart } from "./_components/box-product-cart";
-
+import { useTranslations } from "next-intl";
 const page = () => {
   // const products = [
   //   {
@@ -28,9 +28,10 @@ const page = () => {
   //     image: "/cart/Rectangle 258.png",
   //   },
   // ];
+  const t = useTranslations("cartPage");
   return (
     <div className="flex min-h-screen w-full flex-col gap-10 p-5">
-      <SectionTitle>Shopping Cart</SectionTitle>
+      <SectionTitle>{t("title")}</SectionTitle>
       <div className="grid grid-cols-12 gap-5 md:gap-20">
         <div className="col-span-12 flex flex-col gap-5 md:col-span-6">
           <ProductsHolderCart />

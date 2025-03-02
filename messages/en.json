@@ -25,5 +25,15 @@
 				"desc": "The products we sell are durable, and authenticated by professionals"
 			}
 		}
+	},
+	"cartPage": {
+		"title": "Shopping Cart",
+		"products": {
+			"isEmpty": {
+				"title": "Your cart is empty",
+				"description": "Add some products to your cart to see them here.",
+				"button": "Continue shopping"
+			}
+		}
 	}
 }

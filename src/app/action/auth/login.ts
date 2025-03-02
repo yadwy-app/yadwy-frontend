@@ -6,5 +6,6 @@ export default async function login(_: unknown, form: FormData) {
   if (!parsed.success) {
     return { error: parsed.error };
   }
+  console.log(parsed.data);
   return { fields: parsed.data };
 }

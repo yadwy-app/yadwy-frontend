@@ -11,11 +11,10 @@ export const mockProductData = [
     description:
       "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat. Ultrices pellentesque amet scelerisque velit ultrices erat tincidunt praesent nunc. Felis eget morbi vitae tincidunt turpis phasellus ",
     images: [
-      "https://i.suar.me/K48O2/m",
-      "https://i.suar.me/v39m4/l",
-      "https://i.suar.me/QqzyJ/l",
-      "https://i.suar.me/K48O2/m",
-      "https://i.suar.me/v39m4/l",
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
     ],
     reviewComment: [
       {
@@ -48,9 +47,12 @@ export const mockProductData = [
     price: "$200",
     description: "This is a detailed description of Product 2.",
     images: [
-      "https://i.suar.me/K48O2/m",
-      "https://i.suar.me/QqzyJ/l",
-      "https://i.suar.me/v39m4/l",
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
     ],
     reviewComment: [
       {
@@ -76,7 +78,6 @@ export const mockProductData = [
       },
     ],
   },
-  // Add more products as needed
 ];
 
 export const features = [
