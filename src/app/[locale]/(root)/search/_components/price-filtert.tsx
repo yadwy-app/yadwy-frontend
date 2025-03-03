@@ -1,16 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { DualRangeSlider } from "~/components/ui/dual-range";
 import { Input } from "~/components/ui/input";
 
-export const PriceFilter = () => {
-  const [values, setValues] = useState([0, 100]);
+interface PriceFilterProps {
+  priceRange: number[] | undefined; // Allow undefined
+  setPriceRange: (values: number[]) => void;
+}
+
+export const PriceFilter = ({
+  priceRange,
+  setPriceRange,
+}: PriceFilterProps) => {
+  // Use a fallback value if priceRange is undefined
+  const safePriceRange = priceRange || [0, 100];
 
   const handleInputChange = (index: number, newValue: string) => {
-    const updatedValues = [...values];
+    const updatedValues = [...safePriceRange];
     updatedValues[index] = newValue === "" ? 0 : Number(newValue);
-    setValues(updatedValues);
+    setPriceRange(updatedValues);
   };
 
   return (
@@ -18,9 +27,9 @@ export const PriceFilter = () => {
       <h6 className="font-bold text-textColor">Price</h6>
       <div className="my-6">
         <DualRangeSlider
-          label={(value) => value}
-          value={values}
-          onValueChange={setValues}
+          label={(value) => `$${value}`}
+          value={safePriceRange}
+          onValueChange={setPriceRange}
           min={0}
           max={100}
           step={1}
@@ -28,12 +37,12 @@ export const PriceFilter = () => {
       </div>
       <div className="flex gap-3 mb-5">
         <Input
-          value={values[0]}
+          value={safePriceRange[0]}
           onChange={(e) => handleInputChange(0, e.target.value)}
           className="border-gray-300"
         />
         <Input
-          value={values[1]}
+          value={safePriceRange[1]}
           onChange={(e) => handleInputChange(1, e.target.value)}
           className="border-gray-300"
         />
