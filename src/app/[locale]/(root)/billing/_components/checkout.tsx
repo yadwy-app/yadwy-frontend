@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, CreditCard, MapPin, Package } from "lucide-react";
+import { Check, CreditCard, MapPin } from "lucide-react";
 import { z } from "zod";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
@@ -11,40 +11,29 @@ import { useMultiStepForm } from "~/hooks/use-multi-form";
 import PersonalInfoForm from "./personal-info-form";
 import PaymentForm from "./payment-form";
 import ThankYou from "./thank-you";
-import OrderSummary from "./order-summary";
 import StepsNavagation from "./steps-navagation";
-
-const PersonalInfoSchema = z.object({
-  name: z.string().min(2, { message: "Name is required" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  phone: z.string().min(10, { message: "Valid phone number is required" }),
-  address: z.string().min(5, { message: "Address is required" }),
-  country: z.string().min(1, { message: "Country is required" }),
-  state: z.string().min(1, { message: "State is required" }),
-  zipCode: z.string().min(1, { message: "Zip code is required" }),
-});
-
-const PaymentMethodSchema = z.object({
-  paymentMethod: z.enum(["card", "paypal", "cash"]),
-  cardNumber: z.string().optional(),
-  cardName: z.string().optional(),
-  expiryDate: z.string().optional(),
-  cvv: z.string().optional(),
-});
+import {
+  OrderDataType,
+  PaymentInfoType,
+  PaymentMethodSchema,
+  PersonalInfoSchema,
+  PersonalInfoType,
+} from "~/schemas/checkout-order";
+import { toast } from "~/hooks/use-toast";
+import { cn } from "~/lib/utils";
+import { Link } from "~/i18n/routing";
 
 export default function Checkout() {
-  const [orderData, setOrderData] = useState({});
+  const [orderData, setOrderData] = useState<Partial<OrderDataType>>({});
 
   const personalInfoForm = useForm<z.infer<typeof PersonalInfoSchema>>({
     resolver: zodResolver(PersonalInfoSchema),
     defaultValues: {
       name: "",
-      email: "",
       phone: "",
       address: "",
       country: "",
       state: "",
-      zipCode: "",
     },
   });
 
@@ -61,80 +50,97 @@ export default function Checkout() {
     { id: 3, icon: <Check className="h-5 w-5" />, label: "Confirmation" },
   ];
 
-  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } = useMultiStepForm([
-    <PersonalInfoForm key="step1" form={personalInfoForm} />,
-    <PaymentForm key="step2" form={paymentForm} />,
-    <ThankYou key="step3" orderData={orderData} />,
-  ]);
+  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } =
+    useMultiStepForm([
+      <PersonalInfoForm key="step1" form={personalInfoForm} />,
+      <PaymentForm key="step2" form={paymentForm} />,
+      <ThankYou key="step3" />,
+    ]);
 
-  function onSubmit(data: any) {
-    if (!isLastStep) {
-      if (currentStepIndex === 0) {
-        setOrderData((prev) => ({ ...prev, personalInfo: personalInfoForm.getValues() }));
-      } else if (currentStepIndex === 1) {
-        setOrderData((prev) => ({ ...prev, payment: paymentForm.getValues() }));
-      }
+  async function sendDataToServer(data: OrderDataType) {
+    try {
+      console.log("Server data sending:", data);
+      // Simulate an API call (replace with actual fetch/axios in production)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      toast({
+        title: "Success",
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+          </pre>
+        ),
+      });
+    } catch (error) {
+      console.error("Error sending data to server:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit payment method. Please try again.",
+        variant: "destructive",
+      });
+    }
+  }
+
+  function onSubmit(data: PersonalInfoType | PaymentInfoType) {
+    if (currentStepIndex === 0) {
+      setOrderData({ personalInfo: data as PersonalInfoType });
       next();
-    } else {
-      console.log("Final Submission:", orderData);
-      // Submit order to backend
+    }
+    if (currentStepIndex === 1) {
+      if (!orderData.personalInfo) {
+        console.error("Personal info is missing");
+        return;
+      }
+      const fullData: OrderDataType = {
+        personalInfo: orderData.personalInfo,
+        paymentInfo: data as PaymentInfoType,
+      };
+      sendDataToServer(fullData);
+      next();
     }
   }
 
   const currentForm = currentStepIndex === 0 ? personalInfoForm : paymentForm;
 
   return (
-    <div className="col-span-12 md:col-span-6">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold">Checkout</h1>
-        <p className="text-sm text-muted-foreground">Complete your purchase securely</p>
-      </div>
-
-      {/* Steps Indicator */}
-      <div className="mb-8">
-        <StepsNavagation steps={steps} currentStep={currentStepIndex + 1} />
-      </div>
-
-      <div className="grid gap-8 md:grid-cols-3">
-        {/* Main Form */}
-        <div className="md:col-span-2">
-          <Card>
-            <CardContent className="p-6">
-              <FormProvider {...currentForm}>
-                <form onSubmit={currentForm.handleSubmit(onSubmit)} className="space-y-6">
-                  {step}
-                  <div className="flex justify-between pt-4">
-                    {!isFirstStep && (
-                      <Button type="button" variant="outline" onClick={back}>
-                        Back
-                      </Button>
-                    )}
-                    <Button 
-                      type="submit" 
-                      className={`${isFirstStep ? "ml-auto" : ""} bg-primary hover:bg-primary/90`}
-                    >
-                      {isLastStep ? "Complete Order" : "Continue"}
+    <div className="col-span-12 flex flex-col gap-5 md:col-span-6 w-full">
+      <StepsNavagation steps={steps} currentStep={currentStepIndex + 1} />
+      <Card className="border-primary">
+        <CardContent className="p-6">
+          {currentStepIndex < 2 ? (
+            // @ts-ignore
+            <FormProvider {...currentForm}>
+              <form
+                onSubmit={currentForm.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
+                {step}
+                <div className="flex justify-between pt-4">
+                  {!isFirstStep && (
+                    <Button type="button" variant="outline" onClick={back}>
+                      Back
                     </Button>
-                  </div>
-                </form>
-              </FormProvider>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Order Summary */}
-        <div className="md:col-span-1">
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold">Order Summary</h2>
-                <Package className="h-5 w-5 text-muted-foreground" />
+                  )}
+                  <Button
+                    type="submit"
+                    className={cn("text-white", isFirstStep ? "ml-auto" : "")}
+                  >
+                    Continue
+                  </Button>
+                </div>
+              </form>
+            </FormProvider>
+          ) : (
+            <div>
+              {step}
+              <div className="flex justify-end pt-4">
+                <Link href="/" className="text-background">
+                  <Button>Go to Home</Button>
+                </Link>
               </div>
-              <OrderSummary />
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 }

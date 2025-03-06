@@ -1,4 +1,3 @@
-import React from "react";
 import { SectionTitle } from "~/components/section";
 import { Summary } from "../cart/_components/summary";
 import { Search } from "../_components/search";
