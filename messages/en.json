@@ -37,19 +37,20 @@
 		}
 	},
 	"Login": {
-		"title": "Welcome",
-		"description": "Log in to access more services",
-		"primaryButtonText": "Log In",
-		"secondaryButtonText": "Forgot Password",
+		"title": "Sign In",
+		"description": "Enter your credentials to access your account",
 		"Fields": {
 			"email": "Email",
 			"emailPlaceholder": "Enter your email",
 			"password": "Password",
 			"passwordPlaceholder": "Enter your password"
 		},
-		"error": {
-			"WrongEmailOrPasswordError": "Incorrect email or password",
-			"InvalidFormatError": "Invalid email format"
+		"primaryButtonText": "Log In",
+		"secondaryButtonText": "Forgot Password?",
+		"or": "Or",
+		"signup": {
+			"title": "Don't have an account?",
+			"button": "Sign Up"
 		}
 	},
 	"validation": {
