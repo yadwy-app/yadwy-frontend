@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 
 import type { Metadata } from "next";
 import { cn } from "~/lib/utils";
-import { lexend } from "~/styles/fonts";
+import { lalezar, lexend } from "~/styles/fonts";
 import { Toaster } from "~/components/ui/toaster";
 
 export const metadata: Metadata = {
@@ -10,16 +10,21 @@ export const metadata: Metadata = {
   description: "احدث المنتجات الزراعية",
   icons: [{ rel: "icon", url: "/logo.svg" }],
 };
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   return (
-    <html lang="ar">
+    <html lang={locale}>
       <body
         className={cn(
           "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
           lexend.variable,
+          lalezar.variable,
         )}
       >
         {children}

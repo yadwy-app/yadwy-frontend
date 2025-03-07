@@ -12,7 +12,6 @@ import { Button } from "../ui/button";
 import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
 import { LinkIcon } from "../ui/link-icon";
-import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import {
   NavigationMenu,
@@ -26,7 +25,7 @@ import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
 
 export const Navbar = () => {
   return (
-    <div className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8 max-w-7xl mx-auto">
+    <div className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8  mx-auto">
       <div className="flex w-full items-center justify-between">
         <Link href={"/"} className="relative h-12 w-28">
           <Image
@@ -59,7 +58,7 @@ export const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-3 border-x-2 border-gray-200 px-3">
-            <CartBtn/>
+            <CartBtn />
             <LinkIcon href="">
               <FaHeart className="text-1xl text-primary" />
             </LinkIcon>

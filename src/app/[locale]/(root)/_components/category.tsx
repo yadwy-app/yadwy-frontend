@@ -12,7 +12,7 @@ export default function Category({ name, image }: Props) {
         src={image}
         width={200}
         height={200}
-        className="w-80 rounded-lg object-cover"
+        className="md:w-96 w-80 rounded-lg object-cover"
         priority
         alt={name}
       />

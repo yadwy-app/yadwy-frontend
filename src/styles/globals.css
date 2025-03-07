@@ -3,78 +3,76 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 99%;
-    --foreground: 0 0% 12%;
-    --card: 0 0% 99%;
-    --card-foreground: 0 0% 12%;
-    --popover: 0 0% 99%;
-    --popover-foreground: 0 0% 12%;
-    --primary: 180 21% 64%;
-    --primary-foreground: 0 0% 12%;
-    --secondary: 180 21% 20%;
-    --secondary-foreground: 0 0% 99%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 180 20% 93%;
-    --accent-foreground: 0 0% 12%;
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 12%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 180 20% 40%;
-    --radius: 0.5rem;
-    --lightPrimary: #e2ebeb;
-    --textColor: #5E6A6B;
-  }
+	:root {
+		--background: 0 0% 99%;
+		--foreground: 0 0% 12%;
+		--card: 0 0% 99%;
+		--card-foreground: 0 0% 12%;
+		--popover: 0 0% 99%;
+		--popover-foreground: 0 0% 12%;
+		--primary: 180 21% 64%;
+		--primary-foreground: 0 0% 12%;
+		--secondary: 180 21% 20%;
+		--secondary-foreground: 0 0% 99%;
+		--muted: 0 0% 20%;
+		--muted-foreground: 0 0% 70%;
+		--accent: 180 20% 93%;
+		--accent-foreground: 0 0% 12%;
+		--destructive: 0 85% 60%;
+		--destructive-foreground: 0 0% 12%;
+		--border: 0 0% 20%;
+		--input: 0 0% 20%;
+		--ring: 180 20% 40%;
+		--radius: 0.5rem;
+		--lightPrimary: #e2ebeb;
+		--textColor: #5e6a6b;
+	}
 
-  .dark {
-    --background: 0 0% 1%;
-    --foreground: 0 0% 88%;
-    --card: 0 0% 1%;
-    --card-foreground: 0 0% 88%;
-    --popover: 0 0% 1%;
-    --popover-foreground: 0 0% 88%;
-    --primary: 180 21% 36%;
-    --primary-foreground: 0 0% 1%;
-    --secondary: #3E5F5F;
-    --secondary-foreground: 0 0% 1%;
-    --muted: 0 0% 80%;
-    --muted-foreground: 0 0% 88%;
-    --accent: 180 20% 7%;
-    --accent-foreground: 0 0% 88%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 10%;
-    --border: 0 0% 60%;
-    --input: 0 0% 80%;
-    --ring: 180 20% 60%;
-  }
+	.dark {
+		--background: 0 0% 1%;
+		--foreground: 0 0% 88%;
+		--card: 0 0% 1%;
+		--card-foreground: 0 0% 88%;
+		--popover: 0 0% 1%;
+		--popover-foreground: 0 0% 88%;
+		--primary: 180 21% 36%;
+		--primary-foreground: 0 0% 1%;
+		--secondary: #3e5f5f;
+		--secondary-foreground: 0 0% 1%;
+		--muted: 0 0% 80%;
+		--muted-foreground: 0 0% 88%;
+		--accent: 180 20% 7%;
+		--accent-foreground: 0 0% 88%;
+		--destructive: 0 62% 30%;
+		--destructive-foreground: 0 0% 10%;
+		--border: 0 0% 60%;
+		--input: 0 0% 80%;
+		--ring: 180 20% 60%;
+	}
 }
 @layer base {
-  * {
-    @apply border-border;
-  }
+	* {
+		@apply border-border;
+	}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+	body {
+		@apply bg-background text-foreground;
+	}
 }
 
 html {
-  font-family: "Lexend", sans-serif;
+	font-family: "Lexend", sans-serif;
 }
 
 [lang="ar"] {
-  font-family: "Lalezar", cursive;
+	font-family: "Lalezar", cursive;
 }
 
-
-
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }
