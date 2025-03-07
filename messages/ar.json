@@ -35,5 +35,37 @@
 				"button": "مواصلة التسوق"
 			}
 		}
+	},
+	"Login": {
+		"title": "مرحبا بك",
+		"description": "قم بتسجيل الدخول للحصول على المزيد من الخدمات",
+		"primaryButtonText": "تسجيل الدخول",
+		"secondaryButtonText": "نسيت كلمة المرور",
+		"or": "او يمكنك تسجيل الدخول بواسطة",
+		"Fields": {
+			"email": "البريد الالكتروني",
+			"emailPlaceholder": "ادخل البريد الالكتروني",
+			"password": "كلمة المرور",
+			"passwordPlaceholder": "ادخل كلمة المرور"
+		},
+		"error": {
+			"WrongEmailOrPasswordError": "البريد الالكتروني او كلمة المرور غير صحيحة",
+			"InvalidFormatError": "خطاء في تنسيق البريد الالكتروني"
+		},
+		"signup": {
+			"title": "ليس لديك حساب؟",
+			"button": "انشاء حساب"
+		}
+	},
+	"validation": {
+		"firstNameRequired": "الاسم الأول مطلوب",
+		"firstNameInvalid": "يجب أن يكون الاسم الأول باللغة العربية أو الإنجليزية",
+		"lastNameRequired": "اسم العائلة مطلوب",
+		"lastNameInvalid": "يجب أن يكون اسم العائلة باللغة العربية أو الإنجليزية",
+		"addressRequired": "العنوان مطلوب",
+		"addressInvalid": "يجب أن يكون العنوان باللغة العربية أو الإنجليزية",
+		"emailInvalid": "عنوان البريد الإلكتروني غير صالح",
+		"passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+		"passwordMismatch": "كلمتا المرور غير متطابقتين"
 	}
 }

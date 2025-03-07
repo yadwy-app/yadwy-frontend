@@ -17,7 +17,6 @@ const PasswordField = forwardRef<HTMLInputElement, Props>(
       <div className="flex gap-x-2 items-center justify-center">
         <div className="relative flex items-center justify-center w-full">
           <Input
-            placeholder="password"
             type={showPassword ? "text" : "password"}
             {...props}
             ref={ref}

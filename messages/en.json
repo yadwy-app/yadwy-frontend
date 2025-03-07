@@ -35,5 +35,32 @@
 				"button": "Continue shopping"
 			}
 		}
+	},
+	"Login": {
+		"title": "Welcome",
+		"description": "Log in to access more services",
+		"primaryButtonText": "Log In",
+		"secondaryButtonText": "Forgot Password",
+		"Fields": {
+			"email": "Email",
+			"emailPlaceholder": "Enter your email",
+			"password": "Password",
+			"passwordPlaceholder": "Enter your password"
+		},
+		"error": {
+			"WrongEmailOrPasswordError": "Incorrect email or password",
+			"InvalidFormatError": "Invalid email format"
+		}
+	},
+	"validation": {
+		"firstNameRequired": "First name is required",
+		"firstNameInvalid": "First name must be in Arabic or English",
+		"lastNameRequired": "Last name is required",
+		"lastNameInvalid": "Last name must be in Arabic or English",
+		"addressRequired": "Address is required",
+		"addressInvalid": "Address must be in Arabic or English",
+		"emailInvalid": "Invalid email address",
+		"passwordMin": "Password must be at least 8 characters",
+		"passwordMismatch": "Passwords do not match"
 	}
 }

@@ -15,6 +15,7 @@ import { Button } from "~/components/ui/button";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "~/hooks/use-toast";
+import { cn } from "~/lib/utils";
 
 type Props<T extends z.ZodType> = FormProps<T> & {
   primaryButtonText: string;
@@ -22,8 +23,7 @@ type Props<T extends z.ZodType> = FormProps<T> & {
     href: string;
     text: string;
   };
-  className?: string;  
-
+  className?: string;
 };
 
 export default function Form<T extends z.ZodType>({
@@ -65,9 +65,9 @@ export default function Form<T extends z.ZodType>({
         ref={ref}
         onSubmit={handleSubmit}
         action={formAction}
-        className={`space-y-8 `}
+        className={"space-y-8"}
       >
-        <div className={`space-y-4  ${className}`}>
+        <div className={cn("space-y-4", className)}>
           {inputs.map((item) => (
             <FormField
               key={item.name}
@@ -75,9 +75,15 @@ export default function Form<T extends z.ZodType>({
               name={item.name}
               render={({ field }) => (
                 <FormItem className="relative">
-                  <FormLabel className="capitalize text-base">
-                    {field.name.replace(/([A-Z][a-z])/g, " $1")}
-                  </FormLabel>
+                  {item.label ? (
+                    <FormLabel className="capitalize text-base">
+                      {item.label}
+                    </FormLabel>
+                  ) : (
+                    <FormLabel className="capitalize text-base">
+                      {field.name.replace(/([A-Z][a-z])/g, " $1")}
+                    </FormLabel>
+                  )}
                   <FormControl>
                     <item.Field {...field} />
                   </FormControl>

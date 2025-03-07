@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import CategoryFilter from "./_components/category-filter";
 import {
   Select,
@@ -9,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { products } from "~/data";
 import ProductCard from "../_components/product-card";
 import {
   Pagination,
@@ -19,43 +18,41 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "~/components/ui/pagination";
-import { PriceFilter } from "./_components/price-filtert";
 import { useRouter } from "~/i18n/routing";
 import { useSearchParams } from "next/navigation";
+import { useDebounce } from "~/hooks/useDebounce";
+import { products } from "~/data";
+import { PriceFilter } from "./_components/price-filtert";
+
+// Extract unique categories dynamically
+// const categories = ["Armani", "Calvin Klein"];
 
 const SearchPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Filter state
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  // States
+  const [priceRange, setPriceRange] = useState([0, 150]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("none");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  // Categories with counts (derived from products or static)
-  interface CategoryProps {
-    name: string;
-    count: number;
-  }
-  const categories: CategoryProps[] = [
-    {
-      name: "Armani",
-      count: products.filter((p) => p.category === "Armani").length,
-    },
-    {
-      name: "Calvin Klein",
-      count: products.filter((p) => p.category === "Calvin Klein").length,
-    },
-  ];
-
+  // Debounced Filters
+  const debouncedPriceRange = useDebounce(priceRange, 500);
+  const debouncedCategories = useDebounce(selectedCategories, 500);
+  const debouncedSortBy = useDebounce(sortBy, 500);
+  const categories = useMemo(
+    () =>
+      ["Armani", "Calvin Klein"].map((name) => ({
+        name,
+        count: products.filter((p) => p.category === name).length,
+      })),
+    [],
+  );
   // Sync state with URL on initial load
   useEffect(() => {
-    const urlMinPrice = searchParams.get("minPrice")
-      ? Number(searchParams.get("minPrice"))
-      : 0;
-    const urlMaxPrice = searchParams.get("maxPrice")
-      ? Number(searchParams.get("maxPrice"))
-      : 100;
+    const urlMinPrice = Number(searchParams.get("minPrice")) || 0;
+    const urlMaxPrice = Number(searchParams.get("maxPrice")) || 150;
     const urlCategories = searchParams.get("categories")?.split(",") || [];
     const urlSort = searchParams.get("sort") || "none";
 
@@ -65,39 +62,46 @@ const SearchPage = () => {
   }, [searchParams]);
 
   // Update URL when filters change
-  const updateUrl = () => {
+  useEffect(() => {
     const params = new URLSearchParams();
-    if (priceRange[0] !== 0) params.set("minPrice", priceRange[0].toString());
-    if (priceRange[1] !== 100) params.set("maxPrice", priceRange[1].toString());
-    if (selectedCategories.length > 0)
-      params.set("categories", selectedCategories.join(","));
-    if (sortBy !== "none") params.set("sort", sortBy);
+    if (debouncedPriceRange[0] !== 0)
+      params.set("minPrice", debouncedPriceRange[0].toString());
+    if (debouncedPriceRange[1] !== 150)
+      params.set("maxPrice", debouncedPriceRange[1].toString());
+    if (debouncedCategories.length > 0)
+      params.set("categories", debouncedCategories.join(","));
+    if (debouncedSortBy !== "none") params.set("sort", debouncedSortBy);
     router.push(`/search?${params.toString()}`, { scroll: false });
-  };
+  }, [debouncedPriceRange, debouncedCategories, debouncedSortBy, router]);
 
-  // Filter and sort products
-  const filteredProducts = products
-    .filter((product) => {
-      const matchesPrice =
-        product.price >= priceRange[0] && product.price <= priceRange[1];
-      const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.includes(product.category);
-      return matchesPrice && matchesCategory;
-    })
-    .sort((a, b) => {
-      if (sortBy === "Most Expensive") return b.price - a.price;
-      return 0; // Default: no sorting
-    });
+  // Filtered and sorted products
+  const filteredProducts = useMemo(() => {
+    return products
+      .filter((product) => {
+        const matchesPrice =
+          product.price >= debouncedPriceRange[0] &&
+          product.price <= debouncedPriceRange[1];
+        const matchesCategory =
+          debouncedCategories.length === 0 ||
+          debouncedCategories.includes(product.category);
+        return matchesPrice && matchesCategory;
+      })
+      .sort((a, b) =>
+        debouncedSortBy === "Most Expensive" ? b.price - a.price : 0,
+      );
+  }, [products, debouncedPriceRange, debouncedCategories, debouncedSortBy]);
 
-  // Pagination (basic example, expand as needed)
-  const itemsPerPage = 9;
-  const [currentPage, setCurrentPage] = useState(1);
-  const paginatedProducts = filteredProducts.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage,
-  );
+  // Pagination
+  const itemsPerPage = 6;
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const paginatedProducts = useMemo(
+    () =>
+      filteredProducts.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage,
+      ),
+    [filteredProducts, currentPage],
+  );
 
   return (
     <div className="grid w-full grid-cols-12 gap-10">
@@ -107,7 +111,7 @@ const SearchPage = () => {
           <button
             className="text-primary"
             onClick={() => {
-              setPriceRange([0, 100]);
+              setPriceRange([0, 150]);
               setSelectedCategories([]);
               setSortBy("none");
               router.push("/search");
@@ -116,26 +120,18 @@ const SearchPage = () => {
             Clear All
           </button>
         </div>
-        <PriceFilter
-          priceRange={priceRange}
-          setPriceRange={(values) => {
-            setPriceRange(values);
-            updateUrl();
-          }}
-        />
+        <PriceFilter priceRange={priceRange} setPriceRange={setPriceRange} />
         <CategoryFilter
           categories={categories}
           selectedCategories={selectedCategories}
-          setSelectedCategories={(cats) => {
-            setSelectedCategories(cats);
-            updateUrl();
-          }}
+          setSelectedCategories={setSelectedCategories}
         />
       </div>
+
       <div className="col-span-9">
         <div className="mb-5 flex items-end justify-between">
           <div>
-            <h6 className="mb-1 text-2xl font-bold">Search Query</h6>
+            <h6 className="mb-1 text-2xl font-bold">Search Results</h6>
             <div className="font-bold text-green-900">
               {filteredProducts.length}{" "}
               <span className="text-primary">items</span>
@@ -143,13 +139,7 @@ const SearchPage = () => {
           </div>
           <div className="flex items-center gap-3">
             <span className="text-sm text-primary">Sort By:</span>
-            <Select
-              value={sortBy}
-              onValueChange={(value) => {
-                setSortBy(value);
-                updateUrl();
-              }}
-            >
+            <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-[100px] border-0 text-start">
                 <SelectValue placeholder="none" />
               </SelectTrigger>
@@ -160,6 +150,7 @@ const SearchPage = () => {
             </Select>
           </div>
         </div>
+
         <div className="grid grid-cols-3 gap-5">
           {paginatedProducts.map((product) => (
             <ProductCard
@@ -172,13 +163,15 @@ const SearchPage = () => {
             />
           ))}
         </div>
+
+        {/* Pagination */}
         <Pagination className="justify-end mt-16">
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious
                 href="#"
                 className="bg-primary text-white"
-                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               />
             </PaginationItem>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -201,7 +194,7 @@ const SearchPage = () => {
                 href="#"
                 className="bg-primary text-white"
                 onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                  setCurrentPage((p) => Math.min(p + 1, totalPages))
                 }
               />
             </PaginationItem>

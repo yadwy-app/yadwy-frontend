@@ -8,72 +8,79 @@ import PasswordField from "../_components/password-field";
 
 import { default as BaseForm } from "../_components/form";
 import { forwardRef } from "react";
-import { LoginSchema } from "~/schemas/auth";
 import login from "~/app/action/auth/login";
 import { Link } from "~/i18n/routing";
+import { useTranslations } from "next-intl";
+import { LoginSchema } from "~/schemas/auth";
 
-const schema = LoginSchema;
+const schemas = LoginSchema;
 const defaultValues = {
   email: "",
   password: "",
 };
 const action = login;
+
 export function LoginForm() {
+  const t = useTranslations("Login");
+  const emailplaceholder = t("Fields.emailPlaceholder");
+  const passwordplaceholder = t("Fields.passwordPlaceholder");
+  const inputs = [
+    {
+      name: "email",
+      label: t("Fields.email"),
+      Field: forwardRef(function InputField(props: any, ref) {
+        return (
+          <Field
+            placeholder={emailplaceholder}
+            className="placeholder:capitalize"
+            autoComplete="email"
+            {...props}
+            ref={ref}
+          />
+        );
+      }),
+    },
+    {
+      name: "password",
+      label: t("Fields.password"),
+      Field: forwardRef(function InputField(props: any, ref) {
+        return (
+          <PasswordField
+            placeholder={passwordplaceholder}
+            autoComplete="current-password"
+            className="placeholder:capitalize"
+            {...props}
+            ref={ref}
+          />
+        );
+      }),
+    },
+  ];
   return (
     <Card className="overflow-hidden border-none shadow-xl">
       <CardContent className="grid p-0 md:grid-cols-2">
         <div className="p-6 md:p-8">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center text-center">
-              <h2 className="text-2xl font-bold">Welcome back</h2>
-              <p className="text-balance text-muted">
-                Login to your Acme Inc account
-              </p>
+              <h2 className="text-2xl ltr:font-bold">{t("title")}</h2>
+              <p className="ltr:text-balance text-muted">{t("description")}</p>
             </div>
             <BaseForm
               defaultValues={defaultValues}
-              schema={schema}
+              schema={schemas}
               action={action}
-              inputs={[
-                {
-                  name: "email",
-                  Field: forwardRef(function InputField(props: any, ref) {
-                    return (
-                      <Field
-                        placeholder="email"
-                        className="placeholder:capitalize"
-                        autoComplete="email"
-                        {...props}
-                        ref={ref}
-                      />
-                    );
-                  }),
-                },
-                {
-                  name: "password",
-                  Field: forwardRef(function InputField(props: any, ref) {
-                    return (
-                      <PasswordField
-                        autoComplete="current-password"
-                        className="placeholder:capitalize"
-                        {...props}
-                        ref={ref}
-                      />
-                    );
-                  }),
-                },
-              ]}
-              primaryButtonText="Login"
+              inputs={inputs}
+              primaryButtonText={t("primaryButtonText")}
               secondaryButtonLink={{
                 href: "/forgot-password",
-                text: "Forgot Password?",
+                text: t("secondaryButtonText"),
               }}
             />
-            <Providers />
+            <Providers text={t("or")} />
             <div className="text-center text-sm">
-              Don&apos;t have an account?{" "}
+              {t("signup.title")}{" "}
               <Link href="/sign-up" className="underline underline-offset-4">
-                Sign up
+                {t("signup.button")}
               </Link>
             </div>
           </div>

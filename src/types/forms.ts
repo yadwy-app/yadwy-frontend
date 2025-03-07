@@ -4,6 +4,7 @@ import type { z } from "zod";
 type Inputs<T extends z.ZodType, V extends Path<z.infer<T>>> = {
   className?: string;
   name: V;
+  label?: string;
   Field: React.ForwardRefExoticComponent<
     Omit<ControllerRenderProps<z.infer<T>, V>, "ref"> &
     React.RefAttributes<HTMLInputElement>
