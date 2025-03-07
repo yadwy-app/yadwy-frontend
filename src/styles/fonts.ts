@@ -8,7 +8,7 @@ const lalezar = Lalezar({
 
 const lexend = Lexend({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "400"],
   variable: "--font-heading",
 });
 

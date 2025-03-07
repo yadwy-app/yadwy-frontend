@@ -89,25 +89,33 @@ export default function Form<T extends z.ZodType>({
                   </FormControl>
                 </FormItem>
               )}
-            />
+            />  
           ))}
         </div>
-        <div className="flex justify-between md:gap-x-8 gap-x-2 ">
+        <div className="space-y-4">
+          <div className="flex justify-end">
+            <Button 
+              variant="link" 
+              asChild 
+              type="button" 
+              className="px-0 h-auto font-normal text-sm text-muted-foreground hover:text-primary"
+            >
+              <Link prefetch={false} href={secondaryButtonLink.href}>
+                {secondaryButtonLink.text}
+              </Link>
+            </Button>
+          </div>
+          
           <Button
             type="submit"
             disabled={isPending}
-            className="capitalize w-full text-base"
+            className="w-full text-base"
           >
             {isPending ? (
               <Loader2 className="animate-spin" />
             ) : (
               primaryButtonText
             )}
-          </Button>
-          <Button asChild variant="ghost" type="button" className="capitalize">
-            <Link prefetch={false} href={secondaryButtonLink.href}>
-              {secondaryButtonLink.text}
-            </Link>
           </Button>
         </div>
       </form>
