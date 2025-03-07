@@ -1,26 +1,26 @@
-import { setRequestLocale } from "next-intl/server";
-import useTextDirection from "~/hooks/useDirection";
 import { cn } from "~/lib/utils";
 import { lexend } from "~/styles/fonts";
 import { Provider } from "../providers";
-import { useMessages, useTimeZone } from "next-intl";
-
-export default function RootLayout({
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTimeZone } from "next-intl/server";
+export default async function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: "en" | "ar" };
 }) {
-  setRequestLocale(locale);
-  const direction = useTextDirection(locale);
-  const messages = useMessages();
-  const timezone = useTimeZone();
+  const locale = await getLocale();
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
+  const timezone = await getTimeZone();
+
   return (
-    <div dir={direction} lang={locale} className={cn(lexend.variable)}>
-      <Provider messages={messages} timeZone={timezone} locale={locale}>
-        {children}
-      </Provider>
+    <div lang={locale} className={cn(lexend.variable)}>
+      <NextIntlClientProvider messages={messages} timeZone={timezone}>
+        <Provider>{children}</Provider>
+      </NextIntlClientProvider>
     </div>
   );
 }
