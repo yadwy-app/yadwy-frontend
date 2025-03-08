@@ -1,71 +1,91 @@
 {
-	"HomePage": {
-		"title": "Hello world!",
-		"about": "Go to the about page",
-		"Categories": {
-			"title": "الفئات",
-			"description": "اكتشف عالما من الإبداع في متجرنا، حيث تجد أجمل الأعمال اليدوية."
-		},
-		"NewArt": {
-			"title": "التحف",
-			"description": "مع كل تحفة فنية نشاهدها، نبحر في رحلة عبر الزمن والإبداع، ونلامس مشاعر جديدة ونكتشف أفكارا ملهمة.",
-			"button": "المزيد "
-		},
-		"Features": {
-			"Strength": {
-				"title": "المتانة",
-				"desc": "المنتجات التي نبيعها متينة وموثوقة"
-			},
-			"Natural": {
-				"title": "طبيعي",
-				"desc": "منتجاتنا طبيعية ومصنوعة بأيدي السكان المحليين، مما يساعدهم في دعم مجتمعاتهم"
-			},
-			"Strength_2": {
-				"title": "المتانة",
-				"desc": "المنتجات التي نبيعها متينة وموثوقة من قبل المحترفين"
-			}
-		}
-	},
-	"cartPage": {
-		"title": "سلة التسوق",
-		"products": {
-			"isEmpty": {
-				"title": "سلة التسوق الخاصة بك فارغة",
-				"description": "أضف بعض المنتجات إلى سلة التسوق الخاصة بك لرؤيتها هنا.",
-				"button": "مواصلة التسوق"
-			}
-		}
-	},
-	"Login": {
-		"title": "مرحبا بك",
-		"description": "قم بتسجيل الدخول للحصول على المزيد من الخدمات",
-		"primaryButtonText": "تسجيل الدخول",
-		"secondaryButtonText": "نسيت كلمة المرور",
-		"or": "او يمكنك تسجيل الدخول بواسطة",
-		"Fields": {
-			"email": "البريد الالكتروني",
-			"emailPlaceholder": "ادخل البريد الالكتروني",
-			"password": "كلمة المرور",
-			"passwordPlaceholder": "ادخل كلمة المرور"
-		},
-		"error": {
-			"WrongEmailOrPasswordError": "البريد الالكتروني او كلمة المرور غير صحيحة",
-			"InvalidFormatError": "خطاء في تنسيق البريد الالكتروني"
-		},
-		"signup": {
-			"title": "ليس لديك حساب؟",
-			"button": "انشاء حساب"
-		}
-	},
-	"validation": {
-		"firstNameRequired": "الاسم الأول مطلوب",
-		"firstNameInvalid": "يجب أن يكون الاسم الأول باللغة العربية أو الإنجليزية",
-		"lastNameRequired": "اسم العائلة مطلوب",
-		"lastNameInvalid": "يجب أن يكون اسم العائلة باللغة العربية أو الإنجليزية",
-		"addressRequired": "العنوان مطلوب",
-		"addressInvalid": "يجب أن يكون العنوان باللغة العربية أو الإنجليزية",
-		"emailInvalid": "عنوان البريد الإلكتروني غير صالح",
-		"passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
-		"passwordMismatch": "كلمتا المرور غير متطابقتين"
-	}
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page",
+    "Categories": {
+      "title": "الفئات",
+      "description": "اكتشف عالما من الإبداع في متجرنا، حيث تجد أجمل الأعمال اليدوية."
+    },
+    "NewArt": {
+      "title": "التحف",
+      "description": "مع كل تحفة فنية نشاهدها، نبحر في رحلة عبر الزمن والإبداع، ونلامس مشاعر جديدة ونكتشف أفكارا ملهمة.",
+      "button": "المزيد "
+    },
+    "Features": {
+      "Strength": {
+        "title": "المتانة",
+        "desc": "المنتجات التي نبيعها متينة وموثوقة"
+      },
+      "Natural": {
+        "title": "طبيعي",
+        "desc": "منتجاتنا طبيعية ومصنوعة بأيدي السكان المحليين، مما يساعدهم في دعم مجتمعاتهم"
+      },
+      "Strength_2": {
+        "title": "المتانة",
+        "desc": "المنتجات التي نبيعها متينة وموثوقة من قبل المحترفين"
+      }
+    }
+  },
+  "cartPage": {
+    "title": "سلة التسوق",
+    "products": {
+      "isEmpty": {
+        "title": "سلة التسوق الخاصة بك فارغة",
+        "description": "أضف بعض المنتجات إلى سلة التسوق الخاصة بك لرؤيتها هنا.",
+        "button": "مواصلة التسوق"
+      }
+    }
+  },
+  "Login": {
+    "title": "مرحبا بك",
+    "description": "قم بتسجيل الدخول للحصول على المزيد من الخدمات",
+    "primaryButtonText": "تسجيل الدخول",
+    "secondaryButtonText": "نسيت كلمة المرور",
+    "or": "او يمكنك تسجيل الدخول بواسطة",
+    "Fields": {
+      "email": "البريد الالكتروني",
+      "emailPlaceholder": "ادخل البريد الالكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "ادخل كلمة المرور"
+    },
+    "error": {
+      "WrongEmailOrPasswordError": "البريد الالكتروني او كلمة المرور غير صحيحة",
+      "InvalidFormatError": "خطاء في تنسيق البريد الالكتروني"
+    },
+    "signup": {
+      "title": "ليس لديك حساب؟",
+      "button": "انشاء حساب"
+    }
+  },
+  "SignUp": {
+    "title": "إنشاء حساب",
+    "description": "أدخل معلوماتك لإنشاء حساب جديد",
+    "Fields": {
+      "fullName": "الاسم الكامل",
+      "fullNamePlaceholder": "أدخل اسمك الكامل",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أكد كلمة المرور"
+    },
+    "primaryButtonText": "إنشاء حساب",
+    "or": "أو",
+    "signup": {
+      "title": "هل لديك حساب بالفعل؟",
+      "button": "تسجيل الدخول"
+    }
+  },
+  "validation": {
+    "firstNameRequired": "الاسم الأول مطلوب",
+    "firstNameInvalid": "يجب أن يكون الاسم الأول باللغة العربية أو الإنجليزية",
+    "lastNameRequired": "اسم العائلة مطلوب",
+    "lastNameInvalid": "يجب أن يكون اسم العائلة باللغة العربية أو الإنجليزية",
+    "addressRequired": "العنوان مطلوب",
+    "addressInvalid": "يجب أن يكون العنوان باللغة العربية أو الإنجليزية",
+    "emailInvalid": "عنوان البريد الإلكتروني غير صالح",
+    "passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "passwordMismatch": "كلمتا المرور غير متطابقتين"
+  }
 }
