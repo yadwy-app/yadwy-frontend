@@ -51,6 +51,27 @@
 		"signup": {
 			"title": "Don't have an account?",
 			"button": "Sign Up"
+		},
+		"signUp": "Sign Up"
+	},
+	"SignUp": {
+		"title": "Create Account",
+		"description": "Enter your information to create a new account",
+		"Fields": {
+			"fullName": "Full Name",
+			"fullNamePlaceholder": "Enter your full name",
+			"email": "Email",
+			"emailPlaceholder": "Enter your email",
+			"password": "Password",
+			"passwordPlaceholder": "Enter your password",
+			"confirmPassword": "Confirm Password",
+			"confirmPasswordPlaceholder": "Confirm your password"
+		},
+		"primaryButtonText": "Create Account",
+		"or": "Or",
+		"signup": {
+			"title": "Already have an account?",
+			"button": "Sign In"
 		}
 	},
 	"validation": {
