@@ -1,19 +1,34 @@
-import { CircleUserRound, Folders, Wallet } from "lucide-react";
-import { Separator } from "~/components/ui/separator";
 import { SidebarNav } from "./_components/sidebar-nav";
 import { Navbar } from "~/components/layouts/navbar";
 import { Footer } from "~/components/layouts/footer";
+import { CreditCard, Home, Package, Settings, User } from "lucide-react";
 
-const sidebarNavItems = [
+const links = [
   {
-    title: "Profile",
+    title: "Account",
     href: "/profile",
-    icon: <CircleUserRound />,
+    icon: <User />,
+    exact: true,
   },
   {
     title: "Orders",
     href: "/profile/orders",
-    icon: <Folders />,
+    icon: <Package />,
+  },
+  {
+    title: "Addresses",
+    href: "/profile/addresses",
+    icon: <Home />,
+  },
+  {
+    title: "Payment Methods",
+    href: "/profile/payment",
+    icon: <CreditCard />,
+  },
+  {
+    title: "Settings",
+    href: "/profile/settings",
+    icon: <Settings />,
   },
 ];
 
@@ -25,18 +40,14 @@ export default async function Layout({
   return (
     <>
       <Navbar />
-      <main className="flex min-h-screen scrollbar min-w-0 flex-col items-center justify-between px-6 md:px-10 lg:px-20 py-10 gap-y-20 max-w-6xl lg:max-w-7xl mx-auto @container">
-        <div className="w-full grid md:grid-cols-[minmax(320px,1fr)_3fr] gap-y-8 md:gap-x-8">
-          <aside className="flex relative items-start justify-start flex-col max-h-fit">
-            <div className="md:sticky top-20 w-full 2xl:max-w-xs space-y-4">
-              <h2 className="text-3xl max-w-xs">Account Management</h2>
-              <Separator />
-              <SidebarNav items={sidebarNavItems} />
-            </div>
-          </aside>
-          <div className="flex-1 space-y-6 ">{children}</div>
-        </div>
-      </main>
+      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] py-8">
+        <aside className="hidden w-[200px] flex-col md:flex lg:w-[250px]">
+          <SidebarNav items={links} />
+        </aside>
+        <main className="flex w-full flex-1 flex-col overflow-hidden">
+          {children}
+        </main>
+      </div>
       <Footer />
     </>
   );
