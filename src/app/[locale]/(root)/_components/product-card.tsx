@@ -15,7 +15,7 @@ type Props = {
   title: string;
   price: number;
   image: string;
-  rating: string;
+  rating: number;
 };
 type CartItemProps = {
   id: number;
@@ -71,7 +71,7 @@ export default function ProductCard({ ...props }: Props) {
             <CiHeart className="h-4 w-4" />
           </Button>
           <Button
-            className="gap-1 p-1.5 text-xs text-background"
+            className="gap-1 p-1.5 text-xs text-background min-w-[35px]"
             onClick={() =>
               handleAddCart({
                 id: props.id,
@@ -84,7 +84,7 @@ export default function ProductCard({ ...props }: Props) {
             }
           >
             <TbShoppingBagPlus className="h-4 w-4" />
-            Add to cart
+            <span className="hidden md:block">Add to cart</span>
           </Button>
         </div>
       </CardFooter>
