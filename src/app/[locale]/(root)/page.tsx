@@ -2,8 +2,6 @@ import { useTranslations } from "next-intl";
 import OrderBanner from "./_components/order-banner";
 import { Slider } from "./_components/slider";
 import { Categories } from "./_sections/categories";
-import { Feature } from "./_sections/feature";
-import NewArt from "./_sections/new-art";
 import Products from "./_sections/products";
 const slides = [
   {
