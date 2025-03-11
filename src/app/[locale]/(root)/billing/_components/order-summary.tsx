@@ -2,7 +2,6 @@
 
 import { Separator } from "~/components/ui/separator"
 
-// Sample order data - in a real app, this would come from your cart/state management
 const orderItems = [
   { id: 1, name: "Product 1", price: 49.99, quantity: 1 },
   { id: 2, name: "Product 2", price: 29.99, quantity: 2 },
@@ -53,7 +52,7 @@ export default function OrderSummary() {
       </div>
 
       <div className="rounded-md bg-muted p-3 text-sm">
-        <p className="font-medium">Estimated Delivery</p>
+        <p className="font-medium text-white">Estimated Delivery</p>
         <p className="text-muted-foreground">
           {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString("en-US", {
             month: "short",

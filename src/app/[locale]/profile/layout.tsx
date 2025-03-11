@@ -40,7 +40,7 @@ export default async function Layout({
   return (
     <>
       <Navbar />
-      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] py-8">
+      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] py-8 min-h-[100vh]">
         <aside className="hidden w-[200px] flex-col md:flex lg:w-[250px]">
           <SidebarNav items={links} />
         </aside>
