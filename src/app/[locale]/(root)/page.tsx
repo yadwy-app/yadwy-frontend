@@ -2,8 +2,6 @@ import { useTranslations } from "next-intl";
 import OrderBanner from "./_components/order-banner";
 import { Slider } from "./_components/slider";
 import { Categories } from "./_sections/categories";
-import { Feature } from "./_sections/feature";
-import NewArt from "./_sections/new-art";
 import Products from "./_sections/products";
 const slides = [
   {
@@ -95,22 +93,27 @@ const products = [
 export default function Page() {
   const t = useTranslations("HomePage.NewArt");
   return (
-    <div className="flex flex-col gap-16 w-full">
+    <div className="flex w-full flex-col gap-16">
       <Slider slides={slides} />
       <Categories />
-      <Products
-        title={t("title")}
-        description={t("description")}
-        products={products}
-      />
+      {products.length > 1 && (
+        <Products
+          title={t("title")}
+          description={t("description")}
+          products={products}
+        />
+      )}
+
       <div className="px-2">
         <OrderBanner />
       </div>
-      <Products
-        title="Hot Artworks"
-        description={t("description")}
-        products={products}
-      />
+      {products.length > 1 && (
+        <Products
+          title="Hot Artworks"
+          description={t("description")}
+          products={products}
+        />
+      )}
     </div>
   );
 }

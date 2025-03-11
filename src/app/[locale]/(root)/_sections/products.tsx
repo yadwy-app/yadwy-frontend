@@ -11,9 +11,11 @@ type Product = {
   id: number;
   name: string;
   price: number;
+  category: string;
   image: string;
-  rating: string;
+  rating: number;
 };
+
 type Props = {
   title: string;
   description?: string;
@@ -22,12 +24,12 @@ type Props = {
 export default function Products({ title, description, products }: Props) {
   const t = useTranslations("HomePage.NewArt");
   return (
-    <Section id="NewArt" className="gap-8">
+    <Section id="NewArt" className="gap-8 max-w-7xl mx-auto">
       <SectionTitle>{title}</SectionTitle>
       {description ? (
         <SectionDescription>{description}</SectionDescription>
       ) : null}
-      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {products.map((product) => (
           <ProductCard
             key={product.id}

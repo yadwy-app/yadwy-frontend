@@ -16,18 +16,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import LocaleSwitcher from "../LocaleSwitcher";
 
 export const Footer = () => {
   return (
     <div className="bg-primary px-3 py-5">
       <div className="mx-auto max-w-7xl px-6 py-4 md:px-10 lg:px-20">
-        <div className="grid grid-cols-12 gap-4 mb-3 md:md-0">
+        <div className="md:md-0 mb-3 grid grid-cols-12 gap-4">
           <div className="col-span-12 md:col-span-4">
             <Image
               src="/logo.svg"
               width={100}
               height={90}
-              style={{ height: "auto", width:'100%', maxWidth:'109px' }} 
+              style={{ height: "auto", width: "100%", maxWidth: "109px" }}
               alt="logo"
               className="mb-5 object-contain"
             />
@@ -126,12 +127,12 @@ export const Footer = () => {
           </div>
         </div>
         <hr />
-        <div className="flex items-center justify-between p-4 flex-col md:flex-row gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 p-4 md:flex-row">
           <h6 className="text-sm text-green-900">
             @2024 yadawi - All Rights Reserved
           </h6>
           <div className="flex gap-4">
-            <Link className="text-xs md:text-sm " href={``}>
+            <Link className="text-xs md:text-sm" href={``}>
               Terms & Conditions
             </Link>
             <Link className="text-xs md:text-sm" href={``}>
@@ -157,15 +158,7 @@ export const Footer = () => {
                 <FaLinkedin className="text-lg" />
               </Link>
             </div>
-            <Select>
-              <SelectTrigger className="w-[80px] border-none bg-primary">
-                <SelectValue placeholder="lang" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="--">عربي</SelectItem>
-                <SelectItem value="--">English</SelectItem>
-              </SelectContent>
-            </Select>
+            {/* <LocaleSwitcher /> */}
           </div>
         </div>
       </div>
