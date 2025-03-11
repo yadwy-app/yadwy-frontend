@@ -25,7 +25,7 @@ import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
 
 export const Navbar = () => {
   return (
-    <div className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8  mx-auto">
+    <div className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8 max-w-7xl mx-auto">
       <div className="flex w-full items-center justify-between">
         <Link href={"/"} className="relative h-12 w-28">
           <Image
