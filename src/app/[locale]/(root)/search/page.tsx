@@ -31,11 +31,17 @@ const SearchPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // States
-  const [priceRange, setPriceRange] = useState([0, 150]);
+  // Initialize states with default values
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 150]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("none");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isClient, setIsClient] = useState(false);
+
+  // Add useEffect to handle client-side mounting
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Debounced Filters
   const debouncedPriceRange = useDebounce(priceRange, 500);
@@ -92,7 +98,7 @@ const SearchPage = () => {
   }, [products, debouncedPriceRange, debouncedCategories, debouncedSortBy]);
 
   // Pagination
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const paginatedProducts = useMemo(
     () =>
@@ -132,8 +138,8 @@ const SearchPage = () => {
         <div className="mb-5 flex items-end justify-between">
           <div>
             <h6 className="mb-1 text-2xl font-bold">Search Results</h6>
-            <div className="font-bold text-green-900">
-              {filteredProducts.length}{" "}
+            <div className="font-bold text-green-900 flex gap-2">
+              {filteredProducts.length}
               <span className="text-primary">items</span>
             </div>
           </div>
@@ -151,55 +157,64 @@ const SearchPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-5">
-          {paginatedProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              title={product.name}
-              price={product.price}
-              image={product.image}
-              rating={product.rating}
-            />
-          ))}
-        </div>
+        {!isClient ? (
+          <div className="grid min-h-[400px] place-items-center">
+            <div className="text-lg text-primary">Loading products...</div>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
+              {paginatedProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  title={product.name}
+                  price={product.price}
+                  image={product.image}
+                  rating={product.rating}
+                />
+              ))}
+            </div>
 
-        {/* Pagination */}
-        <Pagination className="justify-end mt-16">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                href="#"
-                className="bg-primary text-white"
-                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              />
-            </PaginationItem>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <PaginationItem key={page}>
-                <PaginationLink
-                  href="#"
-                  className={
-                    page === currentPage
-                      ? "border border-primary text-primary"
-                      : ""
-                  }
-                  onClick={() => setCurrentPage(page)}
-                >
-                  {page}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
-            <PaginationItem>
-              <PaginationNext
-                href="#"
-                className="bg-primary text-white"
-                onClick={() =>
-                  setCurrentPage((p) => Math.min(p + 1, totalPages))
-                }
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
+            <Pagination className="mt-16 justify-end">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    href="#"
+                    className="bg-primary text-white"
+                    onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+                  />
+                </PaginationItem>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <PaginationItem key={page}>
+                      <PaginationLink
+                        href="#"
+                        className={
+                          page === currentPage
+                            ? "border border-primary text-primary"
+                            : ""
+                        }
+                        onClick={() => setCurrentPage(page)}
+                      >
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ),
+                )}
+                <PaginationItem>
+                  <PaginationNext
+                    href="#"
+                    className="bg-primary text-white"
+                    onClick={() =>
+                      setCurrentPage((p) => Math.min(p + 1, totalPages))
+                    }
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </>
+        )}
       </div>
     </div>
   );
