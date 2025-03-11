@@ -43,7 +43,7 @@ const products = [
   },
   {
     id: 828999982,
-    name: "lefse plants in a white pot",
+    name: "lefse plants in a white pot jjjj",
     price: 35,
     image: "/artworks/p5.png",
     rating: "5/1",
