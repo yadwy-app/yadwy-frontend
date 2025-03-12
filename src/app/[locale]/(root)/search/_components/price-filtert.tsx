@@ -1,53 +1,47 @@
+// src/app/[locale]/(root)/search/_components/price-filtert.tsx
 "use client";
 
 import React from "react";
-import { DualRangeSlider } from "~/components/ui/dual-range";
-import { Input } from "~/components/ui/input";
 
-interface PriceFilterProps {
-  priceRange: number[] | undefined; // Allow undefined
-  setPriceRange: (values: number[]) => void;
-}
+type PriceFilterProps = {
+  priceRange: [number, number];
+  setPriceRange: (newRange: [number, number]) => void;
+};
 
-export const PriceFilter = ({
-  priceRange,
-  setPriceRange,
-}: PriceFilterProps) => {
-  // Use a fallback value if priceRange is undefined
-  const safePriceRange = priceRange || [0, 100];
+export function PriceFilter({ priceRange, setPriceRange }: PriceFilterProps) {
+  const [minPrice, maxPrice] = priceRange;
 
-  const handleInputChange = (index: number, newValue: string) => {
-    const updatedValues = [...safePriceRange];
-    updatedValues[index] = newValue === "" ? 0 : Number(newValue);
-    setPriceRange(updatedValues);
+  const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMin = Number(e.target.value);
+    setPriceRange([newMin, maxPrice]);
+  };
+
+  const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newMax = Number(e.target.value);
+    setPriceRange([minPrice, newMax]);
   };
 
   return (
-    <div className="mt-3">
-      <h6 className="font-bold text-textColor">Price</h6>
-      <div className="my-6">
-        <DualRangeSlider
-          label={(value) => `$${value}`}
-          value={safePriceRange}
-          onValueChange={setPriceRange}
+    <div className="py-4">
+      <h3 className="mb-2 font-semibold">Price Range</h3>
+      <div className="flex gap-2">
+        <input
+          type="number"
+          value={minPrice}
+          onChange={handleMinChange}
           min={0}
-          max={100}
-          step={1}
+          max={maxPrice}
+          className="w-full rounded border p-2"
+        />
+        <input
+          type="number"
+          value={maxPrice}
+          onChange={handleMaxChange}
+          min={minPrice}
+          max={150}
+          className="w-full rounded border p-2"
         />
       </div>
-      <div className="flex gap-3 mb-5">
-        <Input
-          value={safePriceRange[0]}
-          onChange={(e) => handleInputChange(0, e.target.value)}
-          className="border-gray-300"
-        />
-        <Input
-          value={safePriceRange[1]}
-          onChange={(e) => handleInputChange(1, e.target.value)}
-          className="border-gray-300"
-        />
-      </div>
-      <hr className="border-gray-300" />
     </div>
   );
-};
+}

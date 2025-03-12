@@ -4,7 +4,7 @@ import { FaHeadset } from "react-icons/fa6";
 
 export const mockProductData = [
   {
-    id: "1",
+    id: "518772981",
     title: "lefse plants in a white pot",
     rate: 4.5,
     price: "$100",
@@ -41,7 +41,160 @@ export const mockProductData = [
     ],
   },
   {
-    id: "2",
+    id: "928179873",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+  {
+    id: "89829017777777733",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+  {
+    id: "61829718217",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+  {
+    id: "828999982",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+
+  {
+    id: "9220991",
     title: "Product 2",
     rate: 4.7,
     price: "$200",
@@ -102,7 +255,7 @@ export const products = [
     price: 50,
     category: "Armani",
     image: "/artworks/p1.png",
-    rating: 4,
+    rating: "4.7",
   },
   {
     id: 2,
@@ -110,7 +263,7 @@ export const products = [
     price: 80,
     category: "Calvin Klein",
     image: "/artworks/p2.png",
-    rating: 5,
+    rating: "4",
   },
   {
     id: 3,
@@ -118,7 +271,7 @@ export const products = [
     price: 100,
     category: "Gucci",
     image: "/artworks/p3.png",
-    rating: 4.5,
+    rating: "5",
   },
   {
     id: 4,
@@ -126,7 +279,7 @@ export const products = [
     price: 90,
     category: "Prada",
     image: "/artworks/p4.png",
-    rating: 3.8,
+    rating: "3.5",
   },
   {
     id: 5,
@@ -134,7 +287,7 @@ export const products = [
     price: 70,
     category: "Dolce & Gabbana",
     image: "/artworks/p5.png",
-    rating: 4.2,
+    rating: "2.5",
   },
   {
     id: 6,
@@ -142,7 +295,7 @@ export const products = [
     price: 120,
     category: "Chanel",
     image: "/artworks/p6.png",
-    rating: 4.7,
+    rating: "4.8",
   },
   {
     id: 7,
@@ -150,7 +303,7 @@ export const products = [
     price: 55,
     category: "Lacoste",
     image: "/artworks/p1.png",
-    rating: 4.1,
+    rating: "5",
   },
   {
     id: 8,
@@ -158,7 +311,7 @@ export const products = [
     price: 95,
     category: "Burberry",
     image: "/artworks/p2.png",
-    rating: 4.9,
+    rating: "2",
   },
   {
     id: 9,
@@ -166,7 +319,7 @@ export const products = [
     price: 110,
     category: "Louis Vuitton",
     image: "/artworks/p3.png",
-    rating: 4.6,
+    rating: "2.5",
   },
   // Add more products as needed
 ];

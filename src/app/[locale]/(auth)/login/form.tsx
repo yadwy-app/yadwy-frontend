@@ -24,38 +24,7 @@ export function LoginForm() {
   const t = useTranslations("Login");
   const emailplaceholder = t("Fields.emailPlaceholder");
   const passwordplaceholder = t("Fields.passwordPlaceholder");
-  const inputs = [
-    {
-      name: "email",
-      label: t("Fields.email"),
-      Field: forwardRef(function InputField(props: any, ref) {
-        return (
-          <Field
-            placeholder={emailplaceholder}
-            className="placeholder:capitalize"
-            autoComplete="email"
-            {...props}
-            ref={ref}
-          />
-        );
-      }),
-    },
-    {
-      name: "password",
-      label: t("Fields.password"),
-      Field: forwardRef(function InputField(props: any, ref) {
-        return (
-          <PasswordField
-            placeholder={passwordplaceholder}
-            autoComplete="current-password"
-            className="placeholder:capitalize"
-            {...props}
-            ref={ref}
-          />
-        );
-      }),
-    },
-  ];
+
   return (
     <Card className="overflow-hidden border-none shadow-xl">
       <CardContent className="grid p-0 md:grid-cols-2">
@@ -69,7 +38,39 @@ export function LoginForm() {
               defaultValues={defaultValues}
               schema={schemas}
               action={action}
-              inputs={inputs}
+              inputs={[
+                {
+                  name: "email",
+                  label: t("Fields.email"),
+                  Field: forwardRef(function InputField(props: any, ref) {
+                    return (
+                      <Field
+                        placeholder={emailplaceholder}
+                        className="placeholder:capitalize"
+                        autoComplete="email"
+                        {...props}
+                        ref={ref}
+                      />
+                    );
+                  }),
+                },
+                {
+                  name: "password",
+                  label: t("Fields.password"),
+                  // @ts-ignore
+                  Field: forwardRef(function InputField(props: any, ref) {
+                    return (
+                      <PasswordField
+                        placeholder={passwordplaceholder}
+                        autoComplete="current-password"
+                        className="placeholder:capitalize"
+                        {...props}
+                        ref={ref}
+                      />
+                    );
+                  }),
+                },
+              ]}
               primaryButtonText={t("primaryButtonText")}
               secondaryButtonLink={{
                 href: "/forgot-password",

@@ -1,23 +1,16 @@
 "use client";
 import { useState } from "react";
-import type { Address } from "~/types/address";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select";
 import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
   DialogFooter,
 } from "~/components/ui/dialog";
+import type { Address } from "~/types/address";
 
 interface AddressFormProps {
   address?: Address;
@@ -57,10 +50,19 @@ export function AddressForm({ address, onSubmit, onCancel }: AddressFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      onSubmit({
+      // Ensure all required fields are present and cast to Address
+      const completeAddress: Address = {
         id: address?.id || Date.now().toString(),
-        ...(formData as Address),
-      });
+        name: formData.name || "", // Already validated
+        street: formData.street || "", // Already validated
+        city: formData.city || "", // Already validated
+        state: formData.state || "", // Already validated
+        zip: formData.zip || "", // Already validated
+        country: formData.country || "Egypt",
+        type: formData.type || "Home",
+        isDefault: formData.isDefault || false,
+      };
+      onSubmit(completeAddress);
     }
   };
 
@@ -77,7 +79,9 @@ export function AddressForm({ address, onSubmit, onCancel }: AddressFormProps) {
         <DialogTitle>
           {address ? "Edit Address" : "Add New Address"}
         </DialogTitle>
-        <DialogDescription>Please fill in all required information.</DialogDescription>
+        <DialogDescription>
+          Please fill in all required information.
+        </DialogDescription>
       </DialogHeader>
 
       <div className="grid gap-4">
@@ -137,7 +141,7 @@ export function AddressForm({ address, onSubmit, onCancel }: AddressFormProps) {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="zip">ZIB</Label>
+            <Label htmlFor="zip">ZIP</Label>
             <Input
               id="zip"
               value={formData.zip}

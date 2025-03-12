@@ -1,6 +1,5 @@
 "use client";
 import { Home, Building, Edit2, Trash2, Star } from "lucide-react";
-import type { Address } from "~/types/address";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -10,9 +9,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
-
-
-
+import type { Address } from "~/types/address";
 
 interface AddressCardProps {
   address: Address;
