@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import { UseFormReturn } from "react-hook-form";
 
 const AddressFields = [
   {
@@ -54,9 +55,29 @@ const AddressFields = [
   },
 ] as const;
 
-const countries = [{ value: "eg", label: "Egypt" }];
+// Define types for country and state
+interface Country {
+  value: string;
+  label: string;
+}
 
-const states = {
+interface State {
+  value: string;
+  label: string;
+}
+
+// Define the form values type
+interface AddressFormValues {
+  name: string;
+  phone: string;
+  address: string;
+  country: string;
+  state: string;
+}
+
+const countries: Country[] = [{ value: "eg", label: "Egypt" }];
+
+const states: Record<string, State[]> = {
   eg: [
     { value: "cai", label: "Cairo" },
     { value: "alx", label: "Alexandria" },
@@ -89,11 +110,11 @@ const states = {
 };
 
 type Props = {
-  form: any;
+  form: UseFormReturn<AddressFormValues>;
 };
 
 export default function PersonalInfoForm({ form }: Props) {
-  const selectedCountry = form.watch("country") || "eg";
+  const selectedCountry = (form.watch("country") || "eg") as string;
 
   return (
     <div className="space-y-6">
@@ -107,7 +128,7 @@ export default function PersonalInfoForm({ form }: Props) {
           <FormField
             key={field.name}
             control={form.control}
-            name={field.name}
+            name={field.name as keyof AddressFormValues}
             render={({ field: inputField }) => (
               <FormItem className={field.col}>
                 <FormLabel>{field.label}</FormLabel>
@@ -134,7 +155,7 @@ export default function PersonalInfoForm({ form }: Props) {
                             <SelectItem key={state.value} value={state.value}>
                               {state.label}
                             </SelectItem>
-                          ))}
+                          )) || null}
                       </SelectContent>
                     </Select>
                   ) : (

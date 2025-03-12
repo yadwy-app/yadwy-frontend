@@ -15,7 +15,7 @@ type Props = {
   title: string;
   price: number;
   image: string;
-  rating: number;
+  rating: string;
 };
 type CartItemProps = {
   id: number;

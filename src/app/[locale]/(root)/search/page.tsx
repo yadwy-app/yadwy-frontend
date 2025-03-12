@@ -22,10 +22,13 @@ import { useRouter } from "~/i18n/routing";
 import { useSearchParams } from "next/navigation";
 import { useDebounce } from "~/hooks/useDebounce";
 import { products } from "~/data";
-import { PriceFilter } from "./_components/price-filtert";
+import { PriceFilter } from "./_components/price-filtert"; // Assuming this is the correct import
 
-// Extract unique categories dynamically
-// const categories = ["Armani", "Calvin Klein"];
+// Define types
+interface Category {
+  name: string;
+  count: number;
+}
 
 const SearchPage = () => {
   const router = useRouter();
@@ -47,6 +50,7 @@ const SearchPage = () => {
   const debouncedPriceRange = useDebounce(priceRange, 500);
   const debouncedCategories = useDebounce(selectedCategories, 500);
   const debouncedSortBy = useDebounce(sortBy, 500);
+
   const categories = useMemo(
     () =>
       ["Armani", "Calvin Klein"].map((name) => ({
@@ -55,6 +59,7 @@ const SearchPage = () => {
       })),
     [],
   );
+
   // Sync state with URL on initial load
   useEffect(() => {
     const urlMinPrice = Number(searchParams.get("minPrice")) || 0;
@@ -126,7 +131,12 @@ const SearchPage = () => {
             Clear All
           </button>
         </div>
-        <PriceFilter priceRange={priceRange} setPriceRange={setPriceRange} />
+        <PriceFilter
+          priceRange={priceRange}
+          setPriceRange={(newRange: [number, number]) =>
+            setPriceRange(newRange)
+          }
+        />
         <CategoryFilter
           categories={categories}
           selectedCategories={selectedCategories}

@@ -11,15 +11,12 @@ import {
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { Steps, Step } from "~/components/ui/steps";
+import { use } from "react";
 
-interface OrderDetailsPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function OrderDetailsPage({ params }: OrderDetailsPageProps) {
-  const { id } = params;
+export default function OrderDetailsPage({
+  params,
+}: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
 
   // In a real app, you would fetch the order details based on the ID
   const order = {

@@ -6,7 +6,7 @@ import { Button } from "~/components/ui/button";
 import FieldTooltip from "./field-tooltip";
 import { Input, type InputProps } from "~/components/ui/input";
 
-interface Props extends Omit<InputProps, "type" | "placeholder"> { }
+interface Props extends Omit<InputProps, "type"> { }
 
 const PasswordField = forwardRef<HTMLInputElement, Props>(
   ({ className, ...props }, ref) => {

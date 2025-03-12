@@ -1,8 +1,10 @@
+// src/app/[locale]/(root)/page.tsx
 import { useTranslations } from "next-intl";
 import OrderBanner from "./_components/order-banner";
 import { Slider } from "./_components/slider";
 import { Categories } from "./_sections/categories";
 import Products from "./_sections/products";
+
 const slides = [
   {
     id: 1,
@@ -17,6 +19,8 @@ const slides = [
     imageUrl: "/hero/hero.png",
   },
 ];
+
+// Updated products array with category
 const products = [
   {
     id: 518772981,
@@ -24,13 +28,15 @@ const products = [
     price: 35,
     image: "/artworks/p1.png",
     rating: "5/2",
+    category: "plants", // Added category
   },
   {
     id: 61829718217,
     name: "lefse plants in a white pot",
     price: 35,
     image: "/artworks/p2.png",
-    rating: " 5/4",
+    rating: "5/4",
+    category: "plants", // Added category
   },
   {
     id: 7222792607198,
@@ -38,6 +44,7 @@ const products = [
     price: 35,
     image: "/artworks/p4.png",
     rating: "5/3",
+    category: "plants", // Added category
   },
   {
     id: 828999982,
@@ -45,6 +52,7 @@ const products = [
     price: 35,
     image: "/artworks/p5.png",
     rating: "5/1",
+    category: "plants", // Added category
   },
   {
     id: 9220991,
@@ -52,6 +60,7 @@ const products = [
     price: 35,
     image: "/artworks/p6.png",
     rating: "5/1",
+    category: "plants", // Added category
   },
   {
     id: 5109282109,
@@ -59,13 +68,15 @@ const products = [
     price: 35,
     image: "/artworks/p1.png",
     rating: "5/2",
+    category: "plants", // Added category
   },
   {
     id: 6981228937,
     name: "lefse plants in a white pot",
     price: 35,
     image: "/artworks/p2.png",
-    rating: " 5/4",
+    rating: "5/4",
+    category: "plants", // Added category
   },
   {
     id: 710921083844,
@@ -73,6 +84,7 @@ const products = [
     price: 35,
     image: "/artworks/p4.png",
     rating: "5/3",
+    category: "plants", // Added category
   },
   {
     id: 89829017777777733,
@@ -80,6 +92,7 @@ const products = [
     price: 35,
     image: "/artworks/p5.png",
     rating: "5/1",
+    category: "plants", // Added category
   },
   {
     id: 928179873,
@@ -87,6 +100,7 @@ const products = [
     price: 35,
     image: "/artworks/p6.png",
     rating: "5/1",
+    category: "plants", // Added category
   },
 ];
 

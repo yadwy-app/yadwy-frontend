@@ -102,7 +102,7 @@ export const products = [
     price: 50,
     category: "Armani",
     image: "/artworks/p1.png",
-    rating: 4,
+    rating: "4.7",
   },
   {
     id: 2,
@@ -110,7 +110,7 @@ export const products = [
     price: 80,
     category: "Calvin Klein",
     image: "/artworks/p2.png",
-    rating: 5,
+    rating: "4",
   },
   {
     id: 3,
@@ -118,7 +118,7 @@ export const products = [
     price: 100,
     category: "Gucci",
     image: "/artworks/p3.png",
-    rating: 4.5,
+    rating: "5",
   },
   {
     id: 4,
@@ -126,7 +126,7 @@ export const products = [
     price: 90,
     category: "Prada",
     image: "/artworks/p4.png",
-    rating: 3.8,
+    rating: "3.5",
   },
   {
     id: 5,
@@ -134,7 +134,7 @@ export const products = [
     price: 70,
     category: "Dolce & Gabbana",
     image: "/artworks/p5.png",
-    rating: 4.2,
+    rating: "2.5",
   },
   {
     id: 6,
@@ -142,7 +142,7 @@ export const products = [
     price: 120,
     category: "Chanel",
     image: "/artworks/p6.png",
-    rating: 4.7,
+    rating: "4.8",
   },
   {
     id: 7,
@@ -150,7 +150,7 @@ export const products = [
     price: 55,
     category: "Lacoste",
     image: "/artworks/p1.png",
-    rating: 4.1,
+    rating: "5",
   },
   {
     id: 8,
@@ -158,7 +158,7 @@ export const products = [
     price: 95,
     category: "Burberry",
     image: "/artworks/p2.png",
-    rating: 4.9,
+    rating: "2",
   },
   {
     id: 9,
@@ -166,7 +166,7 @@ export const products = [
     price: 110,
     category: "Louis Vuitton",
     image: "/artworks/p3.png",
-    rating: 4.6,
+    rating: "2.5",
   },
   // Add more products as needed
 ];
