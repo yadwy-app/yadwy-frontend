@@ -4,7 +4,7 @@ import { FaHeadset } from "react-icons/fa6";
 
 export const mockProductData = [
   {
-    id: "1",
+    id: "518772981",
     title: "lefse plants in a white pot",
     rate: 4.5,
     price: "$100",
@@ -41,7 +41,160 @@ export const mockProductData = [
     ],
   },
   {
-    id: "2",
+    id: "928179873",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+  {
+    id: "89829017777777733",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+  {
+    id: "61829718217",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+  {
+    id: "828999982",
+    title: "Product 2",
+    rate: 4.7,
+    price: "$200",
+    description: "This is a detailed description of Product 2.",
+    images: [
+      "/artworks/p1.png",
+      "/artworks/p2.png",
+      "/artworks/p3.png",
+      "/artworks/p4.png",
+      "/artworks/p5.png",
+      "/artworks/p6.png",
+    ],
+    reviewComment: [
+      {
+        userName: "Mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "yosef mahmoud",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 3,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+      {
+        userName: "I love H",
+        userImage: "https://i.suar.me/K48O2/m",
+        rating: 5,
+        reviewText:
+          "Lorem ipsum dolor sit amet consectetur. Dui dictum id morbi augue lorem lobortis. Quam viverra rhoncus pharetra nisl.",
+      },
+    ],
+  },
+
+  {
+    id: "9220991",
     title: "Product 2",
     rate: 4.7,
     price: "$200",
