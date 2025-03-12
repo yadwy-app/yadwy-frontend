@@ -4,11 +4,11 @@ import { BoxProductCart } from "./_components/box-product";
 import { SummaryOrder } from "../_sections/summary-order";
 import { ButtonCart } from "./_components/button-cart";
 import { FaClipboardCheck } from "react-icons/fa6";
-import Link from "next/link";
 import AlsoLike from "../_sections/also-like";
 import { ProductsHolder } from "./_components/products-holder";
 import { ProductsHolderCart } from "./_components/box-product-cart";
 import { useTranslations } from "next-intl";
+import { Link } from "~/i18n/routing";
 const page = () => {
   // const products = [
   //   {
@@ -50,7 +50,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <AlsoLike />
+      {/* <AlsoLike /> */}
     </div>
   );
 };
