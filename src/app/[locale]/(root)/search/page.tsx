@@ -115,7 +115,7 @@ const SearchPage = () => {
   );
 
   return (
-    <div className="grid w-full grid-cols-12 gap-10">
+    <div className="grid w-full grid-cols-12 gap-10 max-w-[1280px] mx-auto ">
       <div className="col-span-3 rounded-sm border border-gray-300 p-5">
         <div className="flex justify-between border-b border-gray-300 pb-3">
           <h6 className="text-2xl font-bold">Filters</h6>
@@ -173,7 +173,7 @@ const SearchPage = () => {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
               {paginatedProducts.map((product) => (
                 <ProductCard
                   key={product.id}
