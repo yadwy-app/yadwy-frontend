@@ -11,7 +11,7 @@ import {
   CarouselItem,
 } from "~/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Category from "../_components/category";
 import { useTranslations } from "next-intl";
 
@@ -35,12 +35,6 @@ export function Categories() {
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
   const t = useTranslations("HomePage.Categories");
 
-  useEffect(() => {
-    return () => {
-      plugin.current?.destroy();
-    };
-  }, []);
-
   return (
     <Section id="Categories" className="w-full overflow-hidden">
       <SectionTitle className="text-center">{t("title")}</SectionTitle>
@@ -61,7 +55,7 @@ export function Categories() {
           <CarouselContent>
             {categories.map((category, index) => (
               <CarouselItem
-                key={index}
+                key={category.name + category.image + index}
                 className="basis-1/2 sm:basis-1/3 w-full"
               >
                 <div className="overflow-hidden w-full h-full">

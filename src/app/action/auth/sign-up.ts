@@ -1,5 +1,4 @@
 "use server";
-import { console } from "inspector";
 import { SignUpSchema } from "~/schemas/auth";
 
 export default async function signUpAction(_: unknown, form: FormData) {

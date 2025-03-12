@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
@@ -14,6 +14,9 @@ import Image from "next/image";
 import { SignUpSchema } from "~/schemas/auth";
 import signUpAction from "~/app/action/auth/sign-up";
 
+// Define the form values type from the schema
+type SignUpFormValues = z.infer<typeof SignUpSchema>;
+
 type Props = {
   name: string;
   placeholder?: string;
@@ -21,14 +24,22 @@ type Props = {
 
 export default function FormSignUp() {
   const t = useTranslations("SignUp");
+  const passwordPlaceholder = t("Fields.confirmPasswordPlaceholder")
 
-  const methods = useForm({
+  // Add type parameter to useForm
+  const methods = useForm<SignUpFormValues>({
     resolver: zodResolver(SignUpSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+      fullName: "",
+      confirmPassword: "",
+    },
   });
 
-  const onSubmit = async (data: z.infer<typeof SignUpSchema>) => {
+  // Explicitly type the onSubmit handler
+  const onSubmit: SubmitHandler<SignUpFormValues> = async (data) => {
     try {
-      // console.log("Form Data:", data);
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
         formData.append(key, value as string);
