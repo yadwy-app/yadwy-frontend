@@ -26,8 +26,8 @@ import NavManger from "./nav-manger";
 
 export const Navbar = () => {
   return (
-    <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-y-8 py-4 md:px-10 lg:px-0">
-      <div className="flex w-full items-center justify-between">
+    <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-y-8 py-4 md:px-10 lg:px-20 xl:px-0">
+      <div className="flex w-full items-center justify-between px-5 md:px-0">
         <Link href={"/"} className="relative h-12 w-28">
           <Image
             src="/logo.svg"
