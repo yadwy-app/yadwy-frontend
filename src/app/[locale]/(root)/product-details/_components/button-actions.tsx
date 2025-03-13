@@ -35,7 +35,7 @@ export default function ButtonAction() {
       <div className="flex w-full flex-col items-center gap-2 md:flex-row">
         <Button className="flex w-full gap-4 text-background">
           <ShoppingBag className="text-background" />
-          Add to cart
+          Add 
         </Button>
         <h3 className="text-secondary">or</h3>
         <Button className="flex w-full gap-4 text-background">
