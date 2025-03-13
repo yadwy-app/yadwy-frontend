@@ -82,7 +82,7 @@ export default function ProductCard({ id, title, price, image }: Props) {
             }
           >
             <TbShoppingBagPlus className="h-4 w-4" />
-            <span className="hidden md:block">Add to cart</span>
+            <span className="hidden md:block">Add</span>
           </Button>
         </div>
       </CardFooter>

@@ -22,11 +22,12 @@ import {
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
+import NavManger from "./nav-manger";
 
 export const Navbar = () => {
   return (
-    <div className="flex flex-col items-center justify-between md:px-10 lg:px-20 py-4 gap-y-8 max-w-7xl mx-auto">
-      <div className="flex w-full items-center justify-between">
+    <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-y-8 py-4 md:px-10 lg:px-20 xl:px-0">
+      <div className="flex w-full items-center justify-between px-5 md:px-0">
         <Link href={"/"} className="relative h-12 w-28">
           <Image
             src="/logo.svg"
@@ -39,14 +40,14 @@ export const Navbar = () => {
         <div className="flex gap-4">
           <div className="hidden items-center gap-1 md:flex">
             <div className="flex items-center">
-              <Select>
+              {/* <Select>
                 <SelectTrigger className="w-[98px] rounded-sm rounded-r-none border border-gray-300 bg-gray-200">
                   <SelectValue placeholder="All" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="--">--</SelectItem>
                 </SelectContent>
-              </Select>
+              </Select> */}
               <Input
                 className="rounded-sm rounded-l-none border border-gray-300"
                 placeholder="Search for artwork, plants...."
@@ -64,32 +65,7 @@ export const Navbar = () => {
             </LinkIcon>
           </div>
 
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="relative rounded-full">
-                  <Image
-                    src="/profile.svg"
-                    fill
-                    priority
-                    className="object-cover"
-                    alt="profile"
-                  />
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="flex flex-col border border-gray-200">
-                  <NavigationMenuLink
-                    href=""
-                    className="w-full px-8 py-2 transition-all hover:bg-slate-200"
-                  >
-                    Profile
-                  </NavigationMenuLink>
-                  <NavigationMenuLink className="w-full bg-slate-100 px-8 py-2 text-red-500 transition-all hover:bg-slate-200">
-                    Logout
-                  </NavigationMenuLink>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <NavManger />
         </div>
       </div>
       <div className="flex items-center gap-1 md:hidden">

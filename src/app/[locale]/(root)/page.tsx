@@ -50,7 +50,7 @@ export default function Page() {
         />
       )}
 
-      <div className="px-2">
+      <div className="px-2 ">
         <OrderBanner />
       </div>
       {products.length > 1 && (
