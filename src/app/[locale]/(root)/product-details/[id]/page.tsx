@@ -89,7 +89,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       <div className="px-4 py-8 md:container flex flex-col gap-16">
         <div className="flex w-full flex-col justify-center gap-16 md:flex-row">
           <ProductImage images={product.images} />
-          <div className="flex flex-col gap-[1.6rem]">
+          <div className="flex flex-col gap-[1.6rem] w-full">
             <ProductDetails
               title={product.title}
               price={product.price}

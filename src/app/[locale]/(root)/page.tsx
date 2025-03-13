@@ -22,88 +22,20 @@ const slides = [
 
 // Updated products array with category
 const products = [
-  {
-    id: 518772981,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p1.png",
-    rating: "5/2",
-    category: "plants", // Added category
-  },
-  {
-    id: 61829718217,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p2.png",
-    rating: "5/4",
-    category: "plants", // Added category
-  },
-  {
-    id: 7222792607198,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p4.png",
-    rating: "5/3",
-    category: "plants", // Added category
-  },
-  {
-    id: 828999982,
-    name: "lefse plants in a white pot jjjj",
-    price: 35,
-    image: "/artworks/p5.png",
-    rating: "5/1",
-    category: "plants", // Added category
-  },
-  {
-    id: 9220991,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p6.png",
-    rating: "5/1",
-    category: "plants", // Added category
-  },
-  {
-    id: 5109282109,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p1.png",
-    rating: "5/2",
-    category: "plants", // Added category
-  },
-  {
-    id: 6981228937,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p2.png",
-    rating: "5/4",
-    category: "plants", // Added category
-  },
-  {
-    id: 710921083844,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p4.png",
-    rating: "5/3",
-    category: "plants", // Added category
-  },
-  {
-    id: 89829017777777733,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p5.png",
-    rating: "5/1",
-    category: "plants", // Added category
-  },
-  {
-    id: 928179873,
-    name: "lefse plants in a white pot",
-    price: 35,
-    image: "/artworks/p6.png",
-    rating: "5/1",
-    category: "plants", // Added category
-  },
+  ...Array(10)
+    .fill(null)
+    .map((_, index) => ({
+      id: [
+        518772981, 61829718217, 7222792607198, 828999982, 9220991, 5109282109,
+        6981228937, 710921083844, 89829017777777733, 928179873,
+      ][index % 10],
+      name: "lefse plants in a white pot",
+      price: 35 + (index % 5) * 10,
+      image: `/artworks/p${(index % 6) + 1}.png`,
+      rating: `5/${(index % 5) + 1}`,
+      category: "plants",
+    })),
 ];
-
 export default function Page() {
   const t = useTranslations("HomePage.NewArt");
   return (
