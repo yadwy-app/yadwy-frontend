@@ -5,7 +5,7 @@ import { Button } from "~/components/ui/button";
 
 export default function OrderBanner() {
   return (
-    <div className="relative w-full md:h-[429px] h-80 mx-auto">
+    <div className="relative md:w-full lg:max-w-7xl md:h-[429px] h-80 mx-auto">
       {/* Main container with border */}
       <div className="absolute inset-0 border-2 border-[#C0D6D6] rounded-lg overflow-hidden">
         {/* Content container */}

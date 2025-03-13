@@ -24,7 +24,7 @@ type Props = {
 export default function Products({ title, description, products }: Props) {
   const t = useTranslations("HomePage.NewArt");
   return (
-    <Section id="NewArt" className="gap-8 max-w-7xl mx-auto">
+    <Section id="NewArt" className="gap-8 md:w-full lg:max-w-7xl mx-auto">
       <SectionTitle>{title}</SectionTitle>
       {description ? (
         <SectionDescription>{description}</SectionDescription>
