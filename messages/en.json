@@ -11,6 +11,11 @@
 			"description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
 			"button": "See more"
 		},
+		"HotArt": {
+			"title": "Hot Artworks",
+			"description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
+			"button": "See more"
+		},
 		"Features": {
 			"Strength": {
 				"title": "Strength",
@@ -24,7 +29,47 @@
 				"title": "Strength",
 				"desc": "The products we sell are durable, and authenticated by professionals"
 			}
-		}
+		},
+		"Footer": {
+			"description": "Browse an array of masterpieces, get your own, and help the local market.",
+			"phone": "(+20) 000000000",
+			"email": "example@yadawi.com",
+			"location": "Cairo - Hurghada",
+			"pages": {
+			  "title": "Pages",
+			  "home": "Home",
+			  "shop": "Shop",
+			  "categories": "Categories"
+			},
+			"company": {
+			  "title": "Company",
+			  "aboutUs": "About Us",
+			  "careers": "Careers",
+			  "community": "Community",
+			  "customers": "Customers",
+			  "contactUs": "Contact Us"
+			},
+			"resources": {
+			  "title": "Resources",
+			  "support": "Support",
+			  "helpCenter": "Help Center",
+			  "preferences": "Preferences",
+			  "privacyPolicy": "Privacy Policy",
+			  "termsOfUse": "Terms of Use"
+			},
+			"rightsReserved": "@{year} yadawi - All Rights Reserved",
+			"termsConditions": "Terms & Conditions",
+			"privacyPolicy": "Privacy Policy",
+			"cookies": "Cookies"
+		  },
+		  "OrderBanner": {
+			"title": "Your Order is",
+			"personal": "Personal",
+			"toYou": "to you",
+			"description": "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat. Ultrices pellentesque amet scelerisque velit ultrices erat",
+			"makeOrderButton": "Make your order",
+			"moreDetailsButton": "More Details"
+		  }
 	},
 	"cartPage": {
 		"title": "Shopping Cart",
@@ -84,5 +129,12 @@
 		"emailInvalid": "Invalid email address",
 		"passwordMin": "Password must be at least 8 characters",
 		"passwordMismatch": "Passwords do not match"
+	},
+	"ShopCard": {
+		"title": "Shopping Cart",
+		"isEmpty": "Your cart is empty",
+		"Subtotal": "Subtotal",
+		"description": "Shipping and taxed calculated at checkout",
+		"button": "Proceed to Checkout"
 	}
 }

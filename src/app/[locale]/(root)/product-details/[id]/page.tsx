@@ -6,22 +6,11 @@ import { Separator } from "~/components/ui/separator";
 import ButtonAction from "../_components/button-actions";
 import Products from "../../_sections/products";
 
-export async function generateStaticParams() {
-  return mockProductData.map((product) => ({
-    id: product.id.toString(), // تأكد من أن id هو string
-  }));
-}
-
-type Props = {
-  params: {
-    id: string; // إزالة number
-  };
-};
 
 function getProductById(id: string) {
-  return mockProductData.find((p) => p.id.toString() === id);
+  return mockProductData.find((p) => p.id?.toString() === id);
 }
-const products = [
+const productsData = [
   {
     id: 518772981,
     name: "lefse plants in a white pot",
@@ -108,8 +97,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             <ButtonAction />
           </div>
         </div>
-        {products.length > 1 && (
-          <Products title="You May Also Like" products={products} />
+        {productsData.length > 1 && (
+          <Products title="You May Also Like" products={productsData} />
         )}
       </div>
     );

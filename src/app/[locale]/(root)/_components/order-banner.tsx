@@ -2,10 +2,13 @@
 
 import { PenLine } from "lucide-react";
 import { Button } from "~/components/ui/button";
+import { useTranslations } from "next-intl"; // Import useTranslations hook
 
 export default function OrderBanner() {
+  const t = useTranslations("HomePage.OrderBanner"); // Use the "OrderBanner" namespace for translations
+
   return (
-    <div className="relative w-full lg:max-w-7xl h-[400px]  md:h-[429px]  mx-auto">
+    <div className="relative w-full lg:max-w-7xl h-[400px] md:h-[429px] mx-auto">
       {/* Main container with border */}
       <div className="absolute inset-0 border-2 border-[#C0D6D6] rounded-lg overflow-hidden">
         {/* Content container */}
@@ -14,9 +17,9 @@ export default function OrderBanner() {
           <div className="relative z-10 flex-1 p-8 flex flex-col md:justify-between gap-8">
             <div>
               <h2 className="md:text-[40px] text-lg font-bold text-[#283D3D] leading-[50px] mb-6">
-                Your Order is{" "}
+                {t("title")}{" "}
                 <span className="relative inline-block">
-                  Personal
+                  {t("personal")}
                   <svg
                     className="absolute -z-10 left-[-0.25em] right-[-0.25em] bottom-[0.1em] h-[0.6em] w-[calc(100%+0.5em)]"
                     preserveAspectRatio="none"
@@ -29,24 +32,22 @@ export default function OrderBanner() {
                     />
                   </svg>
                 </span>
-                to you
+                {t("toYou")}
               </h2>
               <p className="md:text-[20px] text-lg text-[#5E6A6B] leading-[139.4%] max-w-[600px]">
-                Lorem ipsum dolor sit amet consectetur. Magna cursus gravida
-                ullamcorper turpis molestie auctor duis consequat. Ultrices
-                pellentesque amet scelerisque velit ultrices erat
+                {t("description")}
               </p>
             </div>
             <div className="flex gap-4">
               <Button className="bg-[#8FB6B6] hover:bg-[#7FA6A6] text-white px-4 py-2 rounded-md flex items-center gap-3">
                 <PenLine className="w-4 h-4" />
-                Make your order
+                {t("makeOrderButton")}
               </Button>
               <Button
                 variant="outline"
                 className="bg-white text-[#262626] border-[#D9DEDE] shadow-sm"
               >
-                More Details
+                {t("moreDetailsButton")}
               </Button>
             </div>
           </div>

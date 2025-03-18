@@ -1,28 +1,23 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
-import { IoIosCall } from "react-icons/io";
-import { IoLocationOutline } from "react-icons/io5";
+import Link from "next/link";
+import { useTranslations } from "next-intl"; // Import useTranslations hook
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { TiSocialFacebook } from "react-icons/ti";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-
-import Link from "next/link";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
-import LocaleSwitcher from "../LocaleSwitcher";
+import { FaXTwitter, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import LocaleSwitcherLang from "./locale-switcher";
+import { IoIosCall } from "react-icons/io";
+import { LocateIcon } from "lucide-react";
 
 export const Footer = () => {
+  const t = useTranslations("HomePage.Footer"); // Use the "Footer" namespace for translations
+
   return (
     <div className="bg-primary px-3 py-5">
       <div className="mx-auto max-w-7xl px-6 py-4 md:px-10 lg:px-20">
         <div className="md:md-0 mb-3 grid grid-cols-12 gap-4">
+          {/* Logo and Description */}
           <div className="col-span-12 md:col-span-4">
             <Image
               src="/logo.svg"
@@ -33,78 +28,85 @@ export const Footer = () => {
               className="mb-5 object-contain"
             />
             <p className="max-w-[259px] text-sm font-extralight">
-              Browse an array of masterpieces get your own , and help the local
-              market
+              {t("description")} {/* Translated description */}
             </p>
             <ul className="my-10">
               <li className="mb-4 flex items-center gap-3">
                 <IoIosCall className="text-xl" />
-                <span className="text-xs md:text-base">(+20) 000000000</span>
+                <span className="text-xs md:text-base">{t("phone")}</span>
               </li>
               <li className="mb-4 flex items-center gap-3">
                 <HiOutlineMailOpen className="text-xl" />
-                <span className="text-xs md:text-base">example@yadawi.com</span>
+                <span className="text-xs md:text-base">{t("email")}</span>
               </li>
               <li className="mb-4 flex items-center gap-3">
-                <IoLocationOutline className="text-xl" />
-                <span className="text-xs md:text-base">Cairo - Hurghada</span>
+                <LocateIcon className="text-xl" />
+                <span className="text-xs md:text-base">{t("location")}</span>
               </li>
             </ul>
           </div>
+
+          {/* Pages Section */}
           <div className="col-span-6 md:col-span-2">
-            <h6 className="mb-4 text-lg font-bold">Pages</h6>
+            <h6 className="mb-4 text-lg font-bold">{t("pages.title")}</h6>
             <div className="flex flex-col gap-4">
               <Link href={``} className="text-sm">
-                Home
+                {t("pages.home")}
               </Link>
               <Link href={``} className="text-sm">
-                Shop
+                {t("pages.shop")}
               </Link>
               <Link href={``} className="text-sm">
-                Categories
+                {t("pages.categories")}
               </Link>
             </div>
           </div>
+
+          {/* Company Section */}
           <div className="col-span-6 md:col-span-2">
-            <h6 className="mb-4 text-lg font-bold">Company</h6>
+            <h6 className="mb-4 text-lg font-bold">{t("company.title")}</h6>
             <div className="flex flex-col gap-4">
               <Link href={``} className="text-sm">
-                About us
+                {t("company.aboutUs")}
               </Link>
               <Link href={``} className="text-sm">
-                Careers
+                {t("company.careers")}
               </Link>
               <Link href={``} className="text-sm">
-                Community
+                {t("company.community")}
               </Link>
               <Link href={``} className="text-sm">
-                Customers
+                {t("company.customers")}
               </Link>
               <Link href={``} className="text-sm">
-                Contact us
+                {t("company.contactUs")}
               </Link>
             </div>
           </div>
+
+          {/* Resources Section */}
           <div className="col-span-6 md:col-span-2">
-            <h6 className="mb-4 text-lg font-bold">Resources</h6>
+            <h6 className="mb-4 text-lg font-bold">{t("resources.title")}</h6>
             <div className="flex flex-col gap-4">
               <Link href={``} className="text-sm">
-                Support
+                {t("resources.support")}
               </Link>
               <Link href={``} className="text-sm">
-                Help Center
+                {t("resources.helpCenter")}
               </Link>
               <Link href={``} className="text-sm">
-                Preferences
+                {t("resources.preferences")}
               </Link>
               <Link href={``} className="text-sm">
-                Privacy Policy
+                {t("resources.privacyPolicy")}
               </Link>
               <Link href={``} className="text-sm">
-                Terms of use
+                {t("resources.termsOfUse")}
               </Link>
             </div>
           </div>
+
+          {/* App Store Links */}
           <div className="col-span-6 md:col-span-2">
             <div className="flex flex-col items-center gap-6">
               <Link href={``} className="relative h-10 w-full">
@@ -120,29 +122,33 @@ export const Footer = () => {
                   fill
                   src={"/footer/apple.svg"}
                   className="w-full"
-                  alt="google play"
+                  alt="apple store"
                 />
               </Link>
             </div>
           </div>
         </div>
+
         <hr />
+
+        {/* Footer Bottom Section */}
         <div className="flex flex-col items-center justify-between gap-4 p-4 md:flex-row">
           <h6 className="text-sm text-green-900">
-            @2024 yadawi - All Rights Reserved
+            {t("rightsReserved", { year: new Date().getFullYear() })}
           </h6>
           <div className="flex gap-4">
             <Link className="text-xs md:text-sm" href={``}>
-              Terms & Conditions
+              {t("termsConditions")}
             </Link>
             <Link className="text-xs md:text-sm" href={``}>
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
             <Link className="text-xs md:text-sm" href={``}>
-              Cookies
+              {t("cookies")}
             </Link>
           </div>
 
+          {/* Social Media Links and Language Switcher */}
           <div className="flex items-center gap-3">
             <div className="flex gap-3">
               <Link href={``}>
@@ -158,7 +164,7 @@ export const Footer = () => {
                 <FaLinkedin className="text-lg" />
               </Link>
             </div>
-            {/* <LocaleSwitcher /> */}
+            <LocaleSwitcherLang />
           </div>
         </div>
       </div>

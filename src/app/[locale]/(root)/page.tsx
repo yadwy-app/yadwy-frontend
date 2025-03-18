@@ -27,8 +27,8 @@ const products = [
     .map((_, index) => ({
       id: [
         518772981, 61829718217, 7222792607198, 828999982, 9220991, 5109282109,
-        6981228937, 710921083844, 89829017777777733, 928179873,
-      ][index % 10],
+        6981228937, 710921083844, 8982901777777733, 928179873,
+      ][index % 10] as number, // Ensure id is always a number
       name: "lefse plants in a white pot",
       price: 35 + (index % 5) * 10,
       image: `/artworks/p${(index % 6) + 1}.png`,
@@ -38,6 +38,7 @@ const products = [
 ];
 export default function Page() {
   const t = useTranslations("HomePage.NewArt");
+  const th = useTranslations("HomePage.HotArt");
   return (
     <div className="flex w-full flex-col gap-16">
       <Slider slides={slides} />
@@ -55,8 +56,8 @@ export default function Page() {
       </div>
       {products.length > 1 && (
         <Products
-          title="Hot Artworks"
-          description={t("description")}
+          title={th("title")}
+          description={th("description")}
           products={products}
         />
       )}
