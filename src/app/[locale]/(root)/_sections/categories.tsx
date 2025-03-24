@@ -11,7 +11,7 @@ import {
   CarouselItem,
 } from "~/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Category from "../_components/category";
 import { useTranslations } from "next-intl";
 
@@ -35,27 +35,47 @@ export function Categories() {
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
   const t = useTranslations("HomePage.Categories");
 
+  // Get the current language direction
+  const isRtl = t("title") === t.raw("title"); // Check if translation is active
+  const direction = isRtl ? "rtl" : "ltr";
+
+  // Reference to the carousel API
+  const carouselRef = useRef<any>(null);
+
+  // Update carousel direction when language changes
+  useEffect(() => {
+    if (carouselRef.current?.emblaApi) {
+      carouselRef.current.emblaApi.reInit({
+        direction: direction,
+      });
+    }
+  }, [direction]);
+
   return (
     <Section id="Categories" className="w-full overflow-hidden">
       <SectionTitle className="text-center">{t("title")}</SectionTitle>
       <SectionDescription className="text-center">
         {t("description")}
       </SectionDescription>
-      <div className="flex justify-center">
+      <div className="flex justify-center" dir={direction}>
         <Carousel
           className="w-full max-w-7xl"
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
           opts={{
-            align: "start",
+            align: direction === "rtl" ? "end" : "start", // Adjust alignment for RTL
             loop: true,
+            direction: direction, // Set direction explicitly
+          }}
+          setApi={(api) => {
+            carouselRef.current = { emblaApi: api };
           }}
         >
-          <CarouselContent>
+          <CarouselContent className={direction === "rtl" ? "-mr-4" : "-ml-4"}>
             {categories.map((category, index) => (
               <CarouselItem
-                key={category.name + category.image + index}
+                key={index}
                 className="basis-1/2 sm:basis-1/3 w-full"
               >
                 <div className="overflow-hidden w-full h-full">
@@ -70,4 +90,4 @@ export function Categories() {
   );
 }
 
-export default Categories; // Export default for consistency
+export default Categories;
