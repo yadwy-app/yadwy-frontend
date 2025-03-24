@@ -36,40 +36,40 @@
 			"email": "example@yadawi.com",
 			"location": "Cairo - Hurghada",
 			"pages": {
-			  "title": "Pages",
-			  "home": "Home",
-			  "shop": "Shop",
-			  "categories": "Categories"
+				"title": "Pages",
+				"home": "Home",
+				"shop": "Shop",
+				"categories": "Categories"
 			},
 			"company": {
-			  "title": "Company",
-			  "aboutUs": "About Us",
-			  "careers": "Careers",
-			  "community": "Community",
-			  "customers": "Customers",
-			  "contactUs": "Contact Us"
+				"title": "Company",
+				"aboutUs": "About Us",
+				"careers": "Careers",
+				"community": "Community",
+				"customers": "Customers",
+				"contactUs": "Contact Us"
 			},
 			"resources": {
-			  "title": "Resources",
-			  "support": "Support",
-			  "helpCenter": "Help Center",
-			  "preferences": "Preferences",
-			  "privacyPolicy": "Privacy Policy",
-			  "termsOfUse": "Terms of Use"
+				"title": "Resources",
+				"support": "Support",
+				"helpCenter": "Help Center",
+				"preferences": "Preferences",
+				"privacyPolicy": "Privacy Policy",
+				"termsOfUse": "Terms of Use"
 			},
 			"rightsReserved": "@{year} yadawi - All Rights Reserved",
 			"termsConditions": "Terms & Conditions",
 			"privacyPolicy": "Privacy Policy",
 			"cookies": "Cookies"
-		  },
-		  "OrderBanner": {
+		},
+		"OrderBanner": {
 			"title": "Your Order is",
 			"personal": "Personal",
 			"toYou": "to you",
 			"description": "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat. Ultrices pellentesque amet scelerisque velit ultrices erat",
 			"makeOrderButton": "Make your order",
 			"moreDetailsButton": "More Details"
-		  }
+		}
 	},
 	"cartPage": {
 		"title": "Shopping Cart",
@@ -136,5 +136,72 @@
 		"Subtotal": "Subtotal",
 		"description": "Shipping and taxed calculated at checkout",
 		"button": "Proceed to Checkout"
+	},
+	"ProfilePage": {
+		"title": "Profile",
+		"description": "Manage your account settings and preferences.",
+		"personalInfo": {
+			"title": "Personal Information",
+			"description": "Your personal details and contact information",
+			"edit": "Edit",
+			"fullName": "Full Name",
+			"email": "Email",
+			"phone": "Phone",
+			"dob": "Date of Birth"
+		},
+		"accountSummary": {
+			"title": "Account Summary",
+			"description": "Overview of your account activity",
+			"ordersPlaced": "Orders Placed",
+			"wishlistItems": "Wishlist Items",
+			"reviews": "Reviews"
+		},
+		"recentOrders": {
+			"title": "Recent Orders",
+			"description": "Your most recent purchases",
+			"viewAll": "View All",
+			"delivered": "Delivered",
+			"shipped": "Shipped"
+		},
+		"ProfileSidebar": {
+			"account": "Account",
+			"orders": "Orders",
+			"addresses": "Addresses",
+			"paymentmethods": "Payment Methods",
+			"settings": "Settings"
+		}
+	},
+	"OrdersPage": {
+		"title": "My Orders",
+		"description": "View and track all your orders",
+		"order": "Order",
+		"details": "Details",
+		"quantity": "Qty",
+		"total": "Total",
+		"status": {
+			"processing": "Processing",
+			"shipped": "Shipped",
+			"delivered": "Delivered"
+		},
+		"tabs": {
+			"all": "All",
+			"processing": "Processing",
+			"shipped": "Shipped",
+			"delivered": "Delivered"
+		}
+	},
+	"AddressesPage": {
+		"title": "Addresses",
+		"description": "Manage your shipping and billing addresses",
+		"savedAddresses": "Saved Addresses",
+		"type": {
+			"home": "Home",
+			"work": "Work",
+			"other": "Other"
+		},
+		"default": "Default",
+		"edit": "Edit",
+		"delete": "Delete",
+		"addNewAddress": "Add New Address"
 	}
 }

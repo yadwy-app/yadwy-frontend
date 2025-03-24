@@ -36,40 +36,40 @@
 			"email": "example@yadawi.com",
 			"location": "القاهرة - الغردقة",
 			"pages": {
-			  "title": "الصفحات",
-			  "home": "الرئيسية",
-			  "shop": "المتجر",
-			  "categories": "الفئات"
+				"title": "الصفحات",
+				"home": "الرئيسية",
+				"shop": "المتجر",
+				"categories": "الفئات"
 			},
 			"company": {
-			  "title": "الشركة",
-			  "aboutUs": "من نحن",
-			  "careers": "الوظائف",
-			  "community": "المجتمع",
-			  "customers": "العملاء",
-			  "contactUs": "اتصل بنا"
+				"title": "الشركة",
+				"aboutUs": "من نحن",
+				"careers": "الوظائف",
+				"community": "المجتمع",
+				"customers": "العملاء",
+				"contactUs": "اتصل بنا"
 			},
 			"resources": {
-			  "title": "الموارد",
-			  "support": "الدعم",
-			  "helpCenter": "مركز المساعدة",
-			  "preferences": "التفضيلات",
-			  "privacyPolicy": "سياسة الخصوصية",
-			  "termsOfUse": "شروط الاستخدام"
+				"title": "الموارد",
+				"support": "الدعم",
+				"helpCenter": "مركز المساعدة",
+				"preferences": "التفضيلات",
+				"privacyPolicy": "سياسة الخصوصية",
+				"termsOfUse": "شروط الاستخدام"
 			},
 			"rightsReserved": "@{year} yadawi - جميع الحقوق محفوظة",
 			"termsConditions": "الشروط والأحكام",
 			"privacyPolicy": "سياسة الخصوصية",
 			"cookies": "الكوكيز"
-		  },
-		  "OrderBanner": {
+		},
+		"OrderBanner": {
 			"title": "طلبك هو",
 			"personal": "شخصي",
 			"toYou": "لك",
 			"description": "لوريم إيبسوم هو نص نموذجي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو نص نموذجي يستخدم في صناعة الطباعة والتنضيد.",
 			"makeOrderButton": "اطلب الآن",
 			"moreDetailsButton": "تفاصيل أكثر"
-		  }
+		}
 	},
 	"cartPage": {
 		"title": "سلة التسوق",
@@ -132,5 +132,72 @@
 		"emailInvalid": "عنوان البريد الإلكتروني غير صالح",
 		"passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
 		"passwordMismatch": "كلمتا المرور غير متطابقتين"
+	},
+	"ProfilePage": {
+		"title": "الملف الشخصي",
+		"description": "إدارة إعدادات حسابك وتفضيلاتك.",
+		"personalInfo": {
+			"title": "المعلومات الشخصية",
+			"description": "تفاصيلك الشخصية ومعلومات الاتصال",
+			"edit": "تعديل",
+			"fullName": "الاسم الكامل",
+			"email": "البريد الإلكتروني",
+			"phone": "الهاتف",
+			"dob": "تاريخ الميلاد"
+		},
+		"accountSummary": {
+			"title": "ملخص الحساب",
+			"description": "نظرة عامة على نشاط حسابك",
+			"ordersPlaced": "الطلبات المقدمة",
+			"wishlistItems": "عناصر قائمة الرغبات",
+			"reviews": "المراجعات"
+		},
+		"recentOrders": {
+			"title": "الطلبات الأخيرة",
+			"description": "أحدث مشترياتك",
+			"viewAll": "عرض الكل",
+			"delivered": "تم التوصيل",
+			"shipped": "تم الشحن"
+		},
+		"ProfileSidebar": {
+			"account": "الحساب",
+			"orders": "الطلبات",
+			"addresses": "العناوين",
+			"paymentmethods": "طرق الدفع",
+			"settings": "الإعدادات"
+		}
+	},
+	"OrdersPage": {
+		"title": "طلباتي",
+		"description": "عرض وتتبع جميع طلباتك",
+		"order": "طلب",
+		"details": "التفاصيل",
+		"quantity": "الكمية",
+		"total": "المجموع",
+		"status": {
+			"processing": "قيد المعالجة",
+			"shipped": "تم الشحن",
+			"delivered": "تم التوصيل"
+		},
+		"tabs": {
+			"all": "الكل",
+			"processing": "قيد المعالجة",
+			"shipped": "تم الشحن",
+			"delivered": "تم التوصيل"
+		}
+	},
+	"AddressesPage": {
+		"title": "العناوين",
+		"description": "إدارة عناوين الشحن والفوترة الخاصة بك",
+		"savedAddresses": "العناوين المحفوظة",
+		"type": {
+			"home": "المنزل",
+			"work": "العمل",
+			"other": "أخرى"
+		},
+		"default": "افتراضي",
+		"edit": "تعديل",
+		"delete": "حذف",
+		"addNewAddress": "إضافة عنوان جديد"
 	}
 }
