@@ -203,5 +203,41 @@
 		"edit": "Edit",
 		"delete": "Delete",
 		"addNewAddress": "Add New Address"
+	},
+	"ProductCard": {
+		"add": "Add",
+		"addedToCart": "{title} added to cart 🛒",
+		"addedDescription": "You added {quantity} {unit} to your cart.",
+		"unit": "unit",
+		"units": "units"
+	},
+	"FilterBar": {
+		"filters": "Filters",
+		"price": "Price",
+		"category": "Category",
+		"categories": "Categories",
+		"material": "Material",
+		"materials": "Materials",
+		"rating": "Rating",
+		"priceRange": "Price Range",
+		"minPrice": "Minimum Price",
+		"maxPrice": "Maximum Price",
+		"to": "to",
+		"apply": "Apply",
+		"sortBy": "Sort by",
+		"sort": {
+			"featured": "Featured",
+			"newest": "Newest Arrivals",
+			"priceLow": "Price: Low to High",
+			"priceHigh": "Price: High to Low",
+			"rating": "Highest Rated"
+		},
+		"activeFilters": "Active Filters:",
+		"removeFilter": "Remove {type} filter",
+		"clearAll": "Clear All",
+		"sortProducts": "Sort products",
+		"filterBy": "Filter by {name}",
+		"cancel": "Cancel",
+		"applyFilters": "Apply Filters"
 	}
 }

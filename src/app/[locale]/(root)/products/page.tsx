@@ -27,7 +27,6 @@ export default function SearchPage() {
           </p>
         </div>
 
-        <FilterBar />
         <div className="mt-6">
           <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
             {products.map((product) => (
