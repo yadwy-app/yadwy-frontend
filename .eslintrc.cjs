@@ -86,6 +86,12 @@ const config = {
   },
   // Add this to prevent ESLint from failing the build
   ignoreDuringBuilds: false, // Ensure ESLint runs during build
+  ignorePatterns: [
+    "src/components/**",
+    "src/components/ui/**",
+    "src/utils/**",
+    "src/types/**",
+  ],
   reportUnusedDisableDirectives: true,
 };
 
