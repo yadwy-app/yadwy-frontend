@@ -1,4 +1,3 @@
-import FilterBar from "./_components/filter-bar";
 import { Skeleton } from "~/components/ui/skeleton";
 import ProductCard from "../_components/product-card";
 const products = [
