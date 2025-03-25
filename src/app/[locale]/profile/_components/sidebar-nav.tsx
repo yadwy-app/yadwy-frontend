@@ -2,6 +2,7 @@
 
 import { cn } from "~/lib/utils";
 import { Link, usePathname } from "~/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
@@ -14,6 +15,7 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname();
+  const t = useTranslations("ProfilePage.ProfileSidebar"); // Add translation namespace
 
   return (
     <nav className="grid items-start gap-2">
@@ -32,7 +34,8 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
             )}
           >
             {link.icon}
-            {link.title}
+            {t(link.title.toLowerCase().replace(" ", ""))}{" "}
+            {/* Translate title */}
           </Link>
         );
       })}

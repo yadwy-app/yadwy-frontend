@@ -6,22 +6,11 @@ import { Separator } from "~/components/ui/separator";
 import ButtonAction from "../_components/button-actions";
 import Products from "../../_sections/products";
 
-export async function generateStaticParams() {
-  return mockProductData.map((product) => ({
-    id: product.id.toString(), // تأكد من أن id هو string
-  }));
-}
-
-type Props = {
-  params: {
-    id: string; // إزالة number
-  };
-};
 
 function getProductById(id: string) {
-  return mockProductData.find((p) => p.id.toString() === id);
+  return mockProductData.find((p) => p.id?.toString() === id);
 }
-const products = [
+const productsData = [
   {
     id: 518772981,
     name: "lefse plants in a white pot",
@@ -89,7 +78,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
       <div className="px-4 py-8 md:container flex flex-col gap-16">
         <div className="flex w-full flex-col justify-center gap-16 md:flex-row">
           <ProductImage images={product.images} />
-          <div className="flex flex-col gap-[1.6rem]">
+          <div className="flex flex-col gap-[1.6rem] w-full">
             <ProductDetails
               title={product.title}
               price={product.price}
@@ -108,8 +97,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             <ButtonAction />
           </div>
         </div>
-        {products.length > 1 && (
-          <Products title="You May Also Like" products={products} />
+        {productsData.length > 1 && (
+          <Products title="You May Also Like" products={productsData} />
         )}
       </div>
     );

@@ -1,6 +1,9 @@
+"use client";
+
 import { Separator } from "~/components/ui/separator";
 import { AddressManager } from "./_components/address-manager";
 import type { Address } from "~/types/address";
+import { useTranslations } from "next-intl";
 
 const INITIAL_ADDRESSES: Address[] = [
   {
@@ -18,13 +21,14 @@ const INITIAL_ADDRESSES: Address[] = [
 ];
 
 export default function AddressesPage() {
+  const t = useTranslations("AddressesPage");
+  const isRtl = t("title") !== "Addresses";
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" dir={isRtl ? "rtl" : "ltr"}>
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Addresses</h1>
-        <p className="text-muted-foreground">
-          Manage your shipping and billing addresses
-        </p>
+        <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
+        <p className="text-muted-foreground">{t("description")}</p>
       </div>
       <Separator />
       <AddressManager initialAddresses={INITIAL_ADDRESSES} />

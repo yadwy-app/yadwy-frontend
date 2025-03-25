@@ -1,5 +1,6 @@
-import { Package } from "lucide-react";
+"use client";
 
+import { Package } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -9,63 +10,9 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { Link } from "~/i18n/routing";
-
-export default function OrdersPage() {
-  return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight">My Orders</h1>
-        <p className="text-muted-foreground">View and track all your orders</p>
-      </div>
-      <Separator />
-      <div className="grid gap-6 w-full">
-        {orders.map((order) => (
-          <OrderCard key={order.id} order={order} />
-        ))}
-      </div>
-      {/* <Tabs defaultValue="all" className="w-full"> */}
-      {/*   <TabsList className="grid w-full grid-cols-4 bg-primary text-black"> */}
-      {/*     <TabsTrigger value="all">All</TabsTrigger> */}
-      {/*     <TabsTrigger value="processing">Processing</TabsTrigger> */}
-      {/*     <TabsTrigger value="shipped">Shipped</TabsTrigger> */}
-      {/*     <TabsTrigger value="delivered">Delivered</TabsTrigger> */}
-      {/*   </TabsList> */}
-      {/*   <TabsContent value="all" className="mt-6"> */}
-      {/**/}
-      {/*   </TabsContent> */}
-      {/*   <TabsContent value="processing" className="mt-6"> */}
-      {/*     <div className="grid gap-6"> */}
-      {/*       {orders */}
-      {/*         .filter((order) => order.status === "Processing") */}
-      {/*         .map((order) => ( */}
-      {/*           <OrderCard key={order.id} order={order} /> */}
-      {/*         ))} */}
-      {/*     </div> */}
-      {/*   </TabsContent> */}
-      {/*   <TabsContent value="shipped" className="mt-6"> */}
-      {/*     <div className="grid gap-6"> */}
-      {/*       {orders */}
-      {/*         .filter((order) => order.status === "Shipped") */}
-      {/*         .map((order) => ( */}
-      {/*           <OrderCard key={order.id} order={order} /> */}
-      {/*         ))} */}
-      {/*     </div> */}
-      {/*   </TabsContent> */}
-      {/*   <TabsContent value="delivered" className="mt-6"> */}
-      {/*     <div className="grid gap-6"> */}
-      {/*       {orders */}
-      {/*         .filter((order) => order.status === "Delivered") */}
-      {/*         .map((order) => ( */}
-      {/*           <OrderCard key={order.id} order={order} /> */}
-      {/*         ))} */}
-      {/*     </div> */}
-      {/*   </TabsContent> */}
-      {/* </Tabs> */}
-    </div>
-  );
-}
+import { useTranslations } from "next-intl";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 
 interface Order {
   id: string;
@@ -84,13 +31,18 @@ interface OrderCardProps {
 }
 
 function OrderCard({ order }: OrderCardProps) {
+  const t = useTranslations("OrdersPage");
+  const isRtl = t("title") !== "My Orders";
+
   return (
     <Card className="border-primary">
       <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
+        <div
+          className={`flex items-center ${isRtl ? "justify-between flex-row-reverse" : "justify-between"}`}
+        >
           <div>
             <CardTitle className="text-base text-primary">
-              Order #{order.id}
+              {t("order")} #{order.id}
             </CardTitle>
             <CardDescription>{order.date}</CardDescription>
           </div>
@@ -103,10 +55,10 @@ function OrderCard({ order }: OrderCardProps) {
                     : "bg-amber-100 text-amber-800"
                 }`}
             >
-              {order.status}
+              {t(`status.${order.status.toLowerCase()}`)}
             </div>
             <Button variant="outline" size="sm" asChild>
-              <Link href={`/profile/orders/${order.id}`}>Details</Link>
+              <Link href={`/profile/orders/${order.id}`}>{t("details")}</Link>
             </Button>
           </div>
         </div>
@@ -114,15 +66,20 @@ function OrderCard({ order }: OrderCardProps) {
       <CardContent>
         <div className="space-y-4">
           {order.items.map((item, index) => (
-            <div key={index} className="flex justify-between items-center">
-              <div className="flex items-center gap-3">
+            <div
+              key={index}
+              className={`flex ${isRtl ? "justify-between flex-row-reverse" : "justify-between"} items-center`}
+            >
+              <div
+                className={`flex items-center ${isRtl ? "gap-3 flex-row-reverse" : "gap-3"}`}
+              >
                 <div className="h-12 w-12 rounded flex items-center justify-center bg-primary">
                   <Package className="h-6 w-6 text-background" />
                 </div>
                 <div>
                   <div className="font-medium">{item.name}</div>
                   <div className="text-sm text-muted-foreground">
-                    Qty: {item.quantity}
+                    {t("quantity")}: {item.quantity}
                   </div>
                 </div>
               </div>
@@ -132,8 +89,10 @@ function OrderCard({ order }: OrderCardProps) {
             </div>
           ))}
           <Separator className="bg-primary" />
-          <div className="flex justify-between text-primary-foreground">
-            <div className="font-medium">Total</div>
+          <div
+            className={`flex ${isRtl ? "justify-between flex-row-reverse" : "justify-between"} text-primary-foreground`}
+          >
+            <div className="font-medium">{t("total")}</div>
             <div className="font-bold">{order.total}</div>
           </div>
         </div>
@@ -142,7 +101,6 @@ function OrderCard({ order }: OrderCardProps) {
   );
 }
 
-// Sample data
 const orders: Order[] = [
   {
     id: "12345",
@@ -222,3 +180,61 @@ const orders: Order[] = [
     ],
   },
 ];
+export default function OrdersPage() {
+  const t = useTranslations("OrdersPage");
+  const isRtl = t("title") !== "My Orders";
+
+  return (
+    <div className="space-y-6" dir={isRtl ? "rtl" : "ltr"}>
+      <div>
+        <h1 className="text-2xl font-bold tracking-tight">{t("title")}</h1>
+        <p className="text-muted-foreground">{t("description")}</p>
+      </div>
+      <Separator />
+      <Tabs defaultValue="all" className="w-full">
+        <TabsList
+          className={`grid w-full grid-cols-4 bg-primary text-black ${isRtl ? "grid-flow-dense" : ""}`}
+        >
+          <TabsTrigger value="all">{t("tabs.all")}</TabsTrigger>
+          <TabsTrigger value="processing">{t("tabs.processing")}</TabsTrigger>
+          <TabsTrigger value="shipped">{t("tabs.shipped")}</TabsTrigger>
+          <TabsTrigger value="delivered">{t("tabs.delivered")}</TabsTrigger>
+        </TabsList>
+        <TabsContent value="all" className="mt-6">
+          <div className="grid gap-6 w-full">
+            {orders.map((order) => (
+              <OrderCard key={order.id} order={order} />
+            ))}
+          </div>
+        </TabsContent>
+        <TabsContent value="processing" className="mt-6">
+          <div className="grid gap-6">
+            {orders
+              .filter((order) => order.status === "Processing")
+              .map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+          </div>
+        </TabsContent>
+        <TabsContent value="shipped" className="mt-6">
+          <div className="grid gap-6">
+            {orders
+              .filter((order) => order.status === "Shipped")
+              .map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+          </div>
+        </TabsContent>
+        <TabsContent value="delivered" className="mt-6">
+          <div className="grid gap-6">
+            {orders
+              .filter((order) => order.status === "Delivered")
+              .map((order) => (
+                <OrderCard key={order.id} order={order} />
+              ))}
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
