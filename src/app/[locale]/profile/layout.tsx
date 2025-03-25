@@ -1,10 +1,10 @@
 "use client"; // Changed to client component for translation support
 
 import { SidebarNav } from "./_components/sidebar-nav";
-import { Navbar } from "~/components/layouts/navbar";
 import { Footer } from "~/components/layouts/footer";
 import { CreditCard, Home, Package, Settings, User } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Header from "~/components/layouts/header";
 
 const links = [
   {
@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <div
         className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] py-8 min-h-[100vh]"
         dir={isRtl ? "rtl" : "ltr"}
