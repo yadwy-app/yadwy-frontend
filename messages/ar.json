@@ -1,4 +1,7 @@
 {
+	"common": {
+		"Logo": "يَدَوِيّ"
+	},
 	"HomePage": {
 		"title": "Hello world!",
 		"about": "Go to the about page",
@@ -235,5 +238,13 @@
 		"filterBy": "تصفية حسب {name}",
 		"cancel": "إلغاء",
 		"applyFilters": "تطبيق الفلاتر"
+	},
+	"Header": {
+		"searchPlaceholder": "ابحث عن أعمال فنية، نباتات...",
+		"searchProducts": "البحث عن المنتجات",
+		"clearSearch": "مسح البحث",
+		"shoppingCart": "عربة التسوق",
+		"wishlist": "قائمة الرغبات",
+		"account": "الحساب"
 	}
 }

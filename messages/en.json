@@ -1,4 +1,7 @@
 {
+	"common": {
+		"Logo": "Yadawi"
+	},
 	"HomePage": {
 		"title": "Hello world!",
 		"about": "Go to the about page",
@@ -239,5 +242,13 @@
 		"filterBy": "Filter by {name}",
 		"cancel": "Cancel",
 		"applyFilters": "Apply Filters"
+	},
+	"Header": {
+		"searchPlaceholder": "Search for artwork, plants...",
+		"searchProducts": "Search products",
+		"clearSearch": "Clear search",
+		"shoppingCart": "Shopping cart",
+		"wishlist": "Wishlist",
+		"account": "Account"
 	}
 }
