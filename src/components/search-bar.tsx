@@ -6,7 +6,6 @@ import { Input } from "~/components/ui/input";
 import { cn } from "~/lib/utils";
 import { useTranslations } from "next-intl";
 import { Button } from "./ui/button";
-import useTextDirection from "~/hooks/useDirection";
 
 export default function SearchBar() {
   const t = useTranslations("Header");
@@ -37,7 +36,9 @@ export default function SearchBar() {
         />
         {searchQuery && (
           <Button
-            className={`absolute inset-y-0 end-0 flex items-center pe-3`}
+            size={"sm"}
+            variant={"ghost"}
+            className={`absolute top-1/2 -translate-y-1/2 end-0 flex items-center pe-3`}
             onClick={() => setSearchQuery("")}
             aria-label={t("clearSearch")}
           >
