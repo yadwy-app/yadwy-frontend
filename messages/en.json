@@ -1,254 +1,254 @@
 {
-	"common": {
-		"Logo": "Yadawi"
-	},
-	"HomePage": {
-		"title": "Hello world!",
-		"about": "Go to the about page",
-		"Categories": {
-			"title": "Categories",
-			"description": "Explore a world of creativity in our store, where you will find the prettiest handcrafts"
-		},
-		"NewArt": {
-			"title": "New Artworks",
-			"description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
-			"button": "See more"
-		},
-		"HotArt": {
-			"title": "Hot Artworks",
-			"description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
-			"button": "See more"
-		},
-		"Features": {
-			"Strength": {
-				"title": "Strength",
-				"desc": "The products we sell are durable, and authenticated"
-			},
-			"Natural": {
-				"title": "Natural",
-				"desc": "Our products are natural and made by local people, which gives them support to enrich their communities"
-			},
-			"Strength_2": {
-				"title": "Strength",
-				"desc": "The products we sell are durable, and authenticated by professionals"
-			}
-		},
-		"Footer": {
-			"description": "Browse an array of masterpieces, get your own, and help the local market.",
-			"phone": "(+20) 000000000",
-			"email": "example@yadawi.com",
-			"location": "Cairo - Hurghada",
-			"pages": {
-				"title": "Pages",
-				"home": "Home",
-				"shop": "Shop",
-				"categories": "Categories"
-			},
-			"company": {
-				"title": "Company",
-				"aboutUs": "About Us",
-				"careers": "Careers",
-				"community": "Community",
-				"customers": "Customers",
-				"contactUs": "Contact Us"
-			},
-			"resources": {
-				"title": "Resources",
-				"support": "Support",
-				"helpCenter": "Help Center",
-				"preferences": "Preferences",
-				"privacyPolicy": "Privacy Policy",
-				"termsOfUse": "Terms of Use"
-			},
-			"rightsReserved": "@{year} yadawi - All Rights Reserved",
-			"termsConditions": "Terms & Conditions",
-			"privacyPolicy": "Privacy Policy",
-			"cookies": "Cookies"
-		},
-		"OrderBanner": {
-			"title": "Your Order is",
-			"personal": "Personal",
-			"toYou": "to you",
-			"description": "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat. Ultrices pellentesque amet scelerisque velit ultrices erat",
-			"makeOrderButton": "Make your order",
-			"moreDetailsButton": "More Details"
-		}
-	},
-	"cartPage": {
-		"title": "Shopping Cart",
-		"products": {
-			"isEmpty": {
-				"title": "Your cart is empty",
-				"description": "Add some products to your cart to see them here.",
-				"button": "Continue shopping"
-			}
-		}
-	},
-	"Login": {
-		"title": "Sign In",
-		"description": "Enter your credentials to access your account",
-		"Fields": {
-			"email": "Email",
-			"emailPlaceholder": "Enter your email",
-			"password": "Password",
-			"passwordPlaceholder": "Enter your password"
-		},
-		"primaryButtonText": "Log In",
-		"secondaryButtonText": "Forgot Password?",
-		"or": "Or",
-		"signup": {
-			"title": "Don't have an account?",
-			"button": "Sign Up"
-		},
-		"signUp": "Sign Up"
-	},
-	"SignUp": {
-		"title": "Create Account",
-		"description": "Enter your information to create a new account",
-		"Fields": {
-			"fullName": "Full Name",
-			"fullNamePlaceholder": "Enter your full name",
-			"email": "Email",
-			"emailPlaceholder": "Enter your email",
-			"password": "Password",
-			"passwordPlaceholder": "Enter your password",
-			"confirmPassword": "Confirm Password",
-			"confirmPasswordPlaceholder": "Confirm your password"
-		},
-		"primaryButtonText": "Create Account",
-		"or": "Or",
-		"signup": {
-			"title": "Already have an account?",
-			"button": "Sign In"
-		}
-	},
-	"validation": {
-		"firstNameRequired": "First name is required",
-		"firstNameInvalid": "First name must be in Arabic or English",
-		"lastNameRequired": "Last name is required",
-		"lastNameInvalid": "Last name must be in Arabic or English",
-		"addressRequired": "Address is required",
-		"addressInvalid": "Address must be in Arabic or English",
-		"emailInvalid": "Invalid email address",
-		"passwordMin": "Password must be at least 8 characters",
-		"passwordMismatch": "Passwords do not match"
-	},
-	"ShopCard": {
-		"title": "Shopping Cart",
-		"isEmpty": "Your cart is empty",
-		"Subtotal": "Subtotal",
-		"description": "Shipping and taxed calculated at checkout",
-		"button": "Proceed to Checkout"
-	},
-	"ProfilePage": {
-		"title": "Profile",
-		"description": "Manage your account settings and preferences.",
-		"personalInfo": {
-			"title": "Personal Information",
-			"description": "Your personal details and contact information",
-			"edit": "Edit",
-			"fullName": "Full Name",
-			"email": "Email",
-			"phone": "Phone",
-			"dob": "Date of Birth"
-		},
-		"accountSummary": {
-			"title": "Account Summary",
-			"description": "Overview of your account activity",
-			"ordersPlaced": "Orders Placed",
-			"wishlistItems": "Wishlist Items",
-			"reviews": "Reviews"
-		},
-		"recentOrders": {
-			"title": "Recent Orders",
-			"description": "Your most recent purchases",
-			"viewAll": "View All",
-			"delivered": "Delivered",
-			"shipped": "Shipped"
-		},
-		"ProfileSidebar": {
-			"account": "Account",
-			"orders": "Orders",
-			"addresses": "Addresses",
-			"paymentmethods": "Payment Methods",
-			"settings": "Settings"
-		}
-	},
-	"OrdersPage": {
-		"title": "My Orders",
-		"description": "View and track all your orders",
-		"order": "Order",
-		"details": "Details",
-		"quantity": "Qty",
-		"total": "Total",
-		"status": {
-			"processing": "Processing",
-			"shipped": "Shipped",
-			"delivered": "Delivered"
-		},
-		"tabs": {
-			"all": "All",
-			"processing": "Processing",
-			"shipped": "Shipped",
-			"delivered": "Delivered"
-		}
-	},
-	"AddressesPage": {
-		"title": "Addresses",
-		"description": "Manage your shipping and billing addresses",
-		"savedAddresses": "Saved Addresses",
-		"type": {
-			"home": "Home",
-			"work": "Work",
-			"other": "Other"
-		},
-		"default": "Default",
-		"edit": "Edit",
-		"delete": "Delete",
-		"addNewAddress": "Add New Address"
-	},
-	"ProductCard": {
-		"add": "Add",
-		"addedToCart": "{title} added to cart 🛒",
-		"addedDescription": "You added {quantity} {unit} to your cart.",
-		"unit": "unit",
-		"units": "units"
-	},
-	"FilterBar": {
-		"filters": "Filters",
-		"price": "Price",
-		"category": "Category",
-		"categories": "Categories",
-		"material": "Material",
-		"materials": "Materials",
-		"rating": "Rating",
-		"priceRange": "Price Range",
-		"minPrice": "Minimum Price",
-		"maxPrice": "Maximum Price",
-		"to": "to",
-		"apply": "Apply",
-		"sortBy": "Sort by",
-		"sort": {
-			"featured": "Featured",
-			"newest": "Newest Arrivals",
-			"priceLow": "Price: Low to High",
-			"priceHigh": "Price: High to Low",
-			"rating": "Highest Rated"
-		},
-		"activeFilters": "Active Filters:",
-		"removeFilter": "Remove {type} filter",
-		"clearAll": "Clear All",
-		"sortProducts": "Sort products",
-		"filterBy": "Filter by {name}",
-		"cancel": "Cancel",
-		"applyFilters": "Apply Filters"
-	},
-	"Header": {
-		"searchPlaceholder": "Search for artwork, plants...",
-		"searchProducts": "Search products",
-		"clearSearch": "Clear search",
-		"shoppingCart": "Shopping cart",
-		"wishlist": "Wishlist",
-		"account": "Account"
-	}
+  "common": {
+    "Logo": "Yadawi"
+  },
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page",
+    "Categories": {
+      "title": "Categories",
+      "description": "Explore a world of creativity in our store, where you will find the prettiest handcrafts"
+    },
+    "NewArt": {
+      "title": "New Artworks",
+      "description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
+      "button": "See more"
+    },
+    "HotArt": {
+      "title": "Hot Artworks",
+      "description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
+      "button": "See more"
+    },
+    "Features": {
+      "Strength": {
+        "title": "Strength",
+        "desc": "The products we sell are durable, and authenticated"
+      },
+      "Natural": {
+        "title": "Natural",
+        "desc": "Our products are natural and made by local people, which gives them support to enrich their communities"
+      },
+      "Strength_2": {
+        "title": "Strength",
+        "desc": "The products we sell are durable, and authenticated by professionals"
+      }
+    },
+    "Footer": {
+      "description": "Browse an array of masterpieces, get your own, and help the local market.",
+      "phone": "(+20) 000000000",
+      "email": "example@yadawi.com",
+      "location": "Cairo - Hurghada",
+      "pages": {
+        "title": "Pages",
+        "home": "Home",
+        "shop": "Shop",
+        "categories": "Categories"
+      },
+      "company": {
+        "title": "Company",
+        "aboutUs": "About Us",
+        "careers": "Careers",
+        "community": "Community",
+        "customers": "Customers",
+        "contactUs": "Contact Us"
+      },
+      "resources": {
+        "title": "Resources",
+        "support": "Support",
+        "helpCenter": "Help Center",
+        "preferences": "Preferences",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use"
+      },
+      "rightsReserved": "@{year} yadawi - All Rights Reserved",
+      "termsConditions": "Terms & Conditions",
+      "privacyPolicy": "Privacy Policy",
+      "cookies": "Cookies"
+    },
+    "OrderBanner": {
+      "title": "Your Order is",
+      "personal": "Personal",
+      "toYou": "to you",
+      "description": "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat. Ultrices pellentesque amet scelerisque velit ultrices erat",
+      "makeOrderButton": "Make your order",
+      "moreDetailsButton": "More Details"
+    }
+  },
+  "cartPage": {
+    "title": "Shopping Cart",
+    "products": {
+      "isEmpty": {
+        "title": "Your cart is empty",
+        "description": "Add some products to your cart to see them here.",
+        "button": "Continue shopping"
+      }
+    }
+  },
+  "Login": {
+    "title": "Sign In",
+    "description": "Enter your credentials to access your account",
+    "Fields": {
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password"
+    },
+    "primaryButtonText": "Log In",
+    "secondaryButtonText": "Forgot Password?",
+    "or": "Or",
+    "signup": {
+      "title": "Don't have an account?",
+      "button": "Sign Up"
+    },
+    "signUp": "Sign Up"
+  },
+  "SignUp": {
+    "title": "Create Account",
+    "description": "Enter your information to create a new account",
+    "Fields": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password"
+    },
+    "primaryButtonText": "Create Account",
+    "or": "Or",
+    "signup": {
+      "title": "Already have an account?",
+      "button": "Sign In"
+    }
+  },
+  "validation": {
+    "firstNameRequired": "First name is required",
+    "firstNameInvalid": "First name must be in Arabic or English",
+    "lastNameRequired": "Last name is required",
+    "lastNameInvalid": "Last name must be in Arabic or English",
+    "addressRequired": "Address is required",
+    "addressInvalid": "Address must be in Arabic or English",
+    "emailInvalid": "Invalid email address",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "ShopCard": {
+    "title": "Shopping Cart",
+    "isEmpty": "Your cart is empty",
+    "Subtotal": "Subtotal",
+    "description": "Shipping and taxed calculated at checkout",
+    "button": "Proceed to Checkout"
+  },
+  "ProfilePage": {
+    "title": "Profile",
+    "description": "Manage your account settings and preferences.",
+    "personalInfo": {
+      "title": "Personal Information",
+      "description": "Your personal details and contact information",
+      "edit": "Edit",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "dob": "Date of Birth"
+    },
+    "accountSummary": {
+      "title": "Account Summary",
+      "description": "Overview of your account activity",
+      "ordersPlaced": "Orders Placed",
+      "wishlistItems": "Wishlist Items",
+      "reviews": "Reviews"
+    },
+    "recentOrders": {
+      "title": "Recent Orders",
+      "description": "Your most recent purchases",
+      "viewAll": "View All",
+      "delivered": "Delivered",
+      "shipped": "Shipped"
+    },
+    "ProfileSidebar": {
+      "account": "Account",
+      "orders": "Orders",
+      "addresses": "Addresses",
+      "paymentmethods": "Payment Methods",
+      "settings": "Settings"
+    }
+  },
+  "OrdersPage": {
+    "title": "My Orders",
+    "description": "View and track all your orders",
+    "order": "Order",
+    "details": "Details",
+    "quantity": "Qty",
+    "total": "Total",
+    "status": {
+      "processing": "Processing",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "tabs": {
+      "all": "All",
+      "processing": "Processing",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    }
+  },
+  "AddressesPage": {
+    "title": "Addresses",
+    "description": "Manage your shipping and billing addresses",
+    "savedAddresses": "Saved Addresses",
+    "type": {
+      "home": "Home",
+      "work": "Work",
+      "other": "Other"
+    },
+    "default": "Default",
+    "edit": "Edit",
+    "delete": "Delete",
+    "addNewAddress": "Add New Address"
+  },
+  "ProductCard": {
+    "add": "Add",
+    "addedToCart": "{title} added to cart 🛒",
+    "addedDescription": "You added {quantity} {unit} to your cart.",
+    "unit": "unit",
+    "units": "units"
+  },
+  "FilterBar": {
+    "filters": "Filters",
+    "price": "Price",
+    "category": "Category",
+    "categories": "Categories",
+    "material": "Material",
+    "materials": "Materials",
+    "rating": "Rating",
+    "priceRange": "Price Range",
+    "minPrice": "Minimum Price",
+    "maxPrice": "Maximum Price",
+    "to": "to",
+    "apply": "Apply",
+    "sortBy": "Sort by",
+    "sort": {
+      "featured": "Featured",
+      "newest": "Newest Arrivals",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "rating": "Highest Rated"
+    },
+    "activeFilters": "Active Filters:",
+    "removeFilter": "Remove {type} filter",
+    "clearAll": "Clear All",
+    "sortProducts": "Sort products",
+    "filterBy": "Filter by {name}",
+    "cancel": "Cancel",
+    "applyFilters": "Apply Filters"
+  },
+  "Header": {
+    "searchPlaceholder": "Search for artwork, plants...",
+    "searchProducts": "Search products",
+    "clearSearch": "Clear search",
+    "shoppingCart": "Shopping cart",
+    "wishlist": "Wishlist",
+    "account": "Account"
+  }
 }

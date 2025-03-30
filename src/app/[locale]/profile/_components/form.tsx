@@ -1,7 +1,7 @@
 "use client";
-import { ControllerRenderProps, Path, useForm } from "react-hook-form";
+import { type ControllerRenderProps, type Path, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"; // Updated resolver
-import { z } from "zod"; // Import Zod
+import { type z } from "zod"; // Import Zod
 import { useRef, useState, useActionState } from "react";
 import {
   Form as _Form,
@@ -13,7 +13,7 @@ import {
 import { Button } from "~/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { cn } from "~/lib/utils";
-import { ActionType, FormState } from "~/types/forms";
+import { type ActionType, type FormState } from "~/types/forms";
 import { toast } from "~/hooks/use-toast";
 
 // Updated type definitions for Zod
@@ -34,18 +34,18 @@ type Props<T extends z.ZodTypeAny> = {
 };
 
 function transformInToFormObject(data: Record<string, any>) {
-  let formData = new FormData();
-  for (let key in data) {
+  const formData = new FormData();
+  for (const key in data) {
     if (Array.isArray(data[key])) {
       data[key].forEach((obj: Record<string, any>, index: number) => {
-        let keyList = Object.keys(obj);
+        const keyList = Object.keys(obj);
         keyList.forEach((keyItem) => {
-          let keyName = [key, ".", index, ".", keyItem].join("");
+          const keyName = [key, ".", index, ".", keyItem].join("");
           formData.append(keyName, obj[keyItem]);
         });
       });
     } else if (typeof data[key] === "object") {
-      for (let innerKey in data[key]) {
+      for (const innerKey in data[key]) {
         formData.append(`${key}.${innerKey}`, data[key][innerKey]);
       }
     } else {

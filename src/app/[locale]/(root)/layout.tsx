@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Footer } from "~/components/layouts/footer";
 import Header from "~/components/layouts/header";
-import { SiteFooter } from "~/components/layouts/site-foter";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",

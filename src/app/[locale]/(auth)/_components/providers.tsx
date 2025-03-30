@@ -1,4 +1,3 @@
-import { Facebook } from "lucide-react";
 import { FaGoogle } from "react-icons/fa6";
 import { Button } from "~/components/ui/button";
 

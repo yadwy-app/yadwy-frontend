@@ -1,8 +1,8 @@
 "use client";
 
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
+import { useForm, FormProvider, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { type z } from "zod";
 import { useTranslations } from "next-intl";
 import { Card, CardContent } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
@@ -42,7 +42,7 @@ export default function FormSignUp() {
     try {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value as string);
+        formData.append(key, value);
       });
       await signUpAction(data, formData);
     } catch (error) {

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Checkbox } from "~/components/ui/checkbox";
-import { Star } from "lucide-react";
 import { FaStar } from "react-icons/fa6";
 
 const ratings = [5, 4, 3, 2, 1];

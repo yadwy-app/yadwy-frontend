@@ -57,7 +57,6 @@ export function LoginForm() {
                 {
                   name: "password",
                   label: t("Fields.password"),
-                  // @ts-ignore
                   Field: forwardRef(function InputField(props: any, ref) {
                     return (
                       <PasswordField

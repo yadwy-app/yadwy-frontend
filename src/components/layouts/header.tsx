@@ -4,10 +4,11 @@ import { useTranslations } from "next-intl";
 import Logo from "../logo";
 import SearchBar from "../search-bar";
 import CartActions from "./cart-actions";
+import useTextDirection from '~/hooks/useDirection';
 
 export default function Header() {
   const t = useTranslations("Header");
-  const isRtl = t("searchPlaceholder") !== "Search for artwork, plants...";
+  const isRtl = useTextDirection() === "rtl";
 
   return (
     <header

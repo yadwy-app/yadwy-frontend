@@ -12,7 +12,7 @@ import {
 } from "../ui/navigation-menu";
 import { Link } from "~/i18n/routing";
 
-const NavManger = () => {
+const NavManager = () => {
   const [token, setToken] = useState<string | null>(null);
   const [isClient, setIsClient] = useState(false);
 
@@ -73,4 +73,4 @@ const NavManger = () => {
   );
 };
 
-export default NavManger;
+export default NavManager;

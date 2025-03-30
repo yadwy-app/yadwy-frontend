@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "~/redux/store";
+import { type RootState } from "~/redux/store";
 import { BoxProductCart } from "./box-product";
 import { Link } from "~/i18n/routing";
 import { Button } from "~/components/ui/button";

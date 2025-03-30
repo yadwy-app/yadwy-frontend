@@ -44,8 +44,8 @@ export default function LocaleSwitcherLang({
         <SelectValue placeholder="Select Language" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="en" className="">🇵🇸 العربية</SelectItem>
-        <SelectItem value="ar">🇬🇧 English</SelectItem>
+        <SelectItem value="ar" className="">🇵🇸 العربية</SelectItem>
+        <SelectItem value="en">🇬🇧 English</SelectItem>
       </SelectContent>
     </Select>
   );

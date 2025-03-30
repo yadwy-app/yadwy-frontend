@@ -15,7 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { UseFormReturn } from "react-hook-form";
+import { type UseFormReturn } from "react-hook-form";
 
 const AddressFields = [
   {
@@ -114,7 +114,7 @@ type Props = {
 };
 
 export default function PersonalInfoForm({ form }: Props) {
-  const selectedCountry = (form.watch("country") || "eg") as string;
+  const selectedCountry = (form.watch("country") || "eg");
 
   return (
     <div className="space-y-6">

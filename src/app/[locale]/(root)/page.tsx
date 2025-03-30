@@ -28,7 +28,7 @@ const products = [
       id: [
         518772981, 61829718217, 7222792607198, 828999982, 9220991, 5109282109,
         6981228937, 710921083844, 8982901777777733, 928179873,
-      ][index % 10] as number, // Ensure id is always a number
+      ][index % 10]!, // Ensure id is always a number
       name: "lefse plants in a white pot",
       price: 35 + (index % 5) * 10,
       image: `/artworks/p${(index % 6) + 1}.png`,
