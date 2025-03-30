@@ -19,7 +19,7 @@ export default function CartActions() {
       <CartSheet>
         <SheetTrigger
           asChild
-          className="flex items-center justify-center rounded-full bg-accent p-2"
+          className="flex items-center justify-center rounded-full hover:rounded-md bg-accent p-2"
         >
           <Button
             variant="ghost"
