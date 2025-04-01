@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import { s } from "node_modules/framer-motion/dist/types.d-6pKw1mTI";
 import { CiInstagram, CiLinkedin } from "react-icons/ci";
 import { FaFacebook } from "react-icons/fa6";
 import { Button } from "~/components/ui/button";

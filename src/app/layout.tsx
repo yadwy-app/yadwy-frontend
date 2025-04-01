@@ -1,10 +1,10 @@
 import "~/styles/globals.css";
 
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
 import { lalezar, lexend } from "~/styles/fonts";
-import { getLocale } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: "متجر يدوي",

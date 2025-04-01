@@ -1,29 +1,16 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { ToastAction } from "~/components/ui/toast";
-import { toast } from "~/hooks/use-toast";
-import { cartAction } from "~/redux/reducers/CartSlice";
-import { Counter } from "./counter";
+import { useState } from "react";
+import { getProductCoverImage } from "~/lib/product-utils";
+import type { Product } from "~/types";
 
 interface ItemProps {
-  item: {
-    id: number;
-    title: string;
-    price: number;
-    quantity: number;
-    unitPrice: number;
-    imageCover: string;
-  };
+  item: Product;
 }
 export const BoxProductCart = ({ item }: ItemProps) => {
-  const dispatch = useDispatch();
-  const [counter, setCounter] = useState<number>(item.quantity);
-
-  useEffect(() => {
-    dispatch(cartAction.updateItemQuantity({ id: item.id, quantity: counter }));
-  }, [counter, dispatch, item.id]);
+  const quantity = 1; // TODO: Replace with actual logic to get quantity
+  const unitPrice = 100;
+  const [counter, setCounter] = useState<number>(quantity);
 
   function CounterHandle(action: string) {
     setCounter((prev) => {
@@ -33,16 +20,12 @@ export const BoxProductCart = ({ item }: ItemProps) => {
       return action === "add" ? prev + 1 : prev - 1;
     });
   }
-  function handleRemoveItem(itemId: number) {
-    dispatch(cartAction.removeItem(itemId));
-  }
   return (
     <div className="flex justify-between gap-4">
       <div className="flex gap-4">
         <div className="relative h-[100px] w-[100px]">
           <Image
-            // src={`/artworks/planets.png`}
-            src={item.imageCover}
+            src={getProductCoverImage(item)}
             fill
             alt={item.title}
             className="object-cover"
@@ -51,7 +34,7 @@ export const BoxProductCart = ({ item }: ItemProps) => {
         <div className="flex flex-col items-start gap-2">
           <h6 className="text-sm">{item.title}</h6>
           <div className="text-sm font-semibold text-gray-500">
-            {item.quantity}x ${item.unitPrice}
+            {quantity}x ${unitPrice}
           </div>
           <div className="flex gap-3">
             <div className="flex gap-3 rounded-sm border-2 border-gray-300">
@@ -74,7 +57,7 @@ export const BoxProductCart = ({ item }: ItemProps) => {
             <button
               type="button"
               className="text-xs text-gray-500 transition-all hover:text-red-400"
-              onClick={() => handleRemoveItem(item.id)}
+              onClick={() => console.log("remove the item")}
             >
               Remove
             </button>

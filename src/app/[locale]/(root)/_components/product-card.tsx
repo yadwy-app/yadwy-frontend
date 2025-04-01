@@ -4,13 +4,11 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { CiHeart } from "react-icons/ci";
 import { TbShoppingBagPlus } from "react-icons/tb";
-import { useDispatch } from "react-redux";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardFooter } from "~/components/ui/card";
 import { toast } from "~/hooks/use-toast";
 import useTextDirection from "~/hooks/useDirection";
 import { Link } from "~/i18n/routing";
-import { cartAction } from "~/redux/reducers/CartSlice";
 
 type Props = {
   id: number;
@@ -30,12 +28,11 @@ type CartItemProps = {
 };
 
 export default function ProductCard({ id, title, price, image }: Props) {
-  const dispatch = useDispatch();
   const t = useTranslations("ProductCard");
   const dir = useTextDirection();
 
   function handleAddCart(item: CartItemProps) {
-    dispatch(cartAction.addItems(item));
+    // TODO: call a mutation in the backend
     toast({
       title: t("addedToCart", { title: item.title }),
       description: t("addedDescription", {

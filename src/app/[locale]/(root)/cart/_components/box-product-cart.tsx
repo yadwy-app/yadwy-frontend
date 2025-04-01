@@ -1,15 +1,13 @@
 "use client";
-import React from "react";
-import { useSelector } from "react-redux";
 import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
-import type { RootState } from "~/redux/store";
 import { BoxProductCart } from "./box-product";
 
 import { useTranslations } from "next-intl";
+import type { Product } from "~/types";
 
 export const ProductsHolderCart = () => {
-  const products = useSelector((state: RootState) => state.cart.items);
+  const products: Product[] = []; // TODO: fetch the carts state from the backend
   // console.log("products", products);
   const t = useTranslations("cartPage.products");
   return (

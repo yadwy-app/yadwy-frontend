@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Summary = () => {
   return (
     <div className="flex flex-col gap-5">
