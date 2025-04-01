@@ -1,18 +1,18 @@
 "use client";
 
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { Card, CardContent } from "~/components/ui/card";
+import Image from "next/image";
+import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
+import type { z } from "zod";
+import signUpAction from "~/app/action/auth/sign-up";
 import { Button } from "~/components/ui/button";
+import { Card, CardContent } from "~/components/ui/card";
+import { Link } from "~/i18n/routing";
+import { SignUpSchema } from "~/schemas/auth";
 import Field from "../_components/field";
 import PasswordField from "../_components/password-field";
 import Providers from "../_components/providers";
-import { Link } from "~/i18n/routing";
-import Image from "next/image";
-import { SignUpSchema } from "~/schemas/auth";
-import signUpAction from "~/app/action/auth/sign-up";
 
 // Define the form values type from the schema
 type SignUpFormValues = z.infer<typeof SignUpSchema>;
@@ -24,7 +24,7 @@ type Props = {
 
 export default function FormSignUp() {
   const t = useTranslations("SignUp");
-  const passwordPlaceholder = t("Fields.confirmPasswordPlaceholder")
+  const passwordPlaceholder = t("Fields.confirmPasswordPlaceholder");
 
   // Add type parameter to useForm
   const methods = useForm<SignUpFormValues>({
@@ -42,7 +42,7 @@ export default function FormSignUp() {
     try {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value as string);
+        formData.append(key, value);
       });
       await signUpAction(data, formData);
     } catch (error) {

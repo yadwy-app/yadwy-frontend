@@ -1,20 +1,24 @@
 "use client";
-import { ControllerRenderProps, Path, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"; // Updated resolver
-import { z } from "zod"; // Import Zod
-import { useRef, useState, useActionState } from "react";
+import { Loader2 } from "lucide-react";
+import { useActionState, useRef, useState } from "react";
 import {
-  Form as _Form,
+  type ControllerRenderProps,
+  type Path,
+  useForm,
+} from "react-hook-form";
+import type { z } from "zod"; // Import Zod
+import { Button } from "~/components/ui/button";
+import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
+  Form as _Form,
 } from "~/components/ui/form";
-import { Button } from "~/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { cn } from "~/lib/utils";
-import { ActionType, FormState } from "~/types/forms";
 import { toast } from "~/hooks/use-toast";
+import { cn } from "~/lib/utils";
+import type { ActionType, FormState } from "~/types/forms";
 
 // Updated type definitions for Zod
 type Inputs<T extends z.ZodTypeAny, V extends Path<z.infer<T>>> = {
@@ -22,7 +26,7 @@ type Inputs<T extends z.ZodTypeAny, V extends Path<z.infer<T>>> = {
   name: V;
   Field: React.ForwardRefExoticComponent<
     Omit<ControllerRenderProps<z.infer<T>, V>, "ref"> &
-    React.RefAttributes<HTMLInputElement>
+      React.RefAttributes<HTMLInputElement>
   >;
 };
 
@@ -33,23 +37,26 @@ type Props<T extends z.ZodTypeAny> = {
   inputs: Inputs<T, Path<z.infer<T>>>[];
 };
 
-function transformInToFormObject(data: Record<string, any>) {
-  let formData = new FormData();
-  for (let key in data) {
+function transformInToFormObject(data: Record<string, unknown>) {
+  const formData = new FormData();
+  for (const key in data) {
     if (Array.isArray(data[key])) {
-      data[key].forEach((obj: Record<string, any>, index: number) => {
-        let keyList = Object.keys(obj);
-        keyList.forEach((keyItem) => {
-          let keyName = [key, ".", index, ".", keyItem].join("");
-          formData.append(keyName, obj[keyItem]);
+      (data[key] as Record<string, unknown>[]).forEach((obj, index) => {
+        Object.keys(obj).forEach((keyItem) => {
+          const keyName = [key, ".", index, ".", keyItem].join("");
+          formData.append(keyName, obj[keyItem] as string | Blob);
         });
       });
-    } else if (typeof data[key] === "object") {
-      for (let innerKey in data[key]) {
-        formData.append(`${key}.${innerKey}`, data[key][innerKey]);
+    } else if (typeof data[key] === "object" && data[key] !== null) {
+      const nestedObject = data[key] as Record<string, unknown>;
+      for (const innerKey in nestedObject) {
+        formData.append(
+          `${key}.${innerKey}`,
+          nestedObject[innerKey] as string | Blob,
+        );
       }
     } else {
-      formData.append(key, data[key]);
+      formData.append(key, data[key] as string | Blob);
     }
   }
   return formData;

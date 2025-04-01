@@ -1,5 +1,17 @@
 "use client";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { CiCoins1 } from "react-icons/ci";
+import {
+  FaCcAmex,
+  FaCcMastercard,
+  FaPaypal,
+  FaRegCheckCircle,
+} from "react-icons/fa";
 import {
   FaCcVisa,
   FaCreditCard,
@@ -7,20 +19,10 @@ import {
   FaPlus,
   FaTruckFast,
 } from "react-icons/fa6";
-import {
-  FaCcAmex,
-  FaCcMastercard,
-  FaPaypal,
-  FaRegCheckCircle,
-} from "react-icons/fa";
-import { Steps } from "../../_components/steps";
-import { Button } from "~/components/ui/button";
 import { IoMdAdd, IoMdArrowBack } from "react-icons/io";
-import { CiCoins1 } from "react-icons/ci";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { MdOutlineContentCopy, MdOutlineShoppingBag } from "react-icons/md";
-import Link from "next/link";
+import * as yup from "yup";
+import { Button } from "~/components/ui/button";
 import {
   FormControl,
   FormField,
@@ -29,10 +31,8 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { FormProvider, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { AddressOrder } from "../../_components/address-order";
+import { Steps } from "../../_components/steps";
 import { TapsPay } from "./taps";
 import { Visa } from "./visa";
 const Checkout = () => {
@@ -411,8 +411,8 @@ const Checkout = () => {
               </form>
             </FormProvider>
           )}
-          {currentPay === "Cash on Delivery" && <>Cash on Delivery</>}
-          {currentPay === "Vodafone" && <>Vodafone</>}
+          {currentPay === "Cash on Delivery" && currentPay}
+          {currentPay === "Vodafone" && currentPay}
         </motion.div>
       )}
       {currentStep === stepsData.length && (
@@ -445,7 +445,10 @@ const Checkout = () => {
               <span className="text-sm text-textColor md:text-base">
                 Your order tracking number:
               </span>
-              <button className="flex items-center text-sm font-bold text-primary md:text-base">
+              <button
+                type="button"
+                className="flex items-center text-sm font-bold text-primary md:text-base"
+              >
                 EX249478661SG
                 <MdOutlineContentCopy />
               </button>
@@ -480,7 +483,7 @@ const Checkout = () => {
       {currentStep === stepsData.length && (
         <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
           <Link
-            href={``}
+            href={"#"}
             className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-gray-200 px-4 py-2 text-sm text-textColor md:w-fit md:text-base"
           >
             <FaTruckFast />

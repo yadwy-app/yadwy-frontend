@@ -1,9 +1,9 @@
 import "~/styles/globals.css";
 
 import type { Metadata } from "next";
+import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
 import { lalezar, lexend } from "~/styles/fonts";
-import { Toaster } from "~/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",

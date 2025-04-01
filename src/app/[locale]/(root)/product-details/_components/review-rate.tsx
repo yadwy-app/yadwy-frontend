@@ -15,8 +15,8 @@ export default function ReviewRate({ totalReviews, ratings }: Props) {
     <div className="w-full md:w-1/2 h-fit">
       <h2 className="mb-4 text-xl font-semibold">Customer Reviews</h2>
       <p className="mb-2 text-gray-600">{totalReviews} reviews</p>
-      {ratings.map((rating, index) => (
-        <div key={index} className="flex items-center mb-2">
+      {ratings.map((rating) => (
+        <div key={rating.percentage} className="flex items-center mb-2">
           <span className="text-yellow-500">★</span>
           <Progress
             value={rating.percentage}

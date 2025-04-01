@@ -2,7 +2,7 @@ import { Heart, Star } from "lucide-react";
 
 type Props = {
   title: string;
-  price: string;
+  price: number;
   rate: number;
   description: string;
 };

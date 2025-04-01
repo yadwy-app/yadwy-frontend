@@ -1,5 +1,4 @@
 import React from "react";
-import { CiSearch } from "react-icons/ci";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 

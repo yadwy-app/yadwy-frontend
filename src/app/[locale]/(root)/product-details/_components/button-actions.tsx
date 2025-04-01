@@ -1,17 +1,11 @@
 "use client";
-import { Button } from "~/components/ui/button";
-import { Counter } from "../../cart/_components/counter";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { cartAction } from "~/redux/reducers/CartSlice";
+import { Button } from "~/components/ui/button";
 import { toast } from "~/hooks/use-toast";
-type Props = {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  rating: string;
-};
+import { cartAction } from "~/redux/reducers/CartSlice";
+import { Counter } from "../../cart/_components/counter";
+
 type CartItemProps = {
   id: number;
   title: string;
@@ -20,22 +14,26 @@ type CartItemProps = {
   unitPrice: number;
   imageCover: string;
 };
-export default function ButtonAction() {
+
+export default function ButtonAction({ item }: { item: CartItemProps }) {
   const dispatch = useDispatch();
-  function handleAddCart(item: CartItemProps) {
+  const addToCartHandler = () => {
     dispatch(cartAction.addItems(item));
     toast({
       title: `${item.title} added to cart 🛒`,
       description: `You added ${item.quantity} ${item.quantity > 1 ? "units" : "unit"} to your cart.`,
     });
-  }
+  };
   return (
     <div className="flex w-full flex-col items-center gap-4 md:flex-row">
-      {/* <Counter /> */}
+      <Counter handleAddCart={addToCartHandler} />
       <div className="flex w-full flex-col items-center gap-2 md:flex-row">
-        <Button className="flex w-full gap-4 text-background">
+        <Button
+          className="flex w-full gap-4 text-background"
+          onClick={addToCartHandler}
+        >
           <ShoppingBag className="text-background" />
-          Add 
+          Add
         </Button>
         <h3 className="text-secondary">or</h3>
         <Button className="flex w-full gap-4 text-background">

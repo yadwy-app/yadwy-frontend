@@ -1,10 +1,10 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import type { ReactNode } from "react";
 import { Provider as ReduxProvider } from "react-redux";
-import { store } from "~/redux/store";
 import useTextDirection from "~/hooks/useDirection";
-import { useLocale } from "next-intl";
+import { store } from "~/redux/store";
 
 export function Provider({
   children,

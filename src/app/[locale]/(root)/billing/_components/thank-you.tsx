@@ -25,7 +25,10 @@ export default function ThankYou() {
           <span className="text-sm text-textColor md:text-base">
             Your order tracking number:
           </span>
-          <button className="flex items-center text-sm font-bold text-primary md:text-base">
+          <button
+            type="button"
+            className="flex items-center text-sm font-bold text-primary md:text-base"
+          >
             EX249478661SG
             <MdOutlineContentCopy />
           </button>

@@ -1,28 +1,20 @@
+import { SelectItem } from "@radix-ui/react-select";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { CiSearch } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
+import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { LinkIcon } from "../ui/link-icon";
 import {
   Select,
   SelectContent,
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { SelectItem } from "@radix-ui/react-select";
-import { Button } from "../ui/button";
-import { CiSearch } from "react-icons/ci";
-import Link from "next/link";
-import { LinkIcon } from "../ui/link-icon";
-import { FaHeart } from "react-icons/fa";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
-import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
-import NavManger from "./nav-manger";
+import NavManager from "./nav-manger";
 
 export const Navbar = () => {
   return (
@@ -40,14 +32,6 @@ export const Navbar = () => {
         <div className="flex gap-4">
           <div className="hidden items-center gap-1 md:flex">
             <div className="flex items-center">
-              {/* <Select>
-                <SelectTrigger className="w-[98px] rounded-sm rounded-r-none border border-gray-300 bg-gray-200">
-                  <SelectValue placeholder="All" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="--">--</SelectItem>
-                </SelectContent>
-              </Select> */}
               <Input
                 className="rounded-sm rounded-l-none border border-gray-300"
                 placeholder="Search for artwork, plants...."
@@ -65,7 +49,7 @@ export const Navbar = () => {
             </LinkIcon>
           </div>
 
-          <NavManger />
+          <NavManager />
         </div>
       </div>
       <div className="flex items-center gap-1 md:hidden">

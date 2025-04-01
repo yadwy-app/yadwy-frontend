@@ -1,17 +1,17 @@
 "use client";
 
-import { Card, CardContent } from "~/components/ui/card";
 import Image from "next/image";
-import Providers from "../_components/providers";
+import { Card, CardContent } from "~/components/ui/card";
 import Field from "../_components/field";
 import PasswordField from "../_components/password-field";
+import Providers from "../_components/providers";
 
-import { default as BaseForm } from "../_components/form";
+import { useTranslations } from "next-intl";
 import { forwardRef } from "react";
 import login from "~/app/action/auth/login";
 import { Link } from "~/i18n/routing";
-import { useTranslations } from "next-intl";
 import { LoginSchema } from "~/schemas/auth";
+import { default as BaseForm } from "../_components/form";
 
 const schemas = LoginSchema;
 const defaultValues = {
@@ -42,7 +42,7 @@ export function LoginForm() {
                 {
                   name: "email",
                   label: t("Fields.email"),
-                  Field: forwardRef(function InputField(props: any, ref) {
+                  Field: forwardRef(function InputField(props, ref) {
                     return (
                       <Field
                         placeholder={emailplaceholder}
@@ -57,8 +57,7 @@ export function LoginForm() {
                 {
                   name: "password",
                   label: t("Fields.password"),
-                  // @ts-ignore
-                  Field: forwardRef(function InputField(props: any, ref) {
+                  Field: forwardRef(function InputField(props, ref) {
                     return (
                       <PasswordField
                         placeholder={passwordplaceholder}

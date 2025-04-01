@@ -1,27 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, CreditCard, MapPin } from "lucide-react";
-import { z } from "zod";
+import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import type { z } from "zod";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
-import { FormProvider, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useMultiStepForm } from "~/hooks/use-multi-form";
-import PersonalInfoForm from "./personal-info-form";
-import PaymentForm from "./payment-form";
-import ThankYou from "./thank-you";
-import StepsNavagation from "./steps-navagation";
+import { toast } from "~/hooks/use-toast";
+import { Link } from "~/i18n/routing";
+import { cn } from "~/lib/utils";
 import {
-  OrderDataType,
-  PaymentInfoType,
+  type OrderDataType,
+  type PaymentInfoType,
   PaymentMethodSchema,
   PersonalInfoSchema,
-  PersonalInfoType,
+  type PersonalInfoType,
 } from "~/schemas/checkout-order";
-import { toast } from "~/hooks/use-toast";
-import { cn } from "~/lib/utils";
-import { Link } from "~/i18n/routing";
+import PaymentForm from "./payment-form";
+import PersonalInfoForm from "./personal-info-form";
+import StepsNavagation from "./steps-navagation";
+import ThankYou from "./thank-you";
 
 export default function Checkout() {
   const [orderData, setOrderData] = useState<Partial<OrderDataType>>({});
@@ -50,12 +50,11 @@ export default function Checkout() {
     { id: 3, icon: <Check className="h-5 w-5" />, label: "Confirmation" },
   ];
 
-  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } =
-    useMultiStepForm([
-      <PersonalInfoForm key="step1" form={personalInfoForm} />,
-      <PaymentForm key="step2" form={paymentForm} />,
-      <ThankYou key="step3" />,
-    ]);
+  const { currentStepIndex, step, isFirstStep, back, next } = useMultiStepForm([
+    <PersonalInfoForm key="step1" form={personalInfoForm} />,
+    <PaymentForm key="step2" form={paymentForm} />,
+    <ThankYou key="step3" />,
+  ]);
 
   async function sendDataToServer(data: OrderDataType) {
     try {
@@ -80,7 +79,7 @@ export default function Checkout() {
     }
   }
 
-  function onSubmit(data: PersonalInfoType | PaymentInfoType) {
+  async function onSubmit(data: PersonalInfoType | PaymentInfoType) {
     if (currentStepIndex === 0) {
       setOrderData({ personalInfo: data as PersonalInfoType });
       next();
@@ -94,23 +93,42 @@ export default function Checkout() {
         personalInfo: orderData.personalInfo,
         paymentInfo: data as PaymentInfoType,
       };
-      sendDataToServer(fullData);
+      await sendDataToServer(fullData);
       next();
     }
   }
 
-  const currentForm = currentStepIndex === 0 ? personalInfoForm : paymentForm;
-
   return (
-    <div className="col-span-12 flex flex-col gap-5 md:col-span-6 w-full">
+    <div className="col-span-12 flex w-full flex-col gap-5 md:col-span-6">
       <StepsNavagation steps={steps} currentStep={currentStepIndex + 1} />
       <Card className="border-primary">
         <CardContent className="p-6">
-          {currentStepIndex < 2 ? (
-            // @ts-ignore
-            <FormProvider {...currentForm}>
+          {currentStepIndex === 0 ? (
+            <FormProvider {...personalInfoForm}>
               <form
-                onSubmit={currentForm.handleSubmit(onSubmit)}
+                onSubmit={personalInfoForm.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
+                {step}
+                <div className="flex justify-between pt-4">
+                  {!isFirstStep && (
+                    <Button type="button" variant="outline" onClick={back}>
+                      Back
+                    </Button>
+                  )}
+                  <Button
+                    type="submit"
+                    className={cn("text-white", isFirstStep ? "ml-auto" : "")}
+                  >
+                    Continue
+                  </Button>
+                </div>
+              </form>
+            </FormProvider>
+          ) : currentStepIndex === 1 ? (
+            <FormProvider {...paymentForm}>
+              <form
+                onSubmit={paymentForm.handleSubmit(onSubmit)}
                 className="space-y-6"
               >
                 {step}

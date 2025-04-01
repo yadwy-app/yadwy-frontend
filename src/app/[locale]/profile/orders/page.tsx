@@ -1,6 +1,7 @@
 "use client";
 
 import { Package } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -10,9 +11,8 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
-import { Link } from "~/i18n/routing";
-import { useTranslations } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+import { Link } from "~/i18n/routing";
 
 interface Order {
   id: string;
@@ -38,7 +38,7 @@ function OrderCard({ order }: OrderCardProps) {
     <Card className="border-primary">
       <CardHeader className="pb-3">
         <div
-          className={`flex items-center ${isRtl ? "justify-between flex-row-reverse" : "justify-between"}`}
+          className={`flex items-center ${isRtl ? "flex-row-reverse justify-between" : "justify-between"}`}
         >
           <div>
             <CardTitle className="text-base text-primary">
@@ -48,12 +48,13 @@ function OrderCard({ order }: OrderCardProps) {
           </div>
           <div className="flex items-center gap-2">
             <div
-              className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${order.status === "Delivered"
+              className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                order.status === "Delivered"
                   ? "bg-green-100 text-green-800"
                   : order.status === "Shipped"
                     ? "bg-blue-100 text-blue-800"
                     : "bg-amber-100 text-amber-800"
-                }`}
+              }`}
             >
               {t(`status.${order.status.toLowerCase()}`)}
             </div>
@@ -65,15 +66,15 @@ function OrderCard({ order }: OrderCardProps) {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {order.items.map((item, index) => (
+          {order.items.map((item) => (
             <div
-              key={index}
-              className={`flex ${isRtl ? "justify-between flex-row-reverse" : "justify-between"} items-center`}
+              key={item.name}
+              className={`flex ${isRtl ? "flex-row-reverse justify-between" : "justify-between"} items-center`}
             >
               <div
-                className={`flex items-center ${isRtl ? "gap-3 flex-row-reverse" : "gap-3"}`}
+                className={`flex items-center ${isRtl ? "flex-row-reverse gap-3" : "gap-3"}`}
               >
-                <div className="h-12 w-12 rounded flex items-center justify-center bg-primary">
+                <div className="flex h-12 w-12 items-center justify-center rounded bg-primary">
                   <Package className="h-6 w-6 text-background" />
                 </div>
                 <div>
@@ -90,7 +91,7 @@ function OrderCard({ order }: OrderCardProps) {
           ))}
           <Separator className="bg-primary" />
           <div
-            className={`flex ${isRtl ? "justify-between flex-row-reverse" : "justify-between"} text-primary-foreground`}
+            className={`flex ${isRtl ? "flex-row-reverse justify-between" : "justify-between"} text-primary-foreground`}
           >
             <div className="font-medium">{t("total")}</div>
             <div className="font-bold">{order.total}</div>
@@ -201,7 +202,7 @@ export default function OrdersPage() {
           <TabsTrigger value="delivered">{t("tabs.delivered")}</TabsTrigger>
         </TabsList>
         <TabsContent value="all" className="mt-6">
-          <div className="grid gap-6 w-full">
+          <div className="grid w-full gap-6">
             {orders.map((order) => (
               <OrderCard key={order.id} order={order} />
             ))}

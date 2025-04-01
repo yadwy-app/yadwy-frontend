@@ -1,12 +1,13 @@
 "use client";
 
-import { cn } from "~/lib/utils";
-import { Input } from "~/components/ui/input";
-import { Label } from "~/components/ui/label";
 import { ChevronDownIcon, PhoneIcon } from "lucide-react";
-import React, { useId, useState } from "react";
+import type React from "react";
+import { useId, useState } from "react";
 import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
+import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
+import { cn } from "~/lib/utils";
 
 export default function PhoneField() {
   const id = useId();

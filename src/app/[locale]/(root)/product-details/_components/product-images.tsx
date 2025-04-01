@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -35,7 +35,7 @@ export default function ProductImage({ images }: { images: string[] }) {
         <CarouselContent className="ml-0 flex gap-2">
           {images.map((image, index) => (
             <CarouselItem
-              key={index}
+              key={image}
               className="basis-1/4 cursor-pointer pl-0"
               onClick={() => handleThumbClick(index)}
             >

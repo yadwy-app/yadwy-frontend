@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "~/lib/utils";
-import { Link, usePathname } from "~/i18n/routing";
 import { useTranslations } from "next-intl";
+import { Link, usePathname } from "~/i18n/routing";
+import { cn } from "~/lib/utils";
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
@@ -18,7 +18,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const t = useTranslations("ProfilePage.ProfileSidebar"); // Add translation namespace
 
   return (
-    <nav className="grid items-start gap-2">
+    <nav className={cn("grid items-start gap-2", className)} {...props}>
       {items.map((link) => {
         const isActive = link.exact
           ? pathname === link.href

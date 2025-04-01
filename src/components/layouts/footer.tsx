@@ -1,14 +1,14 @@
 "use client";
 
+import { LocateIcon } from "lucide-react";
+import { useTranslations } from "next-intl"; // Import useTranslations hook
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl"; // Import useTranslations hook
+import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { HiOutlineMailOpen } from "react-icons/hi";
-import { TiSocialFacebook } from "react-icons/ti";
-import { FaXTwitter, FaInstagram, FaLinkedin } from "react-icons/fa6";
-import LocaleSwitcherLang from "./locale-switcher";
 import { IoIosCall } from "react-icons/io";
-import { LocateIcon } from "lucide-react";
+import { TiSocialFacebook } from "react-icons/ti";
+import LocaleSwitcherLang from "./locale-switcher";
 
 export const Footer = () => {
   const t = useTranslations("HomePage.Footer"); // Use the "Footer" namespace for translations

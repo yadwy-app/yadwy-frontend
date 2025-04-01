@@ -1,15 +1,15 @@
 "use client";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
+import {
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "~/components/ui/dialog";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
-import {
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "~/components/ui/dialog";
 import type { Address } from "~/types/address";
 
 interface AddressFormProps {
@@ -20,14 +20,14 @@ interface AddressFormProps {
 
 export function AddressForm({ address, onSubmit, onCancel }: AddressFormProps) {
   const [formData, setFormData] = useState<Partial<Address>>({
-    name: address?.name || "",
-    street: address?.street || "",
-    city: address?.city || "",
-    state: address?.state || "",
-    zip: address?.zip || "",
-    country: address?.country || "Egypt",
-    type: address?.type || "Home",
-    isDefault: address?.isDefault || false,
+    name: address?.name ?? "",
+    street: address?.street ?? "",
+    city: address?.city ?? "",
+    state: address?.state ?? "",
+    zip: address?.zip ?? "",
+    country: address?.country ?? "Egypt",
+    type: address?.type ?? "Home",
+    isDefault: address?.isDefault ?? false,
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof Address, string>>>(
@@ -52,15 +52,15 @@ export function AddressForm({ address, onSubmit, onCancel }: AddressFormProps) {
     if (validateForm()) {
       // Ensure all required fields are present and cast to Address
       const completeAddress: Address = {
-        id: address?.id || Date.now().toString(),
-        name: formData.name || "", // Already validated
-        street: formData.street || "", // Already validated
-        city: formData.city || "", // Already validated
-        state: formData.state || "", // Already validated
-        zip: formData.zip || "", // Already validated
-        country: formData.country || "Egypt",
-        type: formData.type || "Home",
-        isDefault: formData.isDefault || false,
+        id: address?.id ?? Date.now().toString(),
+        name: formData.name ?? "", // Already validated
+        street: formData.street ?? "", // Already validated
+        city: formData.city ?? "", // Already validated
+        state: formData.state ?? "", // Already validated
+        zip: formData.zip ?? "", // Already validated
+        country: formData.country ?? "Egypt",
+        type: formData.type ?? "Home",
+        isDefault: formData.isDefault ?? false,
       };
       onSubmit(completeAddress);
     }

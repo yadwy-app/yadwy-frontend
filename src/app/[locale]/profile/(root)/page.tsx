@@ -1,6 +1,7 @@
 "use client";
 
 import { Pencil } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -11,7 +12,6 @@ import {
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { Link } from "~/i18n/routing";
-import { useTranslations } from "next-intl";
 
 export default function ProfilePage() {
   const t = useTranslations("ProfilePage");
@@ -82,8 +82,9 @@ export default function ProfilePage() {
           </CardHeader>
           <CardContent>
             <div
-              className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${isRtl ? "md:grid-flow-dense" : ""
-                }`}
+              className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${
+                isRtl ? "md:grid-flow-dense" : ""
+              }`}
             >
               <div className="flex flex-col items-center justify-center p-4 border rounded-lg">
                 <div className="text-3xl font-bold">5</div>
@@ -120,8 +121,9 @@ export default function ProfilePage() {
           <CardContent>
             <div className="space-y-4">
               <div
-                className={`flex items-center ${isRtl ? "justify-between flex-row-reverse" : "justify-between"
-                  } border-b pb-4`}
+                className={`flex items-center ${
+                  isRtl ? "justify-between flex-row-reverse" : "justify-between"
+                } border-b pb-4`}
               >
                 <div>
                   <div className="font-medium">Order #12345</div>
@@ -137,8 +139,9 @@ export default function ProfilePage() {
                 </div>
               </div>
               <div
-                className={`flex items-center ${isRtl ? "justify-between flex-row-reverse" : "justify-between"
-                  } border-b pb-4`}
+                className={`flex items-center ${
+                  isRtl ? "justify-between flex-row-reverse" : "justify-between"
+                } border-b pb-4`}
               >
                 <div>
                   <div className="font-medium">Order #12344</div>
@@ -154,8 +157,9 @@ export default function ProfilePage() {
                 </div>
               </div>
               <div
-                className={`flex items-center ${isRtl ? "justify-between flex-row-reverse" : "justify-between"
-                  }`}
+                className={`flex items-center ${
+                  isRtl ? "justify-between flex-row-reverse" : "justify-between"
+                }`}
               >
                 <div>
                   <div className="font-medium">Order #12343</div>

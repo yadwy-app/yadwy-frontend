@@ -1,6 +1,6 @@
 import { SectionTitle } from "~/components/section";
-import { Summary } from "../cart/_components/summary";
 import { Search } from "../_components/search";
+import { Summary } from "../cart/_components/summary";
 
 export const SummaryOrder = () => {
   return (

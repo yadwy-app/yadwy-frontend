@@ -1,8 +1,8 @@
+import { Package } from "lucide-react";
 import { SectionTitle } from "~/components/section";
+import { Card, CardContent } from "~/components/ui/card";
 import Checkout from "./_components/checkout";
 import OrderSummary from "./_components/order-summary";
-import { Card, CardContent } from "~/components/ui/card";
-import { Package } from "lucide-react";
 export default function Page() {
   return (
     <div className="flex min-h-screen w-full flex-col gap-10 p-5">

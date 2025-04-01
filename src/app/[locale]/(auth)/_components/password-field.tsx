@@ -1,14 +1,12 @@
-import { forwardRef, useState } from "react";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { cn } from "~/lib/utils";
-import { useFormField } from "~/components/ui/form";
+import { forwardRef, useState } from "react";
 import { Button } from "~/components/ui/button";
-import FieldTooltip from "./field-tooltip";
+import { useFormField } from "~/components/ui/form";
 import { Input, type InputProps } from "~/components/ui/input";
+import { cn } from "~/lib/utils";
+import FieldTooltip from "./field-tooltip";
 
-interface Props extends Omit<InputProps, "type"> { }
-
-const PasswordField = forwardRef<HTMLInputElement, Props>(
+const PasswordField = forwardRef<HTMLInputElement, Omit<InputProps, "type">>(
   ({ className, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
     const { error } = useFormField();

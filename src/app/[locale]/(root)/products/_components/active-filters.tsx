@@ -20,21 +20,24 @@ export default function ActiveFilters() {
         <span className="text-sm font-medium">Active Filters:</span>
         {activeFilters.map((filter, index) => (
           <Badge
-            key={index}
+            key={`${filter.type}-${filter.value}`}
             variant="secondary"
-            className="flex items-center gap-1 py-1 px-3 rounded-full"
+            className="flex items-center gap-1 rounded-full px-3 py-1"
           >
             <span className="text-xs text-muted-foreground">
               {filter.type}:
             </span>
             <span className="text-xs">{filter.value}</span>
-            <button className="ml-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full">
+            <button
+              type="button"
+              className="ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
+            >
               <X className="h-3 w-3" />
               <span className="sr-only">Remove {filter.type} filter</span>
             </button>
           </Badge>
         ))}
-        <Button className="text-sm text-primary hover:text-primary/80 font-medium">
+        <Button className="text-sm font-medium text-primary hover:text-primary/80">
           Clear All
         </Button>
       </div>

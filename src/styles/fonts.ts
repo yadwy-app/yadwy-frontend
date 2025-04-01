@@ -1,4 +1,4 @@
-import { Lexend, Lalezar } from "next/font/google";
+import { Lalezar, Lexend } from "next/font/google";
 
 const lalezar = Lalezar({
   subsets: ["arabic"],

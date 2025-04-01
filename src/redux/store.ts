@@ -1,4 +1,3 @@
-
 // export default store;
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./reducers/CartSlice";
