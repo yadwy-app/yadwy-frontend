@@ -11,8 +11,10 @@ function getProductById(id: number) {
   return mockProductsData.find((p) => p.id === id);
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = await Promise.resolve(params);
+export default async function Page({
+  params,
+}: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   if (Number.isNaN(Number(id))) {
     notFound();
   }
