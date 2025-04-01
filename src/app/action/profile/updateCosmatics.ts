@@ -2,7 +2,7 @@
 
 import { CosmaticsSchema } from "~/schemas/profile";
 
-export default async function updateCosmatics(_: any, form: FormData) {
+export default async function updateCosmatics(_: unknown, form: FormData) {
   const parsed = CosmaticsSchema.safeParse(Object.fromEntries(form));
 
   if (!parsed.success) {

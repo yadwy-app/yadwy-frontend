@@ -1,19 +1,19 @@
+import { SelectItem } from "@radix-ui/react-select";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { CiSearch } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
+import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { LinkIcon } from "../ui/link-icon";
 import {
   Select,
   SelectContent,
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { SelectItem } from "@radix-ui/react-select";
-import { Button } from "../ui/button";
-import { CiSearch } from "react-icons/ci";
-import Link from "next/link";
-import { LinkIcon } from "../ui/link-icon";
-import { FaHeart } from "react-icons/fa";
-import { CartBtn } from "~/app/[locale]/(root)/_components/cart-btn";
 import NavManager from "./nav-manger";
 
 export const Navbar = () => {

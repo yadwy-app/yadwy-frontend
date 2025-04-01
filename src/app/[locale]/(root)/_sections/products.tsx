@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import {
   Section,
   SectionDescription,
@@ -5,22 +6,15 @@ import {
   SectionTitle,
 } from "~/components/section";
 import { Button } from "~/components/ui/button";
+import type { Product } from "~/types";
 import ProductCard from "../_components/product-card";
-import { useTranslations } from "next-intl";
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-  rating: string;
-};
 
 type Props = {
   title: string;
   description?: string;
   products: Product[];
 };
+
 export default function Products({ title, description, products }: Props) {
   const t = useTranslations("HomePage.NewArt");
   return (
@@ -36,7 +30,7 @@ export default function Products({ title, description, products }: Props) {
             id={product.id}
             title={product.name}
             price={product.price}
-            image={product.image}
+            image={product.images[0] as string}
             rating={product.rating}
           />
         ))}

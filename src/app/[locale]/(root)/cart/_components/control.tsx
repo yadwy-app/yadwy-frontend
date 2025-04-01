@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { FaClipboardCheck } from "react-icons/fa6";
-import { ButtonCart } from "./button-cart";
 import { useSelector } from "react-redux";
-import { type RootState } from "~/redux/store";
+import type { RootState } from "~/redux/store";
+import { ButtonCart } from "./button-cart";
 
 interface ControlProps {
   price: number;

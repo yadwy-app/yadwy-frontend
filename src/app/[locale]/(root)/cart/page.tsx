@@ -1,14 +1,14 @@
-import React from "react";
-import { SectionTitle } from "~/components/section";
-import { BoxProductCart } from "./_components/box-product";
-import { SummaryOrder } from "../_sections/summary-order";
-import { ButtonCart } from "./_components/button-cart";
-import { FaClipboardCheck } from "react-icons/fa6";
-import AlsoLike from "../_sections/also-like";
-import { ProductsHolder } from "./_components/products-holder";
-import { ProductsHolderCart } from "./_components/box-product-cart";
 import { useTranslations } from "next-intl";
+import React from "react";
+import { FaClipboardCheck } from "react-icons/fa6";
+import { SectionTitle } from "~/components/section";
 import { Link } from "~/i18n/routing";
+import AlsoLike from "../_sections/also-like";
+import { SummaryOrder } from "../_sections/summary-order";
+import { BoxProductCart } from "./_components/box-product";
+import { ProductsHolderCart } from "./_components/box-product-cart";
+import { ButtonCart } from "./_components/button-cart";
+import { ProductsHolder } from "./_components/products-holder";
 const page = () => {
   // const products = [
   //   {

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Checkbox } from "~/components/ui/checkbox";
 import { FaStar } from "react-icons/fa6";
+import { Checkbox } from "~/components/ui/checkbox";
 
 const ratings = [5, 4, 3, 2, 1];
 
@@ -33,6 +33,7 @@ const RatingFilter = () => {
           >
             {Array.from({ length: 5 }).map((_, index) => (
               <FaStar
+                // biome-ignore lint/suspicious/noArrayIndexKey: the index doesn't change for an element
                 key={index}
                 className={`h-5 w-5 ${index < rating ? "text-yellow-400" : "text-gray-300"}`}
               />

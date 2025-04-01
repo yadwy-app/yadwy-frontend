@@ -31,7 +31,7 @@ export const AddressOrder = ({ addresses }: AddressOrderProps) => {
                   className="mb-3 flex gap-5 text-xl font-semibold"
                 >
                   {item.name}
-                  <button className="text-base text-primary">
+                  <button type="button" className="text-base text-primary">
                     <FaPenToSquare />
                   </button>
                 </Label>
@@ -41,7 +41,10 @@ export const AddressOrder = ({ addresses }: AddressOrderProps) => {
                 <span className="text-sm text-gray-500">{item.phone}</span>
               </div>
             </div>
-            <button className="text-sm text-red-500 hover:text-red-700">
+            <button
+              type="button"
+              className="text-sm text-red-500 hover:text-red-700"
+            >
               Remove
             </button>
           </div>

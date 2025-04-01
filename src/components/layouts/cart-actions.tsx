@@ -1,13 +1,13 @@
 "use client";
 
-import { ShoppingCart, Heart, User } from "lucide-react";
-import { Button } from "~/components/ui/button";
-import { useTranslations, useLocale } from "next-intl";
+import { Heart, ShoppingCart, User } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
-import type { RootState } from "~/redux/store";
 import { CartSheet } from "~/app/[locale]/(root)/cart/_components/cart-sheet"; // Ensure this path is correct
+import { Button } from "~/components/ui/button";
 import { SheetTrigger } from "~/components/ui/sheet"; // Adjusted import path
 import useTextDirection from "~/hooks/useDirection";
+import type { RootState } from "~/redux/store";
 
 export default function CartActions() {
   const t = useTranslations("Header");

@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowLeft, Package, Truck } from "lucide-react";
+import Link from "next/link";
 import { use } from "react";
 import { Button } from "~/components/ui/button";
 import {
@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
-import { Steps, Step } from "~/components/ui/steps";
+import { Step, Steps } from "~/components/ui/steps";
 
 // Define the order type based on your mock data
 interface Order {
@@ -146,7 +146,10 @@ export default function OrderDetailsPage({ params }: OrderDetailsPageProps) {
             <CardContent>
               <Steps className="w-full">
                 {order.timeline.map((step, index) => (
-                  <Step key={index} completed={step.completed}>
+                  <Step
+                    key={`${step.status}-${step.date}`}
+                    completed={step.completed}
+                  >
                     <div className="flex flex-col gap-1">
                       <p className="text-sm font-medium">{step.status}</p>
                       <p className="text-xs text-muted-foreground">
@@ -165,9 +168,9 @@ export default function OrderDetailsPage({ params }: OrderDetailsPageProps) {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {order.items.map((item, index) => (
+                {order.items.map((item) => (
                   <div
-                    key={index}
+                    key={item.name}
                     className="flex justify-between items-center"
                   >
                     <div className="flex items-center gap-3">

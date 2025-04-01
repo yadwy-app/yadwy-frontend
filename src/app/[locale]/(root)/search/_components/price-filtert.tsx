@@ -1,7 +1,7 @@
 // src/app/[locale]/(root)/search/_components/price-filtert.tsx
 "use client";
 
-import React from "react";
+import type React from "react";
 
 type PriceFilterProps = {
   priceRange: [number, number];

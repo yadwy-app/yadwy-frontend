@@ -14,7 +14,10 @@ export default function Providers({
         </span>
       </div>
       <div className="grid gap-4">
-        <Button variant="outline" className="w-full flex items-center gap-2 justify-center">
+        <Button
+          variant="outline"
+          className="w-full flex items-center gap-2 justify-center"
+        >
           <FaGoogle className="h-4 w-4" />
           <span>Continue with Google</span>
         </Button>

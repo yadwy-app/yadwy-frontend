@@ -1,24 +1,30 @@
-import { HiOutlineTruck } from "react-icons/hi";
-import { GoDatabase } from "react-icons/go";
 import { FaHeadset } from "react-icons/fa6";
-export const mockProductData = [
-  ...Array(10)
+import { GoDatabase } from "react-icons/go";
+import { HiOutlineTruck } from "react-icons/hi";
+import type { Product } from "~/types";
+
+export const mockProductsData: Product[] = [
+  ...Array(9)
     .fill(null)
     .map((_, index) => ({
       id: [
-        "518772981",
-        "928179873",
-        "89829017777777733",
-        "61829718217",
-        "828999982",
-        "9220991",
-        "5109282109",
-        "6981228937",
-        "710921083844",
-      ][index % 9],
+        518772981, 928179873, 17777777733, 61829718217, 828999982, 9220991,
+        5109282109, 6981228937, 710921083844,
+      ][index] as number,
       title: "lefse plants in a white pot",
       rate: 4.5 + (index % 5) * 0.1,
-      price: `$${100 + (index % 5) * 20}`,
+      price: 100 + (index % 5) * 20,
+      name: [
+        "Armani Shirt",
+        "Calvin Klein Jeans",
+        "Gucci Coat",
+        "Prada Bag",
+        "Dolce & Gabbana Watch",
+        "Chanel Perfume",
+        "Lacoste Shirt",
+        "Burberry Coat",
+        "Louis Vuitton Bag",
+      ][index] as string,
       description:
         "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat.",
       images: [
@@ -27,6 +33,20 @@ export const mockProductData = [
         "/artworks/p3.png",
         "/artworks/p4.png",
       ],
+      category: [
+        [
+          "Armani",
+          "Calvin Klein",
+          "Gucci",
+          "Prada",
+          "Dolce & Gabbana",
+          "Chanel",
+          "Lacoste",
+          "Burberry",
+          "Louis Vuitton",
+        ][index] as string,
+      ],
+      rating: 3 + (index % 3),
       reviewComment: Array(3)
         .fill(null)
         .map((_, i) => ({
@@ -52,80 +72,4 @@ export const features = [
     icon: <FaHeadset className="h-6 w-6 font-bold text-primary" />,
     description: "24 customer support",
   },
-];
-
-export const products = [
-  {
-    id: 1,
-    name: "Armani Shirt",
-    price: 50,
-    category: "Armani",
-    image: "/artworks/p1.png",
-    rating: "4.7",
-  },
-  {
-    id: 2,
-    name: "Calvin Klein Jeans",
-    price: 80,
-    category: "Calvin Klein",
-    image: "/artworks/p2.png",
-    rating: "4",
-  },
-  {
-    id: 3,
-    name: "Gucci Coat",
-    price: 100,
-    category: "Gucci",
-    image: "/artworks/p3.png",
-    rating: "5",
-  },
-  {
-    id: 4,
-    name: "Prada Bag",
-    price: 90,
-    category: "Prada",
-    image: "/artworks/p4.png",
-    rating: "3.5",
-  },
-  {
-    id: 5,
-    name: "Dolce & Gabbana Watch",
-    price: 70,
-    category: "Dolce & Gabbana",
-    image: "/artworks/p5.png",
-    rating: "2.5",
-  },
-  {
-    id: 6,
-    name: "Chanel Perfume",
-    price: 120,
-    category: "Chanel",
-    image: "/artworks/p6.png",
-    rating: "4.8",
-  },
-  {
-    id: 7,
-    name: "Lacoste Shirt",
-    price: 55,
-    category: "Lacoste",
-    image: "/artworks/p1.png",
-    rating: "5",
-  },
-  {
-    id: 8,
-    name: "Burberry Coat",
-    price: 95,
-    category: "Burberry",
-    image: "/artworks/p2.png",
-    rating: "2",
-  },
-  {
-    id: 9,
-    name: "Louis Vuitton Bag",
-    price: 110,
-    category: "Louis Vuitton",
-    image: "/artworks/p3.png",
-    rating: "2.5",
-  },
-  // Add more products as needed
 ];

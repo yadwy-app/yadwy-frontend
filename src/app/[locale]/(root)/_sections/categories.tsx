@@ -1,19 +1,21 @@
 "use client";
 
+import Autoplay from "embla-carousel-autoplay";
+import { useTranslations } from "next-intl";
+import { useEffect, useRef } from "react";
 import {
   Section,
-  SectionTitle,
   SectionDescription,
+  SectionTitle,
 } from "~/components/section";
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef, useEffect } from "react";
+import useTextDirection from "~/hooks/useDirection";
 import Category from "../_components/category";
-import { useTranslations } from "next-intl";
 
 interface CategoryItem {
   name: string;
@@ -21,31 +23,26 @@ interface CategoryItem {
 }
 
 const categories: CategoryItem[] = [
-  { name: "Wood Work", image: "/category/wood.png" },
-  { name: "Glass Work", image: "/category/glass.png" },
-  { name: "Plants", image: "/category/planet.png" },
-  { name: "Glass Work", image: "/category/glass.png" },
-  { name: "Wood Work", image: "/category/wood.png" },
-  { name: "Glass Work", image: "/category/glass.png" },
-  { name: "Plants", image: "/category/planet.png" },
-  { name: "Glass Work", image: "/category/glass.png" },
+  { name: "Wood Work 1", image: "/category/wood.png" },
+  { name: "Glass Work 1", image: "/category/glass.png" },
+  { name: "Plants 1", image: "/category/planet.png" },
+  { name: "Glass Work 2", image: "/category/glass.png" },
+  { name: "Wood Work 2", image: "/category/wood.png" },
+  { name: "Glass Work 3", image: "/category/glass.png" },
+  { name: "Plants 2", image: "/category/planet.png" },
+  { name: "Glass Work 4", image: "/category/glass.png" },
 ];
 
 export function Categories() {
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
   const t = useTranslations("HomePage.Categories");
+  const direction = useTextDirection();
 
-  // Get the current language direction
-  const isRtl = t("title") === t.raw("title"); // Check if translation is active
-  const direction = isRtl ? "rtl" : "ltr";
+  const carouselRef = useRef<CarouselApi>();
 
-  // Reference to the carousel API
-  const carouselRef = useRef<any>(null);
-
-  // Update carousel direction when language changes
   useEffect(() => {
-    if (carouselRef.current?.emblaApi) {
-      carouselRef.current.emblaApi.reInit({
+    if (carouselRef.current) {
+      carouselRef.current.reInit({
         direction: direction,
       });
     }
@@ -69,13 +66,13 @@ export function Categories() {
             direction: direction, // Set direction explicitly
           }}
           setApi={(api) => {
-            carouselRef.current = { emblaApi: api };
+            carouselRef.current = api;
           }}
         >
           <CarouselContent className={direction === "rtl" ? "-mr-4" : "-ml-4"}>
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <CarouselItem
-                key={index}
+                key={category.name}
                 className="basis-1/2 sm:basis-1/3 w-full"
               >
                 <div className="overflow-hidden w-full h-full">

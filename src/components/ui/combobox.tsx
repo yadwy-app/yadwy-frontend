@@ -1,7 +1,6 @@
-import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
+import * as React from "react";
 
-import { cn } from "~/lib/utils";
 import { Button } from "~/components/ui/button";
 import {
   Command,
@@ -15,6 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "~/components/ui/popover";
+import { cn } from "~/lib/utils";
 
 type Props = {
   values: {
@@ -25,7 +25,7 @@ type Props = {
   placeholder?: string;
   emptyValue: string;
   value?: string;
-  onChange: (arg1: any) => void;
+  onChange: (arg1: string) => void;
   disabled?: boolean;
 };
 
@@ -44,6 +44,7 @@ export default function Combobox({
       <PopoverTrigger asChild>
         <Button
           variant="outline"
+          // biome-ignore lint/a11y/useSemanticElements: we need a custom style for the select menu
           role="combobox"
           disabled={disabled}
           aria-expanded={open}

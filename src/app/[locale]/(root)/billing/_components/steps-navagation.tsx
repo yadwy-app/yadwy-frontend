@@ -17,17 +17,20 @@ export default function StepNavagation({ steps, currentStep }: Props) {
         {steps.map((step, index) => (
           <li
             key={step.id}
-            className={`flex items-center ${index === steps.length - 1 ? "w-fit" : "w-full"} ${index !== steps.length - 1
+            className={`flex items-center ${index === steps.length - 1 ? "w-fit" : "w-full"} ${
+              index !== steps.length - 1
                 ? "w-fit after:inline-block after:h-1 after:w-full after:border-b"
                 : ""
-              } ${index < currentStep ? "after:bg-primary" : "after:bg-lightPrimary"
-              }`}
+            } ${
+              index < currentStep ? "after:bg-primary" : "after:bg-lightPrimary"
+            }`}
           >
             <span
-              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full lg:h-12 lg:w-12 ${index < currentStep
+              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full lg:h-12 lg:w-12 ${
+                index < currentStep
                   ? "bg-primary text-white"
                   : "bg-lightPrimary text-primary"
-                }`}
+              }`}
             >
               {step.icon}
             </span>

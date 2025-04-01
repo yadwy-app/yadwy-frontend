@@ -1,17 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import { BanknoteIcon } from "lucide-react";
-import { Label } from "~/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
+import { useState } from "react";
+import type { UseFormReturn } from "react-hook-form";
 import {
+  FormControl,
   FormField,
   FormItem,
-  FormControl,
   FormMessage,
 } from "~/components/ui/form";
+import { Label } from "~/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 
-export default function PaymentForm({ form }: { form: any }) {
+// biome-ignore lint/suspicious/noExplicitAny: the data in the form doesn't matter
+export default function PaymentForm({ form }: { form: UseFormReturn<any> }) {
   const [paymentMethod, setPaymentMethod] = useState("card");
 
   return (

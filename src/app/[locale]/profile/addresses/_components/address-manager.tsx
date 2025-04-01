@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
 import { Plus } from "lucide-react";
-import type { Address } from "~/types/address";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "~/components/ui/dialog";
-import { AddressForm } from "./address-form";
+import type { Address } from "~/types/address";
 import { AddressCard } from "./address-card";
+import { AddressForm } from "./address-form";
 
 interface AddressManagerProps {
   initialAddresses: Address[];

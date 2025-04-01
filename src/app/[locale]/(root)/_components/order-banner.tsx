@@ -1,8 +1,8 @@
 "use client";
 
 import { PenLine } from "lucide-react";
-import { Button } from "~/components/ui/button";
 import { useTranslations } from "next-intl"; // Import useTranslations hook
+import { Button } from "~/components/ui/button";
 
 export default function OrderBanner() {
   const t = useTranslations("HomePage.OrderBanner"); // Use the "OrderBanner" namespace for translations
@@ -25,6 +25,7 @@ export default function OrderBanner() {
                     preserveAspectRatio="none"
                     viewBox="0 0 100 100"
                   >
+                    <title>text highlight</title>
                     <path
                       d="M0,50 Q25,45 50,50 T100,50 L95,90 Q70,85 50,90 T5,90 Z"
                       fill="#8FB6B6"

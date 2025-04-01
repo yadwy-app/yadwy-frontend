@@ -1,7 +1,7 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import { Section } from "~/components/section";
 import { FeatureCard } from "../_components/feature-card";
-import { useTranslations } from "next-intl";
 
 export const Feature = () => {
   const t = useTranslations("HomePage.Features");

@@ -25,14 +25,16 @@ export const Counter = ({ handleAddCart }: CounterProps) => {
     <div className="flex gap-3">
       <div className="flex gap-3 rounded-sm border-2 border-gray-300">
         <button
+          type="button"
           className="px-2 py-1 text-sm"
           onClick={() => CounterHandle("remove")}
-          disabled={counter === 1} 
+          disabled={counter === 1}
         >
           -
         </button>
         <div className="px-2 py-1 text-sm">{counter}</div>
         <button
+          type="button"
           className="px-2 py-1 text-sm"
           onClick={() => CounterHandle("add")}
         >
@@ -40,8 +42,9 @@ export const Counter = ({ handleAddCart }: CounterProps) => {
         </button>
       </div>
       <button
+        type="button"
         className="text-xs text-gray-500 transition-all hover:text-red-400"
-        onClick={() => setCounter(1)} 
+        onClick={() => setCounter(1)}
       >
         Remove
       </button>

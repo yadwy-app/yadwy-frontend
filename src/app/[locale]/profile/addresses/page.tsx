@@ -1,9 +1,9 @@
 "use client";
 
-import { Separator } from "~/components/ui/separator";
-import { AddressManager } from "./_components/address-manager";
-import type { Address } from "~/types/address";
 import { useTranslations } from "next-intl";
+import { Separator } from "~/components/ui/separator";
+import type { Address } from "~/types/address";
+import { AddressManager } from "./_components/address-manager";
 
 const INITIAL_ADDRESSES: Address[] = [
   {

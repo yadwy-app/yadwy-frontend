@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "./ui/button";
 import {
   Facebook,
   Instagram,
   Linkedin,
-  LucideIcon,
+  type LucideIcon,
   Twitter,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
 const aboutUsLinks = [
   {
     title: "About Us",

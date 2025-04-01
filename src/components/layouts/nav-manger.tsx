@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Link } from "~/i18n/routing";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,7 +11,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { Link } from "~/i18n/routing";
 
 const NavManager = () => {
   const [token, setToken] = useState<string | null>(null);
@@ -61,6 +61,7 @@ const NavManager = () => {
               Profile
             </NavigationMenuLink>
             <button
+              type="button"
               onClick={handleLogout}
               className="w-full px-4 py-2 text-left text-red-500 transition-all hover:bg-slate-200"
             >

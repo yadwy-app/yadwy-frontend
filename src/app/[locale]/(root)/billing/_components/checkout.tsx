@@ -1,17 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, CreditCard, MapPin } from "lucide-react";
-import { type z } from "zod";
+import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import type { z } from "zod";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
-import { FormProvider, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useMultiStepForm } from "~/hooks/use-multi-form";
-import PersonalInfoForm from "./personal-info-form";
-import PaymentForm from "./payment-form";
-import ThankYou from "./thank-you";
-import StepsNavagation from "./steps-navagation";
+import { toast } from "~/hooks/use-toast";
+import { Link } from "~/i18n/routing";
+import { cn } from "~/lib/utils";
 import {
   type OrderDataType,
   type PaymentInfoType,
@@ -19,9 +18,10 @@ import {
   PersonalInfoSchema,
   type PersonalInfoType,
 } from "~/schemas/checkout-order";
-import { toast } from "~/hooks/use-toast";
-import { cn } from "~/lib/utils";
-import { Link } from "~/i18n/routing";
+import PaymentForm from "./payment-form";
+import PersonalInfoForm from "./personal-info-form";
+import StepsNavagation from "./steps-navagation";
+import ThankYou from "./thank-you";
 
 export default function Checkout() {
   const [orderData, setOrderData] = useState<Partial<OrderDataType>>({});

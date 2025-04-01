@@ -1,10 +1,10 @@
 "use client"; // Changed to client component for translation support
 
-import { SidebarNav } from "./_components/sidebar-nav";
-import { Footer } from "~/components/layouts/footer";
 import { CreditCard, Home, Package, Settings, User } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Footer } from "~/components/layouts/footer";
 import Header from "~/components/layouts/header";
+import { SidebarNav } from "./_components/sidebar-nav";
 
 const links = [
   {

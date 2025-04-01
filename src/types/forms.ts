@@ -7,7 +7,7 @@ type Inputs<T extends z.ZodType, V extends Path<z.infer<T>>> = {
   label?: string;
   Field: React.ForwardRefExoticComponent<
     Omit<ControllerRenderProps<z.infer<T>, V>, "ref"> &
-    React.RefAttributes<HTMLInputElement>
+      React.RefAttributes<HTMLInputElement>
   >;
 };
 

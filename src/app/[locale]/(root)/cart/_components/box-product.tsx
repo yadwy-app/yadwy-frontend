@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Counter } from "./counter";
 import { useDispatch } from "react-redux";
-import { cartAction } from "~/redux/reducers/CartSlice";
 import { ToastAction } from "~/components/ui/toast";
 import { toast } from "~/hooks/use-toast";
+import { cartAction } from "~/redux/reducers/CartSlice";
+import { Counter } from "./counter";
 
 interface ItemProps {
   item: {
@@ -33,8 +33,8 @@ export const BoxProductCart = ({ item }: ItemProps) => {
       return action === "add" ? prev + 1 : prev - 1;
     });
   }
-  function handleRemoveItem (itemId : number){
-    dispatch(cartAction.removeItem(itemId))
+  function handleRemoveItem(itemId: number) {
+    dispatch(cartAction.removeItem(itemId));
   }
   return (
     <div className="flex justify-between gap-4">
@@ -56,6 +56,7 @@ export const BoxProductCart = ({ item }: ItemProps) => {
           <div className="flex gap-3">
             <div className="flex gap-3 rounded-sm border-2 border-gray-300">
               <button
+                type="button"
                 className="px-2 py-1 text-sm"
                 onClick={() => CounterHandle("remove")}
               >
@@ -63,13 +64,18 @@ export const BoxProductCart = ({ item }: ItemProps) => {
               </button>
               <div className="px-2 py-1 text-sm">{counter}</div>
               <button
+                type="button"
                 className="px-2 py-1 text-sm"
                 onClick={() => CounterHandle("add")}
               >
                 +
               </button>
             </div>
-            <button className="text-xs text-gray-500 transition-all hover:text-red-400" onClick={()=> handleRemoveItem(item.id)}>
+            <button
+              type="button"
+              className="text-xs text-gray-500 transition-all hover:text-red-400"
+              onClick={() => handleRemoveItem(item.id)}
+            >
               Remove
             </button>
           </div>

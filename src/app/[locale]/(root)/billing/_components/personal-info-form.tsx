@@ -1,5 +1,6 @@
 "use client";
 
+import type { UseFormReturn } from "react-hook-form";
 import {
   FormControl,
   FormField,
@@ -15,7 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { type UseFormReturn } from "react-hook-form";
 
 const AddressFields = [
   {
@@ -114,7 +114,7 @@ type Props = {
 };
 
 export default function PersonalInfoForm({ form }: Props) {
-  const selectedCountry = (form.watch("country") || "eg");
+  const selectedCountry = form.watch("country") || "eg";
 
   return (
     <div className="space-y-6">
@@ -144,18 +144,18 @@ export default function PersonalInfoForm({ form }: Props) {
                       <SelectContent>
                         {field.name === "country"
                           ? countries.map((country) => (
-                            <SelectItem
-                              key={country.value}
-                              value={country.value}
-                            >
-                              {country.label}
-                            </SelectItem>
-                          ))
+                              <SelectItem
+                                key={country.value}
+                                value={country.value}
+                              >
+                                {country.label}
+                              </SelectItem>
+                            ))
                           : states[selectedCountry]?.map((state) => (
-                            <SelectItem key={state.value} value={state.value}>
-                              {state.label}
-                            </SelectItem>
-                          )) || null}
+                              <SelectItem key={state.value} value={state.value}>
+                                {state.label}
+                              </SelectItem>
+                            )) || null}
                       </SelectContent>
                     </Select>
                   ) : (

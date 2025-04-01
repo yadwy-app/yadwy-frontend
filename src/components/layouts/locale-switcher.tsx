@@ -2,8 +2,9 @@
 
 import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
-import {  useTransition } from "react";
+import { useTransition } from "react";
 import { usePathname, useRouter } from "~/i18n/routing";
+import { cn } from "~/lib/utils";
 import {
   Select,
   SelectContent,
@@ -11,14 +12,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select"; // Import shadcn/ui components
-import { cn } from "~/lib/utils";
 
-type Props={
-  className?:string
-}
-export default function LocaleSwitcherLang({
-  className
-}: Props) {
+type Props = {
+  className?: string;
+};
+export default function LocaleSwitcherLang({ className }: Props) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -40,11 +38,13 @@ export default function LocaleSwitcherLang({
 
   return (
     <Select onValueChange={changeLanguage} defaultValue={localActive}>
-      <SelectTrigger className={cn("w-[98px] bg-transparent",className)}>
+      <SelectTrigger className={cn("w-[98px] bg-transparent", className)}>
         <SelectValue placeholder="Select Language" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="ar" className="">🇵🇸 العربية</SelectItem>
+        <SelectItem value="ar" className="">
+          🇵🇸 العربية
+        </SelectItem>
         <SelectItem value="en">🇬🇧 English</SelectItem>
       </SelectContent>
     </Select>

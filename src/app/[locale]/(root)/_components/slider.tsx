@@ -1,14 +1,14 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "~/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "~/components/ui/button";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "~/components/ui/carousel";
 import { cn } from "~/lib/utils";
 
 interface Props {

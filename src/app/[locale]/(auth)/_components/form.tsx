@@ -1,21 +1,21 @@
 "use client";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import Link from "next/link";
 import { useActionState, useRef } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { type z } from "zod";
-import type { FormProps, FormState } from "~/types/forms";
+import type { z } from "zod";
+import { Button } from "~/components/ui/button";
 import {
-  Form as _Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
+  Form as _Form,
 } from "~/components/ui/form";
-import { Button } from "~/components/ui/button";
-import { Loader2 } from "lucide-react";
-import Link from "next/link";
 import { toast } from "~/hooks/use-toast";
 import { cn } from "~/lib/utils";
+import type { FormProps, FormState } from "~/types/forms";
 
 type Props<T extends z.ZodType> = FormProps<T> & {
   primaryButtonText: string;
@@ -56,7 +56,7 @@ export default function Form<T extends z.ZodType>({
   });
 
   const handleSubmit = form.handleSubmit(() => {
-    formAction(new FormData(ref.current!));
+    if (ref.current) formAction(new FormData(ref.current));
   });
 
   return (
@@ -76,11 +76,11 @@ export default function Form<T extends z.ZodType>({
               render={({ field }) => (
                 <FormItem className="relative">
                   {item.label ? (
-                    <FormLabel className="capitalize text-base">
+                    <FormLabel className="text-base capitalize">
                       {item.label}
                     </FormLabel>
                   ) : (
-                    <FormLabel className="capitalize text-base">
+                    <FormLabel className="text-base capitalize">
                       {field.name.replace(/([A-Z][a-z])/g, " $1")}
                     </FormLabel>
                   )}
@@ -89,23 +89,23 @@ export default function Form<T extends z.ZodType>({
                   </FormControl>
                 </FormItem>
               )}
-            />  
+            />
           ))}
         </div>
         <div className="space-y-4">
           <div className="flex justify-end">
-            <Button 
-              variant="link" 
-              asChild 
-              type="button" 
-              className="px-0 h-auto font-normal text-sm text-muted-foreground hover:text-primary"
+            <Button
+              variant="link"
+              asChild
+              type="button"
+              className="h-auto px-0 text-sm font-normal text-muted-foreground hover:text-primary"
             >
               <Link prefetch={false} href={secondaryButtonLink.href}>
                 {secondaryButtonLink.text}
               </Link>
             </Button>
           </div>
-          
+
           <Button
             type="submit"
             disabled={isPending}
