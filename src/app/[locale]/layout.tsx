@@ -10,15 +10,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
+  const dir = locale === "ar" ? "rtl" : "ltr";
 
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
-
   const timezone = await getTimeZone();
 
   return (
-    <div lang={locale} className={cn(lexend.variable)}>
+    <div dir={dir} lang={locale} className={cn(lexend.variable)}>
       <NextIntlClientProvider messages={messages} timeZone={timezone}>
         <Provider>{children}</Provider>
       </NextIntlClientProvider>

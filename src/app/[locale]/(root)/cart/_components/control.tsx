@@ -5,9 +5,6 @@ import { useSelector } from "react-redux";
 import type { RootState } from "~/redux/store";
 import { ButtonCart } from "./button-cart";
 
-interface ControlProps {
-  price: number;
-}
 export const Control = () => {
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   return (

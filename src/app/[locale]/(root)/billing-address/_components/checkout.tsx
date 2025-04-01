@@ -33,14 +33,9 @@ import {
 import { Input } from "~/components/ui/input";
 import { AddressOrder } from "../../_components/address-order";
 import { Steps } from "../../_components/steps";
-import { TapsPay } from "./taps";
 import { Visa } from "./visa";
+
 const Checkout = () => {
-  interface Field {
-    name: "number" | "name" | "expiredate" | "cvc";
-    label: string;
-    col?: string;
-  }
   const addresses = [
     {
       id: 1,

@@ -16,9 +16,10 @@ import {
 type Props = {
   className?: string;
 };
+
 export default function LocaleSwitcherLang({ className }: Props) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const [_isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const params = useParams();
   const localActive = useLocale();

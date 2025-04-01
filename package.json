@@ -55,7 +55,6 @@
     "react-phone-number-input": "^3.4.12",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
-    "rtl-detect": "^1.1.2",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "yup": "^1.6.1",

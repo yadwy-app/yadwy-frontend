@@ -1,17 +1,16 @@
 "use client";
 
 import { Heart, ShoppingCart, User } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
 import { CartSheet } from "~/app/[locale]/(root)/cart/_components/cart-sheet"; // Ensure this path is correct
 import { Button } from "~/components/ui/button";
 import { SheetTrigger } from "~/components/ui/sheet"; // Adjusted import path
-import useTextDirection from "~/hooks/useDirection";
 import type { RootState } from "~/redux/store";
+import NavManager from "./nav-manger";
 
 export default function CartActions() {
   const t = useTranslations("Header");
-  const dir = useTextDirection();
   const qty = useSelector((state: RootState) => state.cart.quantity);
 
   return (
@@ -37,9 +36,7 @@ export default function CartActions() {
       <Button variant="ghost" size="icon" aria-label={t("wishlist")}>
         <Heart className="h-5 w-5" />
       </Button>
-      <Button variant="ghost" size="icon" aria-label={t("account")}>
-        <User className="h-5 w-5" />
-      </Button>
+      <NavManager />
     </div>
   );
 }
