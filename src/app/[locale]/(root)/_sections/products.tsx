@@ -7,7 +7,7 @@ import {
 } from "~/components/section";
 import { Button } from "~/components/ui/button";
 import type { Product } from "~/types";
-import ProductCard from "../_components/product-card";
+import { ProductCard } from "~/components/product-card";
 
 type Props = {
   title: string;
@@ -27,11 +27,7 @@ export default function Products({ title, description, products }: Props) {
         {products.map((product) => (
           <ProductCard
             key={product.id}
-            id={product.id}
-            title={product.name}
-            price={product.price}
-            image={product.images[0] as string}
-            rating={product.rating}
+            {...product}
           />
         ))}
       </div>

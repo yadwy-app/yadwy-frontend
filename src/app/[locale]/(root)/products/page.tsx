@@ -1,5 +1,5 @@
 import { mockProductsData } from "~/data";
-import ProductCard from "../_components/product-card";
+import { ProductCard } from "~/components/product-card";
 
 export default function SearchPage() {
   return (
@@ -17,11 +17,7 @@ export default function SearchPage() {
             {mockProductsData.map((product) => (
               <ProductCard
                 key={product.id}
-                id={product.id}
-                title={product.name}
-                price={product.price}
-                image={product.images[0] as string}
-                rating={product.rating}
+                {...product}
               />
             ))}
           </div>
