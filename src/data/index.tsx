@@ -3,11 +3,23 @@ import { GoDatabase } from "react-icons/go";
 import { HiOutlineTruck } from "react-icons/hi";
 import type { Product } from "~/types";
 
+// Seeded random function
+function seededRandom(seed: number) {
+  let value = seed;
+  return () => {
+    value = (value * 9301 + 49297) % 233280;
+    return value / 233280;
+  };
+}
+
+const seed = 12345; // Replace with any seed value
+const random = seededRandom(seed);
+
 export const mockProductsData: Product[] = [
   ...Array(9)
     .fill(null)
     .map((_, index) => ({
-      id: Math.floor(Math.random() * 1e9),
+      id: Math.floor(random() * 1e9),
       title: "lefse plants in a white pot",
       rate: 4.5 + (index % 5) * 0.1,
       price: 100 + (index % 5) * 20,
@@ -30,10 +42,10 @@ export const mockProductsData: Product[] = [
         "/artworks/p3.png",
         "/artworks/p4.png",
       ],
-      reviewsCount: 3 + Math.floor(Math.random() * 10),
+      reviewsCount: 3 + Math.floor(random() * 10),
       originalPrice: index % 2 === 0 ? 100 + (index % 5) * 23 : null,
-      isFavorite: Math.random() < 0.1,
-      isNew: Math.random() < 0.3,
+      isFavorite: random() < 0.1,
+      isNew: random() < 0.3,
       category: [
         [
           "Armani",
