@@ -3,7 +3,8 @@ import { GoDatabase } from "react-icons/go";
 import { HiOutlineTruck } from "react-icons/hi";
 import type { Product } from "~/types";
 
-// Seeded random function
+// Seeded random function, we need this to make the data deterministic
+// so that hydration errors don't occur
 function seededRandom(seed: number) {
   let value = seed;
   return () => {

@@ -16,7 +16,7 @@ export default function Category({ name, image }: Props) {
         priority
         alt={name}
       />
-      <h3 className="text-lg text-secondary font-bold">{name}</h3>
+      <h3 className="text-lg text-secondary-foreground font-bold">{name}</h3>
     </div>
   );
 }

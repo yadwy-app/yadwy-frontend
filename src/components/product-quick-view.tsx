@@ -1,8 +1,9 @@
 "use client";
 
-import { Heart, Minus, Plus, ShoppingBag, Star } from "lucide-react";
+import { Heart, Minus, Plus, Star } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { TbShoppingBagPlus } from "react-icons/tb";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
@@ -58,8 +59,8 @@ export function ProductQuickView({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-sm max-h-[90vh] md:max-w-none md:w-[900px] md:aspect-[2/1] p-0 overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 overflow-auto">
+      <DialogContent className="max-w-sm max-h-[90vh] lg:max-w-none lg:w-[900px] lg:aspect-[2/1] p-0 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 overflow-auto lg:overflow-hidden">
           {/* Product Image */}
           <div className="relative aspect-square bg-gray-50">
             <Image
@@ -72,7 +73,7 @@ export function ProductQuickView({
           </div>
 
           {/* Product Details */}
-          <div className="p-6 space-y-4 md:max-h-full md:overflow-auto">
+          <div className="p-6 space-y-4 lg:max-h-full lg:overflow-auto">
             <DialogHeader>
               <DialogTitle className="text-xl font-semibold">
                 {product.name}
@@ -199,9 +200,8 @@ export function ProductQuickView({
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button className="grow gap-2" size="lg">
-                <ShoppingBag className="h-5 w-5" />
-                Add to Cart
+              <Button className="grow gap-2 text-background" size="lg">
+                <TbShoppingBagPlus className="h-5 w-5" /> Add to cart
               </Button>
               <Button
                 variant="outline"

@@ -9,6 +9,8 @@ import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { ProductQuickView } from "./product-quick-view";
 import type { Product } from "~/types";
+import { getProductCoverImage } from "~/lib/product-utils";
+import { TbShoppingBagPlus } from "react-icons/tb";
 
 interface ProductCardProps extends Product {}
 
@@ -18,10 +20,10 @@ export function ProductCard({ ...product }: ProductCardProps) {
 
   return (
     <div>
-      <div className="group group/product-card border rounded-lg overflow-hidden hover:shadow-md transition-all duration-300">
+      <div className="group group/product-card border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300">
         <div className="relative aspect-square overflow-hidden bg-gray-50">
           <Image
-            src="/placeholder.svg?height=300&width=300"
+            src={getProductCoverImage(product)}
             alt={product.name}
             width={300}
             height={300}
@@ -143,8 +145,8 @@ export function ProductCard({ ...product }: ProductCardProps) {
                 </span>
               )}
             </div>
-            <Button size="sm" className="text-xs h-8 rounded-full px-3">
-              Add to cart
+            <Button size="sm" className="px-3 gap-1 text-xs text-background">
+              <TbShoppingBagPlus className="h-4 w-4" /> Add to cart
             </Button>
           </div>
         </div>

@@ -9,6 +9,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
+import useTextDirection from '~/hooks/useDirection';
 import { cn } from "~/lib/utils";
 
 interface Props {
@@ -23,6 +24,15 @@ export function Slider({ slides }: Props) {
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
+  const direction = useTextDirection();
+
+  useEffect(() => {
+    if (api) {
+      api.reInit({
+        direction: direction,
+      });
+    }
+  }, [direction, api]);
 
   useEffect(() => {
     if (!api) {
@@ -45,6 +55,7 @@ export function Slider({ slides }: Props) {
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
+        dir={direction}
       >
         <CarouselContent>
           {slides.map((slide) => (
@@ -63,7 +74,7 @@ export function Slider({ slides }: Props) {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="absolute md:bottom-2 -bottom-4  left-1/2 flex -translate-x-1/2 transform space-x-2">
+      <div className="absolute md:bottom-2 -bottom-4  left-1/2 flex -translate-x-1/2 transform gap-2">
         {Array.from({ length: count }).map((_, index) => (
           <Button
             key={crypto.randomUUID()}

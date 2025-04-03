@@ -22,8 +22,7 @@ const slides = [
 ];
 
 export default function Page() {
-  const t = useTranslations("HomePage.NewArt");
-  const th = useTranslations("HomePage.HotArt");
+  const t = useTranslations("HomePage");
   const products = mockProductsData;
   return (
     <div className="flex w-full flex-col gap-16">
@@ -31,8 +30,8 @@ export default function Page() {
       <Categories />
       {products.length > 1 && (
         <Products
-          title={t("title")}
-          description={t("description")}
+          title={t("NewArt.title")}
+          description={t("NewArt.description")}
           products={products}
         />
       )}
@@ -42,8 +41,8 @@ export default function Page() {
       </div>
       {products.length > 1 && (
         <Products
-          title={th("title")}
-          description={th("description")}
+          title={t("HotArt.title")}
+          description={t("HotArt.description")}
           products={products}
         />
       )}

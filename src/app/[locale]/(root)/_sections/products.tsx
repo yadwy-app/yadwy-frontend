@@ -23,7 +23,7 @@ export default function Products({ title, description, products }: Props) {
       {description ? (
         <SectionDescription>{description}</SectionDescription>
       ) : null}
-      <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductCard
             key={product.id}
@@ -34,7 +34,7 @@ export default function Products({ title, description, products }: Props) {
       <SectionFooter className="mt-10">
         <Button
           variant="outline"
-          className="w-full rounded-none border-primary text-secondary shadow-lg"
+          className="w-full rounded-none border-primary text-secondary-foreground shadow-lg"
         >
           {t("button")}
         </Button>
