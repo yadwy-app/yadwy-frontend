@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main className="mx-auto flex min-h-screen flex-col items-center justify-between gap-y-8 py-4 md:px-10 lg:px-20">
+      <main className="container min-h-screen flex flex-col items-center justify-between gap-y-8 py-8">
         {children}
       </main>
       <Footer />

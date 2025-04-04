@@ -1,4 +1,3 @@
-import React from "react";
 import { SectionTitle } from "~/components/section";
 import { SummaryOrder } from "../_sections/summary-order";
 import Checkout from "./_components/checkout";

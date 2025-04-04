@@ -18,7 +18,7 @@ export default function ActiveFilters() {
     <div className="mb-6">
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-sm font-medium">Active Filters:</span>
-        {activeFilters.map((filter, index) => (
+        {activeFilters.map((filter) => (
           <Badge
             key={`${filter.type}-${filter.value}`}
             variant="secondary"

@@ -8,7 +8,7 @@ export default function OrderBanner() {
   const t = useTranslations("HomePage.OrderBanner"); // Use the "OrderBanner" namespace for translations
 
   return (
-    <div className="relative w-full lg:max-w-7xl h-[400px] md:h-[429px] mx-auto">
+    <div className="relative w-full h-[400px] md:h-[429px]">
       {/* Main container with border */}
       <div className="absolute inset-0 border-2 border-[#C0D6D6] rounded-lg overflow-hidden">
         {/* Content container */}

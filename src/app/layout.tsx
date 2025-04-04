@@ -1,6 +1,7 @@
 import "~/styles/globals.css";
 
 import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
 import { lalezar, lexend } from "~/styles/fonts";
@@ -12,14 +13,13 @@ export const metadata: Metadata = {
 };
 export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const locale = await getLocale();
+  const dir = locale === "ar" ? "rtl" : "ltr";
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={dir}>
       <body
         className={cn(
           "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",

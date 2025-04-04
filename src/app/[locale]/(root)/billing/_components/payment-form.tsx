@@ -14,7 +14,7 @@ import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 
 // biome-ignore lint/suspicious/noExplicitAny: the data in the form doesn't matter
 export default function PaymentForm({ form }: { form: UseFormReturn<any> }) {
-  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [_paymentMethod, setPaymentMethod] = useState("card");
 
   return (
     <div className="space-y-6">

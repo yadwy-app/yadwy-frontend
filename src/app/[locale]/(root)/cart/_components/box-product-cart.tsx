@@ -1,15 +1,13 @@
 "use client";
-import React from "react";
-import { useSelector } from "react-redux";
 import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
-import type { RootState } from "~/redux/store";
 import { BoxProductCart } from "./box-product";
 
 import { useTranslations } from "next-intl";
+import type { Product } from "~/types";
 
 export const ProductsHolderCart = () => {
-  const products = useSelector((state: RootState) => state.cart.items);
+  const products: Product[] = []; // TODO: fetch the carts state from the backend
   // console.log("products", products);
   const t = useTranslations("cartPage.products");
   return (
@@ -21,7 +19,7 @@ export const ProductsHolderCart = () => {
           ))}
         </div>
       ) : (
-        <div className="max-w-7xl mx-auto p-4 text-center py-16">
+        <div className="p-4 text-center py-16">
           <h2 className="text-3xl font-bold mb-4">{t("isEmpty.title")}</h2>
           <p className="mb-8">{t("isEmpty.description")}</p>
           <Link href="/search">

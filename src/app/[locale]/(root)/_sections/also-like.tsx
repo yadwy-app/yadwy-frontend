@@ -1,7 +1,7 @@
 import { Section, SectionFooter, SectionTitle } from "~/components/section";
 import { Button } from "~/components/ui/button";
 import { mockProductsData } from "~/data";
-import ProductCard from "../_components/product-card";
+import { ProductCard } from "~/components/product-card";
 
 export default function AlsoLike() {
   return (
@@ -11,18 +11,14 @@ export default function AlsoLike() {
         {mockProductsData.map((product) => (
           <ProductCard
             key={product.id}
-            id={product.id}
-            title={product.name}
-            price={product.price}
-            image={product.images[0] as string}
-            rating={product.rating}
+            {...product}
           />
         ))}
       </div>
       <SectionFooter>
         <Button
           variant="outline"
-          className="w-full shadow-lg border-primary rounded-none text-secondary"
+          className="w-full shadow-lg border-primary rounded-none text-secondary-foreground"
         >
           Show more
         </Button>

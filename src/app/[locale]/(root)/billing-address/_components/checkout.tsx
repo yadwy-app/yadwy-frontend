@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { CiCoins1 } from "react-icons/ci";
 import {
@@ -33,14 +33,9 @@ import {
 import { Input } from "~/components/ui/input";
 import { AddressOrder } from "../../_components/address-order";
 import { Steps } from "../../_components/steps";
-import { TapsPay } from "./taps";
 import { Visa } from "./visa";
+
 const Checkout = () => {
-  interface Field {
-    name: "number" | "name" | "expiredate" | "cvc";
-    label: string;
-    col?: string;
-  }
   const addresses = [
     {
       id: 1,
@@ -280,7 +275,7 @@ const Checkout = () => {
               <Button
                 onClick={() => addressAddActive("add")}
                 variant="outline"
-                className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
               >
                 <FaPlus />
                 Add New Address
@@ -318,7 +313,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => addressAddActive("main")}
                     variant="outline"
-                    className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                    className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
                   >
                     <IoMdArrowBack />
                     Saved Addresses
@@ -355,7 +350,7 @@ const Checkout = () => {
               <Button
                 onClick={() => tapActiveHandle("Credit Add")}
                 variant="outline"
-                className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
               >
                 <FaPlus />
                 Add New Address
@@ -395,7 +390,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => tapActiveHandle("Credit / Debit Card")}
                     variant="outline"
-                    className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                    className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
                   >
                     <IoMdArrowBack />
                     Saved Payment Methods
@@ -464,7 +459,7 @@ const Checkout = () => {
           <Button
             onClick={prevStep}
             variant="outline"
-            className="w-fit rounded-none border-primary text-sm text-secondary shadow-lg md:text-base"
+            className="w-fit rounded-none border-primary text-sm text-secondary-foreground shadow-lg md:text-base"
           >
             <IoMdArrowBack />
             Back

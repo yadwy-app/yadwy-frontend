@@ -1,5 +1,4 @@
 import type React from "react";
-import { FaCreditCard } from "react-icons/fa6";
 import { Button } from "~/components/ui/button";
 interface PayInfoProps {
   id: number;

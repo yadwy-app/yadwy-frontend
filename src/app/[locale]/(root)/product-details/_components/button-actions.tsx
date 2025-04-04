@@ -1,9 +1,7 @@
 "use client";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
-import { useDispatch } from "react-redux";
 import { Button } from "~/components/ui/button";
 import { toast } from "~/hooks/use-toast";
-import { cartAction } from "~/redux/reducers/CartSlice";
 import { Counter } from "../../cart/_components/counter";
 
 type CartItemProps = {
@@ -16,9 +14,7 @@ type CartItemProps = {
 };
 
 export default function ButtonAction({ item }: { item: CartItemProps }) {
-  const dispatch = useDispatch();
   const addToCartHandler = () => {
-    dispatch(cartAction.addItems(item));
     toast({
       title: `${item.title} added to cart 🛒`,
       description: `You added ${item.quantity} ${item.quantity > 1 ? "units" : "unit"} to your cart.`,
@@ -35,7 +31,7 @@ export default function ButtonAction({ item }: { item: CartItemProps }) {
           <ShoppingBag className="text-background" />
           Add
         </Button>
-        <h3 className="text-secondary">or</h3>
+        <h3 className="text-secondary-foreground">or</h3>
         <Button className="flex w-full gap-4 text-background">
           <ShoppingCart className="" />
           Make your order
