@@ -5,23 +5,19 @@ import ProductGrid from "./_components/products-grid";
 
 export default function SearchPage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex-1 container mx-auto px-4 py-6">
-        <div className="mb-6">
-          <h1 className="text-2xl font-semibold mb-2">Search Results</h1>
-          <p className="text-muted-foreground">
-            16,035 items found for "plants"
-          </p>
-        </div>
+    <div className="flex flex-col w-full">
+      <div className="mb-6">
+        <h1 className="text-2xl font-semibold mb-2">Search Results</h1>
+        <p className="text-muted-foreground">16,035 items found for "plants"</p>
+      </div>
 
-        <FilterBar />
+      <FilterBar />
 
-        <div className="mt-6">
-          <Suspense fallback={<ProductGridSkeleton />}>
-            <ProductGrid />
-          </Suspense>
-        </div>
-      </main>
+      <div className="mt-6">
+        <Suspense fallback={<ProductGridSkeleton />}>
+          <ProductGrid />
+        </Suspense>
+      </div>
     </div>
   );
 }

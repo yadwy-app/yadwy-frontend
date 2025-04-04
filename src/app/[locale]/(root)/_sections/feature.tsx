@@ -25,7 +25,7 @@ export const Feature = () => {
     },
   ];
   return (
-    <Section id="Feature" className="w-full">
+    <Section>
       <div className="grid grid-cols-12 gap-5">
         {features.map((feature) => (
           <FeatureCard feature={feature} key={feature.id} />

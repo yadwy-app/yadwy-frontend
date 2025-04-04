@@ -18,7 +18,7 @@ type Props = {
 export default function Products({ title, description, products }: Props) {
   const t = useTranslations("HomePage.NewArt");
   return (
-    <Section id="NewArt" className="gap-8 md:w-full lg:max-w-7xl mx-auto">
+    <Section>
       <SectionTitle>{title}</SectionTitle>
       {description ? (
         <SectionDescription>{description}</SectionDescription>
@@ -31,10 +31,10 @@ export default function Products({ title, description, products }: Props) {
           />
         ))}
       </div>
-      <SectionFooter className="mt-10">
+      <SectionFooter>
         <Button
           variant="outline"
-          className="w-full rounded-none border-primary text-secondary-foreground shadow-lg"
+          className="w-36 rounded-none border-primary text-secondary-foreground shadow-lg"
         >
           {t("button")}
         </Button>

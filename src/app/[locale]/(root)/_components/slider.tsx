@@ -63,11 +63,11 @@ export function Slider({ slides }: Props) {
               <div className="overflow-hidden flex w-full items-center justify-center">
                 <Image
                   src={slide.imageUrl}
-                  alt="Hero"
-                  width={500}
-                  height={500}
+                  alt="hero section's banner"
+                  width={1000}
+                  height={1000}
                   priority
-                  className="h-full w-full max-w-7xl object-cover md:h-full"
+                  className="h-full w-full object-cover md:h-full"
                 />
               </div>
             </CarouselItem>

@@ -19,7 +19,7 @@ export const ProductsHolderCart = () => {
           ))}
         </div>
       ) : (
-        <div className="max-w-7xl mx-auto p-4 text-center py-16">
+        <div className="p-4 text-center py-16">
           <h2 className="text-3xl font-bold mb-4">{t("isEmpty.title")}</h2>
           <p className="mb-8">{t("isEmpty.description")}</p>
           <Link href="/search">
