@@ -51,7 +51,7 @@ export const CartSheet = ({ children }: CartProps) => {
                   Shipping and taxed calculated at checkout
                 </div>
               </div>
-              <div className="text-2xl font-bold text-secondary">
+              <div className="text-2xl font-bold text-secondary-foreground">
                 {totalPrice ? totalPrice : 0}$
               </div>
             </div>

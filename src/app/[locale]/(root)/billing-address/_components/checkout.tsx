@@ -275,7 +275,7 @@ const Checkout = () => {
               <Button
                 onClick={() => addressAddActive("add")}
                 variant="outline"
-                className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
               >
                 <FaPlus />
                 Add New Address
@@ -313,7 +313,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => addressAddActive("main")}
                     variant="outline"
-                    className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                    className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
                   >
                     <IoMdArrowBack />
                     Saved Addresses
@@ -350,7 +350,7 @@ const Checkout = () => {
               <Button
                 onClick={() => tapActiveHandle("Credit Add")}
                 variant="outline"
-                className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
               >
                 <FaPlus />
                 Add New Address
@@ -390,7 +390,7 @@ const Checkout = () => {
                   <Button
                     onClick={() => tapActiveHandle("Credit / Debit Card")}
                     variant="outline"
-                    className="w-fit rounded-none border-primary text-secondary shadow-lg"
+                    className="w-fit rounded-none border-primary text-secondary-foreground shadow-lg"
                   >
                     <IoMdArrowBack />
                     Saved Payment Methods
@@ -459,7 +459,7 @@ const Checkout = () => {
           <Button
             onClick={prevStep}
             variant="outline"
-            className="w-fit rounded-none border-primary text-sm text-secondary shadow-lg md:text-base"
+            className="w-fit rounded-none border-primary text-sm text-secondary-foreground shadow-lg md:text-base"
           >
             <IoMdArrowBack />
             Back

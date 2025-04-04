@@ -31,7 +31,7 @@ export default function ButtonAction({ item }: { item: CartItemProps }) {
           <ShoppingBag className="text-background" />
           Add
         </Button>
-        <h3 className="text-secondary">or</h3>
+        <h3 className="text-secondary-foreground">or</h3>
         <Button className="flex w-full gap-4 text-background">
           <ShoppingCart className="" />
           Make your order

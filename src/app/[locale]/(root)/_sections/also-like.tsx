@@ -18,7 +18,7 @@ export default function AlsoLike() {
       <SectionFooter>
         <Button
           variant="outline"
-          className="w-full shadow-lg border-primary rounded-none text-secondary"
+          className="w-full shadow-lg border-primary rounded-none text-secondary-foreground"
         >
           Show more
         </Button>

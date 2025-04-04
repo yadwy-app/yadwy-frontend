@@ -64,7 +64,7 @@ export const BoxProductCart = ({ item }: ItemProps) => {
           </div>
         </div>
       </div>
-      <div className="text-2xl font-bold text-secondary">{item.price}$</div>
+      <div className="text-2xl font-bold text-secondary-foreground">{item.price}$</div>
     </div>
   );
 };
