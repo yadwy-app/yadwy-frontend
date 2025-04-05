@@ -13,11 +13,10 @@ export default function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    
     <div
       className={cn(
         "absolute left-1/2 top-1/2 max-w-xl flex-1 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 w-full",
-        isSearchFocused ? "sm:max-w-2xl" : "",
+        isSearchFocused ? "sm:max-w-2xl" : ""
       )}
     >
       <div

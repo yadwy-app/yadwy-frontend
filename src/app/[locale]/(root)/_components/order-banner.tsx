@@ -5,15 +5,12 @@ import { useTranslations } from "next-intl"; // Import useTranslations hook
 import { Button } from "~/components/ui/button";
 
 export default function OrderBanner() {
-  const t = useTranslations("HomePage.OrderBanner"); // Use the "OrderBanner" namespace for translations
+  const t = useTranslations("HomePage.OrderBanner");
 
   return (
     <div className="relative w-full h-[400px] md:h-[429px]">
-      {/* Main container with border */}
       <div className="absolute inset-0 border-2 border-[#C0D6D6] rounded-lg overflow-hidden">
-        {/* Content container */}
         <div className="flex h-full">
-          {/* Left content */}
           <div className="relative z-10 flex-1 p-8 flex flex-col md:justify-between gap-8">
             <div>
               <h2 className="md:text-[40px] text-lg font-bold text-[#283D3D] leading-[50px] mb-6">
