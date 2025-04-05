@@ -145,7 +145,7 @@ export default function OrderDetailsPage({ params }: OrderDetailsPageProps) {
             </CardHeader>
             <CardContent>
               <Steps className="w-full">
-                {order.timeline.map((step, index) => (
+                {order.timeline.map((step) => (
                   <Step
                     key={`${step.status}-${step.date}`}
                     completed={step.completed}

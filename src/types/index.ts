@@ -8,6 +8,10 @@ export interface Product {
   category: string[];
   images: string[];
   rating: number;
+  isFavorite: boolean;
+  isNew: boolean;
+  originalPrice: number | null;
+  reviewsCount: number;
   reviewComment: {
     userName: string | undefined;
     userImage: string;

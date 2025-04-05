@@ -8,7 +8,6 @@ const Section = React.forwardRef<
   <section
     ref={ref}
     className={cn(
-      "flex flex-col justify-center items-center gap-4 px-2 md:p-4",
       className,
     )}
     {...props}
@@ -23,7 +22,7 @@ const SectionTitle = React.forwardRef<
   <h2
     ref={ref}
     className={cn(
-      "text-3xl font-black leading-normal text-primary-foreground",
+      "text-3xl font-black leading-normal text-primary-foreground text-center",
       className,
     )}
     {...props}
@@ -38,7 +37,7 @@ const SectionDescription = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-      "text-md text-muted-foreground max-w-3xl text-center",
+      "text-md text-muted-foreground max-w-xl mx-auto text-center mt-2 mb-8",
       className,
     )}
     {...props}
@@ -52,7 +51,7 @@ const SectionFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
+    className={cn("flex items-center justify-center pt-0 mt-4", className)}
     {...props}
   />
 ));

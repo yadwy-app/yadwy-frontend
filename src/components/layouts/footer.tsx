@@ -14,8 +14,8 @@ export const Footer = () => {
   const t = useTranslations("HomePage.Footer"); // Use the "Footer" namespace for translations
 
   return (
-    <div className="bg-primary px-3 py-5">
-      <div className="mx-auto max-w-7xl px-6 py-4 md:px-10 lg:px-20">
+    <div className="bg-primary">
+      <div className="container py-8">
         <div className="md:md-0 mb-3 grid grid-cols-12 gap-4">
           {/* Logo and Description */}
           <div className="col-span-12 md:col-span-4">
@@ -108,22 +108,12 @@ export const Footer = () => {
 
           {/* App Store Links */}
           <div className="col-span-6 md:col-span-2">
-            <div className="flex flex-col items-center gap-6">
-              <Link href={``} className="relative h-10 w-full">
-                <Image
-                  fill
-                  src={"/footer/google.svg"}
-                  className="w-full"
-                  alt="google play"
-                />
+            <div className="flex flex-col items-end gap-6">
+              <Link href={``} className="relative h-10 aspect-[680/200]">
+                <Image fill src={"/footer/google.svg"} alt="google play" />
               </Link>
-              <Link href={``} className="relative h-10 w-full">
-                <Image
-                  fill
-                  src={"/footer/apple.svg"}
-                  className="w-full"
-                  alt="apple store"
-                />
+              <Link href={``} className="relative h-10 aspect-[680/200]">
+                <Image fill src={"/footer/apple.svg"} alt="apple store" />
               </Link>
             </div>
           </div>

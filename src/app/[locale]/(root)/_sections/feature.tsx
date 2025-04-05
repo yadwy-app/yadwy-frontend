@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import React from "react";
 import { Section } from "~/components/section";
 import { FeatureCard } from "../_components/feature-card";
 
@@ -26,7 +25,7 @@ export const Feature = () => {
     },
   ];
   return (
-    <Section id="Feature" className="w-full">
+    <Section>
       <div className="grid grid-cols-12 gap-5">
         {features.map((feature) => (
           <FeatureCard feature={feature} key={feature.id} />

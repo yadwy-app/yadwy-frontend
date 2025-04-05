@@ -17,14 +17,8 @@ import Providers from "../_components/providers";
 // Define the form values type from the schema
 type SignUpFormValues = z.infer<typeof SignUpSchema>;
 
-type Props = {
-  name: string;
-  placeholder?: string;
-};
-
 export default function FormSignUp() {
   const t = useTranslations("SignUp");
-  const passwordPlaceholder = t("Fields.confirmPasswordPlaceholder");
 
   // Add type parameter to useForm
   const methods = useForm<SignUpFormValues>({

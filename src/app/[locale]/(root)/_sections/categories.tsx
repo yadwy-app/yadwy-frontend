@@ -49,14 +49,14 @@ export function Categories() {
   }, [direction]);
 
   return (
-    <Section id="Categories" className="w-full overflow-hidden">
-      <SectionTitle className="text-center">{t("title")}</SectionTitle>
-      <SectionDescription className="text-center">
+    <Section>
+      <SectionTitle>{t("title")}</SectionTitle>
+      <SectionDescription>
         {t("description")}
       </SectionDescription>
       <div className="flex justify-center" dir={direction}>
         <Carousel
-          className="w-full max-w-7xl"
+          className="w-full"
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
@@ -69,7 +69,7 @@ export function Categories() {
             carouselRef.current = api;
           }}
         >
-          <CarouselContent className={direction === "rtl" ? "-mr-4" : "-ml-4"}>
+          <CarouselContent className={"-me-4"}>
             {categories.map((category) => (
               <CarouselItem
                 key={category.name}
