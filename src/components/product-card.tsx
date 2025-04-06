@@ -2,7 +2,6 @@
 
 import { Eye, Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
@@ -11,6 +10,7 @@ import { ProductQuickView } from "./product-quick-view";
 import type { Product } from "~/types";
 import { getProductCoverImage } from "~/lib/product-utils";
 import { TbShoppingBagPlus } from "react-icons/tb";
+import { Link } from '~/i18n/routing';
 
 interface ProductCardProps extends Product {}
 
@@ -91,10 +91,10 @@ export function ProductCard({ ...product }: ProductCardProps) {
 
         <div className="p-4">
           <Link
-            href={`/product/${product.id}`}
+            href={`/product-details/${product.id}`}
             className="block group-hover:text-primary transition-colors"
           >
-            <h3 className="font-medium text-sm mb-1 line-clamp-2">
+            <h3 className="font-medium mb-1 line-clamp-2">
               {product.name}
             </h3>
           </Link>
