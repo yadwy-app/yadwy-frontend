@@ -2,7 +2,7 @@ name: Tests & Checks
 on:
   push:
     branches:
-      - '**'
+      - "**"
 
 jobs:
   biome_and_types:
@@ -14,5 +14,8 @@ jobs:
         with:
           bun-version: 1.2.0
 
+      - name: Install Dependencies
+        run: bun install
+
       - name: Run Bun Check
-        run: bun check
+        run: bun run check

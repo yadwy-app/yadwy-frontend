@@ -51,9 +51,7 @@ export function Categories() {
   return (
     <Section>
       <SectionTitle>{t("title")}</SectionTitle>
-      <SectionDescription>
-        {t("description")}
-      </SectionDescription>
+      <SectionDescription>{t("description")}</SectionDescription>
       <div className="flex justify-center" dir={direction}>
         <Carousel
           className="w-full"

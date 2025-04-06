@@ -1,7 +1,7 @@
+import { ProductCard } from "~/components/product-card";
 import { Section, SectionFooter, SectionTitle } from "~/components/section";
 import { Button } from "~/components/ui/button";
 import { mockProductsData } from "~/data";
-import { ProductCard } from "~/components/product-card";
 
 export default function AlsoLike() {
   return (
@@ -9,10 +9,7 @@ export default function AlsoLike() {
       <SectionTitle>You May Also Like</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
         {mockProductsData.map((product) => (
-          <ProductCard
-            key={product.id}
-            {...product}
-          />
+          <ProductCard key={product.id} {...product} />
         ))}
       </div>
       <SectionFooter>
