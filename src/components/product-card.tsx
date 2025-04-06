@@ -34,7 +34,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
           <div
             className={cn(
               "absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 transition-opacity duration-300",
-              "group-hover/product-card:opacity-100",
+              "group-hover/product-card:opacity-100"
             )}
           >
             <div className="flex gap-2">
@@ -67,7 +67,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
             size="icon"
             className={cn(
               "absolute top-2 right-2 rounded-full h-8 w-8 bg-white/80 hover:bg-white",
-              isFavorite ? "text-red-500 hover:text-red-600" : "",
+              isFavorite ? "text-red-500 hover:text-red-600" : ""
             )}
             onClick={(e) => {
               e.preventDefault();
@@ -113,7 +113,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
                       filled
                         ? "fill-amber-400 text-amber-400"
                         : "text-muted-foreground",
-                      half ? "fill-amber-400/50 text-amber-400" : "",
+                      half ? "fill-amber-400/50 text-amber-400" : ""
                     )}
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
