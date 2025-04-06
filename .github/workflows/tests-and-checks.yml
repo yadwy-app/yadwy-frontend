@@ -9,6 +9,9 @@ jobs:
     name: Biome and Types
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
         with:
