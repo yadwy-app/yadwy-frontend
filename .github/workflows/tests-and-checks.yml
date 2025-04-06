@@ -1,4 +1,4 @@
-name: Test & Checks
+name: Tests & Checks
 jobs:
   biome_types:
     name: Biome and Types
