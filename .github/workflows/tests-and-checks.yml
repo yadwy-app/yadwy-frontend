@@ -20,5 +20,8 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
-      - name: Run Bun Check
-        run: bun run check
+      - name: Run Biome
+        run: bun biome ci
+      
+      - name: Run TypeScript
+        run: bun run tsc --noEmit
