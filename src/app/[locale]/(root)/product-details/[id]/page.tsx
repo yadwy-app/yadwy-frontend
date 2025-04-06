@@ -22,7 +22,7 @@ export default async function Page({
   if (!product) return <h3>Product not Found</h3>;
 
   return (
-    <div className="flex flex-col gap-16 px-4 py-8 md:container">
+    <div className="flex flex-col gap-16 py-8">
       <div className="flex w-full flex-col justify-center gap-16 md:flex-row">
         <ProductImage images={product.images} />
         <div className="flex w-full flex-col gap-[1.6rem]">

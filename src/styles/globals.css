@@ -24,8 +24,8 @@
     --input: 0 0% 20%;
     --ring: 180 20% 40%;
     --radius: 0.5rem;
-    --lightPrimary: #e2ebeb;
-    --textColor: #5e6a6b;
+    --lightPrimary: 180 18% 90%;
+    --textColor: 185 6% 39%;
   }
 
   .dark {
@@ -37,7 +37,7 @@
     --popover-foreground: 0 0% 88%;
     --primary: 180 21% 36%;
     --primary-foreground: 0 0% 1%;
-    --secondary: #3e5f5f;
+    --secondary: 180 21% 31%;
     --secondary-foreground: 0 0% 1%;
     --muted: 0 0% 80%;
     --muted-foreground: 0 0% 88%;
@@ -50,6 +50,7 @@
     --ring: 180 20% 60%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
@@ -73,6 +74,7 @@ html {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

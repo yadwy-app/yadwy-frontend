@@ -5,13 +5,7 @@ const Section = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <section
-    ref={ref}
-    className={cn(
-      className,
-    )}
-    {...props}
-  />
+  <section ref={ref} className={cn(className)} {...props} />
 ));
 Section.displayName = "Section";
 

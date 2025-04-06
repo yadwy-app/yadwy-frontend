@@ -1,0 +1,27 @@
+name: Tests & Checks
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  biome_and_types:
+    name: Biome and Types
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.2.0
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Run Biome
+        run: bun biome ci
+      
+      - name: Run TypeScript
+        run: bun run tsc --noEmit

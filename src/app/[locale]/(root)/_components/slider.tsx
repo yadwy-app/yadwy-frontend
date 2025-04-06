@@ -9,7 +9,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "~/components/ui/carousel";
-import useTextDirection from '~/hooks/useDirection';
+import useTextDirection from "~/hooks/useDirection";
 import { cn } from "~/lib/utils";
 
 interface Props {

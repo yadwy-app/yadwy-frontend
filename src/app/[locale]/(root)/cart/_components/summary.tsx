@@ -26,7 +26,9 @@ export const Summary = () => {
       </div>
       <div className="flex items-center justify-between">
         <span className="text-textColor text-sm">Estimated Delivery</span>
-        <span className="font-bold text-secondary-foreground">02 May, 2024</span>
+        <span className="font-bold text-secondary-foreground">
+          02 May, 2024
+        </span>
       </div>
     </div>
   );

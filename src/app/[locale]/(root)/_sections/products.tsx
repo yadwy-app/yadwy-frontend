@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { ProductCard } from "~/components/product-card";
 import {
   Section,
   SectionDescription,
@@ -7,7 +8,6 @@ import {
 } from "~/components/section";
 import { Button } from "~/components/ui/button";
 import type { Product } from "~/types";
-import { ProductCard } from "~/components/product-card";
 
 type Props = {
   title: string;
@@ -25,10 +25,7 @@ export default function Products({ title, description, products }: Props) {
       ) : null}
       <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            {...product}
-          />
+          <ProductCard key={product.id} {...product} />
         ))}
       </div>
       <SectionFooter>

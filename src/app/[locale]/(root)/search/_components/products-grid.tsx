@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
 import { ProductCard } from "~/components/product-card";
+import { Button } from "~/components/ui/button";
 import { mockProductsData } from "~/data";
+import { cn } from "~/lib/utils";
 
 export default function ProductGrid() {
   const products = mockProductsData;

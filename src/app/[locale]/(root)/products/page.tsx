@@ -1,5 +1,5 @@
-import { mockProductsData } from "~/data";
 import { ProductCard } from "~/components/product-card";
+import { mockProductsData } from "~/data";
 
 export default function SearchPage() {
   return (
