@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        heading: "Lalezar",
+        body: "Cairo",
+        lexend: "Lexend",
       },
       fontSize: {
         sm: "0.750rem",

@@ -2,7 +2,8 @@
 import { ShoppingBag, ShoppingCart } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { toast } from "~/hooks/use-toast";
-import { Counter } from "../../cart/_components/counter";
+import { useState } from "react";
+import { QuantityCounter } from "./quantity-counter";
 
 type CartItemProps = {
   id: number;
@@ -17,12 +18,26 @@ export default function ButtonAction({ item }: { item: CartItemProps }) {
   const addToCartHandler = () => {
     toast({
       title: `${item.title} added to cart 🛒`,
-      description: `You added ${item.quantity} ${item.quantity > 1 ? "units" : "unit"} to your cart.`,
+      description: `You added ${item.quantity} to your cart`,
     });
   };
+  const [quantityCounter, setQuantityCounter] = useState(1);
+  const incrementQuantity = () => {
+    setQuantityCounter(quantityCounter + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantityCounter > 1) {
+      setQuantityCounter(quantityCounter - 1);
+    }
+  };
   return (
-    <div className="flex w-full flex-col items-center gap-4 md:flex-row">
-      <Counter handleAddCart={addToCartHandler} />
+    <div className="flex w-full flex-col items-center gap-8 md:flex-row">
+      <QuantityCounter
+        quantity={quantityCounter}
+        increment={incrementQuantity}
+        decrement={decrementQuantity}
+      />
       <div className="flex w-full flex-col items-center gap-2 md:flex-row">
         <Button
           className="flex w-full gap-4 text-background"
