@@ -6,7 +6,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "~/components/ui/carousel"; // Assuming this is the shadcn Carousel component
+} from "~/components/ui/carousel";
 import { cn } from "~/lib/utils";
 
 export default function ProductImage({ images }: { images: string[] }) {
@@ -17,20 +17,19 @@ export default function ProductImage({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full">
-      <div className="relative">
-        <div className="h-auto">
-          <Image
-            src={images[selectedIndex] ?? "/placeholder.png"} // Display the selected image
-            alt={`Selected Image ${selectedIndex + 1}`}
-            className="w-full h-full rounded-md bg-contain"
-            width={487}
-            height={487}
-          />
-        </div>
+    <div className="flex flex-col gap-2 w-full md:max-w-[487px]">
+      <div className="relative aspect-square w-full overflow-hidden">
+        <Image
+          src={images[selectedIndex] ?? "/placeholder.svg"}
+          alt={`Product Image ${selectedIndex + 1}`}
+          className="object-contain rounded-md"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 487px"
+          placeholder="blur"
+          blurDataURL="/placeholder.svg"
+        />
       </div>
-
-      {/* Thumbnail Carousel */}
       <Carousel className="relative">
         <CarouselContent className="ml-0 flex gap-2">
           {images.map((image, index) => (
@@ -43,7 +42,7 @@ export default function ProductImage({ images }: { images: string[] }) {
                 className={cn(
                   "p-1",
                   index === selectedIndex
-                    ? "border border-primary"
+                    ? "border border-primary rounded-md"
                     : "opacity-50",
                 )}
               >

@@ -28,7 +28,7 @@ export default function ProductDetails({
         <span className="px-2 font-bold font-heading">{rate}/5</span>
       </div>
       <span className="text-2xl font-normal">{price}</span>
-      <p className="text-left text-[#5E6A6B]">{description}</p>
+      <p className="text-left text-lg text-[#5E6A6B]">{description}</p>
     </div>
   );
 }

@@ -71,7 +71,7 @@ export function Categories() {
             {categories.map((category) => (
               <CarouselItem
                 key={category.name}
-                className="basis-1/2 sm:basis-1/3 w-full"
+                className="basis-1/2 sm:basis-1/3 lg:basis-1/4 w-full"
               >
                 <div className="overflow-hidden w-full h-full">
                   <Category name={category.name} image={category.image} />

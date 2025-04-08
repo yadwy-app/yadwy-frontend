@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
-import { lalezar, lexend } from "~/styles/fonts";
+import { cairo, lalezar, lexend } from "~/styles/fonts";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -25,6 +25,7 @@ export default async function RootLayout({
           "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
           lexend.variable,
           lalezar.variable,
+          cairo.variable,
         )}
       >
         {children}

@@ -18,7 +18,7 @@ type Props = {
 export default function Products({ title, description, products }: Props) {
   const t = useTranslations("HomePage.NewArt");
   return (
-    <Section>
+    <Section className="flex flex-col gap-8">
       <SectionTitle>{title}</SectionTitle>
       {description ? (
         <SectionDescription>{description}</SectionDescription>

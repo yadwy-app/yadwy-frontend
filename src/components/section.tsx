@@ -16,7 +16,7 @@ const SectionTitle = React.forwardRef<
   <h2
     ref={ref}
     className={cn(
-      "text-3xl font-black leading-normal text-primary-foreground text-center",
+      "text-3xl font-black leading-normal font-heading text-primary-foreground text-center",
       className,
     )}
     {...props}
@@ -31,7 +31,7 @@ const SectionDescription = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-      "text-md text-muted-foreground max-w-xl mx-auto text-center mt-2 mb-8",
+      "text-lg font-body text-muted-foreground max-w-xl mx-auto text-center mt-2 mb-8",
       className,
     )}
     {...props}

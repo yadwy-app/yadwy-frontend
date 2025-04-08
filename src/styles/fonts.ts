@@ -1,15 +1,18 @@
-import { Lalezar, Lexend } from "next/font/google";
+import { Cairo, Lalezar, Lexend } from "next/font/google";
 
 const lalezar = Lalezar({
   subsets: ["arabic"],
   weight: ["400"],
+});
+const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
   variable: "--font-body",
 });
-
 const lexend = Lexend({
   subsets: ["latin"],
   weight: ["400", "400"],
   variable: "--font-heading",
 });
 
-export { lalezar, lexend };
+export { lalezar, lexend, cairo };
