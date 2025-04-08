@@ -3,7 +3,7 @@ import { Cairo, Lalezar, Lexend } from "next/font/google";
 const lalezar = Lalezar({
   subsets: ["arabic"],
   weight: ["400"],
-  variable: "--font-body",
+  variable: "--font-heading",
 });
 const cairo = Cairo({
   subsets: ["arabic"],
