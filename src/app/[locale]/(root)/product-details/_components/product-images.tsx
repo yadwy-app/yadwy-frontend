@@ -20,14 +20,14 @@ export default function ProductImage({ images }: { images: string[] }) {
     <div className="flex flex-col gap-2 w-full md:max-w-[487px]">
       <div className="relative aspect-square w-full overflow-hidden">
         <Image
-          src={images[selectedIndex] ?? "/"}
+          src={images[selectedIndex] ?? "/placeholder.svg"}
           alt={`Product Image ${selectedIndex + 1}`}
           className="object-contain rounded-md"
           fill
           priority
           sizes="(max-width: 768px) 100vw, 487px"
           placeholder="blur"
-          blurDataURL="/"
+          blurDataURL="/placeholder.svg"
         />
       </div>
       <Carousel className="relative">
