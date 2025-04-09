@@ -16,7 +16,7 @@ const SectionTitle = React.forwardRef<
   <h2
     ref={ref}
     className={cn(
-      "text-3xl font-black leading-normal font-heading text-primary-foreground text-center",
+      "text-3xl font-black rtl:leading-tight font-heading text-primary-foreground text-center",
       className,
     )}
     {...props}
@@ -31,13 +31,25 @@ const SectionDescription = React.forwardRef<
   <p
     ref={ref}
     className={cn(
-      "text-lg font-body text-muted-foreground max-w-xl mx-auto text-center mt-2 mb-8",
+      "text-lg font-body text-muted-foreground max-w-xl text-center",
       className,
     )}
     {...props}
   />
 ));
 SectionDescription.displayName = "SectionDescription";
+
+const SectionHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col items-center justify-center gap-2 mb-8", className)}
+    {...props}
+  />
+));
+SectionHeader.displayName = "SectionHeader";
 
 const SectionFooter = React.forwardRef<
   HTMLDivElement,
@@ -51,4 +63,4 @@ const SectionFooter = React.forwardRef<
 ));
 SectionFooter.displayName = "SectionFooter";
 
-export { Section, SectionTitle, SectionDescription, SectionFooter };
+export { Section, SectionTitle, SectionDescription, SectionHeader, SectionFooter };

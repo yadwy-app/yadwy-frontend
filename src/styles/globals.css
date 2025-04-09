@@ -53,32 +53,16 @@
 
 @layer base {
   * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-html {
-  font-family: "Lexend", sans-serif;
-}
-
-[lang="ar"] {
-  font-family: "Cairo", sans-serif;
-  font-size: medium;
-}
-[lang="ar"] .h1 {
-  font-family: "Lalezar", cursive;
-}
-
-@layer base {
-  * {
     @apply border-border outline-ring/50;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Cairo", sans-serif;
+    --font-heading: var(--font-lexend);
+
+    &[lang="ar"] {
+      --font-heading: var(--font-lalezar);
+    }
   }
 }

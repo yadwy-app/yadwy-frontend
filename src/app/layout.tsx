@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
+// TODO: only include the required font for the current lang of the user
 import { cairo, lalezar, lexend } from "~/styles/fonts";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
   description: "احدث المنتجات الزراعية",
   icons: [{ rel: "icon", url: "/logo.svg" }],
 };
+
 export default async function RootLayout({
   children,
 }: {
@@ -21,6 +23,8 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dir}>
       <body
+        lang={locale}
+        dir={dir}
         className={cn(
           "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
           lexend.variable,

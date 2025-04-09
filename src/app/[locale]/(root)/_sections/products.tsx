@@ -4,6 +4,7 @@ import {
   Section,
   SectionDescription,
   SectionFooter,
+  SectionHeader,
   SectionTitle,
 } from "~/components/section";
 import { Button } from "~/components/ui/button";
@@ -18,11 +19,13 @@ type Props = {
 export default function Products({ title, description, products }: Props) {
   const t = useTranslations("HomePage.NewArt");
   return (
-    <Section className="flex flex-col gap-8">
-      <SectionTitle>{title}</SectionTitle>
-      {description ? (
-        <SectionDescription>{description}</SectionDescription>
-      ) : null}
+    <Section>
+      <SectionHeader>
+        <SectionTitle>{title}</SectionTitle>
+        {description ? (
+          <SectionDescription>{description}</SectionDescription>
+        ) : null}
+      </SectionHeader>
       <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductCard key={product.id} {...product} />

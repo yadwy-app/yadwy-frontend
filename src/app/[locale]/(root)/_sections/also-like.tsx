@@ -1,12 +1,19 @@
 import { ProductCard } from "~/components/product-card";
-import { Section, SectionFooter, SectionTitle } from "~/components/section";
+import {
+  Section,
+  SectionFooter,
+  SectionHeader,
+  SectionTitle,
+} from "~/components/section";
 import { Button } from "~/components/ui/button";
 import { mockProductsData } from "~/data";
 
 export default function AlsoLike() {
   return (
-    <Section id="NewArt" className="gap-8">
-      <SectionTitle>You May Also Like</SectionTitle>
+    <Section id="NewArt">
+      <SectionHeader>
+        <SectionTitle>You May Also Like</SectionTitle>
+      </SectionHeader>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
         {mockProductsData.map((product) => (
           <ProductCard key={product.id} {...product} />
