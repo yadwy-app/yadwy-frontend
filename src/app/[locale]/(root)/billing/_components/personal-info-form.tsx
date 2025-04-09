@@ -1,13 +1,5 @@
 "use client";
 
-import type { UseFormReturn } from "react-hook-form";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import {
   Select,
@@ -16,68 +8,30 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import {
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+  Form,
+} from "~/components/ui/form";
+import type { UseFormReturn } from "react-hook-form";
+import { z } from "zod";
 
-const AddressFields = [
-  {
-    name: "name",
-    label: "Name",
-    placeholder: "Enter your name",
-    col: "col-span-4 md:col-span-2",
-    type: "input",
-  },
-  {
-    name: "phone",
-    label: "Phone",
-    placeholder: "Enter phone number",
-    col: "col-span-4 md:col-span-2",
-    type: "input",
-  },
-  {
-    name: "address",
-    label: "Address",
-    placeholder: "Enter address",
-    col: "col-span-4",
-    type: "input",
-  },
-  {
-    name: "country",
-    label: "Country",
-    placeholder: "Select country",
-    col: "col-span-4 md:col-span-1",
-    type: "select",
-  },
-  {
-    name: "state",
-    label: "State",
-    placeholder: "Select state",
-    col: "col-span-4 md:col-span-1",
-    type: "select",
-  },
-] as const;
+export const PersonalInfoSchema = z.object({
+  name: z.string().min(2, { message: "Name is required" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  phone: z.string().min(10, { message: "Valid phone number is required" }),
+  address: z.string().min(5, { message: "Address is required" }),
+  country: z.string().min(1, { message: "Country is required" }),
+  state: z.string().min(1, { message: "State is required" }),
+  zipCode: z.string().min(1, { message: "Zip code is required" }),
+});
 
-// Define types for country and state
-interface Country {
-  value: string;
-  label: string;
-}
+const countries = [{ value: "eg", label: "Egypt" }];
 
-interface State {
-  value: string;
-  label: string;
-}
-
-// Define the form values type
-interface AddressFormValues {
-  name: string;
-  phone: string;
-  address: string;
-  country: string;
-  state: string;
-}
-
-const countries: Country[] = [{ value: "eg", label: "Egypt" }];
-
-const states: Record<string, State[]> = {
+const states: Record<string, { value: string; label: string }[]> = {
   eg: [
     { value: "cai", label: "Cairo" },
     { value: "alx", label: "Alexandria" },
@@ -109,71 +63,153 @@ const states: Record<string, State[]> = {
   ],
 };
 
-type Props = {
-  form: UseFormReturn<AddressFormValues>;
-};
-
-export default function PersonalInfoForm({ form }: Props) {
-  const selectedCountry = form.watch("country") || "eg";
+export function PersonalInfoForm({
+  form,
+}: { form: UseFormReturn<z.infer<typeof PersonalInfoSchema>> }) {
+  const selectedCountry = (form.watch("country") as string) || "eg";
 
   return (
     <div className="space-y-6">
       <div>
         <h2 className="text-xl font-semibold">Shipping Information</h2>
-        <p className="text-sm text-primary">Enter your shipping details</p>
+        <p className="text-sm text-muted-foreground">
+          Enter your shipping details
+        </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {AddressFields.map((field) => (
+      <Form {...form}>
+        <div className="grid gap-4 md:grid-cols-2">
           <FormField
-            key={field.name}
             control={form.control}
-            name={field.name as keyof AddressFormValues}
-            render={({ field: inputField }) => (
-              <FormItem className={field.col}>
-                <FormLabel>{field.label}</FormLabel>
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  {field.type === "select" ? (
-                    <Select
-                      onValueChange={inputField.onChange}
-                      value={inputField.value ?? ""}
-                    >
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder={field.placeholder} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {field.name === "country"
-                          ? countries.map((country) => (
-                              <SelectItem
-                                key={country.value}
-                                value={country.value}
-                              >
-                                {country.label}
-                              </SelectItem>
-                            ))
-                          : states[selectedCountry]?.map((state) => (
-                              <SelectItem key={state.value} value={state.value}>
-                                {state.label}
-                              </SelectItem>
-                            )) || null}
-                      </SelectContent>
-                    </Select>
-                  ) : (
-                    <Input
-                      className="w-full"
-                      placeholder={field.placeholder}
-                      {...inputField}
-                      value={inputField.value ?? ""}
-                      onChange={inputField.onChange}
-                    />
-                  )}
+                  <Input placeholder="John Doe" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-        ))}
-      </div>
+
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email Address</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="john@example.com"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Phone Number</FormLabel>
+                <FormControl>
+                  <Input placeholder="(123) 456-7890" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="address"
+            render={({ field }) => (
+              <FormItem className="md:col-span-2">
+                <FormLabel>Street Address</FormLabel>
+                <FormControl>
+                  <Input placeholder="123 Main St, Apt 4B" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="country"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Country</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value || "us"}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select country" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {countries.map((country) => (
+                      <SelectItem key={country.value} value={country.value}>
+                        {country.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="state"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>State / Province</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select state" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {states[selectedCountry]?.map((state) => (
+                      <SelectItem key={state.value} value={state.value}>
+                        {state.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="zipCode"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Zip / Postal Code</FormLabel>
+                <FormControl>
+                  <Input placeholder="10001" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+      </Form>
     </div>
   );
 }
