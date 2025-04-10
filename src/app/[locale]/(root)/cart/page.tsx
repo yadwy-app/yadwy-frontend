@@ -1,14 +1,14 @@
 import { useTranslations } from "next-intl";
 import { FaClipboardCheck } from "react-icons/fa6";
 import {
-  PageTitle,
-  PageHeader,
   PageContainer,
+  PageHeader,
+  PageTitle,
 } from "~/components/page-component";
+import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
 import { OrderSummary } from "../billing/_components/order-summary";
 import { ProductsHolderCart } from "./_components/box-product-cart";
-import { Button } from "~/components/ui/button";
 
 export default function Page() {
   const t = useTranslations("cartPage");

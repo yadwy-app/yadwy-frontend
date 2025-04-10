@@ -2,23 +2,29 @@ import { Suspense } from "react";
 import { Skeleton } from "~/components/ui/skeleton";
 import FilterBar from "./_components/filter-bar";
 import ProductGrid from "./_components/products-grid";
+import {
+  PageContainer,
+  PageHeader,
+  PageTitle,
+} from "~/components/page-component";
 
 export default function SearchPage() {
   return (
-    <div className="flex flex-col w-full">
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold mb-2">Search Results</h1>
+    <PageContainer>
+      <PageHeader>
+        <PageTitle>Search Results</PageTitle>
         <p className="text-muted-foreground">16,035 items found for "plants"</p>
-      </div>
-
-      <FilterBar />
+        <div className="mt-4">
+          <FilterBar />
+        </div>
+      </PageHeader>
 
       <div className="mt-6">
         <Suspense fallback={<ProductGridSkeleton />}>
           <ProductGrid />
         </Suspense>
       </div>
-    </div>
+    </PageContainer>
   );
 }
 

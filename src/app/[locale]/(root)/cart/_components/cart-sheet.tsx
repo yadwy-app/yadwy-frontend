@@ -1,4 +1,5 @@
 import { FaClipboardCheck } from "react-icons/fa6";
+import { Button } from "~/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -6,10 +7,9 @@ import {
   SheetTitle,
 } from "~/components/ui/sheet";
 import useTextDirection from "~/hooks/useDirection";
+import { Link } from "~/i18n/routing";
 import type { Product } from "~/types";
 import { BoxProductCart } from "./box-product";
-import { Button } from "~/components/ui/button";
-import { Link } from "~/i18n/routing";
 
 interface CartProps {
   children: React.ReactNode;

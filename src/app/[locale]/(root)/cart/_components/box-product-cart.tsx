@@ -3,9 +3,9 @@ import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
 import { BoxProductCart } from "./box-product";
 
+import { ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { Product } from "~/types";
-import { ShoppingCart } from "lucide-react";
 
 export const ProductsHolderCart = () => {
   const products: Product[] = []; // TODO: fetch the carts state from the backend

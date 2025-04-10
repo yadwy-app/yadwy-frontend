@@ -1,4 +1,8 @@
-import { PageContainer, PageHeader, PageTitle } from "~/components/page-component";
+import {
+  PageContainer,
+  PageHeader,
+  PageTitle,
+} from "~/components/page-component";
 import Checkout from "./_components/checkout";
 
 export default function Page() {

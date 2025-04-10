@@ -16,9 +16,9 @@ export default function ProductDetails({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between items-start md:items-center">
-        <h2 className="text-xl font-bold font-heading text-secondary-foreground md:text-3xl">
+        <h1 className="text-xl font-bold font-heading text-secondary-foreground md:text-3xl">
           {title}
-        </h2>
+        </h1>
         <Heart className="w-8 h-8" />
       </div>
       <div className="flex w-fit items-center justify-center gap-2 rounded-lg bg-yellow-50 text-black">

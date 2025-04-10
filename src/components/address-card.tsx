@@ -52,7 +52,12 @@ export function AddressCard({
               </Button>
             )}
             {onDelete && (
-              <Button variant="ghost" className='hover:text-red-500' size="icon" onClick={() => onDelete()}>
+              <Button
+                variant="ghost"
+                className="hover:text-red-500"
+                size="icon"
+                onClick={() => onDelete()}
+              >
                 <Trash2 className="h-4 w-4" />
               </Button>
             )}
