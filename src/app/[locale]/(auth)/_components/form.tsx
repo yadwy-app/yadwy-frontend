@@ -1,7 +1,6 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import Link from "next/link";
 import { useActionState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
@@ -14,6 +13,7 @@ import {
   Form as _Form,
 } from "~/components/ui/form";
 import { toast } from "~/hooks/use-toast";
+import { Link } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 import type { FormProps, FormState } from "~/types/forms";
 

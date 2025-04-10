@@ -3,7 +3,7 @@
 import { LocateIcon } from "lucide-react";
 import { useTranslations } from "next-intl"; // Import useTranslations hook
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from '~/i18n/routing';
 import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { IoIosCall } from "react-icons/io";

@@ -1,49 +1,51 @@
 "use client";
 
 import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { Check, CreditCard, MapPin, Package } from "lucide-react";
-
-import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { useMultiStepForm } from "./use-multi-form";
-import { PersonalInfoForm, PersonalInfoSchema } from "./personal-info-form";
-import { PaymentForm, PaymentMethodSchema } from "./payment-form";
+import { ShippingForm } from "./shipping-form";
+import { PaymentForm } from "./payment-form";
 import { ThankYou } from "./thank-you";
 import { OrderSummary } from "./order-summary";
-import type { z } from 'zod';
 
 export default function Checkout() {
-  const [orderData, setOrderData] = useState({});
+  const [orderData, setOrderData] = useState<{
+    shippingInfo?: {
+      name: string;
+      address: string;
+      state: string;
+      zipCode: string;
+    };
+    payment?: { paymentMethod: "card" | "paypal" | "cash" };
+  }>({});
 
-  const personalInfoForm = useForm<z.infer<typeof PersonalInfoSchema>>({
-    resolver: zodResolver(PersonalInfoSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      country: "",
-      state: "",
-      zipCode: "",
-    },
-  });
-
-  const paymentForm = useForm<z.infer<typeof PaymentMethodSchema>>({
-    resolver: zodResolver(PaymentMethodSchema),
-    defaultValues: {
-      paymentMethod: "card",
-    },
-  });
-
-  const { currentStepIndex, step, isFirstStep, isLastStep, back, next } =
-    useMultiStepForm([
-      <PersonalInfoForm key="step1" form={personalInfoForm} />,
-      <PaymentForm key="step2" form={paymentForm} />,
-      <ThankYou key="step3" orderData={orderData} />,
-    ]);
+  const { currentStepIndex, step, back, next } = useMultiStepForm([
+    <ShippingForm
+      key="step1"
+      onSuccess={(data) => {
+        next();
+        setOrderData({
+          shippingInfo: data,
+        });
+      }}
+    />,
+    <PaymentForm
+      key="step2"
+      onSuccess={(data) => {
+        next();
+        setOrderData({
+          payment: data,
+          ...orderData,
+        });
+      }}
+      onBack={() => {
+        back();
+      }}
+    />,
+    <ThankYou key="step3" orderData={orderData} />,
+  ]);
 
   const steps = [
     { id: 1, icon: <MapPin className="h-5 w-5" />, label: "Shipping" },
@@ -51,27 +53,11 @@ export default function Checkout() {
     { id: 3, icon: <Check className="h-5 w-5" />, label: "Confirmation" },
   ];
 
-  function onSubmit(_data: unknown) {
-    if (!isLastStep) {
-      if (currentStepIndex === 0) {
-        setOrderData((prev) => ({
-          ...prev,
-          personalInfo: personalInfoForm.getValues(),
-        }));
-      } else if (currentStepIndex === 1) {
-        setOrderData((prev) => ({ ...prev, payment: paymentForm.getValues() }));
-      }
-      next();
-    } else {
-      console.log("Final Submission:", orderData);
-      // Submit order to backend
-    }
-  }
-
-  const currentForm = currentStepIndex === 0 ? personalInfoForm : paymentForm;
-
   return (
-    <div className="container mx-auto px-4 pb-8">
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="mb-6 text-center text-3xl font-bold">Checkout</h1>
+
+      {/* Steps Indicator */}
       <div className="mb-8">
         <div className="flex justify-center">
           <div className="flex w-full max-w-3xl items-center justify-between">
@@ -122,27 +108,7 @@ export default function Checkout() {
         {/* Main Form */}
         <div className="md:col-span-2">
           <Card>
-            <CardContent className="p-6">
-              <form
-                onSubmit={currentForm.handleSubmit(onSubmit)}
-                className="space-y-6"
-              >
-                {step}
-                <div className="flex justify-between pt-4">
-                  {!isFirstStep && (
-                    <Button type="button" variant="outline" onClick={back}>
-                      Back
-                    </Button>
-                  )}
-                  <Button
-                    type="submit"
-                    className={`${isFirstStep ? "ml-auto" : ""}`}
-                  >
-                    {isLastStep ? "Complete Order" : "Continue"}
-                  </Button>
-                </div>
-              </form>
-            </CardContent>
+            <CardContent className="p-6">{step}</CardContent>
           </Card>
         </div>
 
