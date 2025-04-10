@@ -45,7 +45,10 @@ const SectionHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col items-center justify-center gap-2 mb-8", className)}
+    className={cn(
+      "flex flex-col items-center justify-center gap-2 mb-8",
+      className,
+    )}
     {...props}
   />
 ));
@@ -63,4 +66,10 @@ const SectionFooter = React.forwardRef<
 ));
 SectionFooter.displayName = "SectionFooter";
 
-export { Section, SectionTitle, SectionDescription, SectionHeader, SectionFooter };
+export {
+  Section,
+  SectionTitle,
+  SectionDescription,
+  SectionHeader,
+  SectionFooter,
+};

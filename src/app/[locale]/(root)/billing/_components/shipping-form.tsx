@@ -1,8 +1,22 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowRight, MapPin, Plus } from "lucide-react";
 import { useState } from "react";
-import { Plus, MapPin, ArrowRight } from "lucide-react";
+import { useForm, useFormContext } from "react-hook-form";
+import type { z } from "zod";
+import { AddressCard } from "~/components/address-card";
+import { Button } from "~/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -10,22 +24,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import {
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-  Form,
-} from "~/components/ui/form";
-import { Button } from "~/components/ui/button";
-import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
-import { useForm, useFormContext } from "react-hook-form";
-import { AddressSchema, type ShippingAddress } from "~/schemas";
-import type { z } from "zod";
-import { AddressCard } from "~/components/address-card";
 import { egyptianGovernorates } from "~/data/governorates";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { AddressSchema, type ShippingAddress } from "~/schemas";
 
 // Sample saved addresses
 const savedAddresses = [

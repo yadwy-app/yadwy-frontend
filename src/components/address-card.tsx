@@ -1,8 +1,8 @@
 import { Edit, Trash2 } from "lucide-react";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
-import type { ShippingAddress } from "~/schemas";
 import { egyptianGovernorates } from "~/data/governorates";
+import type { ShippingAddress } from "~/schemas";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 
 export function AddressCard({
   className,
@@ -42,10 +42,7 @@ export function AddressCard({
           </div>
           <div className="flex space-x-2">
             {onSetDefault && (
-              <Button
-                variant="ghost"
-                onClick={() => onSetDefault()}
-              >
+              <Button variant="ghost" onClick={() => onSetDefault()}>
                 Make default
               </Button>
             )}

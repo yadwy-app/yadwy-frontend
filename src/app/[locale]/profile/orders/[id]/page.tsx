@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowLeft, Package, Truck } from "lucide-react";
-import { Link } from '~/i18n/routing';
 import { use } from "react";
 import { Button } from "~/components/ui/button";
 import {
@@ -13,6 +12,7 @@ import {
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { Step, Steps } from "~/components/ui/steps";
+import { Link } from "~/i18n/routing";
 
 // Define the order type based on your mock data
 interface Order {

@@ -1,8 +1,8 @@
-import { Link } from '~/i18n/routing';
 import { CiInstagram, CiLinkedin } from "react-icons/ci";
 import { FaFacebook } from "react-icons/fa6";
 import { Button } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
+import { Link } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 import LocaleSwitcherLang from "./locale-switcher";
 

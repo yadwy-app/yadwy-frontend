@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { CheckCircle2 } from "lucide-react"
-import { Button } from "~/components/ui/button"
-import { Link } from '~/i18n/routing'
+import { CheckCircle2 } from "lucide-react";
+import { Button } from "~/components/ui/button";
+import { Link } from "~/i18n/routing";
 
 export function ThankYou({
   orderData,
@@ -17,7 +17,7 @@ export function ThankYou({
     payment?: { paymentMethod: "card" | "paypal" | "cash" };
   };
 }) {
-  const orderNumber = `ORD-${Math.floor(100000 + Math.random() * 900000)}`
+  const orderNumber = `ORD-${Math.floor(100000 + Math.random() * 900000)}`;
 
   return (
     <div className="flex flex-col items-center justify-center py-8 text-center">
@@ -26,7 +26,9 @@ export function ThankYou({
       </div>
 
       <h2 className="mb-2 text-2xl font-bold">Thank You for Your Order!</h2>
-      <p className="mb-6 text-muted-foreground">Your order has been received and is being processed.</p>
+      <p className="mb-6 text-muted-foreground">
+        Your order has been received and is being processed.
+      </p>
 
       <div className="mb-8 w-full max-w-md rounded-md border border-border bg-muted/30 p-4">
         <div className="mb-4 flex justify-between">
@@ -68,5 +70,5 @@ export function ThankYou({
         </Button>
       </div>
     </div>
-  )
+  );
 }

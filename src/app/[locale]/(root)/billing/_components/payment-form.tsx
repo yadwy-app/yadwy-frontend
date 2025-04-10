@@ -1,30 +1,30 @@
 "use client";
 
-import { useState } from "react";
 import {
+  ArrowLeft,
+  BanknoteIcon,
+  Check,
   CreditCard,
   Wallet,
-  BanknoteIcon,
-  ArrowLeft,
-  Check,
 } from "lucide-react";
+import { useState } from "react";
 
-import { Input } from "~/components/ui/input";
-import { Label } from "~/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "~/components/ui/button";
+import { Card, CardContent } from "~/components/ui/card";
 import {
+  Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
-  Form,
 } from "~/components/ui/form";
-import { Card, CardContent } from "~/components/ui/card";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 
 export const PaymentMethodSchema = z.object({
   paymentMethod: z.enum(["card", "paypal", "cash"]),

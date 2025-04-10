@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { Check, CreditCard, MapPin, Package } from "lucide-react";
+import { useState } from "react";
 import { Card, CardContent } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
-import { useMultiStepForm } from "./use-multi-form";
-import { ShippingForm } from "./shipping-form";
-import { PaymentForm } from "./payment-form";
-import { ThankYou } from "./thank-you";
 import { OrderSummary } from "./order-summary";
+import { PaymentForm } from "./payment-form";
+import { ShippingForm } from "./shipping-form";
+import { ThankYou } from "./thank-you";
+import { useMultiStepForm } from "./use-multi-form";
 
 export default function Checkout() {
   const [orderData, setOrderData] = useState<{
