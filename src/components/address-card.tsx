@@ -2,18 +2,20 @@ import { Edit, Trash2 } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import type { ShippingAddress } from "~/schemas";
-import { egyptianGovernorates } from '~/data/governorates';
+import { egyptianGovernorates } from "~/data/governorates";
 
 export function AddressCard({
   className,
   onEdit,
   address,
   onDelete,
+  onSetDefault,
 }: {
   className?: string;
   address: ShippingAddress;
-  onEdit: () => void;
-  onDelete: () => void;
+  onEdit?: () => void;
+  onDelete?: () => void;
+  onSetDefault?: () => void;
 }) {
   return (
     <Card className={className}>
@@ -39,12 +41,24 @@ export function AddressCard({
             <p className="text-sm text-muted-foreground">{address.phone}</p>
           </div>
           <div className="flex space-x-2">
-            <Button variant="ghost" size="icon" onClick={() => onEdit()}>
-              <Edit className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => onDelete()}>
-              <Trash2 className="h-4 w-4" />
-            </Button>
+            {onSetDefault && (
+              <Button
+                variant="ghost"
+                onClick={() => onSetDefault()}
+              >
+                Make default
+              </Button>
+            )}
+            {onEdit && (
+              <Button variant="ghost" size="icon" onClick={() => onEdit()}>
+                <Edit className="h-4 w-4" />
+              </Button>
+            )}
+            {onDelete && (
+              <Button variant="ghost" size="icon" onClick={() => onDelete()}>
+                <Trash2 className="h-4 w-4" />
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>

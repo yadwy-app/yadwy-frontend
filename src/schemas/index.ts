@@ -10,6 +10,8 @@ export const AddressSchema = z.object({
   zipCode: z.string().min(1, { message: "Postal code is required" }),
 });
 
+export type ShippingAddressFormData = z.infer<typeof AddressSchema>;
+
 export type ShippingAddress = z.infer<typeof AddressSchema> & {
   id: number;
   isDefault: boolean;

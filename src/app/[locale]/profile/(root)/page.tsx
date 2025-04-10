@@ -30,7 +30,7 @@ export default function ProfilePage() {
       </div>
       <Separator />
       <div className="grid gap-6">
-        <Card className="text-muted border-primary">
+        <Card className="border-primary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <div className="space-y-1">
               <CardTitle>{tPersonal("title")}</CardTitle>
@@ -73,7 +73,7 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
 
-        <Card className="text-muted border-primary">
+        <Card className="border-primary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <div className="space-y-1">
               <CardTitle>{tAccount("title")}</CardTitle>
@@ -108,7 +108,7 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
 
-        <Card className="border-primary text-muted">
+        <Card className="border-primary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <div className="space-y-1">
               <CardTitle>{tOrders("title")}</CardTitle>

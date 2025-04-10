@@ -3,35 +3,43 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "~/components/ui/dialog";
-import type { Address } from "~/types/address";
-import { AddressCard } from "./address-card";
 import { AddressForm } from "./address-form";
+import type { ShippingAddress, ShippingAddressFormData } from "~/schemas";
+import { AddressCard } from "~/components/address-card";
 
 interface AddressManagerProps {
-  initialAddresses: Address[];
+  initialAddresses: ShippingAddress[];
 }
 
 export function AddressManager({ initialAddresses }: AddressManagerProps) {
-  const [addresses, setAddresses] = useState<Address[]>(initialAddresses);
+  const [addresses, setAddresses] =
+    useState<ShippingAddress[]>(initialAddresses);
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
-  const [currentAddress, setCurrentAddress] = useState<Address | null>(null);
+  const [currentAddress, setCurrentAddress] = useState<ShippingAddress | null>(
+    null,
+  );
 
-  const handleAddAddress = (address: Address) => {
-    setAddresses([...addresses, { ...address, id: Date.now().toString() }]);
+  const handleAddAddress = (address: ShippingAddressFormData) => {
+    setAddresses([
+      ...addresses,
+      { ...address, id: Date.now(), isDefault: addresses.length === 0 },
+    ]);
     setIsAddDialogOpen(false);
   };
 
-  const handleEditAddress = (address: Address) => {
-    setAddresses(addresses.map((a) => (a.id === address.id ? address : a)));
+  const handleEditAddress = (id: number, address: ShippingAddressFormData) => {
+    setAddresses(
+      addresses.map((a) => (a.id === id ? { ...a, ...address } : a)),
+    );
     setIsEditDialogOpen(false);
   };
 
-  const handleDeleteAddress = (id: string) => {
+  const handleDeleteAddress = (id: number) => {
     setAddresses(addresses.filter((a) => a.id !== id));
   };
 
-  const handleSetDefault = (id: string) => {
+  const handleSetDefault = (id: number) => {
     setAddresses(
       addresses.map((a) => ({
         ...a,
@@ -48,7 +56,7 @@ export function AddressManager({ initialAddresses }: AddressManagerProps) {
           <DialogTrigger asChild>
             <Button>
               <Plus className="mr-2 h-4 w-4" />
-              Add New Address
+              Add New ShippingAddress
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
@@ -65,7 +73,7 @@ export function AddressManager({ initialAddresses }: AddressManagerProps) {
           {currentAddress && (
             <AddressForm
               address={currentAddress}
-              onSubmit={handleEditAddress}
+              onSubmit={(data) => handleEditAddress(currentAddress.id, data)}
               onCancel={() => {
                 setIsEditDialogOpen(false);
                 setCurrentAddress(null);
@@ -80,12 +88,14 @@ export function AddressManager({ initialAddresses }: AddressManagerProps) {
           <AddressCard
             key={address.id}
             address={address}
-            onEdit={(addr) => {
-              setCurrentAddress(addr);
+            onEdit={() => {
+              setCurrentAddress(address);
               setIsEditDialogOpen(true);
             }}
-            onDelete={handleDeleteAddress}
-            onSetDefault={handleSetDefault}
+            onDelete={() => handleDeleteAddress(address.id)}
+            onSetDefault={
+              address.isDefault ? undefined : () => handleSetDefault(address.id)
+            }
           />
         ))}
       </div>

@@ -20,7 +20,7 @@ import {
 } from "~/components/ui/form";
 import { Button } from "~/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
-import { useForm } from "react-hook-form";
+import { useForm, useFormContext } from "react-hook-form";
 import { AddressSchema, type ShippingAddress } from "~/schemas";
 import type { z } from "zod";
 import { AddressCard } from "~/components/address-card";
@@ -204,135 +204,7 @@ export function ShippingForm({
         >
           <Form {...form}>
             <div className="grid gap-4 md:grid-cols-2">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Ahmed Mohamed" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="email"
-                        placeholder="ahmed@example.com"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input placeholder="01234567890" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="address"
-                render={({ field }) => (
-                  <FormItem className="md:col-span-2">
-                    <FormLabel>Street Address</FormLabel>
-                    <FormControl>
-                      <Input placeholder="123 El-Tahrir St, Apt 4" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="country"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Country</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value || "egypt"}
-                      disabled
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select country" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="egypt">Egypt</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="state"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Governorate</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select governorate" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {egyptianGovernorates.map((governorate) => (
-                          <SelectItem
-                            key={governorate.value}
-                            value={governorate.value}
-                          >
-                            {governorate.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="zipCode"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Postal Code</FormLabel>
-                    <FormControl>
-                      <Input placeholder="11511" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <ShippingAddressFormFields />
             </div>
 
             <div className="mt-6 flex gap-4 justify-end">
@@ -351,5 +223,132 @@ export function ShippingForm({
         </form>
       )}
     </div>
+  );
+}
+
+export function ShippingAddressFormFields() {
+  const form = useFormContext();
+  return (
+    <>
+      <FormField
+        control={form.control}
+        name="name"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Full Name</FormLabel>
+            <FormControl>
+              <Input placeholder="Ahmed Mohamed" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="email"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Email Address</FormLabel>
+            <FormControl>
+              <Input type="email" placeholder="ahmed@example.com" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="phone"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Phone Number</FormLabel>
+            <FormControl>
+              <Input placeholder="01234567890" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="address"
+        render={({ field }) => (
+          <FormItem className="md:col-span-2">
+            <FormLabel>Street Address</FormLabel>
+            <FormControl>
+              <Input placeholder="123 El-Tahrir St, Apt 4" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="country"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Country</FormLabel>
+            <Select
+              onValueChange={field.onChange}
+              defaultValue={field.value || "egypt"}
+              disabled
+            >
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select country" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                <SelectItem value="egypt">Egypt</SelectItem>
+              </SelectContent>
+            </Select>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="state"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Governorate</FormLabel>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select governorate" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                {egyptianGovernorates.map((governorate) => (
+                  <SelectItem key={governorate.value} value={governorate.value}>
+                    {governorate.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="zipCode"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Postal Code</FormLabel>
+            <FormControl>
+              <Input placeholder="11511" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+    </>
   );
 }
