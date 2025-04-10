@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-export function useMultiStepForm(steps: React.ReactNode[]) {
+import { type ReactNode, useState } from "react";
+
+export function useMultiStepForm(steps: ReactNode[]) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   function next() {
@@ -26,8 +27,6 @@ export function useMultiStepForm(steps: React.ReactNode[]) {
     currentStepIndex,
     step: steps[currentStepIndex],
     steps,
-    isFirstStep: currentStepIndex === 0,
-    isLastStep: currentStepIndex === steps.length - 1,
     goTo,
     next,
     back,

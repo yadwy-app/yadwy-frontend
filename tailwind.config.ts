@@ -7,10 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
-        heading: "Lalezar",
-        body: "Cairo",
-        lexend: "Lexend",
+        sans: ["var(--font-cairo)", ...fontFamily.sans],
+        heading: "var(--font-heading)",
       },
       fontSize: {
         sm: "0.750rem",

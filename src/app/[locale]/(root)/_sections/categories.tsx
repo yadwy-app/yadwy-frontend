@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import {
   Section,
   SectionDescription,
+  SectionHeader,
   SectionTitle,
 } from "~/components/section";
 import {
@@ -50,8 +51,10 @@ export function Categories() {
 
   return (
     <Section>
-      <SectionTitle>{t("title")}</SectionTitle>
-      <SectionDescription>{t("description")}</SectionDescription>
+      <SectionHeader>
+        <SectionTitle>{t("title")}</SectionTitle>
+        <SectionDescription>{t("description")}</SectionDescription>
+      </SectionHeader>
       <div className="flex justify-center" dir={direction}>
         <Carousel
           className="w-full"

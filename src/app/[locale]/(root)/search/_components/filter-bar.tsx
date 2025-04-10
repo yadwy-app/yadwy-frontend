@@ -47,7 +47,7 @@ export default function FilterBar() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-2">
       {/* Desktop Filter Bar */}
       <div className="hidden md:flex items-center justify-between">
         <div className="flex items-center gap-3">

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type React from "react";
+import { Link } from "~/i18n/routing";
 
 interface LinkProp {
   children: React.ReactNode;

@@ -1,4 +1,5 @@
 import { FaClipboardCheck } from "react-icons/fa6";
+import { Button } from "~/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -6,9 +7,9 @@ import {
   SheetTitle,
 } from "~/components/ui/sheet";
 import useTextDirection from "~/hooks/useDirection";
+import { Link } from "~/i18n/routing";
 import type { Product } from "~/types";
 import { BoxProductCart } from "./box-product";
-import { ButtonCart } from "./button-cart";
 
 interface CartProps {
   children: React.ReactNode;
@@ -55,10 +56,12 @@ export const CartSheet = ({ children }: CartProps) => {
                 {totalPrice ? totalPrice : 0}$
               </div>
             </div>
-            <ButtonCart href="/cart">
-              <FaClipboardCheck />
-              Proceed to Checkout
-            </ButtonCart>
+            <Button asChild>
+              <Link href="/cart">
+                <FaClipboardCheck />
+                Proceed to Checkout
+              </Link>
+            </Button>
           </div>
         </div>
       </SheetContent>

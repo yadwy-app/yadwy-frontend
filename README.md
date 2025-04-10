@@ -19,6 +19,7 @@ The project uses the following format for commit messages:
 ```
 
 The `tag` should be one of the following:
+
 - `feat`: For new features or functionality.
 - `fix`: For bug fixes or resolving issues.
 - `style`: For changes related to styling, such as enhancing the UI or modifying colors.
@@ -32,3 +33,10 @@ The `tag` should be one of the following:
 Make your changes in a new branch other than `main` and open a pull request when you are done. A GitHub workflow will run for your PR to check type correctness using `tsc` and enforce rules using [Biome.js](https://biomejs.dev/). Ensure you run these checks locally and fix any issues if the GitHub Action fails.
 
 At least one reviewer must approve your changes for the PR to be merged. :)
+
+## Design principle to care about
+
+- Strive for loose coupling
+  - Each component is standalone, don't pass its core functionaly as a prop, get the result through a callback function
+- [Co-locate](https://kentcdodds.com/blog/colocation) as possible
+  - TLDR: put the code as near as possbile to the place where it is being used, maybe in the same file.

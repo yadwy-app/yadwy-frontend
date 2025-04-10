@@ -2,20 +2,20 @@
 
 import { useTranslations } from "next-intl";
 import { Separator } from "~/components/ui/separator";
-import type { Address } from "~/types/address";
+import type { ShippingAddress } from "~/schemas";
 import { AddressManager } from "./_components/address-manager";
 
-const INITIAL_ADDRESSES: Address[] = [
+const INITIAL_ADDRESSES: ShippingAddress[] = [
   {
-    id: "1",
+    id: 1,
     name: "John Doe",
-    street: "123 Main St",
-    city: "Anytown",
     state: "CA",
-    zip: "12345",
+    zipCode: "12345",
     country: "United States",
     isDefault: true,
-    type: "Home",
+    address: "123 Main St",
+    email: "jhon@email.com",
+    phone: "+1 123 456 7890",
   },
   // ...other initial addresses
 ];

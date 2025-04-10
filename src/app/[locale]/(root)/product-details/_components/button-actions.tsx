@@ -1,8 +1,8 @@
 "use client";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { toast } from "~/hooks/use-toast";
-import { useState } from "react";
 import { QuantityCounter } from "./quantity-counter";
 
 type CartItemProps = {

@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import { Separator } from "~/components/ui/separator";
 import { features, mockProductsData } from "~/data";
+import Categories from "../../_sections/categories";
 import Products from "../../_sections/products";
 import ButtonAction from "../_components/button-actions";
 import ProductDetails from "../_components/details";
 import Feature from "../_components/feature";
 import ProductImage from "../_components/product-images";
-import Categories from "../../_sections/categories";
 
 function getProductById(id: number) {
   return mockProductsData.find((p) => p.id === id);
