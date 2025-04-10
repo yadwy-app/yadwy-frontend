@@ -53,11 +53,11 @@ export default function Checkout() {
   ];
 
   return (
-    <div className="container mx-auto px-4 pb-8">
+    <div className="pb-8">
       {/* Steps Indicator */}
       <div className="mb-8">
         <div className="flex justify-center">
-          <div className="flex w-full max-w-3xl items-center justify-between">
+          <div className="flex w-full max-w-xl items-center justify-between">
             {steps.map((s, i) => (
               <div key={s.id} className="flex flex-col items-center">
                 <div
@@ -90,7 +90,7 @@ export default function Checkout() {
         </div>
 
         {/* Progress Bar */}
-        <div className="relative mx-auto mt-4 max-w-3xl">
+        <div className="relative mx-auto mt-4">
           <div className="absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-muted" />
           <div
             className="absolute left-0 top-1/2 h-0.5 -translate-y-1/2 bg-primary transition-all duration-300"
@@ -101,16 +101,16 @@ export default function Checkout() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+      <div className="mx-auto grid gap-8 lg:grid-cols-3">
         {/* Main Form */}
-        <div className="md:col-span-2">
+        <div className="lg:col-span-2">
           <Card>
             <CardContent className="p-6">{step}</CardContent>
           </Card>
         </div>
 
         {/* Order Summary */}
-        <div className="md:col-span-1">
+        <div className="lg:col-span-1">
           <OrderSummary />
         </div>
       </div>

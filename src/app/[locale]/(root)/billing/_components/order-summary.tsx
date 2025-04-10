@@ -33,9 +33,7 @@ export function OrderSummary() {
               <div key={item.id} className="flex justify-between">
                 <div>
                   <p className="font-medium">{item.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    Qty: {item.quantity}
-                  </p>
+                  <p className="text-muted-foreground">Qty: {item.quantity}</p>
                 </div>
                 <p>${(item.price * item.quantity).toFixed(2)}</p>
               </div>
@@ -45,15 +43,15 @@ export function OrderSummary() {
           <Separator />
 
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between ">
               <span>Subtotal</span>
               <span>${subtotal.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between ">
               <span>Shipping</span>
               <span>${shipping.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between ">
               <span>Tax</span>
               <span>${tax.toFixed(2)}</span>
             </div>
@@ -61,12 +59,12 @@ export function OrderSummary() {
 
           <Separator />
 
-          <div className="flex justify-between font-medium">
+          <div className="flex justify-between text-lg font-bold">
             <span>Total</span>
             <span>${total.toFixed(2)}</span>
           </div>
 
-          <div className="rounded-md bg-muted p-3 text-sm">
+          <div className="rounded-md bg-muted p-3 ">
             <p className="font-medium">Estimated Delivery</p>
             <p className="text-muted-foreground">
               {new Date(
