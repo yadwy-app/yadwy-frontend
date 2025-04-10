@@ -8,7 +8,8 @@ import {
 import useTextDirection from "~/hooks/useDirection";
 import type { Product } from "~/types";
 import { BoxProductCart } from "./box-product";
-import { ButtonCart } from "./button-cart";
+import { Button } from "~/components/ui/button";
+import { Link } from "~/i18n/routing";
 
 interface CartProps {
   children: React.ReactNode;
@@ -55,10 +56,12 @@ export const CartSheet = ({ children }: CartProps) => {
                 {totalPrice ? totalPrice : 0}$
               </div>
             </div>
-            <ButtonCart href="/cart">
-              <FaClipboardCheck />
-              Proceed to Checkout
-            </ButtonCart>
+            <Button asChild>
+              <Link href="/cart">
+                <FaClipboardCheck />
+                Proceed to Checkout
+              </Link>
+            </Button>
           </div>
         </div>
       </SheetContent>

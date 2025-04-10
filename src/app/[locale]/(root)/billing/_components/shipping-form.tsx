@@ -181,7 +181,6 @@ export function ShippingForm({
           <div className="mt-6 flex justify-end">
             <Button
               type="button"
-              variant="outline"
               disabled={!selectedAddressId}
               onClick={() =>
                 onSuccess(

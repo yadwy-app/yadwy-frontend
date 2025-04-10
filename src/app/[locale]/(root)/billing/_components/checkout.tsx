@@ -1,9 +1,8 @@
 "use client";
 
-import { Check, CreditCard, MapPin, Package } from "lucide-react";
+import { Check, CreditCard, MapPin } from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent } from "~/components/ui/card";
-import { Separator } from "~/components/ui/separator";
 import { OrderSummary } from "./order-summary";
 import { PaymentForm } from "./payment-form";
 import { ShippingForm } from "./shipping-form";
@@ -54,9 +53,7 @@ export default function Checkout() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-center text-3xl font-bold">Checkout</h1>
-
+    <div className="container mx-auto px-4 pb-8">
       {/* Steps Indicator */}
       <div className="mb-8">
         <div className="flex justify-center">
@@ -114,16 +111,7 @@ export default function Checkout() {
 
         {/* Order Summary */}
         <div className="md:col-span-1">
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold">Order Summary</h2>
-                <Package className="h-5 w-5 text-muted-foreground" />
-              </div>
-              <Separator className="my-4" />
-              <OrderSummary />
-            </CardContent>
-          </Card>
+          <OrderSummary />
         </div>
       </div>
     </div>

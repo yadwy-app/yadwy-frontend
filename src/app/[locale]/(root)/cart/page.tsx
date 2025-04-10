@@ -4,7 +4,7 @@ import { SectionTitle } from "~/components/section";
 import { Link } from "~/i18n/routing";
 import { OrderSummary } from "../billing/_components/order-summary";
 import { ProductsHolderCart } from "./_components/box-product-cart";
-import { ButtonCart } from "./_components/button-cart";
+import { Button } from "~/components/ui/button";
 
 export default function Page() {
   const t = useTranslations("cartPage");
@@ -18,12 +18,14 @@ export default function Page() {
         <div className="col-span-12 flex flex-col gap-5 md:col-span-6">
           <OrderSummary />
           <div className="flex flex-col items-center gap-3">
-            <ButtonCart href="/billing">
-              <FaClipboardCheck />
-              Proceed to Checkout
-            </ButtonCart>
+            <Button asChild className="w-full text-white text-md" size="lg">
+              <Link href="/billing">
+                <FaClipboardCheck />
+                Proceed to Checkout
+              </Link>
+            </Button>
             <span className="text-textColor">Or</span>
-            <Link href={"/"} className="font-semibold text-primary">
+            <Link href={"/"} className="font-semibold text-md text-primary">
               Continue Shopping
             </Link>
           </div>

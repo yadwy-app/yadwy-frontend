@@ -1,5 +1,7 @@
 "use client";
 
+import { Package } from "lucide-react";
+import { Card, CardContent } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 
 // Sample order data - in a real app, this would come from your cart/state management
@@ -18,58 +20,66 @@ export function OrderSummary() {
   const total = subtotal + shipping + tax;
 
   return (
-    <div className="space-y-4">
-      <div className="space-y-2">
-        {orderItems.map((item) => (
-          <div key={item.id} className="flex justify-between">
-            <div>
-              <p className="font-medium">{item.name}</p>
-              <p className="text-sm text-muted-foreground">
-                Qty: {item.quantity}
-              </p>
-            </div>
-            <p>${(item.price * item.quantity).toFixed(2)}</p>
+    <Card>
+      <CardContent className="p-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold">Order Summary</h2>
+          <Package className="h-5 w-5 text-muted-foreground" />
+        </div>
+        <Separator className="my-4" />
+        <div className="space-y-4">
+          <div className="space-y-2">
+            {orderItems.map((item) => (
+              <div key={item.id} className="flex justify-between">
+                <div>
+                  <p className="font-medium">{item.name}</p>
+                  <p className="text-sm text-muted-foreground">
+                    Qty: {item.quantity}
+                  </p>
+                </div>
+                <p>${(item.price * item.quantity).toFixed(2)}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <Separator />
+          <Separator />
 
-      <div className="space-y-2">
-        <div className="flex justify-between text-sm">
-          <span>Subtotal</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>Subtotal</span>
+              <span>${subtotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span>Shipping</span>
+              <span>${shipping.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span>Tax</span>
+              <span>${tax.toFixed(2)}</span>
+            </div>
+          </div>
+
+          <Separator />
+
+          <div className="flex justify-between font-medium">
+            <span>Total</span>
+            <span>${total.toFixed(2)}</span>
+          </div>
+
+          <div className="rounded-md bg-muted p-3 text-sm">
+            <p className="font-medium">Estimated Delivery</p>
+            <p className="text-muted-foreground">
+              {new Date(
+                Date.now() + 7 * 24 * 60 * 60 * 1000,
+              ).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </p>
+          </div>
         </div>
-        <div className="flex justify-between text-sm">
-          <span>Shipping</span>
-          <span>${shipping.toFixed(2)}</span>
-        </div>
-        <div className="flex justify-between text-sm">
-          <span>Tax</span>
-          <span>${tax.toFixed(2)}</span>
-        </div>
-      </div>
-
-      <Separator />
-
-      <div className="flex justify-between font-medium">
-        <span>Total</span>
-        <span>${total.toFixed(2)}</span>
-      </div>
-
-      <div className="rounded-md bg-muted p-3 text-sm">
-        <p className="font-medium">Estimated Delivery</p>
-        <p className="text-muted-foreground">
-          {new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString(
-            "en-US",
-            {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            },
-          )}
-        </p>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
