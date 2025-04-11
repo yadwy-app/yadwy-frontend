@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
+import LocaleSwitcherLang from "./locale-switcher";
 
 const NavManager = () => {
   const [token, setToken] = useState<string | null>(null);
@@ -25,12 +26,15 @@ const NavManager = () => {
 
   if (!token) {
     return (
-      <Link
-        href="/login"
-        className="flex items-center gap-2 rounded border border-primary px-5 text-sm text-primary transition-all hover:bg-primary hover:text-white"
-      >
-        Login
-      </Link>
+      <>
+        <Link
+          href="/login"
+          className="flex items-center gap-2 rounded border  bg-secondary p-1 md:p-2 px-5 font-bold border-primary text-sm text-primary transition-all hover:bg-primary hover:text-white"
+        >
+          Login
+        </Link>
+        {/* <LocaleSwitcherLang  /> */}
+      </>
     );
   }
 
