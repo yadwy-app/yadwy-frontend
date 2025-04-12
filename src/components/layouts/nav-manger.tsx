@@ -11,7 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import LocaleSwitcherLang from "./locale-switcher";
+import { CiLogin } from "react-icons/ci";
 
 const NavManager = () => {
   const [token, setToken] = useState<string | null>(null);
@@ -26,15 +26,14 @@ const NavManager = () => {
 
   if (!token) {
     return (
-      <>
         <Link
           href="/login"
-          className="flex items-center gap-2 rounded border  bg-secondary p-1 md:p-2 px-5 font-bold border-primary text-sm text-primary transition-all hover:bg-primary hover:text-white"
+          className="flex items-center gap-2 rounded-[24px] border  bg-primary p-1 md:p-2 px-5 font-bold border-primary text-sm text-white transition-all hover:bg-secondary hover:text-primary"
         >
+          <CiLogin className="text-xl" />
+
           Login
         </Link>
-        {/* <LocaleSwitcherLang  /> */}
-      </>
     );
   }
 

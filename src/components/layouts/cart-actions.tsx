@@ -6,6 +6,7 @@ import { CartSheet } from "~/app/[locale]/(root)/cart/_components/cart-sheet"; /
 import { Button } from "~/components/ui/button";
 import { SheetTrigger } from "~/components/ui/sheet"; // Adjusted import path
 import NavManager from "./nav-manger";
+import LocaleSwitcherLangBtn from "./locale-switcher-btn";
 
 export default function CartActions() {
   const t = useTranslations("Header");
@@ -13,6 +14,7 @@ export default function CartActions() {
 
   return (
     <div className={`flex items-center gap-1 sm:gap-2`}>
+      <LocaleSwitcherLangBtn className="rounded-full w-[40px] h-[40px] font-bold" />
       <CartSheet>
         <SheetTrigger
           asChild
