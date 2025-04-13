@@ -1,21 +1,21 @@
 "use client";
-import { FaHome, FaShoppingCart, FaUser, FaHeart } from "react-icons/fa";
+import { Home, ShoppingCart, User, Heart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 
 const navigationItems = {
   ar: [
-    { href: "", icon: FaHome, label: "الرئيسية" },
-    { href: "/cart", icon: FaShoppingCart, label: "عربة التسوق" },
-    { href: "/profile", icon: FaUser, label: "حسابي" },
-    { href: "/favorite", icon: FaHeart, label: "المفضلة" },
+    { href: "", icon: Home, label: "الرئيسية" },
+    { href: "/cart", icon: ShoppingCart, label: "عربة التسوق" },
+    { href: "/profile", icon: User, label: "حسابي" },
+    { href: "/favorite", icon: Heart, label: "المفضلة" },
   ],
   en: [
-    { href: "", icon: FaHome, label: "Home" },
-    { href: "/cart", icon: FaShoppingCart, label: "Cart" },
-    { href: "/profile", icon: FaUser, label: "Profile" },
-    { href: "/favorite", icon: FaHeart, label: "Favorites" },
+    { href: "", icon: Home, label: "Home" },
+    { href: "/cart", icon: ShoppingCart, label: "Cart" },
+    { href: "/profile", icon: User, label: "Profile" },
+    { href: "/favorite", icon: Heart, label: "Favorites" },
   ],
 };
 
