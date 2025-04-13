@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "~/components/layouts/footer";
 import Header from "~/components/layouts/header";
+import PhoneMenu from "~/components/layouts/phone-menu";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -15,6 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="container min-h-screen flex flex-col items-center justify-between gap-y-8 py-8">
         {children}
       </main>
+      <PhoneMenu />
       <Footer />
     </>
   );

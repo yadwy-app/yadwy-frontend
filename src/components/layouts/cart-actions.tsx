@@ -9,12 +9,12 @@ import { Separator } from "../ui/separator";
 import LocaleSwitcherLangBtn from "./locale-switcher-btn";
 import NavManager from "./nav-manger";
 
-export default function CartActions() {
+export default function CartActions({className}: {className?: string}) {
   const t = useTranslations("Header");
   const qty = 0; // TODO: Replace with actual quantity from your cart state
 
   return (
-    <div className={`flex items-center gap-1 sm:gap-2`}>
+    <div className={`flex items-center gap-1 sm:gap-2 ${className}`}>
       <LocaleSwitcherLangBtn className="rounded-full w-[40px] h-[40px] font-bold" />
       <Separator orientation="vertical" className="h-[35px]" />
       <CartSheet>
