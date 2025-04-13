@@ -9,7 +9,7 @@ import { Separator } from "../ui/separator";
 import LocaleSwitcherLangBtn from "./locale-switcher-btn";
 import NavManager from "./nav-manger";
 
-export default function CartActions({className}: {className?: string}) {
+export default function CartActions({ className }: { className?: string }) {
   const t = useTranslations("Header");
   const qty = 0; // TODO: Replace with actual quantity from your cart state
 

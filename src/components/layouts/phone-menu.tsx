@@ -1,8 +1,8 @@
 "use client";
-import { Home, ShoppingCart, User, Heart } from "lucide-react";
+import { Heart, Home, ShoppingCart, User } from "lucide-react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
 
 const navigationItems = {
   ar: [
@@ -23,7 +23,7 @@ const PhoneMenu = () => {
   const pathname = usePathname();
   const locale = useLocale();
   const items = navigationItems[locale as keyof typeof navigationItems];
-  console.log( pathname);
+  console.log(pathname);
   return (
     <div className="fixed md:hidden bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 z-50">
       <div className="grid grid-cols-4 gap-4">
