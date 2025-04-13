@@ -5,9 +5,9 @@ import { useTranslations } from "next-intl";
 import { CartSheet } from "~/app/[locale]/(root)/cart/_components/cart-sheet"; // Ensure this path is correct
 import { Button } from "~/components/ui/button";
 import { SheetTrigger } from "~/components/ui/sheet"; // Adjusted import path
+import { Separator } from "../ui/separator";
 import LocaleSwitcherLangBtn from "./locale-switcher-btn";
 import NavManager from "./nav-manger";
-import { Separator } from "../ui/separator";
 
 export default function CartActions() {
   const t = useTranslations("Header");
@@ -16,7 +16,7 @@ export default function CartActions() {
   return (
     <div className={`flex items-center gap-1 sm:gap-2`}>
       <LocaleSwitcherLangBtn className="rounded-full w-[40px] h-[40px] font-bold" />
-      <Separator orientation="vertical" className='h-[35px]' />
+      <Separator orientation="vertical" className="h-[35px]" />
       <CartSheet>
         <SheetTrigger
           asChild

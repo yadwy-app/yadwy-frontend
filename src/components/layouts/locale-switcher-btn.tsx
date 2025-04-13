@@ -4,8 +4,8 @@ import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
 import { useTransition } from "react";
 import { usePathname, useRouter } from "~/i18n/routing";
+import { cn } from "~/lib/utils";
 import { Button } from "../ui/button"; // استيراد زرار shadcn/ui
-import { cn } from '~/lib/utils';
 
 type Props = {
   className?: string;

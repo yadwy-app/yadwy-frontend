@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { CiLogin } from "react-icons/ci";
 import { Link } from "~/i18n/routing";
+import { Button } from "../ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +13,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
-import { Button } from '../ui/button';
 
 const NavManager = () => {
   const [token, setToken] = useState<string | null>(null);
