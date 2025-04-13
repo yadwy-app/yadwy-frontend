@@ -5,8 +5,9 @@ import { useTranslations } from "next-intl";
 import { CartSheet } from "~/app/[locale]/(root)/cart/_components/cart-sheet"; // Ensure this path is correct
 import { Button } from "~/components/ui/button";
 import { SheetTrigger } from "~/components/ui/sheet"; // Adjusted import path
-import NavManager from "./nav-manger";
 import LocaleSwitcherLangBtn from "./locale-switcher-btn";
+import NavManager from "./nav-manger";
+import { Separator } from "../ui/separator";
 
 export default function CartActions() {
   const t = useTranslations("Header");
@@ -15,10 +16,11 @@ export default function CartActions() {
   return (
     <div className={`flex items-center gap-1 sm:gap-2`}>
       <LocaleSwitcherLangBtn className="rounded-full w-[40px] h-[40px] font-bold" />
+      <Separator orientation="vertical" className='h-[35px]' />
       <CartSheet>
         <SheetTrigger
           asChild
-          className="flex items-center justify-center rounded-full hover:rounded-md bg-accent p-2"
+          className="flex items-center justify-center hover:rounded-md p-2"
         >
           <Button
             variant="ghost"
@@ -27,9 +29,11 @@ export default function CartActions() {
             className="relative"
           >
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
-              {qty}
-            </span>
+            {qty > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
+                {qty}
+              </span>
+            )}
           </Button>
         </SheetTrigger>
       </CartSheet>

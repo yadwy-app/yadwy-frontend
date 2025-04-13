@@ -1,12 +1,12 @@
 import { Suspense } from "react";
-import { Skeleton } from "~/components/ui/skeleton";
-import FilterBar from "./_components/filter-bar";
-import ProductGrid from "./_components/products-grid";
 import {
   PageContainer,
   PageHeader,
   PageTitle,
 } from "~/components/page-component";
+import { Skeleton } from "~/components/ui/skeleton";
+import FilterBar from "./_components/filter-bar";
+import ProductGrid from "./_components/products-grid";
 
 export default function SearchPage() {
   return (

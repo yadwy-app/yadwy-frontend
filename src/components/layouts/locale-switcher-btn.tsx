@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useTransition } from "react";
 import { usePathname, useRouter } from "~/i18n/routing";
 import { Button } from "../ui/button"; // استيراد زرار shadcn/ui
+import { cn } from '~/lib/utils';
 
 type Props = {
   className?: string;
@@ -20,11 +21,11 @@ export default function LocaleSwitcherLangBtn({ className }: Props) {
   const toggleLanguage = () => {
     const nextLocale = locale === "en" ? "ar" : "en";
 
-    startTransition(() => {
+    startTransition(async () => {
       router.replace(
         // @ts-expect-error -- see explanation above
         { pathname, params },
-        { locale: nextLocale }
+        { locale: nextLocale },
       );
     });
   };
@@ -32,10 +33,10 @@ export default function LocaleSwitcherLangBtn({ className }: Props) {
   return (
     <Button
       onClick={toggleLanguage}
-      variant="outline"
-      className={`${className}`}
+      variant="link"
+      className={cn("text-foreground", className)}
     >
-      {locale === "en" ? "AR" : "EN"}
+      {locale === "en" ? "العربية" : "English"}
     </Button>
   );
 }

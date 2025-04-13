@@ -12,8 +12,7 @@ export default function Header() {
         <SearchBar />
         <CartActions />
       </div>
-      <SearchBar className="block md:hidden relative mt-5 max-w-[300px]"/>
-
+      <SearchBar className="block md:hidden relative mt-5 max-w-[300px]" />
     </header>
   );
 }
