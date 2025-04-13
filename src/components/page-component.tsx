@@ -30,11 +30,7 @@ const PageHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col mb-8", className)}
-    {...props}
-  />
+  <div ref={ref} className={cn("flex flex-col mb-8", className)} {...props} />
 ));
 PageHeader.displayName = "PageHeader";
 

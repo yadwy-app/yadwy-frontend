@@ -6,7 +6,7 @@ export default function Logo() {
   const logo = useTranslations("common");
 
   return (
-    <Link href="/" className="font-heading text-2xl font-bold hidden sm:block">
+    <Link href="/" className="font-heading text-2xl font-bold ">
       {logo("Logo")}
     </Link>
   );

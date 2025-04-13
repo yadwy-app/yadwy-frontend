@@ -2,7 +2,6 @@
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "~/components/ui/button";
 import {
   Carousel,
   type CarouselApi,
@@ -76,15 +75,12 @@ export function Slider({ slides }: Props) {
       </Carousel>
       <div className="absolute md:bottom-2 -bottom-4  left-1/2 flex -translate-x-1/2 transform gap-2">
         {Array.from({ length: count }).map((_, index) => (
-          <Button
+          <button
+            type="button"
             key={crypto.randomUUID()}
-            variant="ghost"
-            size="icon"
             className={cn(
-              "md:h-3 md:w-4 h-2 w-2",
-              index === current - 1
-                ? "md:w-8 w-4 bg-primary-foreground"
-                : "bg-primary",
+              "border-none rounded-full h-2 w-2 md:w-4 md:h-4 transition-all bg-primary-700 opacity-50 hover:opacity-70",
+              index === current - 1 && "md:w-8 w-4 opacity-100 bg-primary-900",
             )}
             onClick={() => api?.scrollTo(index)}
           />

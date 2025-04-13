@@ -4,6 +4,7 @@ import { CreditCard, Home, Package, Settings, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Footer } from "~/components/layouts/footer";
 import Header from "~/components/layouts/header";
+import PhoneMenu from "~/components/layouts/phone-menu";
 import { SidebarNav } from "./_components/sidebar-nav";
 
 const links = [
@@ -37,7 +38,7 @@ const links = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const t = useTranslations("ProfilePage.ProfileSidebar");
-  const isRtl = t("account") !== "Account"; // Simple RTL check
+  const isRtl = t("account") !== "Account";
 
   return (
     <>
@@ -53,6 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </main>
       </div>
+      <PhoneMenu />
       <Footer />
     </>
   );

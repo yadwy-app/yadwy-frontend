@@ -4,11 +4,11 @@ import { Search, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Input } from "~/components/ui/input";
+import { useRouter } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 import { Button } from "../ui/button";
-import { useRouter } from "~/i18n/routing";
 
-export default function SearchBar() {
+export default function SearchBar({ className }: { className?: string }) {
   const t = useTranslations("Header");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,7 +17,7 @@ export default function SearchBar() {
   return (
     <div
       className={cn(
-        "absolute left-1/2 top-1/2 max-w-xl flex-1 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 w-full",
+        `hidden md:block md:absolute left-1/2 top-1/2 md:max-w-[200px]   lg:max-w-md xl:max-w-xl flex-1 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 w-full ${className}`,
         isSearchFocused ? "sm:max-w-2xl" : "",
       )}
     >

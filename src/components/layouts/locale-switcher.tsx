@@ -39,14 +39,16 @@ export default function LocaleSwitcherLang({ className }: Props) {
 
   return (
     <Select onValueChange={changeLanguage} defaultValue={localActive}>
-      <SelectTrigger className={cn("w-[98px] bg-transparent", className)}>
+      <SelectTrigger className={cn("w-[98px] bg-transparent ", className)}>
         <SelectValue placeholder="Select Language" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="ar" className="">
+        <SelectItem value="ar" className="text-sm">
           🇵🇸 العربية
         </SelectItem>
-        <SelectItem value="en">🇬🇧 English</SelectItem>
+        <SelectItem value="en" className="text-sm">
+          🇬🇧 English
+        </SelectItem>
       </SelectContent>
     </Select>
   );

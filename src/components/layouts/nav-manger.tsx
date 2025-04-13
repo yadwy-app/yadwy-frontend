@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { CiLogin } from "react-icons/ci";
 import { Link } from "~/i18n/routing";
+import { Button } from "../ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -25,12 +27,12 @@ const NavManager = () => {
 
   if (!token) {
     return (
-      <Link
-        href="/login"
-        className="flex items-center gap-2 rounded border border-primary px-5 text-sm text-primary transition-all hover:bg-primary hover:text-white"
-      >
-        Login
-      </Link>
+      <Button asChild>
+        <Link href="/login">
+          <CiLogin className="text-xl" />
+          Login
+        </Link>
+      </Button>
     );
   }
 
