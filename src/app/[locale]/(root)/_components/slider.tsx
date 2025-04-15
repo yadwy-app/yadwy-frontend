@@ -73,7 +73,7 @@ export function Slider({ slides }: Props) {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="absolute md:bottom-2 -bottom-4  left-1/2 flex -translate-x-1/2 transform gap-2">
+      <div className="absolute md:bottom-4 -bottom-4  left-1/2 flex -translate-x-1/2 transform gap-2">
         {Array.from({ length: count }).map((_, index) => (
           <button
             type="button"

@@ -15,7 +15,7 @@ export const Footer = () => {
 
   return (
     <div className="bg-primary">
-      <div className="container py-8">
+      <div className="container pt-8 pb-[4em] md:pb-8">
         <div className="md:md-0 mb-3 grid grid-cols-12 gap-4">
           {/* Logo and Description */}
           <div className="col-span-12 md:col-span-4">
