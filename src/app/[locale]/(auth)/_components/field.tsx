@@ -1,15 +1,14 @@
 import { forwardRef } from "react";
 import { useFormField } from "~/components/ui/form";
 import { Input, type InputProps } from "~/components/ui/input";
-import FieldTooltip from "./field-tooltip";
 
 const Field = forwardRef<HTMLInputElement, InputProps>(
   ({ type, ...props }, ref) => {
     const { error } = useFormField();
     return (
-      <div className="flex gap-x-2 items-center justify-center">
+      <div className="flex flex-col gap-x-2 justify-center">
         <Input type={type ?? "text"} {...props} ref={ref} />
-        <FieldTooltip error={error?.message} />
+        {error?.message && <p className="text-red-600">{error?.message}</p>}
       </div>
     );
   },

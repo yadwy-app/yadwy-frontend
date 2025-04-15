@@ -4,7 +4,6 @@ import { Button } from "~/components/ui/button";
 import { useFormField } from "~/components/ui/form";
 import { Input, type InputProps } from "~/components/ui/input";
 import { cn } from "~/lib/utils";
-import FieldTooltip from "./field-tooltip";
 
 const PasswordField = forwardRef<HTMLInputElement, Omit<InputProps, "type">>(
   ({ className, ...props }, ref) => {
@@ -12,7 +11,7 @@ const PasswordField = forwardRef<HTMLInputElement, Omit<InputProps, "type">>(
     const { error } = useFormField();
 
     return (
-      <div className="flex gap-x-2 items-center justify-center">
+      <div className="flex flex-col gap-x-2 justify-center">
         <div className="relative flex items-center justify-center w-full">
           <Input
             type={showPassword ? "text" : "password"}
@@ -23,7 +22,7 @@ const PasswordField = forwardRef<HTMLInputElement, Omit<InputProps, "type">>(
           <Button
             size="icon"
             variant="ghost"
-            className="absolute right-0 hover:bg-transparent"
+            className="absolute right-0 hover:bg-transparent text-gray-600"
             onClick={() => setShowPassword((prev) => !prev)}
             type="button"
             aria-label={showPassword ? "Hide password" : "Show Password"}
@@ -31,7 +30,7 @@ const PasswordField = forwardRef<HTMLInputElement, Omit<InputProps, "type">>(
             {showPassword ? <EyeOffIcon /> : <EyeIcon />}
           </Button>
         </div>
-        <FieldTooltip error={error?.message} />
+        {error?.message && <p className="text-red-600">{error?.message}</p>}
       </div>
     );
   },

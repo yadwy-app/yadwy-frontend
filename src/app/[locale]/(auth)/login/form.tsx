@@ -27,12 +27,14 @@ export function LoginForm() {
 
   return (
     <Card className="overflow-hidden border-none shadow-xl">
-      <CardContent className="grid p-0 md:grid-cols-2">
+      <CardContent className="grid p-0 md:grid-cols-2 xl:grid-cols-[1fr_1.5fr]">
         <div className="p-6 md:p-8">
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col">
+            <div className="flex flex-col items-center text-center gap-2">
               <h2 className="text-2xl ltr:font-bold">{t("title")}</h2>
-              <p className="ltr:text-balance text-muted">{t("description")}</p>
+              <p className="ltr:text-balance text-muted-foreground">
+                {t("description")}
+              </p>
             </div>
             <BaseForm
               defaultValues={defaultValues}
@@ -77,10 +79,13 @@ export function LoginForm() {
               }}
             />
             <Providers text={t("or")} />
-            <div className="text-center text-sm">
+            <div className="text-center text-sm mt-4">
               {t("signup.title")}{" "}
-              <Link href="/sign-up" className="underline underline-offset-4">
-                {t("signup.button")}
+              <Link
+                href="/sign-up"
+                className="underline underline-offset-4 text-sm"
+              >
+                <strong>{t("signup.button")}</strong>
               </Link>
             </div>
           </div>

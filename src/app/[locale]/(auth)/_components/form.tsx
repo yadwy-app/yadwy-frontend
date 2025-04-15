@@ -65,9 +65,9 @@ export default function Form<T extends z.ZodType>({
         ref={ref}
         onSubmit={handleSubmit}
         action={formAction}
-        className={"space-y-8"}
+        className={"space-y-4"}
       >
-        <div className={cn("space-y-4", className)}>
+        <div className={cn("space-y-2", className)}>
           {inputs.map((item) => (
             <FormField
               key={item.name}
@@ -92,7 +92,7 @@ export default function Form<T extends z.ZodType>({
             />
           ))}
         </div>
-        <div className="space-y-4">
+        <div className="space-y-2">
           <div className="flex justify-end">
             <Button
               variant="link"
