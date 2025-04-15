@@ -1,8 +1,18 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages, getTimeZone } from "next-intl/server";
+import { getMessages, getTimeZone } from "next-intl/server";
+import { Providers } from "../providers";
+import "~/styles/globals.css";
+import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { cn } from "~/lib/utils";
-import { lexend } from "~/styles/fonts";
-import { Provider } from "../providers";
+// TODO: only include the required font for the current lang of the user
+import { cairo, lalezar, lexend } from "~/styles/fonts";
+
+export const metadata: Metadata = {
+  title: "متجر يدوي",
+  description: "احدث المنتجات الزراعية",
+  icons: [{ rel: "icon", url: "/logo.svg" }],
+};
 
 export default async function RootLayout({
   children,
@@ -18,10 +28,23 @@ export default async function RootLayout({
   const timezone = await getTimeZone();
 
   return (
-    <div dir={dir} lang={locale} className={cn(lexend.variable)}>
-      <NextIntlClientProvider messages={messages} timeZone={timezone}>
-        <Provider>{children}</Provider>
-      </NextIntlClientProvider>
-    </div>
+    <html lang={locale} dir={dir}>
+      <body
+        lang={locale}
+        dir={dir}
+        className={cn(
+          "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
+          lexend.variable,
+          lalezar.variable,
+          cairo.variable,
+        )}
+      >
+        <div dir={dir} lang={locale} className={cn(lexend.variable)}>
+          <NextIntlClientProvider messages={messages} timeZone={timezone}>
+            <Providers>{children}</Providers>
+          </NextIntlClientProvider>
+        </div>
+      </body>
+    </html>
   );
 }

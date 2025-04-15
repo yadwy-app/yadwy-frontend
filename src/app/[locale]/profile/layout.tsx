@@ -1,7 +1,4 @@
-"use client"; // Changed to client component for translation support
-
 import { CreditCard, Home, Package, Settings, User } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { Footer } from "~/components/layouts/footer";
 import Header from "~/components/layouts/header";
 import PhoneMenu from "~/components/layouts/phone-menu";
@@ -37,16 +34,10 @@ const links = [
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const t = useTranslations("ProfilePage.ProfileSidebar");
-  const isRtl = t("account") !== "Account";
-
   return (
     <>
       <Header />
-      <div
-        className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] py-8 min-h-[100vh]"
-        dir={isRtl ? "rtl" : "ltr"}
-      >
+      <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] py-8 min-h-[100vh]">
         <aside className="hidden w-[200px] flex-col md:flex lg:w-[250px]">
           <SidebarNav items={links} />
         </aside>

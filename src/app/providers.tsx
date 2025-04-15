@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 const queryClient = new QueryClient();
 
-export function Provider({
+export function Providers({
   children,
 }: {
   children: ReactNode;
