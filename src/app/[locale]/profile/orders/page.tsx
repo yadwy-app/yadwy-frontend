@@ -41,7 +41,7 @@ function OrderCard({ order }: OrderCardProps) {
           className={`flex items-center ${isRtl ? "flex-row-reverse justify-between" : "justify-between"}`}
         >
           <div>
-            <CardTitle className="text-base text-primary">
+            <CardTitle className="text-base text-primary-900">
               {t("order")} #{order.id}
             </CardTitle>
             <CardDescription>{order.date}</CardDescription>
@@ -84,14 +84,12 @@ function OrderCard({ order }: OrderCardProps) {
                   </div>
                 </div>
               </div>
-              <div className="font-medium text-primary-foreground">
-                {item.price}
-              </div>
+              <div className="font-medium">{item.price}</div>
             </div>
           ))}
-          <Separator className="bg-primary" />
+          <Separator />
           <div
-            className={`flex ${isRtl ? "flex-row-reverse justify-between" : "justify-between"} text-primary-foreground`}
+            className={`flex ${isRtl ? "flex-row-reverse justify-between" : "justify-between"}`}
           >
             <div className="font-medium">{t("total")}</div>
             <div className="font-bold">{order.total}</div>
