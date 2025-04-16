@@ -73,10 +73,6 @@ export function LoginForm() {
                 },
               ]}
               primaryButtonText={t("primaryButtonText")}
-              secondaryButtonLink={{
-                href: "/forgot-password",
-                text: t("secondaryButtonText"),
-              }}
             />
             <Providers text={t("or")} />
             <div className="text-center text-sm mt-4">

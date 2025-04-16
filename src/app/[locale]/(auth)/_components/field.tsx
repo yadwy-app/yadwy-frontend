@@ -8,7 +8,7 @@ const Field = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="flex flex-col gap-x-2 justify-center">
         <Input type={type ?? "text"} {...props} ref={ref} />
-        {error?.message && <p className="text-red-600">{error?.message}</p>}
+        <p className="text-sm text-red-600">{error?.message || <>&nbsp;</>}</p>
       </div>
     );
   },

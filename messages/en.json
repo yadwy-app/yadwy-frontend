@@ -94,7 +94,7 @@
       "passwordPlaceholder": "Enter your password"
     },
     "primaryButtonText": "Log In",
-    "secondaryButtonText": "Forgot Password?",
+    "forgotPassword": "Forgot Password?",
     "or": "Or",
     "signup": {
       "title": "Don't have an account?",

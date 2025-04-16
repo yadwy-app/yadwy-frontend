@@ -13,16 +13,11 @@ import {
   Form as _Form,
 } from "~/components/ui/form";
 import { toast } from "~/hooks/use-toast";
-import { Link } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 import type { FormProps, FormState } from "~/types/forms";
 
 type Props<T extends z.ZodType> = FormProps<T> & {
   primaryButtonText: string;
-  secondaryButtonLink: {
-    href: string;
-    text: string;
-  };
   className?: string;
 };
 
@@ -33,7 +28,6 @@ export default function Form<T extends z.ZodType>({
   inputs,
   className,
   primaryButtonText,
-  secondaryButtonLink,
 }: Props<T>) {
   const [state, formAction, isPending] = useActionState<
     FormState<z.ZodType<T>>,
@@ -92,32 +86,9 @@ export default function Form<T extends z.ZodType>({
             />
           ))}
         </div>
-        <div className="space-y-2">
-          <div className="flex justify-end">
-            <Button
-              variant="link"
-              asChild
-              type="button"
-              className="h-auto px-0 text-sm font-normal text-muted-foreground hover:text-primary"
-            >
-              <Link prefetch={false} href={secondaryButtonLink.href}>
-                {secondaryButtonLink.text}
-              </Link>
-            </Button>
-          </div>
-
-          <Button
-            type="submit"
-            disabled={isPending}
-            className="w-full text-base"
-          >
-            {isPending ? (
-              <Loader2 className="animate-spin" />
-            ) : (
-              primaryButtonText
-            )}
-          </Button>
-        </div>
+        <Button type="submit" disabled={isPending} className="w-full text-base">
+          {isPending ? <Loader2 className="animate-spin" /> : primaryButtonText}
+        </Button>
       </form>
     </_Form>
   );
