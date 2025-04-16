@@ -30,7 +30,7 @@ export default function ActiveFilters() {
             <span className="text-xs">{filter.value}</span>
             <button
               type="button"
-              className="ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
+              className="ml-1 rounded-full focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-1"
             >
               <X className="h-3 w-3" />
               <span className="sr-only">Remove {filter.type} filter</span>

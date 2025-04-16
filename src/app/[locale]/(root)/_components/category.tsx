@@ -7,7 +7,7 @@ type Props = {
 export default function Category({ name, image }: Props) {
   return (
     <div className="flex flex-col items-center gap-3 max-w-full">
-      <div className="rounded-lg transition-shadow duration-300 overflow-hidden max-w-full md:w-96 w-80 aspect-[5/6] hover:shadow-lg">
+      <div className="rounded-lg transition-shadow duration-300 overflow-hidden max-w-full md:w-96 w-80 aspect-5/6 hover:shadow-lg">
         <Image
           src={image}
           width={200}

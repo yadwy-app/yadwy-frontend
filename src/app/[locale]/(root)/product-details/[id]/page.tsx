@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { PageContainer } from "~/components/page-component";
 import { Separator } from "~/components/ui/separator";
 import { features, mockProductsData } from "~/data";
 import Categories from "../../_sections/categories";
@@ -34,7 +35,7 @@ export default async function Page({
   }
 
   return (
-    <div className="flex flex-col gap-16">
+    <PageContainer>
       <div className="flex w-full flex-col justify-center gap-16 md:flex-row">
         <ProductImage images={product.images} />
         <div className="flex w-full flex-col md:gap-14 gap-4">
@@ -69,6 +70,6 @@ export default async function Page({
       </div>
       <Products title="You May Also Like" products={mockProductsData} />
       <Categories />
-    </div>
+    </PageContainer>
   );
 }

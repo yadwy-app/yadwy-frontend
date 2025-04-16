@@ -39,7 +39,7 @@ export default function OrderBanner() {
               </Button>
               <Button
                 variant="outline"
-                className="bg-white text-[#262626] border-[#D9DEDE] shadow-sm"
+                className="bg-white text-[#262626] border-[#D9DEDE] shadow-xs"
               >
                 {t("moreDetailsButton")}
               </Button>
@@ -47,7 +47,7 @@ export default function OrderBanner() {
           </div>
           <div className="md:relative md:flex-1 hidden md:flex">
             <div className="absolute inset-0 bg-[url('/banner.svg')] bg-cover bg-center rounded-r-lg" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FDFDFD] via-[rgba(253,253,253,0.5)] to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-[#FDFDFD] via-[rgba(253,253,253,0.5)] to-transparent" />
           </div>
         </div>
       </div>

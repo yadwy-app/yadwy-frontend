@@ -59,7 +59,7 @@ export function ProductQuickView({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-sm max-h-[90vh] lg:max-w-none lg:w-[900px] lg:aspect-[2/1] p-0 overflow-hidden">
+      <DialogContent className="max-w-sm max-h-[90vh] lg:max-w-none lg:w-[900px] lg:aspect-2/1 p-0 overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 overflow-auto lg:overflow-hidden">
           {/* Product Image */}
           <div className="relative aspect-square bg-gray-50">

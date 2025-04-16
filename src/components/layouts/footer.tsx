@@ -109,10 +109,10 @@ export const Footer = () => {
           {/* App Store Links */}
           <div className="col-span-6 md:col-span-2">
             <div className="flex flex-col items-end gap-6">
-              <Link href={``} className="relative h-10 aspect-[680/200]">
+              <Link href={``} className="relative h-10 aspect-680/200">
                 <Image fill src={"/footer/google.svg"} alt="google play" />
               </Link>
-              <Link href={``} className="relative h-10 aspect-[680/200]">
+              <Link href={``} className="relative h-10 aspect-680/200">
                 <Image fill src={"/footer/apple.svg"} alt="apple store" />
               </Link>
             </div>

@@ -105,7 +105,7 @@ export default function FilterBar() {
               <span className="text-xs">{filter.value}</span>
               <button
                 type="button"
-                className="ml-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full"
+                className="ml-1 focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full"
                 onClick={() => removeFilter(index)}
               >
                 <X className="h-3 w-3" />
@@ -153,7 +153,7 @@ function PriceFilter() {
               <span className="text-muted-foreground me-1">$</span>
               <input
                 type="number"
-                className="w-full focus:outline-none bg-transparent"
+                className="w-full focus:outline-hidden bg-transparent"
                 value={priceRange[0]}
                 onChange={(e) =>
                   setPriceRange([
@@ -169,7 +169,7 @@ function PriceFilter() {
               <span className="text-muted-foreground me-1">$</span>
               <input
                 type="number"
-                className="w-full focus:outline-none bg-transparent"
+                className="w-full focus:outline-hidden bg-transparent"
                 value={priceRange[1]}
                 onChange={(e) =>
                   setPriceRange([
@@ -370,7 +370,7 @@ function MobileFilterDrawer() {
                     <span className="text-muted-foreground mr-1">$</span>
                     <input
                       type="number"
-                      className="w-full focus:outline-none bg-transparent"
+                      className="w-full focus:outline-hidden bg-transparent"
                       defaultValue={15}
                       aria-label="Minimum price"
                     />
@@ -380,7 +380,7 @@ function MobileFilterDrawer() {
                     <span className="text-muted-foreground mr-1">$</span>
                     <input
                       type="number"
-                      className="w-full focus:outline-none bg-transparent"
+                      className="w-full focus:outline-hidden bg-transparent"
                       defaultValue={250}
                       aria-label="Maximum price"
                     />
