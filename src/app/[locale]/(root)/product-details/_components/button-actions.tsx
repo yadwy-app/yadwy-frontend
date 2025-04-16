@@ -32,26 +32,24 @@ export default function ButtonAction({ item }: { item: CartItemProps }) {
     }
   };
   return (
-    <div className="flex w-full flex-col items-center gap-8 md:flex-row">
+    <div className="flex w-full flex-col items-center gap-4 md:flex-row">
       <QuantityCounter
         quantity={quantityCounter}
         increment={incrementQuantity}
         decrement={decrementQuantity}
       />
-      <div className="flex w-full flex-col items-center gap-2 md:flex-row">
-        <Button
-          className="flex w-full gap-4 text-background"
-          onClick={addToCartHandler}
-        >
-          <ShoppingBag className="text-background" />
-          Add
-        </Button>
-        <h3 className="text-secondary-foreground">or</h3>
-        <Button className="flex w-full gap-4 text-background">
-          <ShoppingCart className="" />
-          Make your order
-        </Button>
-      </div>
+      <Button
+        className="flex w-full gap-4 text-background"
+        onClick={addToCartHandler}
+      >
+        <ShoppingBag className="text-background" />
+        Add
+      </Button>
+      <h3 className="text-secondary-foreground">or</h3>
+      <Button className="flex w-full gap-4 text-background">
+        <ShoppingCart className="" />
+        Make your order
+      </Button>
     </div>
   );
 }
