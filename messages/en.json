@@ -2,6 +2,11 @@
   "common": {
     "Logo": "Yadawi"
   },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "We couldn't find the product or page you were looking for. It might have been removed, renamed, or is temporarily unavailable.",
+    "returnToShop": "Return to Shop"
+  },
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page",

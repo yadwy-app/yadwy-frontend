@@ -1,5 +1,6 @@
 // src/app/[locale]/(root)/page.tsx
 import { useTranslations } from "next-intl";
+import { PageContainer } from "~/components/page-component";
 import { mockProductsData } from "~/data";
 import OrderBanner from "./_components/order-banner";
 import { Slider } from "./_components/slider";
@@ -25,7 +26,7 @@ export default function Page() {
   const t = useTranslations("HomePage");
   const products = mockProductsData;
   return (
-    <div className="flex w-full flex-col gap-16">
+    <PageContainer className="flex flex-col gap-16">
       <Slider slides={slides} />
       <Categories />
       {products.length > 1 && (
@@ -46,6 +47,6 @@ export default function Page() {
           products={products}
         />
       )}
-    </div>
+    </PageContainer>
   );
 }
