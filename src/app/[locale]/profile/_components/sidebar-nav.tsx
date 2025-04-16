@@ -29,7 +29,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
             key={link.href}
             href={link.href}
             className={cn(
-              "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
+              "flex items-center gap-3 rounded-lg px-3 py-2 font-medium hover:bg-accent hover:text-accent-foreground",
               isActive ? "bg-accent text-accent-foreground" : "transparent",
             )}
           >
