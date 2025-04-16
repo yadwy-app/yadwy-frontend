@@ -1,5 +1,3 @@
-"use client";
-
 import Logo from "../logo";
 import CartActions from "./cart-actions";
 import LocaleSwitcherLangBtn from "./locale-switcher-btn";

@@ -12,7 +12,9 @@ export default function SectionPriview({
       <div className="flex flex-col relative">
         <div className="flex items-start flex-col gap-y-2 bg-primary/10 group-hover:bg-primary/15 md:bg-inherit md:group-hover:bg-inherit">
           <h3 className="text-2xl font-bold capitalize">{header}</h3>
-          {subHeader && <p className="text-sm text-muted">{subHeader}</p>}
+          {subHeader && (
+            <p className="text-sm text-muted-foreground">{subHeader}</p>
+          )}
         </div>
         <div className="flex items-end justify-center flex-col p-3 @md:p-8 @md:pl-20 w-full">
           {children}

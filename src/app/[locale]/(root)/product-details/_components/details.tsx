@@ -16,9 +16,7 @@ export default function ProductDetails({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex justify-between items-start md:items-center">
-        <h1 className="text-xl font-bold font-heading text-secondary-foreground md:text-3xl">
-          {title}
-        </h1>
+        <h1 className="text-xl font-bold font-heading md:text-3xl">{title}</h1>
         <Heart className="w-8 h-8" />
       </div>
       <div className="flex w-fit items-center justify-center gap-2 rounded-lg bg-yellow-50 text-black">
@@ -28,7 +26,7 @@ export default function ProductDetails({
         <span className="px-2 font-bold font-heading">{rate}/5</span>
       </div>
       <span className="text-2xl font-normal">{price}</span>
-      <p className="text-left text-lg text-[#5E6A6B]">{description}</p>
+      <p className="text-left text-lg text-muted-foreground">{description}</p>
     </div>
   );
 }

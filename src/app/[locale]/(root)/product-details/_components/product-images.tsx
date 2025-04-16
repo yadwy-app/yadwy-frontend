@@ -22,7 +22,7 @@ export default function ProductImage({ images }: { images: string[] }) {
         <Image
           src={images[selectedIndex] ?? "/placeholder.svg"}
           alt={`Product Image ${selectedIndex + 1}`}
-          className="object-contain rounded-md"
+          className="object-cover rounded-md border border-border"
           fill
           priority
           sizes="(max-width: 768px) 100vw, 487px"

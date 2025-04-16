@@ -1,7 +1,5 @@
-"use client";
-
 import { Heart, ShoppingCart } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { CartSheet } from "~/app/[locale]/(root)/cart/_components/cart-sheet"; // Ensure this path is correct
 import { Button } from "~/components/ui/button";
 import { SheetTrigger } from "~/components/ui/sheet"; // Adjusted import path
@@ -9,8 +7,10 @@ import { Separator } from "../ui/separator";
 import LocaleSwitcherLangBtn from "./locale-switcher-btn";
 import NavManager from "./nav-manger";
 
-export default function CartActions({ className }: { className?: string }) {
-  const t = useTranslations("Header");
+export default async function CartActions({
+  className,
+}: { className?: string }) {
+  const t = await getTranslations("Header");
   const qty = 0; // TODO: Replace with actual quantity from your cart state
 
   return (
@@ -40,7 +40,8 @@ export default function CartActions({ className }: { className?: string }) {
       <Button variant="ghost" size="icon" aria-label={t("wishlist")}>
         <Heart className="h-5 w-5" />
       </Button>
-      <NavManager />
+      {/* TODO: pass the true value of isLoggedIn */}
+      <NavManager isLoggedIn={false} />
     </div>
   );
 }

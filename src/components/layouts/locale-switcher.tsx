@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useTransition } from "react";
 import { usePathname, useRouter } from "~/i18n/routing";
@@ -39,15 +40,33 @@ export default function LocaleSwitcherLang({ className }: Props) {
 
   return (
     <Select onValueChange={changeLanguage} defaultValue={localActive}>
-      <SelectTrigger className={cn("w-[98px] bg-transparent ", className)}>
+      <SelectTrigger className={cn("w-[110px] bg-transparent ", className)}>
         <SelectValue placeholder="Select Language" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="ar" className="text-sm">
-          🇵🇸 العربية
+        <SelectItem value="ar">
+          <div className="flex gap-2 items-center">
+            <Image
+              src="/footer/flag-of-palestine.webp"
+              alt=""
+              width={20}
+              height={10}
+              className="w-[20px] h-[13px]"
+            />
+            <span>العربية</span>
+          </div>
         </SelectItem>
         <SelectItem value="en" className="text-sm">
-          🇬🇧 English
+          <div className="flex gap-2 items-center">
+            <Image
+              src="/footer/flag-of-us.webp"
+              alt=""
+              width={20}
+              height={10}
+              className="w-[20px] h-[13px]"
+            />
+            <span>English</span>
+          </div>
         </SelectItem>
       </SelectContent>
     </Select>

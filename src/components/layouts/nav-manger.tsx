@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CiLogin } from "react-icons/ci";
 import { Link } from "~/i18n/routing";
 import { Button } from "../ui/button";
@@ -14,18 +14,11 @@ import {
   NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 
-const NavManager = () => {
-  const [token, setToken] = useState<string | null>(null);
-  const [isClient, setIsClient] = useState(false);
+// We need to get the IsLoggedIn prop to show the correct UI before the hydration happen
+const NavManager = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+  const [_token, setToken] = useState<string | null>(null);
 
-  useEffect(() => {
-    setIsClient(true);
-    setToken(localStorage.getItem("token"));
-  }, []);
-
-  if (!isClient) return null;
-
-  if (!token) {
+  if (!isLoggedIn) {
     return (
       <Button asChild>
         <Link href="/login">

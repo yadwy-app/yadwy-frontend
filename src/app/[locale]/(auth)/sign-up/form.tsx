@@ -51,7 +51,9 @@ export default function FormSignUp() {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center text-center">
               <h2 className="text-2xl ltr:font-bold">{t("title")}</h2>
-              <p className="text-muted ltr:text-balance">{t("description")}</p>
+              <p className="text-muted-foreground ltr:text-balance">
+                {t("description")}
+              </p>
             </div>
 
             <FormProvider {...methods}>

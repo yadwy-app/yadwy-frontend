@@ -66,7 +66,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
             variant="ghost"
             size="icon"
             className={cn(
-              "absolute top-2 right-2 rounded-full h-8 w-8 bg-white/80 hover:bg-white",
+              "border border-border absolute top-2 right-2 rounded-full h-8 w-8 bg-white/80 hover:bg-white",
               isFavorite ? "text-red-500 hover:text-red-600" : "",
             )}
             onClick={(e) => {

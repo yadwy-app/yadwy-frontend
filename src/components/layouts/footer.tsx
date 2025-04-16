@@ -15,7 +15,7 @@ export const Footer = () => {
 
   return (
     <div className="bg-primary">
-      <div className="container py-8">
+      <div className="container pt-8 pb-[4em] md:pb-8">
         <div className="md:md-0 mb-3 grid grid-cols-12 gap-4">
           {/* Logo and Description */}
           <div className="col-span-12 md:col-span-4">
@@ -109,10 +109,10 @@ export const Footer = () => {
           {/* App Store Links */}
           <div className="col-span-6 md:col-span-2">
             <div className="flex flex-col items-end gap-6">
-              <Link href={``} className="relative h-10 aspect-[680/200]">
+              <Link href={``} className="relative h-10 aspect-680/200">
                 <Image fill src={"/footer/google.svg"} alt="google play" />
               </Link>
-              <Link href={``} className="relative h-10 aspect-[680/200]">
+              <Link href={``} className="relative h-10 aspect-680/200">
                 <Image fill src={"/footer/apple.svg"} alt="apple store" />
               </Link>
             </div>

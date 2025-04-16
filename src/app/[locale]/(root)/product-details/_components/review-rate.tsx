@@ -20,7 +20,7 @@ export default function ReviewRate({ totalReviews, ratings }: Props) {
           <span className="text-yellow-500">★</span>
           <Progress
             value={rating.percentage}
-            className="overflow-hidden flex-grow ml-2 h-2 bg-gray-200 [&>div]:bg-yellow-400"
+            className="overflow-hidden grow ml-2 h-2 bg-gray-200 [&>div]:bg-yellow-400"
           />
           <span className="ml-3 text-gray-600">{rating.percentage}%</span>
         </div>

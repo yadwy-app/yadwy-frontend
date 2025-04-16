@@ -2,6 +2,7 @@
 
 import { PenLine } from "lucide-react";
 import { useTranslations } from "next-intl"; // Import useTranslations hook
+import Image from "next/image";
 import { Button } from "~/components/ui/button";
 
 export default function OrderBanner() {
@@ -13,23 +14,18 @@ export default function OrderBanner() {
         <div className="flex h-full">
           <div className="relative z-10 flex-1 p-8 flex flex-col md:justify-between gap-8">
             <div>
-              <h2 className="md:text-[40px] text-lg font-bold text-[#283D3D] leading-[50px] mb-6">
+              <h2 className="md:text-[40px] text-lg font-bold text-primary-900 leading-[50px] mb-6">
                 {t("title")}{" "}
                 <span className="relative inline-block">
                   {t("personal")}
-                  <svg
-                    className="absolute -z-10 left-[-0.25em] right-[-0.25em] bottom-[0.1em] h-[0.6em] w-[calc(100%+0.5em)]"
-                    preserveAspectRatio="none"
-                    viewBox="0 0 100 100"
-                  >
-                    <title>text highlight</title>
-                    <path
-                      d="M0,50 Q25,45 50,50 T100,50 L95,90 Q70,85 50,90 T5,90 Z"
-                      fill="#8FB6B6"
-                      fillOpacity="0.35"
-                    />
-                  </svg>
-                </span>
+                  <Image
+                    src="/highlighter.png"
+                    alt="highlighter"
+                    width={200}
+                    height={100}
+                    className="absolute -z-10 -left-1 max-w-none w-[calc(100%+0.5em)] -bottom-[0.1em]"
+                  />
+                </span>{" "}
                 {t("toYou")}
               </h2>
               <p className="md:text-[20px] text-lg text-[#5E6A6B] leading-[139.4%] max-w-[600px]">
@@ -43,7 +39,7 @@ export default function OrderBanner() {
               </Button>
               <Button
                 variant="outline"
-                className="bg-white text-[#262626] border-[#D9DEDE] shadow-sm"
+                className="bg-white text-[#262626] border-[#D9DEDE] shadow-xs"
               >
                 {t("moreDetailsButton")}
               </Button>
@@ -51,7 +47,7 @@ export default function OrderBanner() {
           </div>
           <div className="md:relative md:flex-1 hidden md:flex">
             <div className="absolute inset-0 bg-[url('/banner.svg')] bg-cover bg-center rounded-r-lg" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FDFDFD] via-[rgba(253,253,253,0.5)] to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-[#FDFDFD] via-[rgba(253,253,253,0.5)] to-transparent" />
           </div>
         </div>
       </div>

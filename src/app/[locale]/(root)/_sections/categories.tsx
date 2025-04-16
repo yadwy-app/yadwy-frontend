@@ -24,14 +24,14 @@ interface CategoryItem {
 }
 
 const categories: CategoryItem[] = [
-  { name: "Wood Work 1", image: "/category/wood.png" },
-  { name: "Glass Work 1", image: "/category/glass.png" },
-  { name: "Plants 1", image: "/category/planet.png" },
-  { name: "Glass Work 2", image: "/category/glass.png" },
-  { name: "Wood Work 2", image: "/category/wood.png" },
-  { name: "Glass Work 3", image: "/category/glass.png" },
-  { name: "Plants 2", image: "/category/planet.png" },
-  { name: "Glass Work 4", image: "/category/glass.png" },
+  { name: "Wood Work 1", image: "/category/wood.jpeg" },
+  { name: "Glass Work 1", image: "/category/glass.jpeg" },
+  { name: "Plants 1", image: "/category/plant.jpeg" },
+  { name: "Glass Work 2", image: "/category/glass.jpeg" },
+  { name: "Wood Work 2", image: "/category/wood.jpeg" },
+  { name: "Glass Work 3", image: "/category/glass.jpeg" },
+  { name: "Plants 2", image: "/category/plant.jpeg" },
+  { name: "Glass Work 4", image: "/category/glass.jpeg" },
 ];
 
 export function Categories() {
@@ -76,7 +76,7 @@ export function Categories() {
                 key={category.name}
                 className="basis-1/2 sm:basis-1/3 lg:basis-1/4 w-full"
               >
-                <div className="overflow-hidden w-full h-full">
+                <div className="w-full h-full">
                   <Category name={category.name} image={category.image} />
                 </div>
               </CarouselItem>

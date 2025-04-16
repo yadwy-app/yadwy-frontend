@@ -61,7 +61,7 @@ export default function FilterSidebar() {
               <span className="text-muted-foreground mr-1">$</span>
               <input
                 type="number"
-                className="w-full focus:outline-none bg-transparent"
+                className="w-full focus:outline-hidden bg-transparent"
                 value={priceRange[0]}
                 onChange={(e) =>
                   setPriceRange([
@@ -77,7 +77,7 @@ export default function FilterSidebar() {
               <span className="text-muted-foreground mr-1">$</span>
               <input
                 type="number"
-                className="w-full focus:outline-none bg-transparent"
+                className="w-full focus:outline-hidden bg-transparent"
                 value={priceRange[1]}
                 onChange={(e) =>
                   setPriceRange([
@@ -220,7 +220,7 @@ function FilterSection({
     <div className="border-b pb-4">
       <button
         type="button"
-        className="flex items-center justify-between w-full py-2 text-left font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+        className="flex items-center justify-between w-full py-2 text-left font-medium focus:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
         onClick={onToggle}
         aria-expanded={isExpanded}
         aria-controls={`section-${title}`}
