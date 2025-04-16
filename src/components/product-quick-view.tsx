@@ -14,7 +14,6 @@ import {
   DialogTitle,
 } from "~/components/ui/dialog";
 import { Label } from "~/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group";
 import { cn } from "~/lib/utils";
 
 interface ProductQuickViewProps {
@@ -29,8 +28,6 @@ export function ProductQuickView({
   onOpenChange,
 }: ProductQuickViewProps) {
   const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setSelectedColor] = useState("white");
-  const [selectedSize, setSelectedSize] = useState("m");
   const [isFavorite, setIsFavorite] = useState(false);
 
   // In a real app, you would fetch product data based on productId
@@ -42,16 +39,6 @@ export function ProductQuickView({
     originalPrice: 45,
     rating: 4.5,
     reviews: 28,
-    colors: [
-      { name: "White", value: "white" },
-      { name: "Black", value: "black" },
-      { name: "Terracotta", value: "terracotta" },
-    ],
-    sizes: [
-      { name: "Small", value: "s" },
-      { name: "Medium", value: "m" },
-      { name: "Large", value: "l" },
-    ],
   };
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
@@ -115,64 +102,6 @@ export function ProductQuickView({
             <p className="text-muted-foreground">{product.description}</p>
 
             <div className="space-y-4 pt-2">
-              {/* Color Selection */}
-              <div className="space-y-2">
-                <Label className="text-base">Color</Label>
-                <RadioGroup
-                  value={selectedColor}
-                  onValueChange={setSelectedColor}
-                  className="flex items-center gap-2"
-                >
-                  {product.colors.map((color) => (
-                    <div
-                      key={color.value}
-                      className="flex items-center space-x-2"
-                    >
-                      <RadioGroupItem
-                        value={color.value}
-                        id={`color-${color.value}`}
-                        className="peer sr-only"
-                      />
-                      <Label
-                        htmlFor={`color-${color.value}`}
-                        className="border rounded-md px-3 py-2 cursor-pointer flex items-center gap-2 peer-data-[state=checked]:bg-sky-200 peer-data-[state=checked]:border-sky-500"
-                      >
-                        {color.name}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </div>
-
-              {/* Size Selection */}
-              <div className="space-y-2">
-                <Label className="text-base">Size</Label>
-                <RadioGroup
-                  value={selectedSize}
-                  onValueChange={setSelectedSize}
-                  className="flex items-center gap-2"
-                >
-                  {product.sizes.map((size) => (
-                    <div
-                      key={size.value}
-                      className="flex items-center space-x-2"
-                    >
-                      <RadioGroupItem
-                        value={size.value}
-                        id={`size-${size.value}`}
-                        className="peer sr-only"
-                      />
-                      <Label
-                        htmlFor={`size-${size.value}`}
-                        className="border rounded-md px-3 py-2 cursor-pointer flex items-center gap-2 peer-data-[state=checked]:bg-sky-200 peer-data-[state=checked]:border-sky-500"
-                      >
-                        {size.name.charAt(0).toUpperCase()}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </div>
-
               {/* Quantity */}
               <div className="space-y-2">
                 <Label className="text-base">Quantity</Label>
