@@ -26,7 +26,7 @@ export default function ProfilePage() {
 
   return (
     <PageContainer className="space-y-6">
-      <PageHeader>
+      <PageHeader className="m-0">
         <PageTitle className="text-2xl font-bold tracking-tight">
           {t("title")}
         </PageTitle>

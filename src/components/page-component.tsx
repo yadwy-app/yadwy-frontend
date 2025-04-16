@@ -5,7 +5,7 @@ const PageContainer = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ children, className, ...props }, ref) => (
-  <div ref={ref} className={cn("w-full pb-10", className)} {...props}>
+  <div ref={ref} className={cn("w-full", className)} {...props}>
     {children}
   </div>
 ));
@@ -18,7 +18,7 @@ const PageTitle = React.forwardRef<
   <h1
     ref={ref}
     className={cn(
-      "text-2xl font-black rtl:leading-tight font-heading text-primary-900",
+      "text-2xl font-black rtl:leading-tight font-heading text-primary-foreground",
       className,
     )}
     {...props}

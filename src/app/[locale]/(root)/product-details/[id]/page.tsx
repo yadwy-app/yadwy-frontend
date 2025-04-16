@@ -35,7 +35,7 @@ export default async function Page({
   }
 
   return (
-    <PageContainer className="flex flex-col gap-16">
+    <PageContainer>
       <div className="flex w-full flex-col justify-center gap-16 md:flex-row">
         <ProductImage images={product.images} />
         <div className="flex w-full flex-col md:gap-14 gap-4">

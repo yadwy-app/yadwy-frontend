@@ -2,11 +2,6 @@
   "common": {
     "Logo": "يَدَوِيّ"
   },
-  "NotFound": {
-    "title": "الصفحة غير موجودة",
-    "description": "لم نتمكن من العثور على المنتج أو الصفحة التي تبحث عنها. ربما تمت إزالتها، أو تغيير اسمها، أو أنها غير متاحة مؤقتًا.",
-    "returnToShop": "العودة إلى المتجر"
-  },
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page",
