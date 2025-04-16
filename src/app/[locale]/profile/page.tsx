@@ -17,7 +17,7 @@ import {
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
 import { Link } from "~/i18n/routing";
-
+// TODO: enhance this page
 export default function ProfilePage() {
   const t = useTranslations("ProfilePage");
   const tPersonal = useTranslations("ProfilePage.personalInfo");
