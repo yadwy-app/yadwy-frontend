@@ -152,6 +152,20 @@
     "passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
     "passwordMismatch": "كلمتا المرور غير متطابقتين"
   },
+  "ThankYou": {
+    "title": "شكرًا على طلبك!",
+    "subtitle": "تم استلام طلبك ويتم معالجته الآن.",
+    "orderNumber": "رقم الطلب:",
+    "shippingInfo": "معلومات الشحن",
+    "paymentMethod": "طريقة الدفع",
+    "paymentMethods": {
+      "card": "بطاقة ائتمان",
+      "paypal": "باي بال",
+      "cash": "الدفع عند الاستلام"
+    },
+    "viewOrders": "عرض الطلبات",
+    "continueShopping": "متابعة التسوق"
+  },
   "ProfilePage": {
     "title": "الملف الشخصي",
     "description": "إدارة إعدادات حسابك وتفضيلاتك.",

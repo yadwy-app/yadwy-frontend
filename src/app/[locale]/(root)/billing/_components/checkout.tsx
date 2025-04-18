@@ -105,7 +105,7 @@ export default function Checkout() {
         {/* Main Form */}
         <div className="lg:col-span-2">
           <Card>
-            <CardContent className="p-6">{step}</CardContent>
+            <CardContent className="md:p-6 px-2">{step}</CardContent>
           </Card>
         </div>
 
