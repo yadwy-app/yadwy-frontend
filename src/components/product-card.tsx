@@ -38,12 +38,11 @@ export function ProductCard({ ...product }: ProductCardProps) {
           >
             <div className="flex gap-2">
               <Dialog>
-                <DialogTrigger>
+                <DialogTrigger asChild>
                   <Button
                     variant="secondary"
                     size="icon"
                     className="rounded-full h-10 w-10 bg-white hover:bg-white/90"
-                    aria-label="Quick view"
                   >
                     <Eye className="h-4 w-4" />
                   </Button>
