@@ -11,13 +11,12 @@ import { getProductCoverImage } from "~/lib/product-utils";
 import { cn } from "~/lib/utils";
 import type { Product } from "~/types";
 import { ProductQuickView } from "./product-quick-view";
+import { Dialog, DialogTrigger } from "./ui/dialog";
 
 interface ProductCardProps extends Product {}
 
 export function ProductCard({ ...product }: ProductCardProps) {
   const [isFavorite, setIsFavorite] = useState(product.isFavorite || false);
-  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
-
   return (
     <div>
       <div className="group group/product-card border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300">
@@ -38,18 +37,20 @@ export function ProductCard({ ...product }: ProductCardProps) {
             )}
           >
             <div className="flex gap-2">
-              <Button
-                variant="secondary"
-                size="icon"
-                className="rounded-full h-10 w-10 bg-white hover:bg-white/90"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsQuickViewOpen(true);
-                }}
-                aria-label="Quick view"
-              >
-                <Eye className="h-4 w-4" />
-              </Button>
+              <Dialog>
+                <DialogTrigger>
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    className="rounded-full h-10 w-10 bg-white hover:bg-white/90"
+                    aria-label="Quick view"
+                  >
+                    <Eye className="h-4 w-4" />
+                  </Button>
+                </DialogTrigger>
+                <ProductQuickView productId={product.id} />
+              </Dialog>
+
               <Button
                 variant="secondary"
                 size="icon"
@@ -89,12 +90,14 @@ export function ProductCard({ ...product }: ProductCardProps) {
           </div>
         </div>
 
-        <div className="p-4">
+        <div className="md:p-4 p-2">
           <Link
             href={`/product-details/${product.id}`}
             className="block group-hover:text-primary transition-colors"
           >
-            <h3 className="font-medium mb-1 line-clamp-2">{product.name}</h3>
+            <h3 className="font-medium mb-1 line-clamp-2 text-[13px] truncate md:text-lg">
+              {product.name}
+            </h3>
           </Link>
 
           <div className="flex items-center gap-1 mb-2">
@@ -144,20 +147,12 @@ export function ProductCard({ ...product }: ProductCardProps) {
               )}
             </div>
             <Button size="sm" className="px-3 gap-1 text-xs text-background">
-              <TbShoppingBagPlus className="h-4 w-4" /> Add to cart
+              <TbShoppingBagPlus className="h-4 w-4" />
+              <span className="hidden md:inline-flex">Add to cart</span>
             </Button>
           </div>
         </div>
       </div>
-
-      {/* QuickView Modal */}
-      {isQuickViewOpen && (
-        <ProductQuickView
-          productId={product.id}
-          open={isQuickViewOpen}
-          onOpenChange={() => setIsQuickViewOpen(false)}
-        />
-      )}
     </div>
   );
 }
