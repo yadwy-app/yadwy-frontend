@@ -1,0 +1,6 @@
+# handled by Biome
+*.ts
+*.tsx
+*.js
+*.jsx
+*.json
