@@ -11,7 +11,6 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Separator } from "~/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { Link } from "~/i18n/routing";
 
 interface Order {
@@ -35,7 +34,7 @@ function OrderCard({ order }: OrderCardProps) {
   const isRtl = t("title") !== "My Orders";
 
   return (
-    <Card className="border-primary">
+    <Card>
       <CardHeader className="pb-3">
         <div
           className={`flex items-center ${isRtl ? "flex-row-reverse justify-between" : "justify-between"}`}
@@ -179,6 +178,7 @@ const orders: Order[] = [
     ],
   },
 ];
+
 export default function OrdersPage() {
   const t = useTranslations("OrdersPage");
   const isRtl = t("title") !== "My Orders";
@@ -190,50 +190,12 @@ export default function OrdersPage() {
         <p className="text-muted-foreground">{t("description")}</p>
       </div>
       <Separator />
-      <Tabs defaultValue="all" className="w-full">
-        <TabsList
-          className={`grid w-full grid-cols-4 bg-primary text-black ${isRtl ? "grid-flow-dense" : ""}`}
-        >
-          <TabsTrigger value="all">{t("tabs.all")}</TabsTrigger>
-          <TabsTrigger value="processing">{t("tabs.processing")}</TabsTrigger>
-          <TabsTrigger value="shipped">{t("tabs.shipped")}</TabsTrigger>
-          <TabsTrigger value="delivered">{t("tabs.delivered")}</TabsTrigger>
-        </TabsList>
-        <TabsContent value="all" className="mt-6">
-          <div className="grid w-full gap-6">
-            {orders.map((order) => (
-              <OrderCard key={order.id} order={order} />
-            ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="processing" className="mt-6">
-          <div className="grid gap-6">
-            {orders
-              .filter((order) => order.status === "Processing")
-              .map((order) => (
-                <OrderCard key={order.id} order={order} />
-              ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="shipped" className="mt-6">
-          <div className="grid gap-6">
-            {orders
-              .filter((order) => order.status === "Shipped")
-              .map((order) => (
-                <OrderCard key={order.id} order={order} />
-              ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="delivered" className="mt-6">
-          <div className="grid gap-6">
-            {orders
-              .filter((order) => order.status === "Delivered")
-              .map((order) => (
-                <OrderCard key={order.id} order={order} />
-              ))}
-          </div>
-        </TabsContent>
-      </Tabs>
+
+      <div className="grid w-full gap-6">
+        {orders.map((order) => (
+          <OrderCard key={order.id} order={order} />
+        ))}
+      </div>
     </div>
   );
 }
