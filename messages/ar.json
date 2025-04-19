@@ -153,18 +153,18 @@
     "passwordMismatch": "كلمتا المرور غير متطابقتين"
   },
   "ThankYou": {
-    "title": "شكرًا على طلبك!",
-    "subtitle": "تم استلام طلبك ويتم معالجته الآن.",
+    "title": "تم تأكيد الطلب!",
+    "subtitle": "لقد استلمنا طلبك وجارٍ تجهيزه الآن.",
     "orderNumber": "رقم الطلب:",
-    "shippingInfo": "معلومات الشحن",
+    "shippingInfo": "تفاصيل التوصيل",
     "paymentMethod": "طريقة الدفع",
     "paymentMethods": {
       "card": "بطاقة ائتمان",
       "paypal": "باي بال",
       "cash": "الدفع عند الاستلام"
     },
-    "viewOrders": "عرض الطلبات",
-    "continueShopping": "متابعة التسوق"
+    "viewOrders": "تتبع الطلبات",
+    "continueShopping": "تابع التسوق"
   },
   "ProfilePage": {
     "title": "الملف الشخصي",

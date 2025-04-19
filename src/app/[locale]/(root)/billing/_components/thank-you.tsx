@@ -1,11 +1,12 @@
 "use client";
 
-import { CheckCircle2, CreditCard, Package, ShoppingBag } from "lucide-react";
+import { CheckCircle2, Package } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
+
 export function ThankYou({
   orderData,
 }: {
@@ -23,7 +24,6 @@ export function ThankYou({
   const t = useTranslations("ThankYou");
   const orderNumber = `ORD-${Math.floor(100000 + Math.random() * 900000)}`;
 
-  // Trigger animations after component mounts
   useEffect(() => {
     setShowConfetti(true);
   }, []);
@@ -41,32 +41,22 @@ export function ThankYou({
         />
       )}
       <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
-        <div className="animate-fade-in-down flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <div className="relative space-y-4">
-            <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping-slow" />
             <div className="relative rounded-full bg-background p-5 shadow-lg">
-              <CheckCircle2 className="h-16 w-16 text-primary animate-check-mark" />
+              <CheckCircle2 className="h-16 w-16 text-primary" />
             </div>
           </div>
 
-          <h2
-            className="animate-fade-in text-xl md:text-3xl font-bold text-text"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <h2 className="text-xl md:text-3xl font-bold text-textColor">
             {t("title")}
           </h2>
-          <p
-            className="animate-fade-in w-full md:max-w-md text-center text-lg text-muted-foreground"
-            style={{ animationDelay: "0.5s" }}
-          >
+          <p className="w-full md:max-w-md text-center text-lg text-muted-foreground">
             {t("subtitle")}
           </p>
         </div>
 
-        <div
-          className="animate-fade-in w-full rounded-lg border bg-card p-2 md:p-6 shadow-sm"
-          style={{ animationDelay: "0.7s" }}
-        >
+        <div className="w-full rounded-lg border bg-card p-2 md:p-6 shadow-sm">
           <div className="mb-4 flex items-center justify-between border-b">
             <span className="font-bold text-muted-foreground">
               {t("orderNumber")}
@@ -74,78 +64,44 @@ export function ThankYou({
             <span className="font-light text-primary">{orderNumber}</span>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {orderData.shippingInfo && (
-              <div className="flex flex-col gap-2 rounded-md bg-muted/50 p-4 transition-transform hover:translate-y-[-2px]">
-                <div className="flex items-center gap-2">
-                  <Package className="h-5 w-5 text-primary" />
-                  <h3 className="font-semibold text-text">
-                    {t("shippingInfo")}
-                  </h3>
-                </div>
-                <div className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  <p className="font-medium text-text">
-                    {orderData.shippingInfo.name}
-                  </p>
-                  <p>{orderData.shippingInfo.address}</p>
-                  <p>
-                    {orderData.shippingInfo.state},{" "}
-                    {orderData.shippingInfo.zipCode}
-                  </p>
-                </div>
+          {orderData.shippingInfo && (
+            <div className="flex flex-col gap-2 rounded-md bg-muted/50 p-4 transition-transform hover:translate-y-[-2px]">
+              <div className="flex items-center gap-2">
+                <Package className="h-5 w-5 text-primary" />
+                <h3 className="font-semibold text-textColor">
+                  {t("shippingInfo")}
+                </h3>
               </div>
-            )}
-
-            {orderData.payment && (
-              <div className="flex flex-col gap-2 rounded-md bg-muted/50 p-4 transition-transform hover:translate-y-[-2px]">
-                <div className="flex items-center gap-2">
-                  <CreditCard className="h-5 w-5 text-primary" />
-                  <h3 className="font-semibold text-text">
-                    {t("paymentMethod")}
-                  </h3>
-                </div>
-                <div className="mt-2 text-sm text-muted-foreground">
-                  {orderData.payment.paymentMethod === "card" && (
-                    <p className="flex items-center gap-2">
-                      <span className="inline-block h-4 w-4 rounded-full bg-green-500" />
-                      {t("paymentMethods.card")}
-                    </p>
-                  )}
-                  {orderData.payment.paymentMethod === "paypal" && (
-                    <p className="flex items-center gap-2">
-                      <span className="inline-block h-4 w-4 rounded-full bg-blue-500" />
-                      {t("paymentMethods.paypal")}
-                    </p>
-                  )}
-                  {orderData.payment.paymentMethod === "cash" && (
-                    <p className="flex items-center gap-2">
-                      <span className="inline-block h-4 w-4 rounded-full bg-yellow-500" />
-                      {t("paymentMethods.cash")}
-                    </p>
-                  )}
-                </div>
+              <div className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                <p className="font-medium text-textColor">
+                  {orderData.shippingInfo.name}
+                </p>
+                <p>{orderData.shippingInfo.address}</p>
+                <p>
+                  {orderData.shippingInfo.state},{" "}
+                  {orderData.shippingInfo.zipCode}
+                </p>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
-        <div
-          className="animate-fade-in flex flex-col gap-4 sm:flex-row"
-          style={{ animationDelay: "0.9s" }}
-        >
+        <div className="flex flex-col gap-4 sm:flex-row">
           <Button
             asChild
             variant="outline"
-            className="group relative overflow-hidden"
+            className="group relative overflow-hidden border-border text-textColor hover:bg-light-primary"
           >
             <Link href="/profile/orders" className="flex items-center gap-2">
               <span className="relative z-10">{t("viewOrders")}</span>
               <span className="button-shine" />
             </Link>
           </Button>
-          <Button asChild className="group relative overflow-hidden">
+          <Button
+            asChild
+            className="group relative overflow-hidden bg-primary hover:bg-primary-700 text-primary-foreground"
+          >
             <Link href="/" className="flex items-center gap-2">
-              <ShoppingBag className="h-4 w-4 transition-transform group-hover:scale-110" />
               <span className="relative z-10">{t("continueShopping")}</span>
               <span className="button-shine" />
             </Link>

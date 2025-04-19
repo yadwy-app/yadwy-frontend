@@ -157,18 +157,18 @@
     "button": "Proceed to Checkout"
   },
   "ThankYou": {
-    "title": "Thank You for Your Order!",
-    "subtitle": "Your order has been received and is being processed.",
-    "orderNumber": "Order Number:",
-    "shippingInfo": "Shipping Information",
+    "title": "Order Successful!",
+    "subtitle": "We’ve received your order and it’s currently being processed.",
+    "orderNumber": "Order ID:",
+    "shippingInfo": "Delivery Details",
     "paymentMethod": "Payment Method",
     "paymentMethods": {
       "card": "Credit Card",
       "paypal": "PayPal",
       "cash": "Cash on Delivery"
     },
-    "viewOrders": "View Orders",
-    "continueShopping": "Continue Shopping"
+    "viewOrders": "Track My Orders",
+    "continueShopping": "Keep Shopping"
   },
   "ProfilePage": {
     "title": "Profile",
