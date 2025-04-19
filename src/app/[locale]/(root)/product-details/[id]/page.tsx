@@ -4,15 +4,25 @@ import { Separator } from "~/components/ui/separator";
 import { features, mockProductsData } from "~/data";
 import Categories from "../../_sections/categories";
 import Products from "../../_sections/products";
+import { AboutSeller } from "../_components/about-seller";
 import ButtonAction from "../_components/button-actions";
 import ProductDetails from "../_components/details";
 import Feature from "../_components/feature";
 import ProductImage from "../_components/product-images";
+import { ProductOverview } from "../_components/product-overview";
 
 function getProductById(id: number) {
   return mockProductsData.find((p) => p.id === id);
 }
 
+const productOverview = [
+  "Easy to care for",
+  "Suitable for indoor decor",
+  "Requires medium light",
+  "Helps purify the air",
+  "Comes in a high-quality ceramic pot",
+  "Height: approximately 8-10 inches",
+];
 export default async function Page({
   params,
 }: { params: Promise<{ id: string }> }) {
@@ -35,7 +45,7 @@ export default async function Page({
   }
 
   return (
-    <PageContainer className="flex flex-col gap-16">
+    <PageContainer className="flex flex-col gap-8">
       <div className="flex w-full flex-col justify-center gap-16 md:flex-row">
         <ProductImage images={product.images} />
         <div className="flex w-full flex-col md:gap-14 gap-4">
@@ -68,6 +78,15 @@ export default async function Page({
           />
         </div>
       </div>
+      <ProductOverview features={productOverview} />
+      <AboutSeller
+        sellerName="Nature Store"
+        sellerSubtitle="Premium Plant Provider"
+        sellerProductsCount="500+"
+        memberSince="January 2020"
+        sellerDescription="Nature Store specializes in high-quality indoor plants and accessories. All plants are grown in sustainable conditions and shipped with care to ensure they arrive in perfect condition."
+        sellerRating={5}
+      />
       <Products title="You May Also Like" products={mockProductsData} />
       <Categories />
     </PageContainer>

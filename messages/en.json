@@ -2,6 +2,17 @@
   "common": {
     "Logo": "Yadawi"
   },
+  "ProductDetails": {
+    "featuresTitle": "Product Overview",
+    "sellerTitle": "About the Seller",
+    "sellerName": "Nature Store",
+    "sellerSubtitle": "Premium Plant Provider",
+    "sellerProducts": "Products",
+    "sellerProductsValue": "500+",
+    "sellerMemberSince": "Member Since",
+    "sellerMemberSinceValue": "January 2020",
+    "sellerDescription": "Nature Store specializes in high-quality indoor plants and accessories. All plants are grown in sustainable conditions and shipped with care to ensure they arrive in perfect condition."
+  },
   "NotFound": {
     "title": "Page Not Found",
     "description": "We couldn't find the product or page you were looking for. It might have been removed, renamed, or is temporarily unavailable.",
@@ -144,6 +155,20 @@
     "Subtotal": "Subtotal",
     "description": "Shipping and taxed calculated at checkout",
     "button": "Proceed to Checkout"
+  },
+  "ThankYou": {
+    "title": "Order Successful!",
+    "subtitle": "We’ve received your order and it’s currently being processed.",
+    "orderNumber": "Order ID:",
+    "shippingInfo": "Delivery Details",
+    "paymentMethod": "Payment Method",
+    "paymentMethods": {
+      "card": "Credit Card",
+      "paypal": "PayPal",
+      "cash": "Cash on Delivery"
+    },
+    "viewOrders": "Track My Orders",
+    "continueShopping": "Keep Shopping"
   },
   "ProfilePage": {
     "title": "Profile",

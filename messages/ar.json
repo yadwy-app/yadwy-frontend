@@ -2,6 +2,17 @@
   "common": {
     "Logo": "يَدَوِيّ"
   },
+  "ProductDetails": {
+    "featuresTitle": "نظرة عامة على المنتج",
+    "sellerTitle": "عن البائع",
+    "sellerName": "متجر الطبيعة",
+    "sellerSubtitle": "مزود نباتات مميز",
+    "sellerProducts": "المنتجات",
+    "sellerProductsValue": "500+",
+    "sellerMemberSince": "عضو منذ",
+    "sellerMemberSinceValue": "يناير 2020",
+    "sellerDescription": "متجر الطبيعة متخصص في النباتات الداخلية عالية الجودة والإكسسوارات. تُزرع جميع النباتات في ظروف مستدامة ويتم شحنها بعناية لضمان وصولها في حالة مثالية."
+  },
   "NotFound": {
     "title": "الصفحة غير موجودة",
     "description": "لم نتمكن من العثور على المنتج أو الصفحة التي تبحث عنها. ربما تمت إزالتها، أو تغيير اسمها، أو أنها غير متاحة مؤقتًا.",
@@ -140,6 +151,20 @@
     "emailInvalid": "عنوان البريد الإلكتروني غير صالح",
     "passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
     "passwordMismatch": "كلمتا المرور غير متطابقتين"
+  },
+  "ThankYou": {
+    "title": "تم تأكيد الطلب!",
+    "subtitle": "لقد استلمنا طلبك وجارٍ تجهيزه الآن.",
+    "orderNumber": "رقم الطلب:",
+    "shippingInfo": "تفاصيل التوصيل",
+    "paymentMethod": "طريقة الدفع",
+    "paymentMethods": {
+      "card": "بطاقة ائتمان",
+      "paypal": "باي بال",
+      "cash": "الدفع عند الاستلام"
+    },
+    "viewOrders": "تتبع الطلبات",
+    "continueShopping": "تابع التسوق"
   },
   "ProfilePage": {
     "title": "الملف الشخصي",
