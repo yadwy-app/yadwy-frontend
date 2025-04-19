@@ -39,7 +39,7 @@ export default async function RootLayout({
           cairo.variable,
         )}
       >
-        <NextTopLoader />
+        <NextTopLoader color="var(--primary)" />
         <div dir={dir} lang={locale} className={cn(lexend.variable)}>
           <NextIntlClientProvider messages={messages} timeZone={timezone}>
             <Providers>{children}</Providers>
