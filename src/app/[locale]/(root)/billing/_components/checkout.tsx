@@ -2,6 +2,7 @@
 
 import { Check, CreditCard, MapPin } from "lucide-react";
 import { useState } from "react";
+import ReactConfetti from "react-confetti";
 import { Card, CardContent } from "~/components/ui/card";
 import { OrderSummary } from "./order-summary";
 import { PaymentForm } from "./payment-form";
@@ -114,6 +115,18 @@ export default function Checkout() {
           <OrderSummary />
         </div>
       </div>
+      {typeof window !== "undefined" && currentStepIndex === 2 && (
+        <ReactConfetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={false}
+          numberOfPieces={300}
+          gravity={0.25}
+          wind={0.02}
+          tweenDuration={1800}
+          colors={["#36B6B2", "#FFD700", "#FF6B6B", "#4ECDC4"]}
+        />
+      )}
     </div>
   );
 }
