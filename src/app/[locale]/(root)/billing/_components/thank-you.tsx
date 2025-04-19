@@ -29,7 +29,7 @@ export function ThankYou({
   }, []);
 
   return (
-    <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+    <div className="relative flex h-full w-full items-center justify-center">
       {showConfetti && (
         <Confetti
           width={typeof window !== "undefined" ? window.innerWidth : 300}
@@ -41,16 +41,15 @@ export function ThankYou({
         />
       )}
       <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
-        <div className="flex flex-col items-center">
-          <div className="relative space-y-4">
-            <div className="relative rounded-full bg-background p-5 shadow-lg">
-              <CheckCircle2 className="h-16 w-16 text-primary" />
+        <div className="animate-fade-in-down flex flex-col items-center">
+          <div className="relative mb-4">
+            <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping-slow" />
+            <div className="relative rounded-full bg-background p-3 shadow-lg">
+              <CheckCircle2 className="h-12 w-12 text-primary" />
             </div>
           </div>
 
-          <h2 className="text-xl md:text-3xl font-bold text-textColor">
-            {t("title")}
-          </h2>
+          <h2 className="text-xl font-bold text-textColor">{t("title")}</h2>
           <p className="w-full md:max-w-md text-center text-lg text-muted-foreground">
             {t("subtitle")}
           </p>
@@ -103,7 +102,6 @@ export function ThankYou({
           >
             <Link href="/" className="flex items-center gap-2">
               <span className="relative z-10">{t("continueShopping")}</span>
-              <span className="button-shine" />
             </Link>
           </Button>
         </div>
