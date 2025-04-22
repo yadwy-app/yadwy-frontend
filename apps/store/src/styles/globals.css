@@ -90,11 +90,11 @@
   margin-inline: auto;
   padding-inline: 2rem;
 
-  @media (width >= --theme(--breakpoint-sm)) {
+  @media (width >=--theme(--breakpoint-sm)) {
     max-width: none;
   }
 
-  @media (width >= 1400px) {
+  @media (width >=1400px) {
     max-width: 1400px;
   }
 }
@@ -189,6 +189,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -200,6 +201,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -211,9 +213,11 @@
     transform: scale(0);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -225,6 +229,7 @@
     transform: scale(0.95);
     opacity: 1;
   }
+
   75%,
   100% {
     transform: scale(1.5);
@@ -236,6 +241,7 @@
   from {
     transform: translateX(-100%) rotate(45deg);
   }
+
   to {
     transform: translateX(100%) rotate(45deg);
   }

@@ -30,6 +30,6 @@ jobs:
 
       - name: Run Biome
         run: bunx biome ci . --formatter-enabled=true --linter-enabled=true
-      
+
       - name: Run TypeScript
         run: bunx tsc --noEmit

@@ -1,3 +1,5 @@
 {
-  "extends": ["@yadwy/config/tsconfig.json"]
+  "extends": ["@yadwy/config/tsconfig.json"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/.turbo", "**/.next/"]
 }

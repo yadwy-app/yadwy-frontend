@@ -6,16 +6,12 @@
         "name": "next"
       }
     ],
-    /* Path Aliases */
+    /* Import Aliases */
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "app/[locale]/pharmacies/page.tsx"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next", ".turbo"]
 }

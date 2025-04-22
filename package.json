@@ -5,7 +5,9 @@
   "packageManager": "bun@1.2.9",
   "scripts": {
     "dev": "bun store dev",
-    "store": "trubo --filter @yadwy/store"
+    "store": "turbo --filter @yadwy/store",
+    "prepare": "lefthook install",
+    "check": "turbo check"
   },
   "devDependencies": {
     "@yadwy/config": "workspace:*"
