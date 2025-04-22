@@ -1,9 +1,11 @@
 pre-commit:
   parallel: true
   commands:
-    check:
+    biome:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css,scss}"
-      run: bunx biome check --write --unsafe --no-errors-on-unmatched --files-ignore-unknown=true "{staged_files}" && git update-index --again
-    format:
+      run: bunx biome check --write --unsafe --no-errors-on-unmatched --files-ignore-unknown=true "{staged_files}"
+      stage_fixed: true
+    prettier:
       glob: "*.{html,yaml,yml,md}"
-      run: bunx prettier --write "{staged_files}" && git update-index --again
+      run: bunx prettier --write "{staged_files}"
+      stage_fixed: true
