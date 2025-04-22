@@ -1,7 +1,2 @@
 # handled by Biome
-*.ts
-*.tsx
-*.js
-*.jsx
-*.json
-.next/
+*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css,scss}

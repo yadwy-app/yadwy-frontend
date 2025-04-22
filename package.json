@@ -7,7 +7,9 @@
     "dev": "bun store dev",
     "store": "turbo --filter @yadwy/store",
     "prepare": "lefthook install",
-    "check": "turbo check"
+    "check": "turbo check",
+    "check:types": "turbo check:types",
+    "check:biome:ci": "biome ci . --formatter-enabled=true --linter-enabled=true"
   },
   "devDependencies": {
     "@yadwy/config": "workspace:*"
