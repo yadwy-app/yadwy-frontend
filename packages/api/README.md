@@ -2,21 +2,24 @@
 
 The `@yadwy/api` package provides utilities and logic for interacting with the backend API. It is designed to work seamlessly on both the client and server sides, handling authentication, token management, and API requests efficiently.
 
----
+**Client-Side:** Directly call the backend API without using the server as a proxy. This reduces latency and avoids unnecessary server-side overhead.
+
+**Server-Side:** Use the same API logic to call the backend, ensuring consistency across environments.
+
+> Some duplication in the API layer is necessary to provide functionality for both client and server environments.
 
 ## Features
 
 - **Authentication**:
-
   - Login and token storage (client-side).
   - Token usage on both server and client (via cookies).
   - Automatic token refresh before expiration.
   - Handling expired tokens gracefully.
 
-- **Route Protection**:
-
+- **Route Protection and Permissions Handling**:
   - Server-side session validation.
   - Client-side session management with reactivity.
+  - Hooks and utilities to check the permissions of the user
 
 - **API Communication**:
   - Supports direct backend calls from the client.
@@ -51,50 +54,54 @@ The `@yadwy/api` package provides utilities and logic for interacting with the b
   - User returns to the website after a long period.
   - Backend misconfiguration or changes to token expiration.
   - Middleware is skipped or cached, preventing token refresh.
+  - The token expiration date be far from now but it is blacklisted in the backend or not valid anymore
 
-If a 401 error is detected in Axios response interceptor:
+Let's not keep any room for error and handle 401 errors error in an Axios response interceptor:
 
 - During SSR:
   - Refresh the token and use it for the current process.
   - Cookies may not be updated during SSR (as per Next.js docs), the new access token will be used only once and lost after that.
   - The access token will be updated later when the expiration of the token is detected in the client-side or in a server action or a Next.js route handler
-- During client-side rendering:
-  - Refresh the token and update cookies immediately either in `useSession` or in the Axios interceptors.
+- In the client side:
+  - Refresh the token and upate the cookies and the Zustand store.
+- In a Next.js server action or a route handler:
+  - Refresh the access token and update the cookies easily (👉 TODO: we need to update the Zustand store)
 
 ## Protecting Routes and Checking Permissions
 
-### Server-Side
-
-- Use `useSession` or `getServerSession()` to get the session
+- Use `useSession()` or `getServerSession()` to get the session
 - If the session is `null`, redirect the user or show a fallback page.
-- The token expiration date be far from now but it is blacklisted in the backend or not valid anymore
-  - To handle this case we need to
-
-## API Communication
-
-**Client-Side:** Directly call the backend API without using the server as a proxy. This reduces latency and avoids unnecessary server-side overhead.
-
-**Server-Side:** Use the same API logic to call the backend, ensuring consistency across environments.
-
-> Some duplication in the API layer is necessary to provide functionality for both client and server environments.
+- Get the user permissions using `useUserPermissions` or `await getUserPermissions()` and check if they have the required permissions
 
 ## Example Usage
 
 ### Login and Token Management
 
+**Login and store tokens:**
+
 ```typescript
-import { clientAPI } from "@yadwy/api/services/api.client";
+import { authHooks } from "@yadwy/api/hooks";
+import { setSession } from "@yadwy/api/utils/session.client";
+
+const login = authHooks.login({
+  onSuccess({
+    accessToken,
+    refreshToken,
+    user: { id: userId },
+  }) {
+    setSession({ accessToken, refreshToken, userId });
+  }
+});
+<Button
+  isLoading={login.isPending}
+  onClick={()=>login.mutateAsync({ username: "user", password: "pass" })}
+/>
+```
+
+**Access session state:**
+
+```typescript
 import { useSession, setSession } from "@yadwy/api/utils/session.client";
-
-// Login and store tokens
-const {
-  accessToken,
-  refreshToken,
-  user: { id: userId },
-} = clientAPI.auth.login({ username: "user", password: "pass" });
-setSession({ accessToken, refreshToken, userId });
-
-// Access session state
 const session = useSession(); // or getSession() outside the react components
 console.log(session.accessToken);
 ```
@@ -115,7 +122,7 @@ export async function SomeWhereInTheServer(context) {
 }
 ```
 
-The following is an example of how the permissions may be handled, but not yet implemented.
+The following is an example of how the permissions may be handled, **but not yet implemented**.
 
 ```typescript
 import { useUserPermissions } from "@yadwy/api/permissions/client";
