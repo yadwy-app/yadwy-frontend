@@ -11,12 +11,14 @@ The `@yadwy/api` package provides utilities and logic for interacting with the b
 ## Features
 
 - **Authentication**:
+
   - Login and token storage (client-side).
   - Token usage on both server and client (via cookies).
   - Automatic token refresh before expiration.
   - Handling expired tokens gracefully.
 
 - **Route Protection and Permissions Handling**:
+
   - Server-side session validation.
   - Client-side session management with reactivity.
   - Hooks and utilities to check the permissions of the user
@@ -79,28 +81,25 @@ Let's not keep any room for error and handle 401 errors error in an Axios respon
 
 **Login and store tokens:**
 
-```typescript
+```tsx
 import { authHooks } from "@yadwy/api/hooks";
 import { setSession } from "@yadwy/api/utils/session.client";
 
 const login = authHooks.login({
-  onSuccess({
-    accessToken,
-    refreshToken,
-    user: { id: userId },
-  }) {
+  onSuccess({ accessToken, refreshToken, user: { id: userId } }) {
     setSession({ accessToken, refreshToken, userId });
-  }
+  },
 });
+
 <Button
   isLoading={login.isPending}
-  onClick={()=>login.mutateAsync({ username: "user", password: "pass" })}
-/>
+  onClick={() => login.mutateAsync({ username: "user", password: "pass" })}
+/>;
 ```
 
 **Access session state:**
 
-```typescript
+```ts
 import { useSession, setSession } from "@yadwy/api/utils/session.client";
 const session = useSession(); // or getSession() outside the react components
 console.log(session.accessToken);
@@ -108,7 +107,7 @@ console.log(session.accessToken);
 
 ### Protecting Routes
 
-```typescript
+```ts
 import { getServerSession } from "@yadwy/api/utils/session.server";
 
 export async function SomeWhereInTheServer(context) {
@@ -124,7 +123,7 @@ export async function SomeWhereInTheServer(context) {
 
 The following is an example of how the permissions may be handled, **but not yet implemented**.
 
-```typescript
+```ts
 import { useUserPermissions } from "@yadwy/api/permissions/client";
 
 export async function SomeWhereInTheClient(context) {

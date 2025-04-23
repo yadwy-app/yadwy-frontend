@@ -17,6 +17,7 @@ export async function setServerSession(session: Session | null) {
     await UserIdServerCookie.delete();
     return;
   }
+  // TODO: we need to update the Zustand store
   const { accessToken, refreshToken, userId } = session;
   await AccessTokenServerCookie.set(accessToken, "/");
   await RefreshTokenServerCookie.set(refreshToken, "/");
