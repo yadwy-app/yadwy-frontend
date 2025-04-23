@@ -1,5 +1,4 @@
 import "client-only";
-import { useEffect } from "react";
 import { create } from "zustand";
 import { httpNoAuth } from "./axios.client";
 import { isTokenGoingToExpire } from "./common";
@@ -47,22 +46,18 @@ export function getSession() {
 export function useSession() {
   const session = useSessionStore((state) => state.session);
   const setSession = useSessionStore((state) => state.setSession);
-
-  useEffect(() => {
-    if (!session) return;
-    if (isTokenGoingToExpire(session.accessToken)) {
-      refreshAccessToken({ refreshToken: session.refreshToken })
-        .then((newAccessToken) => {
-          AccessTokenCookie.set(newAccessToken, "/");
-          setSession({ ...session, accessToken: newAccessToken });
-        })
-        .catch((e) => {
-          console.log("unable to refresh the access token", e);
-          setSession(null);
-        });
-    }
-  }, [session, setSession]);
-
+  if (!session) return null;
+  if (isTokenGoingToExpire(session.accessToken)) {
+    refreshAccessToken({ refreshToken: session.refreshToken })
+      .then((newAccessToken) => {
+        AccessTokenCookie.set(newAccessToken, "/");
+        setSession({ ...session, accessToken: newAccessToken });
+      })
+      .catch((e) => {
+        console.log("unable to refresh the access token", e);
+        setSession(null);
+      });
+  }
   return session;
 }
 
