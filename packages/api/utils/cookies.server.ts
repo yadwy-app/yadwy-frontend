@@ -25,6 +25,7 @@ function createCookieStorage<T extends string>(COOKIE_KEY: string) {
       cookieStore.set(COOKIE_KEY, data, {
         expires: new Date(Date.now() + THREE_DAYS_ms),
         path: rootPath,
+        httpOnly: true,
       });
     },
     get: async () => {

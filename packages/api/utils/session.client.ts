@@ -40,6 +40,7 @@ export function getSession() {
   if (!accessToken || !refreshToken || !userId) {
     return null;
   }
+
   return { accessToken, refreshToken, userId };
 }
 

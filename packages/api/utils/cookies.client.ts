@@ -18,6 +18,7 @@ function createCookieStorage<T extends string>(COOKIE_KEY: string) {
       Cookies.set(COOKIE_KEY, data, {
         expires: new Date(Date.now() + THREE_DAYS_ms),
         path: rootPath,
+        httpOnly: true,
       });
     },
     get: () => {
