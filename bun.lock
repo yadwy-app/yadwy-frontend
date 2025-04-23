@@ -3,19 +3,18 @@
   "workspaces": {
     "": {
       "name": "yadwy-frontend",
-      "dependencies": {
-        "js-cookie": "^3.0.5",
-        "jwt-decode": "^4.0.0",
-      },
       "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
         "@yadwy/config": "workspace:*",
+        "lefthook": "^1.11.10",
+        "prettier": "^3.5.3",
+        "turbo": "^2.5.0",
       },
     },
     "apps/store": {
       "name": "@yadwy/store",
       "version": "0.1.0",
       "dependencies": {
-        "@biomejs/biome": "^1.9.4",
         "@hookform/resolvers": "^5.0.1",
         "@radix-ui/react-accordion": "^1.2.3",
         "@radix-ui/react-checkbox": "^1.1.4",
@@ -38,6 +37,7 @@
         "@t3-oss/env-nextjs": "^0.10.1",
         "@tanstack/react-query": "^5.71.1",
         "@types/rtl-detect": "^1.0.3",
+        "@yadwy/types": "workspace:*",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "cmdk": "1.0.0",
@@ -66,11 +66,8 @@
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
         "@yadwy/config": "workspace:*",
-        "lefthook": "^1.11.10",
         "postcss": "^8.4.39",
-        "prettier": "^3.5.3",
         "tailwindcss": "^4.1.4",
-        "turbo": "^2.5.0",
         "typescript": "^5.5.3",
       },
     },
@@ -78,6 +75,7 @@
       "name": "@yadwy/api",
       "dependencies": {
         "@types/js-cookie": "^3.0.6",
+        "@yadwy/types": "workspace:*",
         "axios": "^1.7.2",
         "js-cookie": "^3.0.5",
         "jwt-decode": "^4.0.0",
@@ -87,10 +85,17 @@
       },
       "devDependencies": {
         "@yadwy/config": "workspace:*",
+        "tailwindcss": "^4.1.4",
       },
     },
     "packages/config": {
       "name": "@yadwy/config",
+    },
+    "packages/types": {
+      "name": "@yadwy/types",
+      "devDependencies": {
+        "tailwindcss": "^4.1.4",
+      },
     },
   },
   "packages": {
@@ -345,6 +350,8 @@
     "@yadwy/config": ["@yadwy/config@workspace:packages/config"],
 
     "@yadwy/store": ["@yadwy/store@workspace:apps/store"],
+
+    "@yadwy/types": ["@yadwy/types@workspace:packages/types"],
 
     "aria-hidden": ["aria-hidden@1.2.4", "", { "dependencies": { "tslib": "^2.0.0" } }, "sha512-y+CcFFwelSXpLZk/7fMB2mUbGtX9lKycf1MWJ7CaTIERyitVlyQx6C+sxcROU2BAJ24OiZyK+8wj2i8AlBoS3A=="],
 

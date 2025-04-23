@@ -1,3 +1,4 @@
+import type { Product } from "@yadwy/types";
 import { useTranslations } from "next-intl";
 import { ProductCard } from "~/components/product-card";
 import {
@@ -8,7 +9,6 @@ import {
   SectionTitle,
 } from "~/components/section";
 import { Button } from "~/components/ui/button";
-import type { Product } from "~/types";
 
 type Props = {
   title: string;
