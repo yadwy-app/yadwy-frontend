@@ -2,8 +2,6 @@
 
 import { CheckCircle2, Package } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
-import Confetti from "react-confetti";
 import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
 
@@ -20,26 +18,11 @@ export function ThankYou({
     payment?: { paymentMethod: "card" | "paypal" | "cash" };
   };
 }) {
-  const [showConfetti, setShowConfetti] = useState(false);
   const t = useTranslations("ThankYou");
   const orderNumber = `ORD-${Math.floor(100000 + Math.random() * 900000)}`;
 
-  useEffect(() => {
-    setShowConfetti(true);
-  }, []);
-
   return (
     <div className="relative flex h-full w-full items-center justify-center">
-      {showConfetti && (
-        <Confetti
-          width={typeof window !== "undefined" ? window.innerWidth : 300}
-          height={typeof window !== "undefined" ? window.innerHeight : 300}
-          recycle={false}
-          numberOfPieces={200}
-          gravity={0.2}
-          colors={["#36B6B2", "#FFD700", "#FF6B6B", "#4ECDC4"]}
-        />
-      )}
       <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
         <div className="animate-fade-in-down flex flex-col items-center">
           <div className="relative mb-4">
@@ -93,7 +76,6 @@ export function ThankYou({
           >
             <Link href="/profile/orders" className="flex items-center gap-2">
               <span className="relative z-10">{t("viewOrders")}</span>
-              <span className="button-shine" />
             </Link>
           </Button>
           <Button

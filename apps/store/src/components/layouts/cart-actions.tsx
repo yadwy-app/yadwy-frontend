@@ -9,7 +9,9 @@ import NavManager from "./nav-manger";
 
 export default async function CartActions({
   className,
-}: { className?: string }) {
+}: {
+  className?: string;
+}) {
   const t = await getTranslations("Header");
   const qty = 0; // TODO: Replace with actual quantity from your cart state
 

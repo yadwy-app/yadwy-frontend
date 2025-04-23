@@ -1,0 +1,2 @@
+# handled by Biome
+*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css,scss}
