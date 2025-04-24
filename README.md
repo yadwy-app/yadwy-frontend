@@ -11,6 +11,7 @@ Project workspaces:
 | `@yadwy/store`  | `apps/store`      | The Next.js app that the users use to buy products and contact with the merchants.                                                                                            |
 | `@yadwy/api`    | `packages/api`    | Contains the basic logic for the API calls to the backend so that it can be reused in other workspaces.                                                                       |
 | `@yadwy/config` | `packages/config` | Contains the configurations for tools that may vary between workspaces, like `tsconfig.json`. but not the global tools like Biome which is configured for the whole monorepo. |
+| `@yadwy/types`  | `packages/types`  | The types that will be used between the difference packages like `Product`                                                                                                    |
 
 ### Tools Needed
 

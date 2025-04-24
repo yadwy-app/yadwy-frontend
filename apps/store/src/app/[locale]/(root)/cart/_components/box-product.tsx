@@ -1,8 +1,8 @@
 "use client";
+import type { Product } from "@yadwy/types";
 import Image from "next/image";
 import { useState } from "react";
 import { getProductCoverImage } from "~/lib/product-utils";
-import type { Product } from "~/types";
 
 interface ItemProps {
   item: Product;

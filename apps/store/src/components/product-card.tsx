@@ -1,5 +1,6 @@
 "use client";
 
+import type { Product } from "@yadwy/types";
 import { Eye, Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -9,7 +10,6 @@ import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
 import { getProductCoverImage } from "~/lib/product-utils";
 import { cn } from "~/lib/utils";
-import type { Product } from "~/types";
 import { ProductQuickView } from "./product-quick-view";
 
 interface ProductCardProps extends Product {}
