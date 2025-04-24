@@ -13,5 +13,5 @@
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", ".next", ".turbo"]
+  "exclude": ["node_modules", ".next", ".turbo", "src/components/ui"]
 }
