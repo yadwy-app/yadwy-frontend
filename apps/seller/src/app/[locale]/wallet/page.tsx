@@ -1,10 +1,10 @@
-import { DashboardHome } from "@/components/dashboard-home";
 import { DashboardLayout } from "@/components/dashboard-layout";
+import { WalletPage } from "@/components/wallet-page";
 
-export default function Home() {
+export default function Wallet() {
   return (
     <DashboardLayout>
-      <DashboardHome />
+      <WalletPage />
     </DashboardLayout>
   );
 }
