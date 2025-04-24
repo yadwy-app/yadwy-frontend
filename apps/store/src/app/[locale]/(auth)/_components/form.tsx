@@ -13,8 +13,8 @@ import {
   Form as _Form,
 } from "~/components/ui/form";
 import { toast } from "~/hooks/use-toast";
+import type { FormProps, FormState } from "~/lib/forms";
 import { cn } from "~/lib/utils";
-import type { FormProps, FormState } from "~/types/forms";
 
 type Props<T extends z.ZodType> = FormProps<T> & {
   primaryButtonText: string;

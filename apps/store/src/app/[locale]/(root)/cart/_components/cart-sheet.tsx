@@ -1,3 +1,4 @@
+import type { Product } from "@yadwy/types";
 import { FaClipboardCheck } from "react-icons/fa6";
 import { Button } from "~/components/ui/button";
 import {
@@ -8,7 +9,6 @@ import {
 } from "~/components/ui/sheet";
 import useTextDirection from "~/hooks/useDirection";
 import { Link } from "~/i18n/routing";
-import type { Product } from "~/types";
 import { BoxProductCart } from "./box-product";
 
 interface CartProps {
