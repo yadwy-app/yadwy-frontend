@@ -3,19 +3,18 @@
   "workspaces": {
     "": {
       "name": "yadwy-frontend",
-      "dependencies": {
-        "js-cookie": "^3.0.5",
-        "jwt-decode": "^4.0.0",
-      },
       "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
         "@yadwy/config": "workspace:*",
+        "lefthook": "^1.11.10",
+        "prettier": "^3.5.3",
+        "turbo": "^2.5.0",
       },
     },
     "apps/store": {
       "name": "@yadwy/store",
       "version": "0.1.0",
       "dependencies": {
-        "@biomejs/biome": "^1.9.4",
         "@hookform/resolvers": "^5.0.1",
         "@radix-ui/react-accordion": "^1.2.3",
         "@radix-ui/react-checkbox": "^1.1.4",
@@ -38,6 +37,7 @@
         "@t3-oss/env-nextjs": "^0.10.1",
         "@tanstack/react-query": "^5.71.1",
         "@types/rtl-detect": "^1.0.3",
+        "@yadwy/types": "workspace:*",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "cmdk": "1.0.0",
@@ -66,11 +66,8 @@
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
         "@yadwy/config": "workspace:*",
-        "lefthook": "^1.11.10",
         "postcss": "^8.4.39",
-        "prettier": "^3.5.3",
         "tailwindcss": "^4.1.4",
-        "turbo": "^2.5.0",
         "typescript": "^5.5.3",
       },
     },
@@ -78,19 +75,28 @@
       "name": "@yadwy/api",
       "dependencies": {
         "@types/js-cookie": "^3.0.6",
+        "@yadwy/types": "workspace:*",
         "axios": "^1.7.2",
         "js-cookie": "^3.0.5",
         "jwt-decode": "^4.0.0",
         "next": "^15.3.1",
         "typescript": "^5.5.2",
         "zod": "^3.23.8",
+        "zustand": "^5.0.3",
       },
       "devDependencies": {
         "@yadwy/config": "workspace:*",
+        "tailwindcss": "^4.1.4",
       },
     },
     "packages/config": {
       "name": "@yadwy/config",
+    },
+    "packages/types": {
+      "name": "@yadwy/types",
+      "devDependencies": {
+        "tailwindcss": "^4.1.4",
+      },
     },
   },
   "packages": {
@@ -345,6 +351,8 @@
     "@yadwy/config": ["@yadwy/config@workspace:packages/config"],
 
     "@yadwy/store": ["@yadwy/store@workspace:apps/store"],
+
+    "@yadwy/types": ["@yadwy/types@workspace:packages/types"],
 
     "aria-hidden": ["aria-hidden@1.2.4", "", { "dependencies": { "tslib": "^2.0.0" } }, "sha512-y+CcFFwelSXpLZk/7fMB2mUbGtX9lKycf1MWJ7CaTIERyitVlyQx6C+sxcROU2BAJ24OiZyK+8wj2i8AlBoS3A=="],
 
@@ -617,6 +625,8 @@
     "yup": ["yup@1.6.1", "", { "dependencies": { "property-expr": "^2.0.5", "tiny-case": "^1.0.3", "toposort": "^2.0.2", "type-fest": "^2.19.0" } }, "sha512-JED8pB50qbA4FOkDol0bYF/p60qSEDQqBD0/qeIrUCG1KbPBIQ776fCUNb9ldbPcSTxA69g/47XTo4TqWiuXOA=="],
 
     "zod": ["zod@3.24.2", "", {}, "sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ=="],
+
+    "zustand": ["zustand@5.0.3", "", { "peerDependencies": { "@types/react": ">=18.0.0", "immer": ">=9.0.6", "react": ">=18.0.0", "use-sync-external-store": ">=1.2.0" }, "optionalPeers": ["@types/react", "immer", "react", "use-sync-external-store"] }, "sha512-14fwWQtU3pH4dE0dOpdMiWjddcH+QzKIgk1cl8epwSE7yag43k/AD/m4L6+K7DytAOr9gGBe3/EXj9g7cdostg=="],
 
     "@formatjs/ecma402-abstract/@formatjs/intl-localematcher": ["@formatjs/intl-localematcher@0.6.0", "", { "dependencies": { "tslib": "2" } }, "sha512-4rB4g+3hESy1bHSBG3tDFaMY2CH67iT7yne1e+0CLTsGLDcmoEWWpJjjpWVaYgYfYuohIRuo0E+N536gd2ZHZA=="],
 

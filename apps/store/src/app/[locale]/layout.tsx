@@ -5,6 +5,7 @@ import "~/styles/globals.css";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
 // TODO: only include the required font for the current lang of the user
 import { cairo, lalezar, lexend } from "~/styles/fonts";
@@ -45,6 +46,7 @@ export default async function RootLayout({
             <Providers>{children}</Providers>
           </NextIntlClientProvider>
         </div>
+        <Toaster />
       </body>
     </html>
   );

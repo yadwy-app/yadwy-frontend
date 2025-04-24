@@ -17,8 +17,8 @@ import {
   Form as _Form,
 } from "~/components/ui/form";
 import { toast } from "~/hooks/use-toast";
+import type { ActionType, FormState } from "~/lib/forms";
 import { cn } from "~/lib/utils";
-import type { ActionType, FormState } from "~/types/forms";
 
 // Updated type definitions for Zod
 type Inputs<T extends z.ZodTypeAny, V extends Path<z.infer<T>>> = {

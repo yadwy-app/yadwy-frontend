@@ -14,15 +14,6 @@
       "persistent": true,
       "cache": false
     },
-    "check": {
-      "dependsOn": ["^topo"]
-    },
-    "check:biome": {
-      "dependsOn": ["^topo"]
-    },
-    "check:prettier": {
-      "dependsOn": ["^topo"]
-    },
     "check:types": {
       "dependsOn": ["^topo"],
       "outputs": ["tsconfig.tsbuildinfo"]

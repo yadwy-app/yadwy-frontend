@@ -4,19 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "bun check && next build",
-    "check": "bun check:biome && bun check:prettier && bun check:types",
-    "check:biome": "biome check . --write --unsafe",
-    "check:prettier": "prettier . --write",
+    "build": "next build",
     "check:types": "tsc --noEmit",
     "dev": "next dev --turbo --port 4000",
     "preview": "next build && next start",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@biomejs/biome": "^1.9.4",
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-checkbox": "^1.1.4",
@@ -65,11 +60,8 @@
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "lefthook": "^1.11.10",
     "postcss": "^8.4.39",
-    "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4",
-    "turbo": "^2.5.0",
     "typescript": "^5.5.3",
     "@yadwy/config": "workspace:*"
   }

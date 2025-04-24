@@ -1,7 +1,7 @@
+import type { Product } from "@yadwy/types";
 import { FaHeadset } from "react-icons/fa6";
 import { GoDatabase } from "react-icons/go";
 import { HiOutlineTruck } from "react-icons/hi";
-import type { Product } from "~/types";
 
 // Seeded random function, we need this to make the data deterministic
 // so that hydration errors don't occur
