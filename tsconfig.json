@@ -1,5 +1,10 @@
 {
   "extends": ["@yadwy/config/tsconfig.json"],
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/.turbo", "**/.next/", "src/components/ui"]
+  "exclude": [
+    "**/node_modules",
+    "**/.turbo",
+    "**/.next/",
+    "apps/seller/src/components/ui"
+  ]
 }
