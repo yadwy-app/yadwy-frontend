@@ -1,12 +1,13 @@
 import { DashboardLayout } from "@/components/dashboard-layout";
 import { OrderDetails } from "@/components/order-details";
 
-export default function OrderDetailsPage({
+export default async function OrderDetailsPage({
   params,
-}: { params: { id: string } }) {
+}: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   return (
     <DashboardLayout>
-      <OrderDetails orderId={params.id} />
+      <OrderDetails orderId={id} />
     </DashboardLayout>
   );
 }

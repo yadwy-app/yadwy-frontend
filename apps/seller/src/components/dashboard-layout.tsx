@@ -111,7 +111,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="border-t p-4">
           <div className="flex items-center gap-3">
             <Avatar>
-              <AvatarImage src="/placeholder-user.jpg" alt="User" />
+              <AvatarImage src="/placeholder-user.png" alt="User" />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
@@ -180,7 +180,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="border-t p-4">
             <div className="flex items-center gap-3">
               <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" alt="User" />
+                <AvatarImage src="/placeholder-user.png" alt="User" />
                 <AvatarFallback>SC</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
@@ -226,7 +226,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               </DropdownMenuContent>
             </DropdownMenu>
             <Avatar className="h-8 w-8 md:hidden">
-              <AvatarImage src="/placeholder-user.jpg" alt="User" />
+              <AvatarImage src="/placeholder-user.png" alt="User" />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
           </div>

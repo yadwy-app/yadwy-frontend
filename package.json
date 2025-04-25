@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun store dev",
     "store": "turbo --filter @yadwy/store",
+    "seller": "turbo --filter @yadwy/seller",
     "prepare": "lefthook install",
     "check": "bun check:biome && bun check:prettier && bun check:types",
     "check:types": "turbo check:types",
@@ -19,23 +20,5 @@
     "lefthook": "^1.11.10",
     "prettier": "^3.5.3",
     "turbo": "^2.5.0"
-  },
-  "dependencies": {
-    "@radix-ui/react-alert-dialog": "^1.1.11",
-    "@radix-ui/react-aspect-ratio": "^1.1.4",
-    "@radix-ui/react-avatar": "^1.1.7",
-    "@radix-ui/react-context-menu": "^2.2.12",
-    "@radix-ui/react-hover-card": "^1.1.11",
-    "@radix-ui/react-menubar": "^1.1.12",
-    "@radix-ui/react-scroll-area": "^1.2.6",
-    "@radix-ui/react-switch": "^1.2.2",
-    "@radix-ui/react-toggle-group": "^1.1.7",
-    "input-otp": "^1.4.2",
-    "next-themes": "^0.4.6",
-    "react-day-picker": "^9.6.7",
-    "react-resizable-panels": "^2.1.8",
-    "recharts": "^2.15.3",
-    "sonner": "^2.0.3",
-    "vaul": "^1.1.2"
   }
 }

@@ -1,12 +1,13 @@
 import { DashboardLayout } from "@/components/dashboard-layout";
 import { ProductForm } from "@/components/product-form";
 
-export default function EditProductPage({
+export default async function EditProductPage({
   params,
-}: { params: { id: string } }) {
+}: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   return (
     <DashboardLayout>
-      <ProductForm mode="edit" productId={params.id} />
+      <ProductForm mode="edit" productId={id} />
     </DashboardLayout>
   );
 }

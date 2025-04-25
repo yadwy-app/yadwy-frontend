@@ -214,6 +214,7 @@ export function OnboardingFlow() {
                 customizing your store.
               </p>
               <Image
+                // TODO: add the image of the seller
                 src="/placeholder.svg?height=120&width=240"
                 alt="Success illustration"
                 width={240}

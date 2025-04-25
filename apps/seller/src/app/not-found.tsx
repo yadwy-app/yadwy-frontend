@@ -30,10 +30,7 @@ const NotFoundPage = () => {
           </div>
 
           <Button size="lg" className="animate-bounce shadow-md" asChild>
-            <Link href="/">
-              <ShoppingBag className="mr-2 h-5 w-5" />
-              Return to Shop
-            </Link>
+            <Link href="/">Return to main page</Link>
           </Button>
         </div>
       </body>
