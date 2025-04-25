@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "build": "bun check && next build",
     "check:types": "tsc --noEmit",
     "dev": "next dev --turbo --port 5000",
     "preview": "next build && next start",
