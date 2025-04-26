@@ -15,7 +15,7 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: 1.2.0
+          bun-version: 1.2.10
 
       - name: Install Dependencies
         run: bun install
@@ -30,6 +30,9 @@ jobs:
 
       - name: Run Biome
         run: bun check:biome:ci
+
+      - name: Clean TypeScript artifacts
+        run: find . -name "*.tsbuildinfo" -type f -delete
 
       - name: Run TypeScript
         run: bun check:types
