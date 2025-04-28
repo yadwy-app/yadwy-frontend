@@ -13,8 +13,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
@@ -22,9 +22,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@yadwy/ui";
+import { Progress } from "@yadwy/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@yadwy/ui";
 
 export function DashboardHome() {
   return (

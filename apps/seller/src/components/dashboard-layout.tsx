@@ -18,9 +18,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@yadwy/ui";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,9 +29,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
+} from "@yadwy/ui";
+import { Sheet, SheetContent } from "@yadwy/ui";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;

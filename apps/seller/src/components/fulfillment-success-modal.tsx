@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@yadwy/ui";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +10,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@yadwy/ui";
 
 interface FulfillmentSuccessModalProps {
   open: boolean;

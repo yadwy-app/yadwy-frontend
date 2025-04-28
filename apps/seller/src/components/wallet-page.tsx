@@ -10,8 +10,8 @@ import {
   Wallet,
 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
@@ -19,7 +19,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@yadwy/ui";
 import {
   Table,
   TableBody,
@@ -27,8 +27,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@yadwy/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@yadwy/ui";
 
 export function WalletPage() {
   const transactions = [

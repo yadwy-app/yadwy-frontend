@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { toast } from "@/hooks/use-toast";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -24,30 +25,29 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+} from "@yadwy/ui";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "@yadwy/ui";
+import { Input } from "@yadwy/ui";
+import { Label } from "@yadwy/ui";
+import { RadioGroup, RadioGroupItem } from "@yadwy/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/hooks/use-toast";
+} from "@yadwy/ui";
+import { Separator } from "@yadwy/ui";
+import { Switch } from "@yadwy/ui";
+import { Textarea } from "@yadwy/ui";
 
 interface ProductFormProps {
   mode: "create" | "edit";

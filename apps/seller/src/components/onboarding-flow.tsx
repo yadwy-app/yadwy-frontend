@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
@@ -13,18 +13,18 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "@yadwy/ui";
+import { Input } from "@yadwy/ui";
+import { Label } from "@yadwy/ui";
+import { RadioGroup, RadioGroupItem } from "@yadwy/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+} from "@yadwy/ui";
+import { Textarea } from "@yadwy/ui";
 
 export function OnboardingFlow() {
   const router = useRouter();

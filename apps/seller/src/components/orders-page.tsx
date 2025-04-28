@@ -13,15 +13,15 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@yadwy/ui";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,15 +29,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
+} from "@yadwy/ui";
+import { Input } from "@yadwy/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@yadwy/ui";
 import {
   Table,
   TableBody,
@@ -45,7 +45,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@yadwy/ui";
 
 export function OrdersPage() {
   const [searchQuery, setSearchQuery] = useState("");
