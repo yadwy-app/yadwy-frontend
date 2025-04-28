@@ -18,7 +18,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@yadwy/ui";
 import { Avatar, AvatarFallback, AvatarImage } from "@yadwy/ui";
 import { Badge } from "@yadwy/ui";
 import { Button } from "@yadwy/ui";

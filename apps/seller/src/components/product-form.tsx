@@ -14,8 +14,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
-import { toast } from "@/hooks/use-toast";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -223,8 +223,7 @@ export function ProductForm({ mode, productId }: ProductFormProps) {
     // Simulate API call to save product
     setTimeout(() => {
       setIsSaving(false);
-      toast({
-        title: mode === "create" ? "Product created" : "Product updated",
+      toast(mode === "create" ? "Product created" : "Product updated", {
         description: `${formData.name} has been ${mode === "create" ? "created" : "updated"} successfully.`,
       });
 
@@ -239,10 +238,10 @@ export function ProductForm({ mode, productId }: ProductFormProps) {
     // Simulate API call to delete product
     setTimeout(() => {
       setIsLoading(false);
-      toast({
-        title: "Product deleted",
+      toast("Product deleted", {
         description: `${formData.name} has been deleted.`,
-        variant: "destructive",
+        // TODO: search for a way to make a variant in sonner.
+        // variant: "destructive",
       });
 
       // Redirect to products page
