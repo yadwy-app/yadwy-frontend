@@ -1,7 +1,6 @@
 "use client";
 
 import { Star } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Card, CardContent } from "~/components/ui/card";
 
@@ -20,39 +19,35 @@ export function AboutSeller({
   sellerProductsCount,
   memberSince,
   bio,
-  sellerRating = 3,
+  sellerRating,
 }: Props) {
-  const _t = useTranslations("ProductDetails");
-
   return (
     <Card className="border-0 shadow-sm">
       <CardContent className="p-6">
         <div className="flex items-start gap-4">
           <Avatar className="h-12 w-12 border">
-            {/* TODO Avater photo */}
             <AvatarImage src="https://github.com/shadcn.png" />
-
             <AvatarFallback>N</AvatarFallback>
           </Avatar>
-
           <div className="space-y-1">
-            <h3 className="font-bold text-lg">{sellerName}</h3>
-            <p className="text-sm">{sellerSubtitle}</p>
+            <h3 className="font-medium text-lg">{sellerName}</h3>
+            <p className="text-sm text-muted-foreground">{sellerSubtitle}</p>
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 mt-2">
               <div>
-                <p className="text-sm font-semibold">Member Since</p>
+                <p className="text-sm font-medium">Member Since</p>
                 <p className="text-sm text-muted-foreground">{memberSince}</p>
               </div>
               <div>
-                <p className="text-sm font-semibold">Products</p>
+                <p className="text-sm font-medium">Products</p>
                 <p className="text-sm text-muted-foreground">
                   {sellerProductsCount}
                 </p>
               </div>
               <div>
-                <p className="text-sm font-semibold">Rating</p>
+                <p className="text-sm font-medium">Rating</p>
                 <div className="flex items-center">
+                  {/* @ts-ignore */}
                   {Array.from({ length: sellerRating }).map((_, index) => (
                     <Star
                       key={`star-rating-${index}-${sellerName}`}
@@ -66,9 +61,7 @@ export function AboutSeller({
         </div>
 
         <div className="mt-4">
-          <p className="text-sm font-semibold md:text-base text-muted-foreground">
-            {bio}
-          </p>
+          <p className="text-sm md:text-base text-muted-foreground">{bio}</p>
         </div>
       </CardContent>
     </Card>

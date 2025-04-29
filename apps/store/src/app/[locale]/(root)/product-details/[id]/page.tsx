@@ -17,17 +17,14 @@ const AboutTabs = dynamic(() => import("../_components/about-tabs"), {
   ),
 });
 
-const Categories = dynamic(() => import("../../_sections/categories"), {
-  loading: () => (
-    <div className="h-[200px] animate-pulse bg-gray-100 rounded-md" />
-  ),
-});
-
-const Products = dynamic(() => import("../../_sections/products"), {
-  loading: () => (
-    <div className="h-[300px] animate-pulse bg-gray-100 rounded-md" />
-  ),
-});
+const SimilarProducts = dynamic(
+  () => import("../_components/similar-products"),
+  {
+    loading: () => (
+      <div className="h-[300px] animate-pulse bg-gray-100 rounded-md" />
+    ),
+  },
+);
 
 const ButtonAction = dynamic(() => import("../_components/button-actions"), {
   loading: () => (
@@ -129,15 +126,10 @@ export default async function Page({
           <div className="h-[300px] animate-pulse bg-gray-100 rounded-md" />
         }
       >
-        <Products title={t("youMayAlsoLike")} products={similarProducts} />
-      </Suspense>
-
-      <Suspense
-        fallback={
-          <div className="h-[200px] animate-pulse bg-gray-100 rounded-md" />
-        }
-      >
-        <Categories />
+        <SimilarProducts
+          title={t("youMayAlsoLike")}
+          products={similarProducts}
+        />
       </Suspense>
     </PageContainer>
   );
