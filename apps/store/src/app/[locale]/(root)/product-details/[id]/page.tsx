@@ -25,7 +25,6 @@ const SimilarProducts = dynamic(
     ),
   },
 );
-
 const ButtonAction = dynamic(() => import("../_components/button-actions"), {
   loading: () => (
     <div className="h-[100px] animate-pulse bg-gray-100 rounded-md" />

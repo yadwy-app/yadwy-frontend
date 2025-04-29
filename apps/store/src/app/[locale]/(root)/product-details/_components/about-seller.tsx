@@ -47,7 +47,6 @@ export function AboutSeller({
               <div>
                 <p className="text-sm font-medium">Rating</p>
                 <div className="flex items-center">
-                  {/* @ts-ignore */}
                   {Array.from({ length: sellerRating }).map((_, index) => (
                     <Star
                       key={`star-rating-${index}-${sellerName}`}
