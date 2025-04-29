@@ -1,13 +1,21 @@
+"use client";
+
 import { forwardRef } from "react";
 import { useFormField } from "~/components/ui/form";
 import { Input, type InputProps } from "~/components/ui/input";
+import { cn } from "~/lib/utils";
 
 const Field = forwardRef<HTMLInputElement, InputProps>(
-  ({ type, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     const { error } = useFormField();
+
     return (
-      <div className="flex flex-col gap-x-2 justify-center">
-        <Input type={type ?? "text"} {...props} ref={ref} />
+      <div className="w-full space-y-2">
+        <Input
+          className={cn("focus-visible:ring-primary", className)}
+          {...props}
+          ref={ref}
+        />
         <p className="text-sm text-red-600">{error?.message || <>&nbsp;</>}</p>
       </div>
     );

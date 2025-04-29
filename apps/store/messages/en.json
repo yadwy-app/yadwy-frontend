@@ -1,6 +1,14 @@
 {
   "common": {
-    "Logo": "Yadawi"
+    "Logo": "Yadawi",
+    "alsoLike": "You may also like",
+    "youMayAlsoLike": "You may also like",
+    "seller": "Seller",
+    "addedToCart": "Added to cart",
+    "makeYourOrder": "Make your order",
+    "customizeOrder": "Customize order",
+    "readMore": "Read more",
+    "readLess": "Read less"
   },
   "ProductDetails": {
     "featuresTitle": "Product Overview",

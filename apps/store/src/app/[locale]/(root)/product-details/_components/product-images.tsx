@@ -18,16 +18,17 @@ export default function ProductImage({ images }: { images: string[] }) {
 
   return (
     <div className="flex flex-col gap-2 w-full md:max-w-[487px]">
-      <div className="relative aspect-square w-full overflow-hidden">
+      <div className="relative aspect-square w-full overflow-hidden bg-gray-100">
         <Image
           src={images[selectedIndex] ?? "/placeholder.svg"}
           alt={`Product Image ${selectedIndex + 1}`}
           className="object-cover rounded-md border border-border"
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 487px"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 487px"
           placeholder="blur"
-          blurDataURL="/placeholder.svg"
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg=="
+          loading="eager"
         />
       </div>
       <Carousel className="relative">
@@ -52,6 +53,7 @@ export default function ProductImage({ images }: { images: string[] }) {
                   className="w-full rounded-md bg-contain"
                   width={100}
                   height={100}
+                  loading={index < 4 ? "eager" : "lazy"}
                 />
               </div>
             </CarouselItem>
