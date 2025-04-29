@@ -47,7 +47,7 @@ export function AboutSeller({
               <div>
                 <p className="text-sm font-medium">Rating</p>
                 <div className="flex items-center">
-                  {Array.from({ length: sellerRating }).map((_, index) => (
+                  {Array.from({ length: sellerRating ?? 0 }).map((_, index) => (
                     <Star
                       key={`star-rating-${index}-${sellerName}`}
                       className="h-2 w-2 fill-amber-400 text-amber-400"
