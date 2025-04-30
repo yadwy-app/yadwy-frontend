@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 import {
   AlertDialog,
@@ -24,30 +25,29 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+} from "@yadwy/ui";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from "@yadwy/ui";
+import { Input } from "@yadwy/ui";
+import { Label } from "@yadwy/ui";
+import { RadioGroup, RadioGroupItem } from "@yadwy/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/hooks/use-toast";
+} from "@yadwy/ui";
+import { Separator } from "@yadwy/ui";
+import { Switch } from "@yadwy/ui";
+import { Textarea } from "@yadwy/ui";
 
 interface ProductFormProps {
   mode: "create" | "edit";
@@ -223,8 +223,7 @@ export function ProductForm({ mode, productId }: ProductFormProps) {
     // Simulate API call to save product
     setTimeout(() => {
       setIsSaving(false);
-      toast({
-        title: mode === "create" ? "Product created" : "Product updated",
+      toast(mode === "create" ? "Product created" : "Product updated", {
         description: `${formData.name} has been ${mode === "create" ? "created" : "updated"} successfully.`,
       });
 
@@ -239,10 +238,10 @@ export function ProductForm({ mode, productId }: ProductFormProps) {
     // Simulate API call to delete product
     setTimeout(() => {
       setIsLoading(false);
-      toast({
-        title: "Product deleted",
+      toast("Product deleted", {
         description: `${formData.name} has been deleted.`,
-        variant: "destructive",
+        // TODO: search for a way to make a variant in sonner.
+        // variant: "destructive",
       });
 
       // Redirect to products page

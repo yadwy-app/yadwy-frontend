@@ -4,19 +4,19 @@ import { MapPin, Plus, Save, Trash2, Upload } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
+} from "@yadwy/ui";
+import { Input } from "@yadwy/ui";
+import { Label } from "@yadwy/ui";
+import { Separator } from "@yadwy/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@yadwy/ui";
+import { Textarea } from "@yadwy/ui";
 
 export function SettingsPage() {
   const [addresses, _setAddresses] = useState([

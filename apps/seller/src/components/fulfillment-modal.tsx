@@ -2,7 +2,7 @@
 
 import { Package } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@yadwy/ui";
 import {
   Dialog,
   DialogContent,
@@ -10,9 +10,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+} from "@yadwy/ui";
+import { Label } from "@yadwy/ui";
+import { Textarea } from "@yadwy/ui";
 import { useState } from "react";
 
 interface FulfillmentModalProps {

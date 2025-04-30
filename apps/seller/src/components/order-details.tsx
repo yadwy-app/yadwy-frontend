@@ -18,16 +18,16 @@ import { useState } from "react";
 import { AddressModal } from "@/components/address-modal";
 import { FulfillmentModal } from "@/components/fulfillment-modal";
 import { FulfillmentSuccessModal } from "@/components/fulfillment-success-modal";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@yadwy/ui";
+import { Button } from "@yadwy/ui";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+} from "@yadwy/ui";
+import { Separator } from "@yadwy/ui";
 
 interface OrderDetailsProps {
   orderId: string;

@@ -2,9 +2,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTimeZone } from "next-intl/server";
 import { Providers } from "../providers";
 import "@/styles/globals.css";
-import { cn } from "@/lib/utils";
 // TODO: only include the required font for the current lang of the user
 import { cairo, lalezar, lexend } from "@/styles/fonts";
+import { cn } from "@yadwy/ui";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import NextTopLoader from "nextjs-toploader";

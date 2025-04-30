@@ -30,6 +30,10 @@
     "indentWidth": 2
   },
   "files": {
-    "ignore": ["**/.vscode-server/**", "apps/seller/src/components/ui/**"]
+    "ignore": [
+      "**/.vscode-server/**",
+      "packages/ui/src/components",
+      "apps/seller/src/components/ui"
+    ]
   }
 }

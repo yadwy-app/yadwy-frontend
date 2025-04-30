@@ -5,7 +5,7 @@ import type React from "react";
 import { MapPin } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@yadwy/ui";
 import {
   Dialog,
   DialogContent,
@@ -13,16 +13,16 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@yadwy/ui";
+import { Input } from "@yadwy/ui";
+import { Label } from "@yadwy/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@yadwy/ui";
 
 interface AddressModalProps {
   open: boolean;
