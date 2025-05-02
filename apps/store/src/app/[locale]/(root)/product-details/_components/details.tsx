@@ -70,7 +70,7 @@ export default function ProductDetails({
 
         {/* Fixed position read more button */}
         {showReadMore && (
-          <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-1 bg-white">
+          <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-1 bg-background">
             <Button
               variant="ghost"
               size="sm"
