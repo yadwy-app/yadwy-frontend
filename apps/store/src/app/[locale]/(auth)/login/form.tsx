@@ -27,7 +27,7 @@ export function LoginForm() {
 
   return (
     <Card className="overflow-hidden border-none shadow-xl">
-      <CardContent className="grid p-0 md:grid-cols-2 xl:grid-cols-[1fr_1.5fr]">
+      <CardContent className="grid p-0 md:grid-cols-2 xl:grid-cols-[1fr_1.5fr] md:h-[600px]">
         <div className="p-6 md:p-8">
           <div className="flex flex-col">
             <div className="flex flex-col items-center text-center gap-2">

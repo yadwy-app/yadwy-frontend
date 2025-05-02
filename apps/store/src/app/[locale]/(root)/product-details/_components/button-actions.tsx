@@ -1,5 +1,6 @@
 "use client";
 import { ShoppingBag, ShoppingCart } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { toast } from "~/hooks/use-toast";
@@ -15,6 +16,7 @@ type CartItemProps = {
 };
 
 export default function ButtonAction({ item }: { item: CartItemProps }) {
+  const t = useTranslations("common");
   const addToCartHandler = () => {
     toast({
       title: `${item.title} added to cart 🛒`,
@@ -32,24 +34,37 @@ export default function ButtonAction({ item }: { item: CartItemProps }) {
     }
   };
   return (
-    <div className="flex w-full flex-col items-center gap-4 md:flex-row">
+    <div className="flex w-full flex-col gap-4">
       <QuantityCounter
         quantity={quantityCounter}
         increment={incrementQuantity}
         decrement={decrementQuantity}
       />
-      <Button
-        className="flex w-full gap-4 text-background"
-        onClick={addToCartHandler}
-      >
-        <ShoppingBag className="text-background" />
-        Add
-      </Button>
-      <h3 className="text-secondary-foreground">or</h3>
-      <Button className="flex w-full gap-4 text-background">
-        <ShoppingCart className="" />
-        Make your order
-      </Button>
+      <div className="flex flex-col w-full gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Button
+            className="flex w-full gap-4 text-background md:text-lg"
+            onClick={addToCartHandler}
+          >
+            <ShoppingBag className="text-background" />
+            {t("addedToCart")}
+          </Button>
+          <Button
+            variant={"ghost"}
+            className="flex w-full gap-4 border md:text-lg"
+          >
+            <ShoppingCart className="" />
+            {t("makeYourOrder")}
+          </Button>
+        </div>
+        <Button
+          variant="outline"
+          size="lg"
+          className="border-dashed border-primary hover:bg-teal-50 md:text-lg"
+        >
+          {t("customizeOrder")}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -17,17 +17,20 @@ interface ProductCardProps extends Product {}
 export function ProductCard({ ...product }: ProductCardProps) {
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(product.isFavorite || false);
+
   return (
     <>
       <Link href={`/product-details/${product.id}`}>
         <div className="group group/product-card border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all duration-300">
-          <div className="relative aspect-square overflow-hidden bg-gray-50">
+          <div className="relative aspect-square overflow-hidden bg-gray-100">
             <Image
               src={getProductCoverImage(product)}
               alt={product.name}
               width={300}
               height={300}
               className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             />
 
             {/* Quick actions overlay */}
@@ -110,7 +113,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
 
                   return (
                     <svg
-                      key={Math.random()}
+                      key={`star-${i}-${product.id}`}
                       className={cn(
                         "h-3 w-3",
                         filled
@@ -163,11 +166,13 @@ export function ProductCard({ ...product }: ProductCardProps) {
           </div>
         </div>
       </Link>
-      <ProductQuickView
-        onOpenChange={(val) => setIsQuickViewOpen(val)}
-        open={isQuickViewOpen}
-        productId={product.id}
-      />
+      {isQuickViewOpen && (
+        <ProductQuickView
+          onOpenChange={(val) => setIsQuickViewOpen(val)}
+          open={isQuickViewOpen}
+          productId={product.id}
+        />
+      )}
     </>
   );
 }

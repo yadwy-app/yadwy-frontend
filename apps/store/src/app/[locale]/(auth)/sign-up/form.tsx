@@ -118,7 +118,7 @@ export default function FormSignUp() {
             <Providers text={t("or")} />
             <div className="text-center text-sm">
               {t("signup.title")}{" "}
-              <Link href="/sign-up" className="underline underline-offset-4">
+              <Link href="/login" className="underline underline-offset-4">
                 {t("signup.button")}
               </Link>
             </div>

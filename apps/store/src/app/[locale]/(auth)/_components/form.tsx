@@ -1,7 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { useActionState, useRef } from "react";
+import { useActionState, useOptimistic, useRef } from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
 import { Button } from "~/components/ui/button";
@@ -34,6 +34,12 @@ export default function Form<T extends z.ZodType>({
     FormData
   >(action, { error: undefined, fields: undefined });
 
+  // Use optimistic UI update for better perceived performance
+  const [optimisticIsPending, addOptimisticIsPending] = useOptimistic(
+    isPending,
+    (_state, newPending: boolean) => newPending,
+  );
+
   if (state?.error) {
     toast({
       title: "Uh oh!",
@@ -41,6 +47,7 @@ export default function Form<T extends z.ZodType>({
       variant: "destructive",
     });
   }
+
   const ref = useRef<HTMLFormElement>(null);
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -50,7 +57,13 @@ export default function Form<T extends z.ZodType>({
   });
 
   const handleSubmit = form.handleSubmit(() => {
-    if (ref.current) formAction(new FormData(ref.current));
+    if (ref.current) {
+      // Show optimistic loading state
+      addOptimisticIsPending(true);
+
+      // Submit the form
+      formAction(new FormData(ref.current));
+    }
   });
 
   return (
@@ -86,8 +99,15 @@ export default function Form<T extends z.ZodType>({
             />
           ))}
         </div>
-        <Button type="submit" disabled={isPending} className="w-full text-base">
-          {isPending ? <Loader2 className="animate-spin" /> : primaryButtonText}
+        <Button
+          type="submit"
+          disabled={optimisticIsPending}
+          className="w-full text-base transition-all duration-200"
+        >
+          {optimisticIsPending ? (
+            <Loader2 className="animate-spin mr-2" />
+          ) : null}
+          {optimisticIsPending ? "Processing..." : primaryButtonText}
         </Button>
       </form>
     </_Form>

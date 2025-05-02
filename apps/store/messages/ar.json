@@ -1,6 +1,13 @@
 {
   "common": {
-    "Logo": "يَدَوِيّ"
+    "Logo": "يَدَوِيّ",
+    "youMayAlsoLike": "  منتجات قد تعجبك",
+    "seller": "البائع",
+    "addedToCart": "اضيف الى السلة",
+    "makeYourOrder": "اطلب الآن",
+    "customizeOrder": "خصص الطلب",
+    "seeMore": "عرض المزيد",
+    "seeLess": "عرض الأقل"
   },
   "ProductDetails": {
     "featuresTitle": "نظرة عامة على المنتج",

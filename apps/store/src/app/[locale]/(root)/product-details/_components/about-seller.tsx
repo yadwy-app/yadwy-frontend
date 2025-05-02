@@ -1,13 +1,15 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { Star } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Card, CardContent } from "~/components/ui/card";
 
 type Props = {
   sellerName: string;
   sellerSubtitle: string;
   sellerProductsCount: string;
+  bio: string;
   memberSince: string;
-  sellerDescription: string;
   sellerRating?: number;
 };
 
@@ -16,48 +18,51 @@ export function AboutSeller({
   sellerSubtitle,
   sellerProductsCount,
   memberSince,
-  sellerDescription,
-  sellerRating = 5,
+  bio,
+  sellerRating,
 }: Props) {
-  const t = useTranslations("ProductDetails");
-
   return (
-    <div className="p-6 border rounded-xl bg-background/80 shadow-sm">
-      <h3 className="text-lg font-semibold mb-4 text-textColor">
-        {t("sellerTitle")}
-      </h3>
-      <div className="space-y-4">
-        <div className="flex items-center space-x-3 p-3 rounded-xl bg-secondary border border-border">
-          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center text-primary-foreground font-bold">
-            {sellerName.charAt(0)}
-          </div>
-          <div>
-            <p className="font-medium text-textColor">{sellerName}</p>
+    <Card className="border-0 shadow-sm">
+      <CardContent className="p-6">
+        <div className="flex items-start gap-4">
+          <Avatar className="h-12 w-12 border">
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>N</AvatarFallback>
+          </Avatar>
+          <div className="space-y-1">
+            <h3 className="font-medium text-lg">{sellerName}</h3>
             <p className="text-sm text-muted-foreground">{sellerSubtitle}</p>
-          </div>
-          <div className="ml-auto text-amber-400 flex">
-            {Array(sellerRating).fill("★").join("")}
-            {Array(5 - sellerRating)
-              .fill("☆")
-              .join("")}
+
+            <div className="flex items-center gap-6 mt-2">
+              <div>
+                <p className="text-sm font-medium">Member Since</p>
+                <p className="text-sm text-muted-foreground">{memberSince}</p>
+              </div>
+              <div>
+                <p className="text-sm font-medium">Products</p>
+                <p className="text-sm text-muted-foreground">
+                  {sellerProductsCount}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-medium">Rating</p>
+                <div className="flex items-center">
+                  {Array.from({ length: sellerRating ?? 0 }).map((_, index) => (
+                    <Star
+                      key={`star-rating-${index}-${sellerName}`}
+                      className="h-2 w-2 fill-amber-400 text-amber-400"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="p-3 rounded-xl bg-secondary border border-border">
-            <p className="text-sm text-muted-foreground">
-              {t("sellerProducts")}
-            </p>
-            <p className="font-medium text-textColor">{sellerProductsCount}</p>
-          </div>
-          <div className="p-3 rounded-xl bg-secondary border border-border">
-            <p className="text-sm text-muted-foreground">
-              {t("sellerMemberSince")}
-            </p>
-            <p className="font-medium text-textColor">{memberSince}</p>
-          </div>
+
+        <div className="mt-4">
+          <p className="text-sm md:text-base text-muted-foreground">{bio}</p>
         </div>
-        <p className="text-muted-foreground">{sellerDescription}</p>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

@@ -1,5 +1,18 @@
-import { FaGoogle } from "react-icons/fa6";
+"use client";
+
+import dynamic from "next/dynamic";
 import { Button } from "~/components/ui/button";
+
+// Dynamically import the icon to reduce initial bundle size
+const FaGoogle = dynamic(
+  () => import("react-icons/fa6").then((mod) => mod.FaGoogle),
+  {
+    loading: () => (
+      <div className="h-4 w-4 bg-gray-300 animate-pulse rounded-full" />
+    ),
+    ssr: false, // No need to render this on the server
+  },
+);
 
 export default function Providers({ text }: { text: string }) {
   return (
@@ -13,6 +26,7 @@ export default function Providers({ text }: { text: string }) {
         <Button
           variant="outline"
           className="w-full flex items-center gap-2 justify-center"
+          type="button"
         >
           <FaGoogle className="h-4 w-4" />
           <span>Continue with Google</span>
