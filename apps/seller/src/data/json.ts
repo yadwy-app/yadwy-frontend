@@ -1,4 +1,4 @@
-import type { Transaction } from "@/app/[locale]/wallet/wallet-page";
+import type { Transaction } from "@/app/[locale]/wallet/page";
 
 export const orderSummaryData = [
   {
