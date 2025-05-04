@@ -1,13 +1,11 @@
-import { routing } from "@/i18n/routing";
-import createIntlMiddleware from "next-intl/middleware";
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+## Middleware
 
-const intlMiddleware = createIntlMiddleware(routing);
+- [Enable us to get path name from the server component.](https://medium.com/@beecodeguy/access-current-pathname-in-server-components-next-js-app-router-81686d2ed60f)
 
+```ts
 export default function middleware(request: NextRequest) {
   const headers = new Headers(request.headers);
-  const [, _locale, ...segments] = request.nextUrl.pathname.split("/");
+  const [, locale, ...segments] = request.nextUrl.pathname.split("/");
   headers.set("x-current-path", segments.join("/"));
 
   const response = NextResponse.next({
@@ -26,7 +24,13 @@ export default function middleware(request: NextRequest) {
 
   return response;
 }
+```
 
-export const config = {
-  matcher: ["/", "/(ar|en)/:path*"],
-};
+- How to use
+
+```ts
+import { headers } from "next/headers";
+
+const headerList = headers();
+const pathname = headerList.get("x-current-path");
+```

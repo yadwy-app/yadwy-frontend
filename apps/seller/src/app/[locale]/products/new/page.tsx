@@ -1,5 +1,5 @@
-import { DashboardLayout } from "@/components/dashboard-layout";
 import { ProductForm } from "@/components/product-form";
+import { DashboardLayout } from "../../_components";
 
 export default function NewProductPage() {
   return (
