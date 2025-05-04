@@ -7,22 +7,6 @@ export default function middleware(request: NextRequest) {
   const headers = new Headers(request.headers);
   const [, locale, ...segments] = request.nextUrl.pathname.split("/");
   headers.set("x-current-path", segments.join("/"));
-
-  const response = NextResponse.next({
-    headers,
-  });
-
-  const intlResponse = intlMiddleware(request);
-
-  if (intlResponse.status !== 200) {
-    return intlResponse;
-  }
-
-  intlResponse.headers.forEach((value, key) => {
-    response.headers.set(key, value);
-  });
-
-  return response;
 }
 ```
 
