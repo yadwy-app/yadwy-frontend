@@ -1,13 +1,17 @@
-import { NextIntlClientProvider } from "next-intl";
+import { type AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTimeZone } from "next-intl/server";
 import { Providers } from "../providers";
 import "@/styles/globals.css";
+import { NotSharedDashboardLayout } from "@/lib/not-shared-dashboard-layout";
 // TODO: only include the required font for the current lang of the user
 import { cairo, lalezar, lexend } from "@/styles/fonts";
 import { cn } from "@yadwy/ui";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
+import { headers } from "next/headers";
 import NextTopLoader from "nextjs-toploader";
+import { DashboardLayout } from "./_components";
+
 export const metadata: Metadata = {
   title: "متجر يدوي",
   description: "احدث المنتجات الزراعية",
@@ -39,13 +43,50 @@ export default async function RootLayout({
           cairo.variable,
         )}
       >
-        <NextTopLoader color="var(--color-primary)" />
-        <div dir={dir} lang={locale} className={cn(lexend.variable)}>
-          <NextIntlClientProvider messages={messages} timeZone={timezone}>
-            <Providers>{children}</Providers>
-          </NextIntlClientProvider>
-        </div>
+        <LayoutProvider
+          dir={dir}
+          locale={locale}
+          messages={messages}
+          timezone={timezone}
+        >
+          {children}
+        </LayoutProvider>
       </body>
     </html>
+  );
+}
+
+async function LayoutProvider({
+  children,
+  dir,
+  locale,
+  messages,
+  timezone,
+}: {
+  children: React.ReactNode;
+  dir: string;
+  locale: string;
+  messages: AbstractIntlMessages;
+  timezone: string;
+}) {
+  const headerList = headers();
+  const pathname = (await headerList).get("x-current-path");
+  console.log("Layout pathname", pathname);
+
+  return (
+    <>
+      <NextTopLoader color="var(--color-primary)" />
+      <div dir={dir} lang={locale} className={cn(lexend.variable)}>
+        <NextIntlClientProvider messages={messages} timeZone={timezone}>
+          <Providers>
+            {NotSharedDashboardLayout.includes(pathname as string) ? (
+              children
+            ) : (
+              <DashboardLayout>{children}</DashboardLayout>
+            )}
+          </Providers>
+        </NextIntlClientProvider>
+      </div>
+    </>
   );
 }

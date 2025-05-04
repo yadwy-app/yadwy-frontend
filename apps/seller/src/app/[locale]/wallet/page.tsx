@@ -1,10 +1,25 @@
-import { DashboardLayout } from "@/components/dashboard-layout";
-import { WalletPage } from "@/components/wallet-page";
+"use client";
 
-export default function Wallet() {
+import { transactionsData } from "@/data/json";
+import { WalletHeader } from "./wallet-header";
+import { WalletSummaryCards } from "./wallet-summary-cards";
+import { WalletTransactions } from "./wallet-transactions";
+
+export interface Transaction {
+  id: string;
+  date: string;
+  type: "Order Payment" | "Withdrawal";
+  amount: string;
+  status: "Completed" | "Pending";
+  orderId: string | null;
+}
+
+export default function WalletPage() {
   return (
-    <DashboardLayout>
-      <WalletPage />
-    </DashboardLayout>
+    <div className="flex flex-col gap-5">
+      <WalletHeader />
+      <WalletSummaryCards />
+      <WalletTransactions transactions={transactionsData} />
+    </div>
   );
 }
