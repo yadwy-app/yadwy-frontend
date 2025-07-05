@@ -25,7 +25,7 @@ export default function Providers({ text }: { text: string }) {
       <div className="grid gap-4">
         <Button
           variant="outline"
-          className="w-full flex items-center gap-2 justify-center"
+          className="w-full flex  items-center gap-2 justify-center"
           type="button"
         >
           <FaGoogle className="h-4 w-4" />

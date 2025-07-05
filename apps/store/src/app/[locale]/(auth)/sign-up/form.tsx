@@ -1,27 +1,35 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { FormProvider, type SubmitHandler, useForm } from "react-hook-form";
+import { useTransition } from "react";
+import { useForm } from "react-hook-form";
 import type { z } from "zod";
-import signUpAction from "~/app/action/auth/sign-up";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
+import { toast } from "~/hooks/use-toast";
 import { Link } from "~/i18n/routing";
 import { SignUpSchema } from "~/schemas/auth";
-import Field from "../_components/field";
 import PasswordField from "../_components/password-field";
 import Providers from "../_components/providers";
 
-// Define the form values type from the schema
 type SignUpFormValues = z.infer<typeof SignUpSchema>;
 
 export default function FormSignUp() {
   const t = useTranslations("SignUp");
+  const [isPending, startTransition] = useTransition();
 
-  // Add type parameter to useForm
-  const methods = useForm<SignUpFormValues>({
+  const form = useForm<SignUpFormValues>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
       email: "",
@@ -31,22 +39,18 @@ export default function FormSignUp() {
     },
   });
 
-  // Explicitly type the onSubmit handler
-  const onSubmit: SubmitHandler<SignUpFormValues> = async (data) => {
-    try {
-      const formData = new FormData();
-      Object.entries(data).forEach(([key, value]) => {
-        formData.append(key, value);
+  const onSubmit = async (_data: SignUpFormValues) => {
+    startTransition(async () => {
+      toast({
+        title: t("toast.submitting"),
+        description: t("toast.description"),
       });
-      await signUpAction(data, formData);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
+    });
   };
 
   return (
-    <Card className="overflow-hidden border-none shadow-xl">
-      <CardContent className="grid p-0 md:grid-cols-2">
+    <Card className="border-none">
+      <CardContent className="flex flex-col">
         <div className="p-6 md:p-8">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center text-center">
@@ -56,81 +60,127 @@ export default function FormSignUp() {
               </p>
             </div>
 
-            <FormProvider {...methods}>
+            <Form {...form}>
               <form
-                onSubmit={methods.handleSubmit(onSubmit)}
-                className="grid gap-4"
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="grid gap-6"
               >
-                <div>
-                  <Field
-                    placeholder={t("Fields.fullNamePlaceholder")}
-                    {...methods.register("fullName")}
+                <div className="grid gap-4">
+                  <FormField
+                    control={form.control}
+                    name="fullName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium">
+                          {t("Fields.fullName")}
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder={t("Fields.fullNamePlaceholder")}
+                            className="h-11 bg-background border-2 focus:border-primary transition-colors"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                  {methods.formState.errors.fullName && (
-                    <p className="text-sm text-red-500">
-                      {methods.formState.errors.fullName.message}
-                    </p>
-                  )}
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium">
+                          {t("Fields.email")}
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder={t("Fields.emailPlaceholder")}
+                            type="email"
+                            autoComplete="email"
+                            className="h-11 bg-background border-2 focus:border-primary transition-colors"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="password"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium">
+                            {t("Fields.password")}
+                          </FormLabel>
+                          <FormControl>
+                            <PasswordField
+                              placeholder={t("Fields.passwordPlaceholder")}
+                              autoComplete="new-password"
+                              className="h-11 bg-background border-2 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="confirmPassword"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-sm font-medium">
+                            {t("Fields.confirmPassword")}
+                          </FormLabel>
+                          <FormControl>
+                            <PasswordField
+                              placeholder={t(
+                                "Fields.confirmPasswordPlaceholder",
+                              )}
+                              autoComplete="new-password"
+                              className="h-11 bg-background border-2 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <Field
-                    placeholder={t("Fields.emailPlaceholder")}
-                    {...methods.register("email")}
-                  />
-                  {methods.formState.errors.email && (
-                    <p className="text-sm text-red-500">
-                      {methods.formState.errors.email.message}
-                    </p>
+                <Button
+                  type="submit"
+                  className="w-full h-11 text-base font-medium"
+                  disabled={isPending}
+                >
+                  {isPending && (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   )}
-                </div>
-
-                <div>
-                  <PasswordField
-                    placeholder={t("Fields.passwordPlaceholder")}
-                    {...methods.register("password")}
-                  />
-                  {methods.formState.errors.password && (
-                    <p className="text-sm text-red-500">
-                      {methods.formState.errors.password.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <PasswordField
-                    placeholder={t("Fields.confirmPasswordPlaceholder")}
-                    {...methods.register("confirmPassword")}
-                  />
-                  {methods.formState.errors.confirmPassword && (
-                    <p className="text-sm text-red-500">
-                      {methods.formState.errors.confirmPassword.message}
-                    </p>
-                  )}
-                </div>
-
-                <Button type="submit" className="w-full">
-                  {t("primaryButtonText")}
+                  {isPending ? "Creating Account..." : t("primaryButtonText")}
                 </Button>
               </form>
-            </FormProvider>
+            </Form>
 
-            <Providers text={t("or")} />
-            <div className="text-center text-sm">
-              {t("signup.title")}{" "}
-              <Link href="/login" className="underline underline-offset-4">
-                {t("signup.button")}
-              </Link>
+            <div className="space-y-4">
+              <Providers text={t("or")} />
+              <div className="text-center text-sm text-muted-foreground">
+                {t("signup.title")}{" "}
+                <Link
+                  href="/login"
+                  className="font-medium text-primary hover:underline underline-offset-4 transition-colors"
+                >
+                  {t("signup.button")}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="relative hidden bg-primary md:block">
-          <Image
-            src="/login/login.svg"
-            alt="Image"
-            fill
-            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-          />
         </div>
       </CardContent>
     </Card>
