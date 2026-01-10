@@ -18,7 +18,7 @@ import { usePathname } from "next/navigation";
 export default function DesktopNavbar() {
   const pathname = usePathname();
   return (
-    <aside className="hidden w-64 flex-col bg-white border-r border-border md:flex">
+    <aside className="sticky top-0 h-screen hidden w-64 flex-col bg-white border-r border-border md:flex">
       <div className="flex h-14 items-center border-b px-4">
         <Link href="/" className="flex items-center gap-2 font-semibold">
           <span className="text-xl font-bold text-primary">Yadwy</span>
