@@ -39,7 +39,7 @@ export function Categories() {
   const t = useTranslations("HomePage.Categories");
   const direction = useTextDirection();
 
-  const carouselRef = useRef<CarouselApi>();
+  const carouselRef = useRef<CarouselApi>(null);
 
   useEffect(() => {
     if (carouselRef.current) {

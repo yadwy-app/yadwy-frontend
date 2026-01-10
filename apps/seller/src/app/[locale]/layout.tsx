@@ -32,10 +32,11 @@ export default async function RootLayout({
   const timezone = await getTimeZone();
 
   return (
-    <html lang={locale} dir={dir}>
+    <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
         lang={locale}
         dir={dir}
+        suppressHydrationWarning
         className={cn(
           "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
           lexend.variable,
