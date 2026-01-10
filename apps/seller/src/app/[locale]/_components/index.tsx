@@ -16,18 +16,22 @@ interface DashboardLayoutProps {
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   const _pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
     <div className="flex min-h-screen w-full bg-muted/20">
       {/* TODO: Please build function to render only needed element in the DOM */}
-      <DesktopNavbar />
+      <DesktopNavbar
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+      />
       <MobileNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
 
       {/* Main content */}
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col transition-all duration-300">
         <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background px-4 md:px-6">
           <ToggleButton setIsSidebarOpen={setIsSidebarOpen} />
           <Notifications />
