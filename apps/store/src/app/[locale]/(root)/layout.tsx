@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Footer } from "~/components/layouts/footer";
 import Header from "~/components/layouts/header";
 import PhoneMenu from "~/components/layouts/phone-menu";
+import { PalestineBanner } from "~/components/palestine-banner";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",
@@ -17,6 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <PhoneMenu />
+      <PalestineBanner />
       <Footer />
     </>
   );

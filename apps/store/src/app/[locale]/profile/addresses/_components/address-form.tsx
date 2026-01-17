@@ -1,7 +1,7 @@
 "use client";
 import { FormProvider, useForm } from "react-hook-form";
 import type { z } from "zod";
-import { ShippingAddressFormFields } from "~/app/[locale]/(root)/billing/_components/shipping-form";
+import { AddressFormFields } from "~/components/address-form-fields";
 import { Button } from "~/components/ui/button";
 import {
   DialogDescription,
@@ -40,7 +40,7 @@ export function AddressForm({ address, onSubmit, onCancel }: AddressFormProps) {
 
       <FormProvider {...form}>
         <div className="grid gap-4">
-          <ShippingAddressFormFields />
+          <AddressFormFields />
         </div>
       </FormProvider>
 

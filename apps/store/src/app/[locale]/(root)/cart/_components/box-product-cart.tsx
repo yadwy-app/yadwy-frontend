@@ -1,21 +1,22 @@
 "use client";
 import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
-import { BoxProductCart } from "./box-product";
+import { useCartStore } from "~/stores/cart-store";
+import { CartItem } from "./cart-item";
 
-import type { Product } from "@yadwy/types";
 import { ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export const ProductsHolderCart = () => {
-  const products: Product[] = []; // TODO: fetch the carts state from the backend
+  const items = useCartStore((state) => state.items);
   const t = useTranslations("cartPage.products");
+
   return (
     <>
-      {products.length ? (
-        <div className="flex flex-col gap-5">
-          {products.map((product) => (
-            <BoxProductCart item={product} key={product.id} />
+      {items.length ? (
+        <div className="flex flex-col gap-2">
+          {items.map((item) => (
+            <CartItem item={item} key={item.id} />
           ))}
         </div>
       ) : (

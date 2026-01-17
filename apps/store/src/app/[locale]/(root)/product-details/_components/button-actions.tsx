@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { toast } from "~/hooks/use-toast";
+import { Link } from "~/i18n/routing";
+import { useCartStore } from "~/stores/cart-store";
 import { QuantityCounter } from "./quantity-counter";
 
 type CartItemProps = {
@@ -17,13 +19,25 @@ type CartItemProps = {
 
 export default function ButtonAction({ item }: { item: CartItemProps }) {
   const t = useTranslations("common");
+  const addItem = useCartStore((state) => state.addItem);
+  const [quantityCounter, setQuantityCounter] = useState(1);
+
   const addToCartHandler = () => {
+    addItem(
+      {
+        id: item.id,
+        name: item.title,
+        price: item.unitPrice,
+        image: item.imageCover,
+      },
+      quantityCounter,
+    );
     toast({
       title: `${item.title} added to cart 🛒`,
-      description: `You added ${item.quantity} to your cart`,
+      description: `You added ${quantityCounter} to your cart`,
     });
   };
-  const [quantityCounter, setQuantityCounter] = useState(1);
+
   const incrementQuantity = () => {
     setQuantityCounter(quantityCounter + 1);
   };
@@ -52,9 +66,12 @@ export default function ButtonAction({ item }: { item: CartItemProps }) {
           <Button
             variant={"ghost"}
             className="flex w-full gap-4 border md:text-lg"
+            asChild
           >
-            <ShoppingCart className="" />
-            {t("makeYourOrder")}
+            <Link href="/checkout">
+              <ShoppingCart className="" />
+              {t("makeYourOrder")}
+            </Link>
           </Button>
         </div>
         <Button

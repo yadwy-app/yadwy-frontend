@@ -7,9 +7,11 @@ import { useState } from "react";
 import { TbShoppingBagPlus } from "react-icons/tb";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
+import { useToast } from "~/hooks/use-toast";
 import { Link } from "~/i18n/routing";
 import { getProductCoverImage } from "~/lib/product-utils";
 import { cn } from "~/lib/utils";
+import { useCartStore } from "~/stores/cart-store";
 import { ProductQuickView } from "./product-quick-view";
 
 interface ProductCardProps extends Product {}
@@ -17,6 +19,23 @@ interface ProductCardProps extends Product {}
 export function ProductCard({ ...product }: ProductCardProps) {
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(product.isFavorite || false);
+  const addItem = useCartStore((state) => state.addItem);
+  const { toast } = useToast();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: getProductCoverImage(product),
+    });
+    toast({
+      title: "Added to cart",
+      description: `${product.name} has been added to your cart`,
+    });
+  };
 
   return (
     <>
@@ -59,10 +78,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
                   size="icon"
                   className="rounded-full h-10 w-10 bg-white hover:bg-white/90"
                   aria-label="Add to cart"
-                  onClickCapture={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                  }}
+                  onClickCapture={handleAddToCart}
                 >
                   <ShoppingCart className="h-4 w-4" />
                 </Button>
@@ -152,10 +168,7 @@ export function ProductCard({ ...product }: ProductCardProps) {
                 )}
               </div>
               <Button
-                onClickCapture={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
+                onClickCapture={handleAddToCart}
                 size="sm"
                 className="px-3 gap-1 text-xs text-background"
               >
