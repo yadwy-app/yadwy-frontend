@@ -1,69 +1,104 @@
-import type { Product } from "@yadwy/types";
-import { FaClipboardCheck } from "react-icons/fa6";
+"use client";
+
+import { ShoppingBag } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from "~/components/ui/sheet";
 import useTextDirection from "~/hooks/useDirection";
 import { Link } from "~/i18n/routing";
-import { BoxProductCart } from "./box-product";
+import { useCartStore } from "~/stores/cart-store";
+import { CartItem } from "./cart-item";
 
-interface CartProps {
+interface CartSheetProps {
   children: React.ReactNode;
 }
 
-export const CartSheet = ({ children }: CartProps) => {
+export const CartSheet = ({ children }: CartSheetProps) => {
   const dir = useTextDirection();
-  const totalPrice = 0; // TODO: Replace with actual logic to calculate total price
-  const products: Product[] = [];
+  const items = useCartStore((state) => state.items);
+  const isDrawerOpen = useCartStore((state) => state.isDrawerOpen);
+  const closeDrawer = useCartStore((state) => state.closeDrawer);
+  const getSubtotal = useCartStore((state) => state.getSubtotal);
+  const getItemCount = useCartStore((state) => state.getItemCount);
+
+  const subtotal = getSubtotal();
+  const itemCount = getItemCount();
+
   return (
-    <Sheet>
+    <Sheet open={isDrawerOpen} onOpenChange={(open) => !open && closeDrawer()}>
       {children}
       <SheetContent
         side={dir === "rtl" ? "left" : "right"}
-        className="w-100 p-0 md:w-auto"
+        className="flex w-full flex-col p-0 sm:max-w-md"
       >
-        <SheetHeader className="p-5">
-          <SheetTitle className="border-b-2 border-gray-200 pb-2">
+        <SheetHeader className="border-b px-6 py-4">
+          <SheetTitle className="flex items-center gap-2">
+            <ShoppingBag className="h-5 w-5" />
             Shopping Cart
+            {itemCount > 0 && (
+              <span className="rounded-full bg-primary px-2 py-0.5 text-xs text-primary-foreground">
+                {itemCount}
+              </span>
+            )}
           </SheetTitle>
         </SheetHeader>
 
-        <div className="relative h-full p-5 pb-[230px] pe-0 pt-0">
-          <div className="flex h-full max-h-[calc(100vh-230px)] flex-col gap-5 overflow-y-auto overflow-x-hidden pe-5">
-            {products.length === 0 ? (
-              <p className="w-[343.2px] text-center text-textColor h-full flex justify-center items-center">
-                Nothing Products Currently
-              </p>
-            ) : (
-              products.map((product) => (
-                <BoxProductCart item={product} key={product.id} />
-              ))
-            )}
-          </div>
-          <div className="absolute bottom-0 left-0 flex h-[230px] w-full flex-col gap-5 border-t-2 border-gray-200 p-5">
-            <div className="flex justify-between gap-3">
-              <div className="flex flex-col items-start">
-                <div className="font-semibold">Subtotal</div>
-                <div className="text-xs text-gray-500">
-                  Shipping and taxed calculated at checkout
-                </div>
+        <div className="flex-1 overflow-y-auto px-6">
+          {items.length === 0 ? (
+            <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
+              <ShoppingBag className="h-16 w-16 text-muted-foreground/50" />
+              <div>
+                <p className="font-medium">Your cart is empty</p>
+                <p className="text-sm text-muted-foreground">
+                  Add items to get started
+                </p>
               </div>
-              <div className="text-2xl font-bold text-secondary-foreground">
-                {totalPrice ? totalPrice : 0}$
-              </div>
+              <SheetClose asChild>
+                <Button variant="outline" asChild>
+                  <Link href="/products">Browse Products</Link>
+                </Button>
+              </SheetClose>
             </div>
-            <Button asChild>
-              <Link href="/cart">
-                <FaClipboardCheck />
-                Proceed to Checkout
-              </Link>
-            </Button>
-          </div>
+          ) : (
+            <div className="py-2">
+              {items.map((item) => (
+                <CartItem key={item.id} item={item} />
+              ))}
+            </div>
+          )}
         </div>
+
+        {items.length > 0 && (
+          <div className="border-t px-6 py-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-semibold">Subtotal</p>
+                <p className="text-xs text-muted-foreground">
+                  Shipping calculated at checkout
+                </p>
+              </div>
+              <p className="text-xl font-bold">${subtotal.toFixed(2)}</p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <SheetClose asChild>
+                <Button asChild size="lg" className="w-full">
+                  <Link href="/checkout">Go to Checkout</Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button variant="ghost" size="sm" className="w-full">
+                  Continue Shopping
+                </Button>
+              </SheetClose>
+            </div>
+          </div>
+        )}
       </SheetContent>
     </Sheet>
   );

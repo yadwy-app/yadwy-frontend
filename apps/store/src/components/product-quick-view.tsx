@@ -14,7 +14,9 @@ import {
   DialogTitle,
 } from "~/components/ui/dialog";
 import { Label } from "~/components/ui/label";
+import { useToast } from "~/hooks/use-toast";
 import { cn } from "~/lib/utils";
+import { useCartStore } from "~/stores/cart-store";
 
 interface ProductQuickViewProps {
   productId: number;
@@ -23,15 +25,18 @@ interface ProductQuickViewProps {
 }
 
 export function ProductQuickView({
-  productId: _,
+  productId,
   open,
   onOpenChange,
 }: ProductQuickViewProps) {
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
+  const addItem = useCartStore((state) => state.addItem);
+  const { toast } = useToast();
 
   // In a real app, you would fetch product data based on productId
   const product = {
+    id: productId,
     name: "Lefie plants in a white pot",
     description:
       "Beautiful indoor plant perfect for home or office decoration. Low maintenance and air purifying.",
@@ -39,10 +44,28 @@ export function ProductQuickView({
     originalPrice: 45,
     rating: 4.5,
     reviews: 28,
+    image: "/placeholder.svg?height=500&width=500",
   };
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
+
+  const handleAddToCart = () => {
+    addItem(
+      {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+      },
+      quantity,
+    );
+    toast({
+      title: "Added to cart",
+      description: `${quantity} × ${product.name} added to your cart`,
+    });
+    onOpenChange(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -129,7 +152,11 @@ export function ProductQuickView({
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button className="grow gap-2 text-background" size="lg">
+              <Button
+                className="grow gap-2 text-background"
+                size="lg"
+                onClick={handleAddToCart}
+              >
                 <TbShoppingBagPlus className="h-5 w-5" /> Add to cart
               </Button>
               <Button

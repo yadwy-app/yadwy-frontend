@@ -7,8 +7,8 @@ import {
 } from "~/components/page-component";
 import { Button } from "~/components/ui/button";
 import { Link } from "~/i18n/routing";
-import { OrderSummary } from "../billing/_components/order-summary";
 import { ProductsHolderCart } from "./_components/box-product-cart";
+import { CartSummary } from "./_components/cart-summary";
 
 export default function Page() {
   const t = useTranslations("cartPage");
@@ -22,10 +22,10 @@ export default function Page() {
           <ProductsHolderCart />
         </div>
         <div className="col-span-12 flex flex-col gap-5 lg:col-span-4">
-          <OrderSummary />
+          <CartSummary />
           <div className="flex flex-col items-center gap-3">
             <Button asChild className="w-full text-white text-md" size="lg">
-              <Link href="/billing">
+              <Link href="/checkout">
                 <FaClipboardCheck />
                 Proceed to Checkout
               </Link>
@@ -37,7 +37,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-      {/* <AlsoLike /> */}
     </PageContainer>
   );
 }
