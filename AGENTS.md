@@ -128,6 +128,16 @@ import { getServerSession } from "@yadwy/api/utils/session.server";
 - **URL state for filters/pagination** — shareable, bookmarkable, survives refresh
 - **Zustand for global client state** — already used for session management
 
+### Accessibility
+
+- **Use semantic elements** — `<button>` not `<div role="button">`
+- **Clickable divs need keyboard handlers** — add `onKeyDown` for Enter/Space, or just use `<button>`
+
+### Zod Schemas
+
+- **Avoid `.optional().default()`** — causes input/output type mismatch with react-hook-form
+- **Use plain `.string()` with empty default values in form** — keeps types aligned
+
 ## Commit Convention
 
 Format: `[tag]: message`
