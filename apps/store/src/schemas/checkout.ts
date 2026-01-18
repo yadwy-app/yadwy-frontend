@@ -1,18 +1,18 @@
 import { z } from "zod";
 
 export const contactSchema = z.object({
-  email: z.string().optional().default(""),
+  email: z.string(),
   phone: z.string().min(10, "Please enter a valid phone number"),
 });
 
 export const deliverySchema = z.object({
   firstName: z.string().min(1, "Name is required"),
-  lastName: z.string().optional().default(""),
+  lastName: z.string(),
   address: z.string().min(1, "Address is required"),
   apartment: z.string().optional(),
   city: z.string().min(1, "City is required"),
   governorate: z.string().min(1, "Governorate is required"),
-  postalCode: z.string().optional().default(""),
+  postalCode: z.string(),
 });
 
 export const cardPaymentSchema = z.object({
