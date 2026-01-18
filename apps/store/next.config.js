@@ -16,6 +16,11 @@ const config = {
         hostname: "i.suar.me",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+        port: "",
+      },
     ],
   },
 };

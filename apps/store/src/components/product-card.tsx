@@ -121,6 +121,22 @@ export function ProductCard({ ...product }: ProductCardProps) {
               {product.name}
             </h3>
 
+            {/* Artisan info */}
+            {product.artisan && (
+              <div className="flex items-center gap-1.5 mb-2">
+                <Image
+                  src={product.artisan.avatar}
+                  alt={product.artisan.name}
+                  width={20}
+                  height={20}
+                  className="rounded-full object-cover"
+                />
+                <span className="text-xs text-muted-foreground truncate">
+                  by {product.artisan.name}
+                </span>
+              </div>
+            )}
+
             <div className="flex items-center gap-1 mb-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => {

@@ -8,43 +8,58 @@ import { useRouter } from "~/i18n/routing";
 import { cn } from "~/lib/utils";
 import { Button } from "../ui/button";
 
-export default function SearchBar({ className }: { className?: string }) {
+interface SearchBarProps {
+  className?: string;
+}
+
+export default function SearchBar({ className }: SearchBarProps) {
   const t = useTranslations("Header");
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   return (
     <div
       className={cn(
-        `hidden md:block md:absolute left-1/2 top-1/2 md:max-w-[200px]   lg:max-w-md xl:max-w-xl flex-1 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 w-full ${className}`,
-        isSearchFocused ? "sm:max-w-2xl" : "",
+        "relative transition-all duration-200",
+        isFocused && "ring-2 ring-primary/20 rounded-md",
+        className,
       )}
     >
-      <div
-        className={`pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3`}
-      >
+      <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
         <Search className="h-4 w-4 text-muted-foreground" />
       </div>
       <Input
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={t("searchPlaceholder")}
-        className={"w-full rounded-md py-2 pe-4 ps-10"}
-        onFocus={() => setIsSearchFocused(true)}
-        onBlur={() => setIsSearchFocused(false)}
+        className={cn(
+          "w-full h-10 rounded-md py-2 pe-10 ps-10",
+          "border-input bg-background",
+          "focus-visible:ring-0 focus-visible:ring-offset-0",
+          "transition-all duration-200",
+        )}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            router.push(`/search?query=${searchQuery}`);
+            handleSearch();
           }
         }}
         aria-label={t("searchProducts")}
       />
       {searchQuery && (
         <Button
-          size={"sm"}
-          variant={"ghost"}
-          className={`absolute end-0 top-1/2 flex -translate-y-1/2 items-center pe-3`}
+          type="button"
+          size="sm"
+          variant="ghost"
+          className="absolute end-1 top-1/2 -translate-y-1/2 h-7 w-7 p-0"
           onClick={() => setSearchQuery("")}
           aria-label={t("clearSearch")}
         >

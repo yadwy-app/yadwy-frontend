@@ -1,5 +1,11 @@
 import type { Entity } from "./entity";
 
+export interface ProductArtisan {
+  id: number;
+  name: string;
+  avatar: string;
+}
+
 export interface Product extends Entity {
   title: string;
   rate: number;
@@ -13,6 +19,7 @@ export interface Product extends Entity {
   isNew: boolean;
   originalPrice: number | null;
   reviewsCount: number;
+  artisan?: ProductArtisan;
   reviewComment: {
     userName: string | undefined;
     userImage: string;

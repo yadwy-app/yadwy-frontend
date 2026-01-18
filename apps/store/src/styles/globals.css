@@ -5,9 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-heading: var(--font-heading);
+  --font-sans: var(--font-alexandria), var(--font-ibm-plex-arabic),
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: var(--font-alexandria);
 
   --text-sm: 0.75rem;
   --text-base: 1rem;
@@ -179,11 +180,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Cairo", sans-serif;
-    --font-heading: var(--font-lexend);
+    font-family: var(--font-alexandria), var(--font-ibm-plex-arabic), sans-serif;
 
     &[lang="ar"] {
-      --font-heading: var(--font-lalezar);
+      font-family: var(--font-ibm-plex-arabic), var(--font-alexandria),
+        sans-serif;
     }
   }
 }

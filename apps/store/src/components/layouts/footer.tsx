@@ -16,9 +16,9 @@ export const Footer = () => {
   return (
     <div className="bg-primary">
       <div className="container pt-8 pb-[4em] md:pb-8">
-        <div className="md:md-0 mb-3 grid grid-cols-12 gap-4">
+        <div className="mb-3 grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-4">
           {/* Logo and Description */}
-          <div className="col-span-12 md:col-span-4">
+          <div className="col-span-2 md:col-span-4">
             <Image
               src="/logo.svg"
               width={100}
@@ -30,7 +30,7 @@ export const Footer = () => {
             <p className="max-w-[259px] text-sm font-extralight">
               {t("description")} {/* Translated description */}
             </p>
-            <ul className="my-10">
+            <ul className="my-6 md:my-10">
               <li className="mb-4 flex items-center gap-3">
                 <IoIosCall className="text-xl" />
                 <span className="text-xs md:text-base">{t("phone")}</span>
@@ -47,9 +47,11 @@ export const Footer = () => {
           </div>
 
           {/* Pages Section */}
-          <div className="col-span-6 md:col-span-2">
-            <h6 className="mb-4 text-lg font-bold">{t("pages.title")}</h6>
-            <div className="flex flex-col gap-4">
+          <div className="col-span-1 md:col-span-2">
+            <h6 className="mb-4 text-base md:text-lg font-bold">
+              {t("pages.title")}
+            </h6>
+            <div className="flex flex-col gap-3 md:gap-4">
               <Link href={``} className="text-sm">
                 {t("pages.home")}
               </Link>
@@ -63,9 +65,11 @@ export const Footer = () => {
           </div>
 
           {/* Company Section */}
-          <div className="col-span-6 md:col-span-2">
-            <h6 className="mb-4 text-lg font-bold">{t("company.title")}</h6>
-            <div className="flex flex-col gap-4">
+          <div className="col-span-1 md:col-span-2">
+            <h6 className="mb-4 text-base md:text-lg font-bold">
+              {t("company.title")}
+            </h6>
+            <div className="flex flex-col gap-3 md:gap-4">
               <Link href={``} className="text-sm">
                 {t("company.aboutUs")}
               </Link>
@@ -85,9 +89,11 @@ export const Footer = () => {
           </div>
 
           {/* Resources Section */}
-          <div className="col-span-6 md:col-span-2">
-            <h6 className="mb-4 text-lg font-bold">{t("resources.title")}</h6>
-            <div className="flex flex-col gap-4">
+          <div className="col-span-1 md:col-span-2">
+            <h6 className="mb-4 text-base md:text-lg font-bold">
+              {t("resources.title")}
+            </h6>
+            <div className="flex flex-col gap-3 md:gap-4">
               <Link href={``} className="text-sm">
                 {t("resources.support")}
               </Link>
@@ -107,13 +113,26 @@ export const Footer = () => {
           </div>
 
           {/* App Store Links */}
-          <div className="col-span-6 md:col-span-2">
-            <div className="flex flex-col items-end gap-6">
-              <Link href={``} className="relative h-10 aspect-680/200">
-                <Image fill src={"/footer/google.svg"} alt="google play" />
+          <div className="col-span-1 md:col-span-2">
+            <h6 className="mb-4 text-base md:text-lg font-bold invisible md:hidden">
+              &nbsp;
+            </h6>
+            <div className="flex flex-col gap-4 md:items-end">
+              <Link href={``} className="relative h-10 w-[120px]">
+                <Image
+                  fill
+                  src={"/footer/google.svg"}
+                  alt="google play"
+                  className="object-contain"
+                />
               </Link>
-              <Link href={``} className="relative h-10 aspect-680/200">
-                <Image fill src={"/footer/apple.svg"} alt="apple store" />
+              <Link href={``} className="relative h-10 w-[120px]">
+                <Image
+                  fill
+                  src={"/footer/apple.svg"}
+                  alt="apple store"
+                  className="object-contain"
+                />
               </Link>
             </div>
           </div>

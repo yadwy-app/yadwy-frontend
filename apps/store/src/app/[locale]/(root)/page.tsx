@@ -5,6 +5,9 @@ import { mockProductsData } from "~/data";
 import OrderBanner from "./_components/order-banner";
 import { Slider } from "./_components/slider";
 import { Categories } from "./_sections/categories";
+import { FeaturedArtisans } from "./_sections/featured-artisans";
+import { Gifts } from "./_sections/gifts";
+import { HowItWorks } from "./_sections/how-it-works";
 import Products from "./_sections/products";
 
 const slides = [
@@ -25,10 +28,19 @@ const slides = [
 export default function Page() {
   const t = useTranslations("HomePage");
   const products = mockProductsData;
+
   return (
     <PageContainer className="flex flex-col gap-16">
+      {/* 1. Hero Slider */}
       <Slider slides={slides} />
+
+      {/* 2. How It Works - 3-step process */}
+      <HowItWorks />
+
+      {/* 3. Categories */}
       <Categories />
+
+      {/* 4. New Art Products */}
       {products.length > 1 && (
         <Products
           title={t("NewArt.title")}
@@ -37,9 +49,18 @@ export default function Page() {
         />
       )}
 
-      <div className="px-2 ">
+      {/* 5. Gifts Section */}
+      <Gifts />
+
+      {/* 6. Customization Banner */}
+      <div className="px-2">
         <OrderBanner />
       </div>
+
+      {/* 7. Featured Artisans */}
+      <FeaturedArtisans />
+
+      {/* 8. Hot Art Products */}
       {products.length > 1 && (
         <Products
           title={t("HotArt.title")}

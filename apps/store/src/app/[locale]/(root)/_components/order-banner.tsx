@@ -1,53 +1,59 @@
 "use client";
 
-import { PenLine } from "lucide-react";
-import { useTranslations } from "next-intl"; // Import useTranslations hook
-import Image from "next/image";
+import { PenLine, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
+import { Link } from "~/i18n/routing";
 
 export default function OrderBanner() {
   const t = useTranslations("HomePage.OrderBanner");
 
   return (
-    <div className="relative w-full h-[400px] md:h-[429px]">
-      <div className="absolute inset-0 border-2 border-[#C0D6D6] rounded-lg overflow-hidden">
-        <div className="flex h-full">
-          <div className="relative z-10 flex-1 p-8 flex flex-col md:justify-between gap-8">
+    <div className="relative w-full">
+      <div className="border-2 border-primary/30 rounded-xl overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
+        <div className="flex flex-col md:flex-row">
+          {/* Content */}
+          <div className="relative z-10 flex-1 p-5 md:p-8 flex flex-col gap-4">
             <div>
-              <h2 className="md:text-[40px] text-lg font-bold text-primary-900 leading-[50px] mb-6">
-                {t("title")}{" "}
-                <span className="relative inline-block">
-                  {t("personal")}
-                  <Image
-                    src="/highlighter.png"
-                    alt="highlighter"
-                    width={200}
-                    height={100}
-                    className="absolute -z-10 -left-1 max-w-none w-[calc(100%+0.5em)] -bottom-[0.1em]"
-                  />
-                </span>{" "}
-                {t("toYou")}
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-xs font-medium text-primary">
+                  {t("badge")}
+                </span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-semibold text-foreground leading-tight mb-2">
+                {t("title")}
               </h2>
-              <p className="md:text-[20px] text-lg text-[#5E6A6B] leading-[139.4%] max-w-[600px]">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-[450px]">
                 {t("description")}
               </p>
             </div>
-            <div className="flex gap-4">
-              <Button className="bg-[#8FB6B6] hover:bg-[#7FA6A6] text-white px-4 py-2 rounded-md flex items-center gap-3">
-                <PenLine className="w-4 h-4" />
-                {t("makeOrderButton")}
+            <div className="flex flex-wrap gap-2">
+              <Button
+                asChild
+                size="sm"
+                className="bg-primary hover:bg-primary/90 text-background px-4 py-2 rounded-lg flex items-center gap-2"
+              >
+                <Link href="/custom-orders">
+                  <PenLine className="w-3.5 h-3.5" />
+                  {t("makeOrderButton")}
+                </Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
-                className="bg-white text-[#262626] border-[#D9DEDE] shadow-xs"
+                size="sm"
+                className="bg-background text-foreground border-border hover:bg-muted"
               >
-                {t("moreDetailsButton")}
+                <Link href="/how-it-works">{t("moreDetailsButton")}</Link>
               </Button>
             </div>
           </div>
-          <div className="md:relative md:flex-1 hidden md:flex">
-            <div className="absolute inset-0 bg-[url('/banner.svg')] bg-cover bg-center rounded-r-lg" />
-            <div className="absolute inset-0 bg-linear-to-r from-[#FDFDFD] via-[rgba(253,253,253,0.5)] to-transparent" />
+
+          {/* Image - hidden on mobile */}
+          <div className="hidden md:flex md:flex-1 relative min-h-[280px]">
+            <div className="absolute inset-0 bg-[url('/banner.svg')] bg-cover bg-center rounded-e-xl" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
           </div>
         </div>
       </div>
