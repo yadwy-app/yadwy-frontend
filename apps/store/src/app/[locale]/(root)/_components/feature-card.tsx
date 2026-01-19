@@ -9,17 +9,19 @@ interface FeatureCardProps {
 }
 export const FeatureCard = ({ feature }: FeatureCardProps) => {
   return (
-    <div className="col-span-12 md:col-span-4 flex flex-col items-center p-3  gap-4">
+    <div className="flex flex-col items-center p-4 gap-3 bg-accent/30 rounded-xl">
       <Image
         src={feature.img}
-        width={92}
-        height={60}
+        width={72}
+        height={48}
         style={{ height: "auto" }}
-        className="bg-lightPrimary rounded-full object-contain p-3"
+        className="bg-lightPrimary rounded-full object-contain p-2.5"
         alt={feature.title}
       />
-      <h6 className="text-2xl font-bold">{feature.title}</h6>
-      <p className="text-center text-sm">{feature.desc}</p>
+      <h6 className="text-base font-semibold text-center">{feature.title}</h6>
+      <p className="text-center text-xs text-muted-foreground">
+        {feature.desc}
+      </p>
     </div>
   );
 };

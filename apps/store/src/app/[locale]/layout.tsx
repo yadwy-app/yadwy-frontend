@@ -7,8 +7,8 @@ import { getLocale } from "next-intl/server";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "~/components/ui/toaster";
 import { cn } from "~/lib/utils";
-// TODO: only include the required font for the current lang of the user
-import { cairo, lalezar, lexend } from "~/styles/fonts";
+import { alexandria, ibmPlexSansArabic } from "~/styles/fonts";
+
 export const metadata: Metadata = {
   title: "متجر يدوي",
   description: "احدث المنتجات الزراعية",
@@ -36,13 +36,12 @@ export default async function RootLayout({
         suppressHydrationWarning
         className={cn(
           "scrollbar scrollbar-thumb-rounded-2x min-h-screen transition-all",
-          lexend.variable,
-          lalezar.variable,
-          cairo.variable,
+          alexandria.variable,
+          ibmPlexSansArabic.variable,
         )}
       >
         <NextTopLoader color="var(--color-primary)" />
-        <div dir={dir} lang={locale} className={cn(lexend.variable)}>
+        <div dir={dir} lang={locale}>
           <NextIntlClientProvider messages={messages} timeZone={timezone}>
             <Providers>{children}</Providers>
           </NextIntlClientProvider>

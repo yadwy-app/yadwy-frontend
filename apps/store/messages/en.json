@@ -29,18 +29,64 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page",
+    "Hero": {
+      "badge": "Handmade Marketplace",
+      "title": "Discover Unique Handmade Treasures",
+      "subtitle": "A marketplace where every piece is crafted with care. Find one-of-a-kind products or customize your own.",
+      "exploreProducts": "Explore Products",
+      "customOrders": "Custom Orders"
+    },
+    "HowItWorks": {
+      "title": "How It Works",
+      "subtitle": "From discovery to delivery",
+      "discover": {
+        "title": "Discover",
+        "description": "Browse unique handmade products across categories from talented artisans"
+      },
+      "customize": {
+        "title": "Customize",
+        "description": "Request personalized modifications to fit your exact needs and preferences"
+      },
+      "receive": {
+        "title": "Receive",
+        "description": "Get your handcrafted piece delivered safely to your door"
+      }
+    },
+    "FeaturedArtisans": {
+      "title": "Our Artisans",
+      "subtitle": "Meet the talented makers behind our products",
+      "viewProducts": "View Products",
+      "products": "products"
+    },
+    "Gifts": {
+      "title": "Find the Perfect Gift",
+      "subtitle": "Handmade treasures that make moments special",
+      "shopAllGifts": "Shop All Gifts",
+      "forHer": "For Her",
+      "forHim": "For Him",
+      "forHome": "For Home",
+      "specialOccasions": "Special Occasions",
+      "products": "products",
+      "explore": "Explore",
+      "cantDecide": "Can't decide? Let us help you find the perfect gift"
+    },
     "Categories": {
       "title": "Categories",
       "description": "Explore a world of creativity in our store, where you will find the prettiest handcrafts"
     },
     "NewArt": {
       "title": "New Artworks",
-      "description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
+      "description": "Discover the latest handcrafted pieces from our talented artisans",
       "button": "See more"
     },
     "HotArt": {
-      "title": "Hot Artworks",
-      "description": "Lorem ipsum dolor sit amet consectetur. Urna vehicula commodo varius nibh enim id proin. Felis nibh facilisi ac non pharetra proin.",
+      "title": "Trending Now",
+      "description": "Most popular handmade products loved by our community",
+      "button": "See more"
+    },
+    "AlsoLike": {
+      "title": "Trending Now",
+      "description": "Most popular handmade products loved by our community",
       "button": "See more"
     },
     "Features": {
@@ -90,12 +136,67 @@
       "cookies": "Cookies"
     },
     "OrderBanner": {
-      "title": "Your Order is",
-      "personal": "Personal",
-      "toYou": "to you",
-      "description": "Lorem ipsum dolor sit amet consectetur. Magna cursus gravida ullamcorper turpis molestie auctor duis consequat. Ultrices pellentesque amet scelerisque velit ultrices erat",
-      "makeOrderButton": "Make your order",
-      "moreDetailsButton": "More Details"
+      "badge": "Customization Available",
+      "title": "Make It Yours",
+      "description": "Every product can be customized. Tell us your vision, and our artisans will craft it just for you.",
+      "makeOrderButton": "Start Custom Order",
+      "moreDetailsButton": "Learn More"
+    }
+  },
+  "Navigation": {
+    "shopAll": "Shop All",
+    "categories": "Categories",
+    "customOrders": "Custom Orders",
+    "customizeYourOrder": "Customize Your Order",
+    "about": "About",
+    "viewAll": "View All Categories",
+    "menu": "Menu",
+    "searchPlaceholder": "Search for products...",
+    "categoryItems": {
+      "woodWork": "Wood Work",
+      "glassWork": "Glass Work",
+      "plants": "Plants",
+      "ceramics": "Ceramics",
+      "textiles": "Textiles"
+    },
+    "categoryDescriptions": {
+      "woodWork": "Handcrafted wooden furniture and decor",
+      "glassWork": "Artisan glass pieces and decorations",
+      "plants": "Indoor plants and botanical arrangements",
+      "ceramics": "Pottery and ceramic artworks",
+      "textiles": "Handwoven fabrics and textile art"
+    }
+  },
+  "CustomizePage": {
+    "title": "Customize Your Order",
+    "subtitle": "Make it uniquely yours",
+    "description": "Browse our collection and personalize any product to match your style. Our artisans will craft it just for you.",
+    "customizeButton": "Customize This Product",
+    "browseProducts": "Browse Products",
+    "emptyState": {
+      "title": "No customizable products found",
+      "description": "Try adjusting your filters or check back later for new products."
+    },
+    "modal": {
+      "title": "Customize Your Product",
+      "selectOption": "Select an option",
+      "color": "Color",
+      "size": "Size",
+      "material": "Material",
+      "engraving": "Custom Engraving",
+      "engravingPlaceholder": "Enter text to engrave (max 50 characters)",
+      "specialInstructions": "Special Instructions",
+      "specialInstructionsPlaceholder": "Add any special requests or notes for the artisan...",
+      "addToCart": "Add Customized Item to Cart",
+      "cancel": "Cancel",
+      "requiredField": "This field is required",
+      "characterCount": "{count}/{max} characters"
+    },
+    "filters": {
+      "allCategories": "All Categories",
+      "allMaterials": "All Materials",
+      "priceRange": "Price Range",
+      "sortBy": "Sort By"
     }
   },
   "cartPage": {

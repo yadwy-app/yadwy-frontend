@@ -28,19 +28,65 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page",
+    "Hero": {
+      "badge": "سوق المنتجات اليدوية",
+      "title": "اكتشف كنوز فريدة مصنوعة يدوياً",
+      "subtitle": "سوق حيث كل قطعة مصنوعة بعناية. اعثر على منتجات فريدة من نوعها أو خصص طلبك الخاص.",
+      "exploreProducts": "تصفح المنتجات",
+      "customOrders": "طلبات مخصصة"
+    },
+    "HowItWorks": {
+      "title": "كيف يعمل",
+      "subtitle": "من الاكتشاف إلى التوصيل",
+      "discover": {
+        "title": "اكتشف",
+        "description": "تصفح منتجات يدوية فريدة عبر فئات مختلفة من حرفيين موهوبين"
+      },
+      "customize": {
+        "title": "خصص",
+        "description": "اطلب تعديلات شخصية تناسب احتياجاتك وتفضيلاتك بالضبط"
+      },
+      "receive": {
+        "title": "استلم",
+        "description": "احصل على قطعتك المصنوعة يدوياً موصلة بأمان إلى باب منزلك"
+      }
+    },
+    "FeaturedArtisans": {
+      "title": "حرفيونا",
+      "subtitle": "تعرف على الصناع الموهوبين وراء منتجاتنا",
+      "viewProducts": "عرض المنتجات",
+      "products": "منتج"
+    },
+    "Gifts": {
+      "title": "اعثر على الهدية المثالية",
+      "subtitle": "كنوز مصنوعة يدوياً تجعل اللحظات مميزة",
+      "shopAllGifts": "تسوق كل الهدايا",
+      "forHer": "لها",
+      "forHim": "له",
+      "forHome": "للمنزل",
+      "specialOccasions": "مناسبات خاصة",
+      "products": "منتج",
+      "explore": "اكتشف",
+      "cantDecide": "لا تستطيع أن تقرر؟ دعنا نساعدك في إيجاد الهدية المثالية"
+    },
     "Categories": {
       "title": "الفئات",
       "description": "اكتشف عالما من الإبداع في متجرنا، حيث تجد أجمل الأعمال اليدوية."
     },
     "NewArt": {
-      "title": "التحف",
-      "description": "مع كل تحفة فنية نشاهدها، نبحر في رحلة عبر الزمن والإبداع، ونلامس مشاعر جديدة ونكتشف أفكارا ملهمة.",
-      "button": "المزيد "
+      "title": "أعمال جديدة",
+      "description": "اكتشف أحدث القطع المصنوعة يدوياً من حرفيينا الموهوبين",
+      "button": "المزيد"
     },
     "HotArt": {
-      "title": "التحفات الحارة",
-      "description": "مع كل تحفة فنية نشاهدها، نبحر في رحلة عبر الزمن والإبداع، ونلامس مشاعر جديدة ونكتشف أفكارا ملهمة.",
-      "button": "المزيد "
+      "title": "الأكثر رواجاً",
+      "description": "أكثر المنتجات اليدوية شعبية ومحبوبة من مجتمعنا",
+      "button": "المزيد"
+    },
+    "AlsoLike": {
+      "title": "الأكثر رواجاً",
+      "description": "أكثر المنتجات اليدوية شعبية ومحبوبة من مجتمعنا",
+      "button": "المزيد"
     },
     "Features": {
       "Strength": {
@@ -89,12 +135,67 @@
       "cookies": "الكوكيز"
     },
     "OrderBanner": {
-      "title": "طلبك هو",
-      "personal": "شخصي",
-      "toYou": "لك",
-      "description": "لوريم إيبسوم هو نص نموذجي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو نص نموذجي يستخدم في صناعة الطباعة والتنضيد.",
-      "makeOrderButton": "اطلب الآن",
-      "moreDetailsButton": "تفاصيل أكثر"
+      "badge": "التخصيص متاح",
+      "title": "اجعله خاصاً بك",
+      "description": "كل منتج يمكن تخصيصه. أخبرنا برؤيتك، وسيصنعه حرفيونا خصيصاً لك.",
+      "makeOrderButton": "ابدأ طلب مخصص",
+      "moreDetailsButton": "اعرف المزيد"
+    }
+  },
+  "Navigation": {
+    "shopAll": "تسوق الكل",
+    "categories": "الفئات",
+    "customOrders": "طلبات مخصصة",
+    "customizeYourOrder": "خصص طلبك",
+    "about": "من نحن",
+    "viewAll": "عرض كل الفئات",
+    "menu": "القائمة",
+    "searchPlaceholder": "ابحث عن المنتجات...",
+    "categoryItems": {
+      "woodWork": "أعمال خشبية",
+      "glassWork": "أعمال زجاجية",
+      "plants": "نباتات",
+      "ceramics": "خزفيات",
+      "textiles": "منسوجات"
+    },
+    "categoryDescriptions": {
+      "woodWork": "أثاث وديكور خشبي مصنوع يدوياً",
+      "glassWork": "قطع زجاجية فنية وديكورات",
+      "plants": "نباتات داخلية وتنسيقات نباتية",
+      "ceramics": "فخار وأعمال خزفية فنية",
+      "textiles": "أقمشة منسوجة يدوياً وفن النسيج"
+    }
+  },
+  "CustomizePage": {
+    "title": "خصص طلبك",
+    "subtitle": "اجعله فريداً خاصاً بك",
+    "description": "تصفح مجموعتنا وخصص أي منتج ليناسب ذوقك. سيصنعه حرفيونا خصيصاً لك.",
+    "customizeButton": "خصص هذا المنتج",
+    "browseProducts": "تصفح المنتجات",
+    "emptyState": {
+      "title": "لم يتم العثور على منتجات قابلة للتخصيص",
+      "description": "جرب تعديل الفلاتر أو تحقق لاحقاً للمنتجات الجديدة."
+    },
+    "modal": {
+      "title": "خصص منتجك",
+      "selectOption": "اختر خياراً",
+      "color": "اللون",
+      "size": "الحجم",
+      "material": "المادة",
+      "engraving": "نقش مخصص",
+      "engravingPlaceholder": "أدخل النص للنقش (50 حرف كحد أقصى)",
+      "specialInstructions": "تعليمات خاصة",
+      "specialInstructionsPlaceholder": "أضف أي طلبات خاصة أو ملاحظات للحرفي...",
+      "addToCart": "أضف المنتج المخصص للسلة",
+      "cancel": "إلغاء",
+      "requiredField": "هذا الحقل مطلوب",
+      "characterCount": "{count}/{max} حرف"
+    },
+    "filters": {
+      "allCategories": "كل الفئات",
+      "allMaterials": "كل المواد",
+      "priceRange": "نطاق السعر",
+      "sortBy": "ترتيب حسب"
     }
   },
   "cartPage": {

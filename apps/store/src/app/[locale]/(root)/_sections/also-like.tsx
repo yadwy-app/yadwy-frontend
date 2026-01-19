@@ -1,6 +1,8 @@
+import { useTranslations } from "next-intl";
 import { ProductCard } from "~/components/product-card";
 import {
   Section,
+  SectionDescription,
   SectionFooter,
   SectionHeader,
   SectionTitle,
@@ -9,23 +11,20 @@ import { Button } from "~/components/ui/button";
 import { mockProductsData } from "~/data";
 
 export default function AlsoLike() {
+  const t = useTranslations("HomePage.AlsoLike");
   return (
     <Section id="NewArt">
       <SectionHeader>
-        <SectionTitle>You May Also Like</SectionTitle>
+        <SectionTitle>{t("title")}</SectionTitle>
+        <SectionDescription>{t("description")}</SectionDescription>
       </SectionHeader>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
         {mockProductsData.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </div>
       <SectionFooter>
-        <Button
-          variant="outline"
-          className="w-full shadow-lg border-primary rounded-none text-secondary-foreground"
-        >
-          Show more
-        </Button>
+        <Button variant="outline">{t("button")}</Button>
       </SectionFooter>
     </Section>
   );

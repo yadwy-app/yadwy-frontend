@@ -1,21 +1,15 @@
-import { Cairo, Lalezar, Lexend } from "next/font/google";
+import { Alexandria, IBM_Plex_Sans_Arabic } from "next/font/google";
 
-const lalezar = Lalezar({
-  subsets: ["arabic"],
-  weight: ["400"],
-  variable: "--font-lalezar",
-});
-
-const cairo = Cairo({
+const alexandria = Alexandria({
   subsets: ["arabic", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-cairo",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-alexandria",
 });
 
-const lexend = Lexend({
-  subsets: ["latin"],
-  weight: ["400", "400"],
-  variable: "--font-lexend",
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-arabic",
 });
 
-export { lalezar, lexend, cairo };
+export { alexandria, ibmPlexSansArabic };
