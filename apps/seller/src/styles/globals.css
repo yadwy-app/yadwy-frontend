@@ -168,6 +168,12 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    /* Reserve space for scrollbar to prevent layout shift when it appears/disappears */
+    /* This is the recommended solution from shadcn-ui issue #977 */
+    scrollbar-gutter: stable;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: "Cairo", sans-serif;
@@ -175,6 +181,13 @@
 
     &[lang="ar"] {
       --font-heading: var(--font-lalezar);
+    }
+
+    /* Override Radix UI's scroll lock to prevent scrollbar from disappearing */
+    /* This keeps the scrollbar visible even when dropdowns open */
+    &[data-scroll-locked] {
+      overflow-y: auto !important;
+      margin-right: 0 !important;
     }
   }
 }
