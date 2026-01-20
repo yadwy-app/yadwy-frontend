@@ -18,7 +18,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@yadwy/ui";
-import type { Transaction } from "./page";
+import type { Transaction } from "../page";
 
 interface TransactionTableProps {
   transactions: Transaction[];

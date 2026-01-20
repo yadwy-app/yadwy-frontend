@@ -12,10 +12,10 @@ import {
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { CompletionStep } from "./completion-step";
-import { ProductCategoryStep } from "./product-category-step";
-import { ShippingAddressStep } from "./shipping-address-step";
-import { StoreInformationStep } from "./store-information-step";
+import { CompletionStep } from "./_components/completion-step";
+import { ProductCategoryStep } from "./_components/product-category-step";
+import { ShippingAddressStep } from "./_components/shipping-address-step";
+import { StoreInformationStep } from "./_components/store-information-step";
 
 export default function OnboardingFlow() {
   const router = useRouter();

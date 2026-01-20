@@ -78,6 +78,12 @@ import { getServerSession } from "@yadwy/api/utils/session.server";
 - `_sections/` - Page sections
 - Use `@yadwy/ui` for shared UI components (Radix UI + Tailwind)
 
+#### Seller App Colocation Rules
+
+- **Dashboard-specific components** — Components used only within the Dashboard should be located inside the Dashboard's own folder: `src/app/[locale]/dashboard/_components/`
+- **Shared components** — Components shared across multiple pages should be placed in `src/components/` directly under `src`
+- **Page-specific components** — Components used only within a specific page/route should be colocated with that route using `_components/` folder (e.g., `src/app/[locale]/wallet/_components/`)
+
 ## Code Style
 
 - **Linting/Formatting**: Biome handles JS/TS/JSON, Prettier handles HTML/YAML/MD
@@ -100,6 +106,7 @@ import { getServerSession } from "@yadwy/api/utils/session.server";
 - **Props over internal state** — makes components predictable and testable
 - **Colocate components with their route** — reduces mental overhead finding code
 - **Extract reusable UI to `@yadwy/ui`** — if used in both apps, it belongs in the shared package
+- **Follow colocation approach** — Components used only within a specific feature (e.g., Dashboard) should be in that feature's folder. Components shared across multiple pages belong in `src/components/`
 
 ### Performance
 
