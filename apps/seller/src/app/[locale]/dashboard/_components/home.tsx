@@ -3,7 +3,6 @@ import { Button } from "@yadwy/ui";
 import Link from "next/link";
 import MetricCard from "./metric-card";
 import OrderSummary from "./order-summary";
-import StorePerformance from "./store-performance";
 
 export function DashboardHome() {
   return (
@@ -11,7 +10,6 @@ export function DashboardHome() {
       <DashboardHeader />
       <MetricCard />
       <OrderSummary />
-      <StorePerformance />
     </div>
   );
 }
