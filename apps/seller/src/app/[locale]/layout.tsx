@@ -2,6 +2,7 @@ import { type AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTimeZone } from "next-intl/server";
 import { Providers } from "../providers";
 import "@/styles/globals.css";
+import { DashboardLayout } from "@/components/dashboard-layout";
 import { NotSharedDashboardLayout } from "@/lib/not-shared-dashboard-layout";
 // TODO: only include the required font for the current lang of the user
 import { cairo, lalezar, lexend } from "@/styles/fonts";
@@ -10,7 +11,6 @@ import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { headers } from "next/headers";
 import NextTopLoader from "nextjs-toploader";
-import { DashboardLayout } from "./_components";
 
 export const metadata: Metadata = {
   title: "متجر يدوي",

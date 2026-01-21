@@ -1,9 +1,9 @@
 "use client";
 
 import { transactionsData } from "@/data/json";
-import { WalletHeader } from "./wallet-header";
-import { WalletSummaryCards } from "./wallet-summary-cards";
-import { WalletTransactions } from "./wallet-transactions";
+import { WalletHeader } from "./_components/wallet-header";
+import { WalletSummaryCards } from "./_components/wallet-summary-cards";
+import { WalletTransactions } from "./_components/wallet-transactions";
 
 export interface Transaction {
   id: string;
