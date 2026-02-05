@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "bun store dev",
     "store": "turbo --filter @yadwy/store",
-    "seller": "turbo --filter @yadwy/seller",
     "prepare": "lefthook install",
     "check": "bun check:biome && bun check:prettier && bun check:types",
     "check:types": "turbo check:types",
