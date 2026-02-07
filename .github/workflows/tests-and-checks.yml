@@ -31,8 +31,5 @@ jobs:
       - name: Run Biome
         run: bun check:biome:ci
 
-      - name: Clean TypeScript artifacts
-        run: find . -name "*.tsbuildinfo" -type f -delete
-
       - name: Run TypeScript
         run: bun check:types
