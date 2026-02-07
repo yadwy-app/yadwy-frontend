@@ -47,8 +47,5 @@ yarn-error.log*
 .idea
 .vscode/
 
-# Turborepo
-.turbo/
-
 # Lefthook files
 .husky
